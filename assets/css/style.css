@@ -762,6 +762,8 @@ img {
   gap: 16px;
   padding: 24px;
   flex-wrap: wrap;
+  background-color:  rgb(25, 25, 30);
+  margin-top: 8rem;
 }
 
 .footer-content {
@@ -771,7 +773,7 @@ img {
   gap: 16px;
 }
 
-.footer-content>* {
+.footer-content > * {
   flex: 1;
   align-items: center;
   text-align: center;
@@ -799,8 +801,6 @@ img {
   padding: 8px;
 }
 
-
-
 .socials-links a,
 .footer-quick ul a {
   color: var(--first-color);
@@ -809,10 +809,11 @@ img {
 .email-link {
   color: var(--first-color);
   text-decoration: none;
-
 }
+
 .socials-links a:hover,
-.footer-quick ul a:hover , .email-link:hover {
+.footer-quick ul a:hover,
+.email-link:hover {
   color: var(--light-purple);
 }
 
@@ -1544,5 +1545,196 @@ img {
     .portfolio-tags .tag {
         font-size: 0.85rem;
         padding: 0.4rem 0.8rem;
+    }
+}
+
+/* Blog Section Styles */
+.blog {
+    padding: 4rem 2rem;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.blog-categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    padding: 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.blog-card {
+    background: var(--container-color);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(75, 179, 253, 0.1);
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.blog-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.05);
+}
+
+.blog-date {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--first-color);
+    color: var(--container-color);
+    padding: 0.8rem;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(75, 179, 253, 0.2);
+}
+
+.blog-date .day {
+    font-size: 1.5rem;
+    display: block;
+    line-height: 1;
+}
+
+.blog-date .month {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.blog-content {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.blog-tags .tag {
+    background: rgba(75, 179, 253, 0.1);
+    color: var(--first-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(75, 179, 253, 0.2);
+}
+
+.blog-tags .tag:hover {
+    background: var(--first-color);
+    color: var(--container-color);
+    transform: translateY(-2px);
+}
+
+.blog-title {
+    color: var(--first-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.blog-excerpt {
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.read-more {
+    color: var(--first-color);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.read-more i {
+    transition: transform 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--first-color);
+}
+
+.read-more:hover i {
+    transform: translateX(5px);
+}
+
+@media screen and (max-width: 768px) {
+    .blog {
+        padding: 2rem 1rem;
+    }
+
+    .blog-categories {
+        gap: 0.5rem;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .blog-content {
+        padding: 1.5rem;
+    }
+
+    .blog-title {
+        font-size: 1.2rem;
+    }
+
+    .blog-excerpt {
+        font-size: 0.95rem;
+    }
+
+    .blog-date {
+        padding: 0.6rem;
+    }
+
+    .blog-date .day {
+        font-size: 1.2rem;
+    }
+
+    .blog-date .month {
+        font-size: 0.8rem;
     }
 }

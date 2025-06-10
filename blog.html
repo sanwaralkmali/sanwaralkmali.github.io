@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://kit.fontawesome.com/234e9652c2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Blog - Salah Alkmali</title>
+</head>
+
+<body>
+    <nav class="nav" id="nav">
+        <div class="nav__menu container" id="nav-menu">
+            <div class="nav__shape"></div>
+
+            <div class="nav_content">
+                <div class="nav__close" id="nav-close">
+                    <i class='bx bx-x'></i>
+                </div>
+
+                <div class="nav__data">
+                    <div class="nav__mask">
+                        <img src="assets/images/profile/nav-profile.JPG" alt="" class="nav__img">
+                    </div>
+                    <span class="nav__greeting">Salah Alkmali</span> <br>
+                </div>
+
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html#home" class="nav__link">
+                            <lord-icon src="https://cdn.lordicon.com/etqbfrgp.json" trigger="hover"
+                                colors="outline:#131432,primary:#ffc738,secondary:#4bb3fd,tertiary:#b26836,quaternary:#ebe6ef">
+                            </lord-icon> Home
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#about" class="nav__link">
+                            <lord-icon src="https://cdn.lordicon.com/vusrdugn.json" trigger="hover"
+                                colors="primary:#121331,secondary:#b26836,tertiary:#4bb3fd,quaternary:#f9c9c0,quinary:#ebe6ef">
+                            </lord-icon> About
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#skills" class="nav__link">
+                            <lord-icon src="https://cdn.lordicon.com/denwspsk.json" trigger="morph"
+                                colors="outline:#121331,primary:#ffc738,tertiary:#4bb3fd,quaternary:#ebe6ef">
+                            </lord-icon> Skills
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#experience" class="nav__link">
+                            <lord-icon src="https://cdn.lordicon.com/ttioogfl.json" trigger="morph"
+                                colors="primary:#121331,secondary:#ebe6ef,tertiary:#4bb3fd,quaternary:#92140c,quinary:#f9c9c0">
+                            </lord-icon> Work Experience
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#portfolio" class="nav__link">
+                            <lord-icon src="https://cdn.lordicon.com/rfnfarqt.json" trigger="hover"
+                                colors="outline:#121331,primary:#4bb3fd,secondary:#ffc738">
+                            </lord-icon> Portfolio
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="blog.html" class="nav__link active-link">
+                            <lord-icon src="https://cdn.lordicon.com/ttioogfl.json" trigger="hover"
+                                colors="primary:#121331,secondary:#ebe6ef,tertiary:#4bb3fd,quaternary:#92140c,quinary:#f9c9c0">
+                            </lord-icon> Blog
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#contact" class="nav__link">
+                            <lord-icon src="https://cdn.lordicon.com/lfqstkwj.json" trigger="hover"
+                                colors="outline:#121331,primary:#4bb3fd,secondary:#1d1d1d">
+                            </lord-icon> Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main" id="main">
+        <header class="header" id="header">
+            <nav class="header__nav container">
+                <a href="index.html" class="header__logo">
+                    <img src="./assets/images/icons/LOGO-Transparent.png" alt="Salah" width="128px">
+                </a>
+
+                <div class="header__toggle" id="header-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+            </nav>
+        </header>
+
+        <section class="blog" id="blog">
+            <div class="section__title">Blog Posts</div>
+            
+            <!-- Blog Categories -->
+            <div class="blog-categories">
+                <button class="category-btn active" data-category="all">All Posts</button>
+                <button class="category-btn" data-category="programming">Programming</button>
+                <button class="category-btn" data-category="education">Education</button>
+                <button class="category-btn" data-category="technology">Technology</button>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card" data-category="programming">
+                    <div class="blog-image">
+                        <img src="./assets/images/icons/LOGO-Transparent.png" alt="Programming Blog">
+                        <div class="blog-date">
+                            <span class="day">15</span>
+                            <span class="month">Mar</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags">
+                            <span class="tag">Programming</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3 class="blog-title">Getting Started with Modern JavaScript</h3>
+                        <p class="blog-excerpt">Learn the fundamentals of modern JavaScript and how to use it to build interactive web applications...</p>
+                        <a href="#" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card" data-category="education">
+                    <div class="blog-image">
+                        <img src="./assets/images/icons/LOGO-Transparent.png" alt="Education Blog">
+                        <div class="blog-date">
+                            <span class="day">10</span>
+                            <span class="month">Mar</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags">
+                            <span class="tag">Education</span>
+                            <span class="tag">Teaching</span>
+                        </div>
+                        <h3 class="blog-title">Effective Teaching Strategies for Programming</h3>
+                        <p class="blog-excerpt">Discover proven methods to teach programming concepts effectively to students of all ages...</p>
+                        <a href="#" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card" data-category="technology">
+                    <div class="blog-image">
+                        <img src="./assets/images/icons/LOGO-Transparent.png" alt="Technology Blog">
+                        <div class="blog-date">
+                            <span class="day">05</span>
+                            <span class="month">Mar</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags">
+                            <span class="tag">Technology</span>
+                            <span class="tag">AI</span>
+                        </div>
+                        <h3 class="blog-title">The Future of AI in Education</h3>
+                        <p class="blog-excerpt">Exploring how artificial intelligence is transforming the educational landscape...</p>
+                        <a href="#" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-card" data-category="programming">
+                    <div class="blog-image">
+                        <img src="./assets/images/icons/LOGO-Transparent.png" alt="Programming Blog">
+                        <div class="blog-date">
+                            <span class="day">01</span>
+                            <span class="month">Mar</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags">
+                            <span class="tag">Programming</span>
+                            <span class="tag">Flutter</span>
+                        </div>
+                        <h3 class="blog-title">Building Cross-Platform Apps with Flutter</h3>
+                        <p class="blog-excerpt">A comprehensive guide to creating beautiful mobile applications using Flutter...</p>
+                        <a href="#" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="blog-card" data-category="education">
+                    <div class="blog-image">
+                        <img src="./assets/images/icons/LOGO-Transparent.png" alt="Education Blog">
+                        <div class="blog-date">
+                            <span class="day">25</span>
+                            <span class="month">Feb</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags">
+                            <span class="tag">Education</span>
+                            <span class="tag">Coding</span>
+                        </div>
+                        <h3 class="blog-title">Teaching Kids to Code: A Parent's Guide</h3>
+                        <p class="blog-excerpt">Essential tips and resources for parents who want to introduce their children to programming...</p>
+                        <a href="#" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="footer" id="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="./assets/images/icons/LOGO-Transparent.png" alt="Salah">
+                </div>
+
+                <div class="footer-main">
+                    <p>Full stack developer and educator. Translating your ideas into digital reality.</p>
+                    <div class="footer-main-contact">
+                        <span><i class="fas fa-phone"></i> &nbsp; +90 552 471 86 00</span>
+                        <a class="email-link" href="mailto:mtnshsalah@gmail.com"> <span><i class="fas fa-envelope"></i>
+                                &nbsp;
+                                mtnshsalah@gmail.com</span></a>
+                    </div>
+                    <div class="socials">
+                        <h2>Social Media</h2>
+                        <div class="socials-links">
+                            <a href="https://www.facebook.com/profile.php?id=100094695554668" target="_blank"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="https://twitter.com/SalahAlkmali" target="_blank"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/codludev/" target="_blank"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/salah-alkmali-00063b11a/" target="_blank"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/sanwaralkmali" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-quick">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <a href="index.html#home">
+                            <li>Home</li>
+                        </a>
+                        <a href="index.html#about">
+                            <li>About</li>
+                        </a>
+                        <a href="index.html#skills">
+                            <li>Skills</li>
+                        </a>
+                        <a href="index.html#experience">
+                            <li>Experience</li>
+                        </a>
+                        <a href="index.html#portfolio">
+                            <li>Projects</li>
+                        </a>
+                        <a href="blog.html">
+                            <li>Blog</li>
+                        </a>
+                        <a href="index.html#contact">
+                            <li>Contact</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copy-rights"> &copy; salahalkmali.com | Designed by Salah Alkmali@<script>document.write(new Date().getFullYear())</script>
+            </div>
+        </section>
+    </main>
+
+    <!-- WhatsApp Icon -->
+    <a href="https://wa.me/+905524718600" class="whatsapp-icon" target="_blank">
+        <img src="./assets/images/icons/whatsapp.png" alt="WhatsApp">
+    </a>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html> 

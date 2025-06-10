@@ -47,8 +47,12 @@ window.addEventListener('scroll', scrollHeader)
 
 navLink.forEach(link => {
     link.addEventListener('click', (e) => {
+        // Check if the link is an external page (not a section)
+        if (!link.getAttribute('href').startsWith('#')) {
+            return; // Allow default behavior for external links
+        }
+        
         e.preventDefault();
-
         document.querySelector(link.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
