@@ -680,42 +680,75 @@ img {
 
 /*****************  Contact  *****************/
 .contact-message {
-  width: 90%;
-  margin: auto;
-  border-radius: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 32px;
-  background: var(--nav-color-dark-purpul);
+  padding: 4rem 2rem;
   position: relative;
-  top: -162px;
-  padding: 32px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--nav-color-dark-purpul);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(75, 179, 253, 0.1);
+  font-family: 'Cairo', sans-serif;
 }
 
-
 .collaboration-item {
-  flex: 1;
-  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.collaboration-item h2 {
+  font-size: 2.5rem;
+  color: #ffc738;  /* Bright yellow for better contrast */
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.collaboration-item p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ffffff;  /* Pure white for better visibility */
+  margin-bottom: 2rem;
+  font-weight: 500;
 }
 
 .collab-button {
-  padding: 10px 20px;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  background: var(--first-color);
+  color: var(--container-color);
   border: none;
-  border-radius: 5px;
-  background-color: var(--skill-title-color);
-  color: var(--body-color-dark);
+  border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-family: Cairo, sans-serif;
-  width: 175px;
-  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(75, 179, 253, 0.2);
+  font-family: 'Cairo', sans-serif;
+  font-weight: 600;
 }
 
 .collab-button:hover {
-  background-color: rgba(197, 170, 150, 0.863);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(75, 179, 253, 0.3);
 }
 
+@media screen and (max-width: 768px) {
+  .contact-message {
+    padding: 3rem 1rem;
+    margin: 0 1rem;
+  }
+
+  .collaboration-item h2 {
+    font-size: 2rem;
+  }
+
+  .collaboration-item p {
+    font-size: 1rem;
+  }
+
+  .collab-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
 
 /*******************************************/
 
@@ -1290,5 +1323,226 @@ img {
 
     .timeline-content h3 {
         font-size: 1.2rem;
+    }
+}
+
+/* Portfolio Section Styles */
+.portfolio {
+    padding: 4rem 2rem;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 6rem;
+}
+
+.portfolio-categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+}
+
+.category-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background: var(--container-color);
+    color: var(--text-color);
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(75, 179, 253, 0.1);
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background: var(--first-color);
+    color: var(--container-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(75, 179, 253, 0.2);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2.5rem;
+    padding: 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.portfolio-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:nth-child(1) { animation-delay: 0.1s; }
+.portfolio-item:nth-child(2) { animation-delay: 0.2s; }
+.portfolio-item:nth-child(3) { animation-delay: 0.3s; }
+.portfolio-item:nth-child(4) { animation-delay: 0.4s; }
+.portfolio-item:nth-child(5) { animation-delay: 0.5s; }
+.portfolio-item:nth-child(6) { animation-delay: 0.6s; }
+
+.portfolio-card {
+    background: var(--container-color);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(75, 179, 253, 0.1);
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    min-height: 300px;
+}
+
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-image img {
+    transform: scale(1.05);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-link {
+    color: var(--container-color);
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.portfolio-link:hover {
+    transform: scale(1.1);
+    color: var(--first-color);
+}
+
+.portfolio-content {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-content h3 {
+    color: var(--first-color);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.portfolio-content p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.portfolio-tags .tag {
+    background: rgba(75, 179, 253, 0.1);
+    color: var(--first-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(75, 179, 253, 0.2);
+}
+
+.portfolio-tags .tag:hover {
+    background: var(--first-color);
+    color: var(--container-color);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio {
+        padding: 2rem 1rem;
+    }
+
+    .portfolio-categories {
+        gap: 0.5rem;
+    }
+
+    .category-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .portfolio-image {
+        min-height: 250px;
+    }
+
+    .portfolio-content {
+        padding: 1.5rem;
+    }
+
+    .portfolio-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .portfolio-content p {
+        font-size: 1rem;
+    }
+
+    .portfolio-tags .tag {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
     }
 }

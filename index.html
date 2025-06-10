@@ -454,159 +454,164 @@
             </div>
         </section>
 
-        <section class="portofilo" id="portofilo">
-            <h2 class="portofilo-title">Portofilo</h2>
+        <section class="portfolio" id="portfolio">
+            <div class="section__title">Portfolio</div>
+            
+            <!-- Portfolio Categories -->
+            <div class="portfolio-categories">
+                <button class="category-btn active" data-category="all">All Projects</button>
+                <button class="category-btn" data-category="books">Books & Courses</button>
+                <button class="category-btn" data-category="web">Web Projects</button>
+                <button class="category-btn" data-category="mobile">Mobile Apps</button>
+            </div>
 
-            <div class="cards-row">
-                <div class="card">
-                    <img src="./assets/images/Projects/KidloGame.png" alt="KIDLOGAME" class="card-img">
-                    <div class="card-overlay">
-                        <h2 class="card-title">KIDLOGAME</h2>
-                        <p class="card-description">KidloGame is an engaging app combining education and fun into
-                            diverse
-                            games. It's designed for kids to learn while playing, offering quizzes, puzzles, and
-                            challenges
-                            that transform learning into an enjoyable adventure.</p>
-                        <div class="card-tags">
-                            <span class="tag">Flutter</span>
-                            <span class="tag">Android</span>
-                            <span class="tag">iOS</span>
-                            <span class="tag">Education</span>
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <!-- Books & Courses -->
+                <div class="portfolio-item" data-category="books">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <img src="./assets/images/Projects/Book-design-web.png" alt="Web Course">
+                            <div class="portfolio-overlay">
+                                <a href="./assets/pdf/Easy WEB.pdf" target="_blank" class="portfolio-link">
+                                    <i class="bx bx-link-external"></i>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <a href="./assets/pdf/Easy WEB.pdf" target="_blank">
-
-                        <img src="./assets/images/Projects/Book-design-web.png" alt="Web Course" class="card-img">
-                        <div class="card-overlay">
-                            <h2 class="card-title">Arabic Web Course</h2>
-                            <p class="card-description">An all-inclusive Arabic Web Course navigating the avenues of
-                                Front-end and Back-end development. From the basics of HTML, CSS, and JavaScript to
-                                complex
-                                roadmap discussions.</p>
-                            <div class="card-tags">
+                        <div class="portfolio-content">
+                            <h3>Arabic Web Course</h3>
+                            <p>An all-inclusive Arabic Web Course navigating the avenues of Front-end and Back-end development. From the basics of HTML, CSS, and JavaScript to complex roadmap discussions.</p>
+                            <div class="portfolio-tags">
                                 <span class="tag">Education</span>
                                 <span class="tag">Web Development</span>
                                 <span class="tag">HTML</span>
                                 <span class="tag">CSS</span>
                                 <span class="tag">JavaScript</span>
                                 <span class="tag">Arabic</span>
-
                             </div>
                         </div>
-                    </a>
-                </div>
-
-                <div class="card">
-
-                    <img src="./assets/images/Projects/MIKE.png" alt="Mike project" class="card-img">
-                    <div class="card-overlay">
-                        <h2 class="card-title">MIKE</h2>
-                        <p class="card-description">MIKE is an engaging web-based game, where players shape their
-                            own
-                            narratives through decisive choices. An innovative merge of story-rich experiences and
-                            interactive gameplay.</p>
-                        <div class="card-tags">
-                            <span class="tag">Web Gaming</span>
-                            <span class="tag">interactive Storytelling</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">Python</span>
-                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <img src="./assets/images/Projects/Routiney.png" alt="Routiney" class="card-img">
-                    <div class="card-overlay">
-                        <h2 class="card-title">Routiney</h2>
-                        <p class="card-description">Routinely an intuitive and comprehensive lifestyle management
-                            app designed to help users build, follow, and maintain healthy and productive routines.
-                            This application aims to bring together several aspects of daily life into a single,
-                            easy-to-use platform.</p>
-                        <div class="card-tags">
-                            <span class="tag">Flutter</span>
-                            <span class="tag">Mobile Applications</span>
-                            <span class="tag">Android</span>
-                            <span class="tag">iOS</span>
-                            <span class="tag">lifestyle</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./assets/images/Projects/Web-educational-games.png" alt="Web education games"
-                        class="card-img">
-                    <div class="card-overlay">
-                        <h2 class="card-title">Educational games</h2>
-                        <p class="card-description">Edu-Memory Quiz" is an engaging web-based educational game that
-                            fuses the concept of memory cards with a quiz format. It provides an innovative approach
-                            to learning by enhancing memory retention and making education accessible and enjoyable
-                            across all age groups.</p>
-                        <div class="card-tags">
-                            <span class="tag">Educational Game</span>
-                            <span class="tag">Interactive Learning</span>
-                            <span class="tag">Memory Cards Game</span>
-                            <span class="tag">JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                        <img src="./assets/images/Projects/Personal-page.png" alt="Personal Portfolio" class="card-img">
-                        <div class="card-overlay">
-                            <h2 class="card-title">Vue-Powered Personal Portfolio</h2>
-                            <p class="card-description">A personal webpage showcasing my skills and projects,
-                                masterfully
-                                crafted using Vue.js and deployed via GitHub pages for seamless user experience.</p>
-                            <div class="card-tags">
-                                <span class="tag">Vue.js</span>
-                                <span class="tag">Personal Portfolio</span>
-                                <span class="tag">GitHub Pages</span>
+                <div class="portfolio-item" data-category="books">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <img src="./assets/images/Projects/Python-book.png" alt="Python Course">
+                            <div class="portfolio-overlay">
+                                <a href="./assets/pdf/Learnprogrammingwithpython-1.pdf" target="_blank" class="portfolio-link">
+                                    <i class="bx bx-link-external"></i>
+                                </a>
                             </div>
                         </div>
-                </div>
-
-                <div class="card">
-                    <a href="./assets/pdf/Learnprogrammingwithpython-1.pdf" target="_blank">
-                        <img src="./assets/images/Projects/Python-book.png" alt="Python Course" class="card-img">
-                        <div class="card-overlay">
-                            <h2 class="card-title">Python Fundamentals for Kids</h2>
-                            <p class="card-description">An engaging learning journey into Python basics crafted
-                                specifically
-                                for kids. Featuring interactive challenges to reinforce learning and make coding fun.
-                            </p>
-                            <div class="card-tags">
+                        <div class="portfolio-content">
+                            <h3>Python Fundamentals for Kids</h3>
+                            <p>An engaging learning journey into Python basics crafted specifically for kids. Featuring interactive challenges to reinforce learning and make coding fun.</p>
+                            <div class="portfolio-tags">
                                 <span class="tag">Python</span>
                                 <span class="tag">Education</span>
                                 <span class="tag">Content Creation</span>
                                 <span class="tag">Children Education</span>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
 
-                <div class="card">
-                    <img src="./assets/images/Projects/SMSsystem.png" alt="SMS" class="card-img">
-                    <div class="card-overlay">
-                        <h2 class="card-title">Excel-based Student Management System</h2>
-                        <p class="card-description">A practical tool developed in Excel to manage student progress
-                            efficiently. Features a one-click report generation and a user-friendly interface to track
-                            academic progression easily.</p>
-                        <div class="card-tags">
-                            <span class="tag">Excel</span>
-                            <span class="tag">Student Management</span>
-                            <span class="tag">Report Generation</span>
-                            <span class="tag">Data Management</span>
+                <!-- Web Projects -->
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <img src="./assets/images/Projects/MIKE.png" alt="Mike project">
+                            <div class="portfolio-overlay">
+                                <a href="#" class="portfolio-link">
+                                    <i class="bx bx-link-external"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>MIKE</h3>
+                            <p>MIKE is an engaging web-based game, where players shape their own narratives through decisive choices. An innovative merge of story-rich experiences and interactive gameplay.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Web Gaming</span>
+                                <span class="tag">Interactive Storytelling</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <img src="./assets/images/Projects/Web-educational-games.png" alt="Web education games">
+                            <div class="portfolio-overlay">
+                                <a href="#" class="portfolio-link">
+                                    <i class="bx bx-link-external"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Educational Games</h3>
+                            <p>Edu-Memory Quiz is an engaging web-based educational game that fuses the concept of memory cards with a quiz format. It provides an innovative approach to learning by enhancing memory retention.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Educational Game</span>
+                                <span class="tag">Interactive Learning</span>
+                                <span class="tag">Memory Cards Game</span>
+                                <span class="tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Apps -->
+                <div class="portfolio-item" data-category="mobile">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <img src="./assets/images/Projects/KidloGame.png" alt="KIDLOGAME">
+                            <div class="portfolio-overlay">
+                                <a href="#" class="portfolio-link">
+                                    <i class="bx bx-link-external"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>KIDLOGAME</h3>
+                            <p>KidloGame is an engaging app combining education and fun into diverse games. It's designed for kids to learn while playing, offering quizzes, puzzles, and challenges that transform learning into an enjoyable adventure.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Flutter</span>
+                                <span class="tag">Android</span>
+                                <span class="tag">iOS</span>
+                                <span class="tag">Education</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="mobile">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <img src="./assets/images/Projects/Routiney.png" alt="Routiney">
+                            <div class="portfolio-overlay">
+                                <a href="#" class="portfolio-link">
+                                    <i class="bx bx-link-external"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Routiney</h3>
+                            <p>Routiney is an intuitive and comprehensive lifestyle management app designed to help users build, follow, and maintain healthy and productive routines. This application brings together several aspects of daily life into a single, easy-to-use platform.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Flutter</span>
+                                <span class="tag">Mobile Applications</span>
+                                <span class="tag">Android</span>
+                                <span class="tag">iOS</span>
+                                <span class="tag">Lifestyle</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
-            <div class="section"></div>
         </section>
-
 
         <section class="contact-message" id="contact">
             <div class="collaboration-item">
@@ -632,9 +637,9 @@
                     <p>Full stack developer and educator. Translating your ideas into digital reality.</p>
                     <div class="footer-main-contact">
                         <span><i class="fas fa-phone"></i> &nbsp; +90 552 471 86 00</span>
-                        <a class="email-link" href="mailto:me@salah-alkmali.com"> <span><i class="fas fa-envelope"></i>
+                        <a class="email-link" href="mailto:mtnshsalah@gmail.com"> <span><i class="fas fa-envelope"></i>
                                 &nbsp;
-                                me@salah-alkmali.com</span></a>
+                                mtnshsalah@gmail.com</span></a>
                     </div>
                     <div class="socials">
                         <h2>Social Media</h2>
@@ -667,7 +672,7 @@
                         <a href="#experience">
                             <li>experience</li>
                         </a>
-                        <a href="#portofilo">
+                        <a href="#portfolio">
                             <li>Projects</li>
                         </a>
                         <a href="#contact">
@@ -677,7 +682,7 @@
                 </div>
             </div>
 
-            <div class="copy-rights"> &copy; salahalkmali.com | Designed by Salah Alkmali@2023
+            <div class="copy-rights"> &copy; salahalkmali.com | Designed by Salah Alkmali@<script>document.write(new Date().getFullYear())</script>
             </div>
 
         </section>

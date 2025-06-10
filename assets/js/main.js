@@ -146,3 +146,39 @@ progressBars.forEach(progressBar => {
 /************************************************************************ */
 
 /********************** projects **************************/
+
+// Portfolio Filtering
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+
+            const category = button.getAttribute('data-category');
+
+            portfolioItems.forEach(item => {
+                // Add fade out animation
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+
+                setTimeout(() => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                        // Add fade in animation
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }, 300);
+            });
+        });
+    });
+});
