@@ -1021,19 +1021,98 @@ img {
 
 /* Change the style for small screens */
 @media screen and (max-width: 600px) {
-  .line-space {
-    width: 100%;
-    height: 1px;
+  .experience, .timeline-container, .timeline {
+    max-width: 100vw !important;
+    padding: 0.5rem 0.2rem !important;
+    margin: 0 !important;
   }
- 
-  .footer-quick {
-    display: none;
+  .timeline {
+    padding: 0.5rem 0 !important;
   }
-  .footer-content {
-    flex-direction: column;
+  .timeline-item {
+    flex-direction: column !important;
+    max-width: 98vw !important;
+    padding: 0.7em 0.5em 1.2em 0.5em !important;
+    margin: 0 auto 1rem auto !important;
+    border-radius: 10px !important;
+  }
+  .timeline-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.3rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  .timeline-content {
+    padding: 0.7em 0.5em !important;
+    font-size: 0.98em !important;
+    border-radius: 10px !important;
+  }
+  .timeline-content h3 {
+    font-size: 1.05rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+  .timeline-date {
+    display: inline-block !important;
+    max-width: 90vw !important;
+    min-width: unset !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    margin: 0.2rem 0 0.5rem 0 !important;
+    align-self: flex-start !important;
+  }
+  .timeline-details ul li {
+    font-size: 0.95rem !important;
+    padding-left: 1.2rem !important;
+  }
+  .tech-stack-title, .tech-tag {
+    font-size: 0.9rem !important;
+    padding: 0.3rem 0.7rem !important;
+  }
+  .portfolio {
+    padding: 1rem 0.2rem !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+  }
+  .portfolio-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    padding: 0.2rem !important;
+  }
+  .portfolio-card {
+    max-width: 98vw !important;
+    min-width: 0 !important;
+    padding: 0.7em !important;
+    border-radius: 10px !important;
+    font-size: 0.98em !important;
+    margin: 0 auto 1rem auto !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
+  }
+  .portfolio-content {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 0 !important;
+  }
+  .portfolio-content h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .portfolio-content p {
+    font-size: 0.98rem !important;
+    margin-bottom: 0.7rem !important;
+  }
+  .portfolio-tags {
+    gap: 0.3rem !important;
+    flex-wrap: wrap !important;
+  }
+  .portfolio-tags .tag {
+    font-size: 0.8rem !important;
+    padding: 0.3rem 0.7rem !important;
+    border-radius: 8px !important;
   }
 }
-
 
 /* For devices smaller than 600px */
 @media only screen and (max-width: 550px) {
@@ -1189,16 +1268,11 @@ img {
 }
 
 .timeline-date {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--first-color);
-    background: rgba(75, 179, 253, 0.1);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
     display: inline-block;
+    width: auto;
+    min-width: unset;
+    max-width: 100%;
     white-space: nowrap;
-    min-width: -webkit-fill-available;
-    min-width: fit-content;
 }
 
 .timeline-content h3 {
