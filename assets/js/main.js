@@ -62,7 +62,15 @@ navLink.forEach(link => {
 
 /********************** typing effect **************************/
 
-let array = ["Crafting Digital Experiences", "Building Mobile Applications", "Designing Modern Web Interfaces", "Developing Scalable Backends"];
+let array = [
+    "Interactive Lessons",
+    "Visualizing Math",
+    "Coding Concepts",
+    "Tech Meets Algebra",
+    "Logic Through Code",
+    "Equations in Action",
+    "Math Made Engaging"
+  ];
 let wordIndex = 0;
 let letterIndex = 0;
 let currentWord = "";
