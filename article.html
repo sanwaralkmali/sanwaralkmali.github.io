@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article | Blog</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <header class="article-header">
+        <nav class="article-nav" aria-label="Back to blog">
+            <a class="back-link" href="/blog.html" aria-label="Back to Blog"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+        </nav>
+        <div class="article-meta">
+            <h1 class="article-title" id="article-title"></h1>
+            <div class="article-author-meta">
+                <span class="author-date-group">
+                    <span class="article-author" id="article-author"></span>
+                    <span class="article-date" id="article-date"></span>
+                </span>
+                <span class="reading-time" id="reading-time"> -- min read</span>
+            </div>
+        </div>
+    </header>
+    <main class="article-main">
+        <aside class="social-share" aria-label="Share this article">
+            <button class="share-btn" data-platform="facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></button>
+            <button class="share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></button>
+            <button class="share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></button>
+            <button class="share-btn" data-platform="whatsapp" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></button>
+        </aside>
+        <article class="article-content" id="article-content" tabindex="0" aria-label="Article content">
+            <!-- Rendered Markdown will appear here -->
+        </article>
+        <section class="related-articles" aria-label="Related articles">
+            <h2>Related Articles</h2>
+            <div class="related-list" id="related-list">
+                <!-- Related articles will be injected here -->
+            </div>
+        </section>
+    </main>
+    <footer class="article-footer">
+        <nav class="footer-nav">
+            <a class="back-link" href="/blog.html" aria-label="Back to Blog"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+        </nav>
+    </footer>
+    <script src="https://kit.fontawesome.com/234e9652c2.js" crossorigin="anonymous"></script>
+    <script src="assets/js/article.js"></script>
+</body>
+</html> 
