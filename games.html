@@ -172,7 +172,7 @@
 
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="index.html" class="nav__link">
+                        <a href="index.html#home" class="nav__link">
                             <lord-icon src="https://cdn.lordicon.com/etqbfrgp.json" trigger="hover"
                                 colors="outline:#131432,primary:#ffc738,secondary:#4bb3fd,tertiary:#b26836,quaternary:#ebe6ef">
                             </lord-icon> Home
@@ -183,6 +183,20 @@
                             <lord-icon src="https://cdn.lordicon.com/vusrdugn.json" trigger="hover"
                                 colors="primary:#121331,secondary:#b26836,tertiary:#4bb3fd,quaternary:#f9c9c0,quinary:#ebe6ef">
                             </lord-icon> About
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="blog.html" class="nav__link">
+                            <lord-icon src="https://cdn.lordicon.com/ttioogfl.json" trigger="hover"
+                                colors="primary:#121331,secondary:#ebe6ef,tertiary:#4bb3fd,quaternary:#92140c,quinary:#f9c9c0">
+                            </lord-icon> Blog
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="games.html" class="nav__link active-link">
+                            <lord-icon src="https://cdn.lordicon.com/denwspsk.json" trigger="morph"
+                                colors="outline:#121331,primary:#ffc738,tertiary:#4bb3fd,quaternary:#ebe6ef">
+                            </lord-icon> Games
                         </a>
                     </li>
                     <li class="nav__item">
@@ -204,20 +218,6 @@
                             <lord-icon src="https://cdn.lordicon.com/rfnfarqt.json" trigger="hover"
                                 colors="outline:#121331,primary:#4bb3fd,secondary:#ffc738">
                             </lord-icon> Portfolio
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="blog.html" class="nav__link">
-                            <lord-icon src="https://cdn.lordicon.com/ttioogfl.json" trigger="hover"
-                                colors="primary:#121331,secondary:#ebe6ef,tertiary:#4bb3fd,quaternary:#92140c,quinary:#f9c9c0">
-                            </lord-icon> Blog
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="games.html" class="nav__link active-link">
-                            <lord-icon src="https://cdn.lordicon.com/denwspsk.json" trigger="morph"
-                                colors="outline:#121331,primary:#ffc738,tertiary:#4bb3fd,quaternary:#ebe6ef">
-                            </lord-icon> Games
                         </a>
                     </li>
                     <li class="nav__item">
@@ -454,10 +454,104 @@
                     </a>
                 </div>
 
+                <!-- Factoring Game Card -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">
+                            <img src="./assets/images/icons/gcf.png" alt="Factoring" srcset="">
+                        </div>
+                        <h3>Factoring</h3>
+                    </div>
+                    <p>Master the art of factoring! Learn how to find the greatest common factor (GCF) and factor expressions by grouping. These essential algebra skills will help you simplify and solve equations with confidence.</p>
+                    <div class="cheatsheet-list" style="margin-bottom: 1em;">
+                        <div style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                            <span style="color:#4bb3fd;font-size:1em;">Greatest Common Factor (GCF)</span>
+                            <a href="assets/cheatsheet/skill-14.pdf" target="_blank" class="cheatsheet-link" title="View GCF Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                                <img class="game-icon" src="./assets/images/icons/pdf.png" alt="GCF Cheat Sheet">
+                            </a>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                            <span style="color:#4bb3fd;font-size:1em;">Factoring by Grouping</span>
+                            <a href="assets/cheatsheet/skill-15.pdf" target="_blank" class="cheatsheet-link" title="View Factoring by Grouping Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                                <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Factoring by Grouping Cheat Sheet">
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#" class="play-button" style="pointer-events: none; opacity: 0.6; cursor: not-allowed;">
+                        <i class='bx bx-lock'></i>
+                        Coming Soon
+                    </a>
+                </div>
                 <!-- Add more game cards as you create new games -->
             </div>
         </div>
     </main>
+
+    <section class="footer" id="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="./assets/images/icons/LOGO-Transparent.png" alt="Salah">
+            </div>
+
+            <div class="footer-main">
+                <p>Full stack developer and educator. Translating your ideas into digital reality.</p>
+                <div class="footer-main-contact">
+                    <span><i class="fas fa-phone"></i> &nbsp; +90 552 471 86 00</span>
+                    <a class="email-link" href="mailto:mtnshsalah@gmail.com"> <span><i class="fas fa-envelope"></i>
+                            &nbsp;
+                            mtnshsalah@gmail.com</span></a>
+                </div>
+                <div class="socials">
+                    <h2>Social Media</h2>
+                    <div class="socials-links">
+                        <a href="https://www.facebook.com/profile.php?id=100094695554668" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/SalahAlkmali" target="_blank"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/codludev/" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/salah-alkmali-00063b11a/" target="_blank"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/sanwaralkmali" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-quick">
+                <h2>Quick Links</h2>
+                <ul>
+                    <a href="index.html#home">
+                        <li>Home</li>
+                    </a>
+                    <a href="index.html#about">
+                        <li>About</li>
+                    </a>
+                    <a href="blog.html">
+                        <li>Blog</li>
+                    </a>
+                    <a href="games.html">
+                        <li>Games</li>
+                    </a>
+                    <a href="index.html#skills">
+                        <li>Skills</li>
+                    </a>
+                    <a href="index.html#experience">
+                        <li>Work Experience</li>
+                    </a>
+                    <a href="index.html#portfolio">
+                        <li>Portfolio</li>
+                    </a>
+                    <a href="index.html#contact">
+                        <li>Contact</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copy-rights"> &copy; salahalkmali.com | Designed by Salah Alkmali@<script>document.write(new Date().getFullYear())</script>
+        </div>
+
+    </section>
 
     <!-- WhatsApp Icon -->
     <a href="https://wa.me/+905524718600" class="whatsapp-icon" target="_blank">
