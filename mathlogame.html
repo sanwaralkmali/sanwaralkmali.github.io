@@ -17,8 +17,10 @@
             padding: 2rem;
             max-width: 1200px;
             margin: 0 auto;
-            min-height: calc(100vh - 80px); /* Account for header height */
-            padding-top: 6rem; /* Add space for fixed header */
+            min-height: calc(100vh - 80px);
+            /* Account for header height */
+            padding-top: 6rem;
+            /* Add space for fixed header */
         }
 
         .games-grid {
@@ -26,7 +28,8 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
-            padding-bottom: 2rem; /* Add padding at bottom */
+            padding-bottom: 2rem;
+            /* Add padding at bottom */
         }
 
         .game-card {
@@ -35,7 +38,8 @@
             padding: 1.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
-            height: 100%; /* Ensure all cards have same height */
+            height: 100%;
+            /* Ensure all cards have same height */
             display: flex;
             flex-direction: column;
             border: 1px solid rgba(0, 0, 0, 0.1);
@@ -68,7 +72,8 @@
             color: var(--text-color);
             margin-bottom: 1.5rem;
             line-height: 1.6;
-            flex-grow: 1; /* Push button to bottom */
+            flex-grow: 1;
+            /* Push button to bottom */
         }
 
         .game-card .play-button {
@@ -98,7 +103,8 @@
         .games-header {
             text-align: center;
             margin-bottom: 3rem;
-            padding-top: 1rem; /* Add some space at top */
+            padding-top: 1rem;
+            /* Add some space at top */
         }
 
         .games-header h1 {
@@ -116,7 +122,7 @@
 
         /* Ensure main content takes full height */
 
-    
+
 
         /* Ensure header stays on top */
         .header {
@@ -131,22 +137,28 @@
         @media screen and (max-width: 600px) {
             .games-container {
                 padding: 0.5rem;
-                padding-top: 7.5rem !important; /* Ensure enough space for fixed header */
+                padding-top: 7.5rem !important;
+                /* Ensure enough space for fixed header */
             }
+
             .games-header h1 {
-                font-size: 2rem !important; /* Reduce title size on mobile */
+                font-size: 2rem !important;
+                /* Reduce title size on mobile */
                 margin-top: 0.5rem !important;
             }
+
             .games-header {
                 margin-bottom: 2rem !important;
                 padding-top: 0.5rem !important;
             }
+
             .games-grid {
                 grid-template-columns: 1fr !important;
                 gap: 1rem !important;
                 margin-top: 1rem !important;
                 padding-bottom: 1rem !important;
             }
+
             .game-card {
                 width: 100% !important;
                 min-width: 0 !important;
@@ -234,7 +246,9 @@
         <div class="games-container">
             <div class="games-header">
                 <h1>MATHLOGAME</h1>
-                <p>Welcome to MATHLOGAME – the mini-platform where learning math is fun! Play interactive games designed to help you master essential math skills, from number sense to algebra and beyond. Practice, challenge yourself, and build confidence through play!</p>
+                <p>Welcome to MATHLOGAME – the mini-platform where learning math is fun! Play interactive games designed
+                    to help you master essential math skills, from number sense to algebra and beyond. Practice,
+                    challenge yourself, and build confidence through play!</p>
             </div>
 
             <div class="games-grid">
@@ -246,13 +260,18 @@
                         </div>
                         <h3>Number Classification</h3>
                     </div>
-                    <p>This game is designed to help you classify numbers into different categories based on their properties.</p> <p>
-                        <div style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-                            <span style="color:#4bb3fd;font-size:1em;">Number system</span>
-                            <a href="assets/cheatsheet/skill-1.pdf" target="_blank" class="cheatsheet-link" title="View Integers Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                                <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Integers Cheat Sheet">
-                            </a>
-                        </div>
+                    <p>This game is designed to help you classify numbers into different categories based on their
+                        properties.</p>
+                    <p>
+                    <div
+                        style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                        <span style="color:#4bb3fd;font-size:1em;">Number system</span>
+                        <a href="assets/cheatsheet/skill-1.pdf" target="_blank" class="cheatsheet-link"
+                            title="View Integers Cheat Sheet"
+                            style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                            <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Integers Cheat Sheet">
+                        </a>
+                    </div>
                     <a href="https://math-skill-portal.vercel.app/skills/classification-numbers" class="play-button">
                         <i class='bx bx-play-circle'></i>
                         Start Game
@@ -266,24 +285,35 @@
                         </div>
                         <h3>Operations Invasion</h3>
                     </div>
-                    <p>Practice operations with numbers: integers, rational numbers, and master the order of operations with this engaging game!</p>
+                    <p>Practice operations with numbers: integers, rational numbers, and master the order of operations
+                        with this engaging game!</p>
                     <div class="cheatsheet-list" style="margin-bottom: 1em;">
-                        <div style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                        <div
+                            style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                             <span style="color:#4bb3fd;font-size:1em;">Integers</span>
-                            <a href="assets/cheatsheet/skill-2.pdf" target="_blank" class="cheatsheet-link" title="View Integers Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                            <a href="assets/cheatsheet/skill-2.pdf" target="_blank" class="cheatsheet-link"
+                                title="View Integers Cheat Sheet"
+                                style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
                                 <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Integers Cheat Sheet">
                             </a>
                         </div>
-                        <div style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                        <div
+                            style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                             <span style="color:#4bb3fd;font-size:1em;">Rational Numbers</span>
-                            <a href="assets/cheatsheet/skill-3.pdf" target="_blank" class="cheatsheet-link" title="View Rational Numbers Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                                <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Rational Numbers Cheat Sheet">
+                            <a href="assets/cheatsheet/skill-3.pdf" target="_blank" class="cheatsheet-link"
+                                title="View Rational Numbers Cheat Sheet"
+                                style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                                <img class="game-icon" src="./assets/images/icons/pdf.png"
+                                    alt="Rational Numbers Cheat Sheet">
                             </a>
                         </div>
                         <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                             <span style="color:#4bb3fd;font-size:1em;">Order of Operations</span>
-                            <a href="assets/cheatsheet/skill-4.pdf" target="_blank" class="cheatsheet-link" title="View Order of Operations Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                                <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Order of Operations Cheat Sheet">
+                            <a href="assets/cheatsheet/skill-4.pdf" target="_blank" class="cheatsheet-link"
+                                title="View Order of Operations Cheat Sheet"
+                                style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                                <img class="game-icon" src="./assets/images/icons/pdf.png"
+                                    alt="Order of Operations Cheat Sheet">
                             </a>
                         </div>
                     </div>
@@ -300,10 +330,14 @@
                         </div>
                         <h3>Match & Convert</h3>
                     </div>
-                    <p>Practice converting between fractions, decimals, and percentages in this interactive matching game! Sharpen your skills by matching equivalent values across different forms.</p>
-                    <div style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <p>Practice converting between fractions, decimals, and percentages in this interactive matching
+                        game! Sharpen your skills by matching equivalent values across different forms.</p>
+                    <div
+                        style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                         <span style="color:#4bb3fd;font-size:1em;">Converting Fractions, Decimals & Percentages </span>
-                        <a href="assets/cheatsheet/skill-5.pdf" target="_blank" class="cheatsheet-link" title="View Integers Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                        <a href="assets/cheatsheet/skill-5.pdf" target="_blank" class="cheatsheet-link"
+                            title="View Integers Cheat Sheet"
+                            style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
                             <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Integers Cheat Sheet">
                         </a>
                     </div>
@@ -321,17 +355,26 @@
                         </div>
                         <h3>Scientific Notation</h3>
                     </div>
-                    <p>Learn about scientific notation, standard form, and how to perform operations with scientific notation. Master these essential skills for working with very large or very small numbers!</p>
-                    <div style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <p>Learn about scientific notation, standard form, and how to perform operations with scientific
+                        notation. Master these essential skills for working with very large or very small numbers!</p>
+                    <div
+                        style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                         <span style="color:#4bb3fd;font-size:1em;">Scientific Notation & Standard Form</span>
-                        <a href="assets/cheatsheet/skill-6.pdf" target="_blank" class="cheatsheet-link" title="View Scientific Notation & Standard Form Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                            <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Scientific Notation & Standard Form Cheat Sheet">
+                        <a href="assets/cheatsheet/skill-6.pdf" target="_blank" class="cheatsheet-link"
+                            title="View Scientific Notation & Standard Form Cheat Sheet"
+                            style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                            <img class="game-icon" src="./assets/images/icons/pdf.png"
+                                alt="Scientific Notation & Standard Form Cheat Sheet">
                         </a>
                     </div>
-                    <div style="margin-bottom: 1em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <div
+                        style="margin-bottom: 1em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                         <span style="color:#4bb3fd;font-size:1em;">Operations with Scientific Notation</span>
-                        <a href="assets/cheatsheet/skill-7.pdf" target="_blank" class="cheatsheet-link" title="View Operations with Scientific Notation Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                            <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Operations with Scientific Notation Cheat Sheet">
+                        <a href="assets/cheatsheet/skill-7.pdf" target="_blank" class="cheatsheet-link"
+                            title="View Operations with Scientific Notation Cheat Sheet"
+                            style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                            <img class="game-icon" src="./assets/images/icons/pdf.png"
+                                alt="Operations with Scientific Notation Cheat Sheet">
                         </a>
                     </div>
                     <a href="https://math-skill-portal.vercel.app/skills/scientific-notation" class="play-button">
@@ -348,11 +391,16 @@
                         </div>
                         <h3>Algebra Builder</h3>
                     </div>
-                    <p>Explore the concepts of variables and constants in algebra. Practice identifying and using them in mathematical expressions and equations!</p>
-                    <div style="margin-bottom: 1em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <p>Explore the concepts of variables and constants in algebra. Practice identifying and using them
+                        in mathematical expressions and equations!</p>
+                    <div
+                        style="margin-bottom: 1em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                         <span style="color:#4bb3fd;font-size:1em;">Variables & Constants</span>
-                        <a href="assets/cheatsheet/skill-8.pdf" target="_blank" class="cheatsheet-link" title="View Variables & Constants Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                            <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Variables & Constants Cheat Sheet">
+                        <a href="assets/cheatsheet/skill-8.pdf" target="_blank" class="cheatsheet-link"
+                            title="View Variables & Constants Cheat Sheet"
+                            style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                            <img class="game-icon" src="./assets/images/icons/pdf.png"
+                                alt="Variables & Constants Cheat Sheet">
                         </a>
                     </div>
                     <a href="https://math-skill-portal.vercel.app/skills/algebra-builder" class="play-button">
@@ -369,11 +417,16 @@
                         </div>
                         <h3>Simplifying Expressions</h3>
                     </div>
-                    <p>Practice evaluating expressions, using the distributive property, and combining like terms. Build a strong foundation in simplifying algebraic expressions!</p>
-                    <div style="margin-bottom: 1em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <p>Practice evaluating expressions, using the distributive property, and combining like terms. Build
+                        a strong foundation in simplifying algebraic expressions!</p>
+                    <div
+                        style="margin-bottom: 1em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                         <span style="color:#4bb3fd;font-size:1em;">Simplifying Expressions</span>
-                        <a href="assets/cheatsheet/skill-9.pdf" target="_blank" class="cheatsheet-link" title="View Simplifying Expressions Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                            <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Simplifying Expressions Cheat Sheet">
+                        <a href="assets/cheatsheet/skill-9.pdf" target="_blank" class="cheatsheet-link"
+                            title="View Simplifying Expressions Cheat Sheet"
+                            style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                            <img class="game-icon" src="./assets/images/icons/pdf.png"
+                                alt="Simplifying Expressions Cheat Sheet">
                         </a>
                     </div>
                     <a href="https://math-skill-portal.vercel.app/skills/simplify-expressions" class="play-button">
@@ -390,18 +443,26 @@
                         </div>
                         <h3>Solving Linear Equations</h3>
                     </div>
-                    <p>Master solving one-step and two-step linear equations. Practice isolating variables and understanding the logic behind each step!</p>
+                    <p>Master solving one-step and two-step linear equations. Practice isolating variables and
+                        understanding the logic behind each step!</p>
                     <div class="cheatsheet-list" style="margin-bottom: 1em;">
-                        <div style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                        <div
+                            style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                             <span style="color:#4bb3fd;font-size:1em;">One-Step Equations</span>
-                            <a href="assets/cheatsheet/skill-10.pdf" target="_blank" class="cheatsheet-link" title="View One-Step Equations Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                                <img class="game-icon" src="./assets/images/icons/pdf.png" alt="One-Step Equations Cheat Sheet">
+                            <a href="assets/cheatsheet/skill-10.pdf" target="_blank" class="cheatsheet-link"
+                                title="View One-Step Equations Cheat Sheet"
+                                style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                                <img class="game-icon" src="./assets/images/icons/pdf.png"
+                                    alt="One-Step Equations Cheat Sheet">
                             </a>
                         </div>
                         <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                             <span style="color:#4bb3fd;font-size:1em;">Two-Step Equations</span>
-                            <a href="assets/cheatsheet/skill-12.pdf" target="_blank" class="cheatsheet-link" title="View Two-Step Equations Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                                <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Two-Step Equations Cheat Sheet">
+                            <a href="assets/cheatsheet/skill-12.pdf" target="_blank" class="cheatsheet-link"
+                                title="View Two-Step Equations Cheat Sheet"
+                                style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                                <img class="game-icon" src="./assets/images/icons/pdf.png"
+                                    alt="Two-Step Equations Cheat Sheet">
                             </a>
                         </div>
                     </div>
@@ -419,24 +480,32 @@
                         </div>
                         <h3>Solving Inequalities</h3>
                     </div>
-                    <p>Learn to solve and graph one-step and two-step inequalities. Practice applying the correct rules and interpreting solutions on a number line!</p>
+                    <p>Learn to solve and graph one-step and two-step inequalities. Practice applying the correct rules
+                        and interpreting solutions on a number line!</p>
                     <div class="cheatsheet-list" style="margin-bottom: 1em;">
-                        <div style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                        <div
+                            style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                             <span style="color:#4bb3fd;font-size:1em;">One-Step Inequalities</span>
-                            <a href="assets/cheatsheet/skill-11.pdf" target="_blank" class="cheatsheet-link" title="View One-Step Inequalities Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                                <img class="game-icon" src="./assets/images/icons/pdf.png" alt="One-Step Inequalities Cheat Sheet">
+                            <a href="assets/cheatsheet/skill-11.pdf" target="_blank" class="cheatsheet-link"
+                                title="View One-Step Inequalities Cheat Sheet"
+                                style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                                <img class="game-icon" src="./assets/images/icons/pdf.png"
+                                    alt="One-Step Inequalities Cheat Sheet">
                             </a>
                         </div>
                         <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                             <span style="color:#4bb3fd;font-size:1em;">Two-Step Inequalities</span>
-                            <a href="assets/cheatsheet/skill-13.pdf" target="_blank" class="cheatsheet-link" title="View Two-Step Inequalities Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                                <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Two-Step Inequalities Cheat Sheet">
+                            <a href="assets/cheatsheet/skill-13.pdf" target="_blank" class="cheatsheet-link"
+                                title="View Two-Step Inequalities Cheat Sheet"
+                                style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                                <img class="game-icon" src="./assets/images/icons/pdf.png"
+                                    alt="Two-Step Inequalities Cheat Sheet">
                             </a>
                         </div>
                     </div>
                     <a href="https://math-skill-portal.vercel.app/skills/solving-inequalities" class="play-button">
                         <i class='bx bx-play-circle'></i>
-                        Coming Soon
+                        Start Game
                     </a>
                 </div>
 
@@ -448,18 +517,26 @@
                         </div>
                         <h3>Factoring</h3>
                     </div>
-                    <p>Master the art of factoring! Learn how to find the greatest common factor (GCF) and factor expressions by grouping. These essential algebra skills will help you simplify and solve equations with confidence.</p>
+                    <p>Master the art of factoring! Learn how to find the greatest common factor (GCF) and factor
+                        expressions by grouping. These essential algebra skills will help you simplify and solve
+                        equations with confidence.</p>
                     <div class="cheatsheet-list" style="margin-bottom: 1em;">
-                        <div style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                        <div
+                            style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                             <span style="color:#4bb3fd;font-size:1em;">Greatest Common Factor (GCF)</span>
-                            <a href="assets/cheatsheet/skill-14.pdf" target="_blank" class="cheatsheet-link" title="View GCF Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                            <a href="assets/cheatsheet/skill-14.pdf" target="_blank" class="cheatsheet-link"
+                                title="View GCF Cheat Sheet"
+                                style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
                                 <img class="game-icon" src="./assets/images/icons/pdf.png" alt="GCF Cheat Sheet">
                             </a>
                         </div>
                         <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                             <span style="color:#4bb3fd;font-size:1em;">Factoring by Grouping</span>
-                            <a href="assets/cheatsheet/skill-15.pdf" target="_blank" class="cheatsheet-link" title="View Factoring by Grouping Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                                <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Factoring by Grouping Cheat Sheet">
+                            <a href="assets/cheatsheet/skill-15.pdf" target="_blank" class="cheatsheet-link"
+                                title="View Factoring by Grouping Cheat Sheet"
+                                style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                                <img class="game-icon" src="./assets/images/icons/pdf.png"
+                                    alt="Factoring by Grouping Cheat Sheet">
                             </a>
                         </div>
                     </div>
@@ -476,18 +553,27 @@
                         </div>
                         <h3>Factoring Trinomials</h3>
                     </div>
-                    <p>Learn how to factor trinomials of the form <strong>x² + bx + c</strong> and <strong>ax² + bx + c</strong>. These skills are essential for solving quadratic equations and simplifying algebraic expressions!</p>
+                    <p>Learn how to factor trinomials of the form <strong>x² + bx + c</strong> and <strong>ax² + bx +
+                            c</strong>. These skills are essential for solving quadratic equations and simplifying
+                        algebraic expressions!</p>
                     <div class="cheatsheet-list" style="margin-bottom: 1em;">
-                        <div style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                        <div
+                            style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                             <span style="color:#4bb3fd;font-size:1em;">Factoring trinomials (x² + bx + c)</span>
-                            <a href="assets/cheatsheet/skill-16.pdf" target="_blank" class="cheatsheet-link" title="View Factoring Trinomials (x² + bx + c) Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                                <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Factoring Trinomials (x² + bx + c) Cheat Sheet">
+                            <a href="assets/cheatsheet/skill-16.pdf" target="_blank" class="cheatsheet-link"
+                                title="View Factoring Trinomials (x² + bx + c) Cheat Sheet"
+                                style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                                <img class="game-icon" src="./assets/images/icons/pdf.png"
+                                    alt="Factoring Trinomials (x² + bx + c) Cheat Sheet">
                             </a>
                         </div>
                         <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                             <span style="color:#4bb3fd;font-size:1em;">Factoring trinomials (ax² + bx + c)</span>
-                            <a href="assets/cheatsheet/skill-17.pdf" target="_blank" class="cheatsheet-link" title="View Factoring Trinomials (ax² + bx + c) Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                                <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Factoring Trinomials (ax² + bx + c) Cheat Sheet">
+                            <a href="assets/cheatsheet/skill-17.pdf" target="_blank" class="cheatsheet-link"
+                                title="View Factoring Trinomials (ax² + bx + c) Cheat Sheet"
+                                style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                                <img class="game-icon" src="./assets/images/icons/pdf.png"
+                                    alt="Factoring Trinomials (ax² + bx + c) Cheat Sheet">
                             </a>
                         </div>
                     </div>
@@ -500,22 +586,31 @@
                 <div class="game-card">
                     <div class="game-header">
                         <div class="game-icon">
-                            <img src="./assets/images/icons/fsquare.png" alt="Difference of Squares & Perfect Square Trinomials" srcset="">
+                            <img src="./assets/images/icons/fsquare.png"
+                                alt="Difference of Squares & Perfect Square Trinomials" srcset="">
                         </div>
                         <h3>Squares & Trinomials</h3>
                     </div>
-                    <p>Explore the special products: Difference of Squares and Perfect Square Trinomials. Practice recognizing and factoring these patterns to simplify and solve algebraic expressions!</p>
+                    <p>Explore the special products: Difference of Squares and Perfect Square Trinomials. Practice
+                        recognizing and factoring these patterns to simplify and solve algebraic expressions!</p>
                     <div class="cheatsheet-list" style="margin-bottom: 1em;">
-                        <div style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                        <div
+                            style="margin-bottom: 0.3em; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                             <span style="color:#4bb3fd;font-size:1em;">Difference of Squares</span>
-                            <a href="assets/cheatsheet/skill-18.pdf" target="_blank" class="cheatsheet-link" title="View Difference of Squares Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                                <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Difference of Squares Cheat Sheet">
+                            <a href="assets/cheatsheet/skill-18.pdf" target="_blank" class="cheatsheet-link"
+                                title="View Difference of Squares Cheat Sheet"
+                                style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                                <img class="game-icon" src="./assets/images/icons/pdf.png"
+                                    alt="Difference of Squares Cheat Sheet">
                             </a>
                         </div>
                         <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                             <span style="color:#4bb3fd;font-size:1em;">Perfect Square Trinomials</span>
-                            <a href="assets/cheatsheet/skill-19.pdf" target="_blank" class="cheatsheet-link" title="View Perfect Square Trinomials Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                                <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Perfect Square Trinomials Cheat Sheet">
+                            <a href="assets/cheatsheet/skill-19.pdf" target="_blank" class="cheatsheet-link"
+                                title="View Perfect Square Trinomials Cheat Sheet"
+                                style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                                <img class="game-icon" src="./assets/images/icons/pdf.png"
+                                    alt="Perfect Square Trinomials Cheat Sheet">
                             </a>
                         </div>
                     </div>
@@ -532,12 +627,16 @@
                         </div>
                         <h3>Sum and Difference of Cubes</h3>
                     </div>
-                    <p>Learn how to recognize and factor the sum and difference of cubes. These patterns are essential for simplifying higher-degree polynomial expressions!</p>
+                    <p>Learn how to recognize and factor the sum and difference of cubes. These patterns are essential
+                        for simplifying higher-degree polynomial expressions!</p>
                     <div class="cheatsheet-list" style="margin-bottom: 1em;">
                         <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
                             <span style="color:#4bb3fd;font-size:1em;">Sum & Difference of Cubes</span>
-                            <a href="assets/cheatsheet/skill-20.pdf" target="_blank" class="cheatsheet-link" title="View Sum & Difference of Cubes Cheat Sheet" style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
-                                <img class="game-icon" src="./assets/images/icons/pdf.png" alt="Sum & Difference of Cubes Cheat Sheet">
+                            <a href="assets/cheatsheet/skill-20.pdf" target="_blank" class="cheatsheet-link"
+                                title="View Sum & Difference of Cubes Cheat Sheet"
+                                style="color: #4bb3fd; font-size: 1.2em; vertical-align: middle;">
+                                <img class="game-icon" src="./assets/images/icons/pdf.png"
+                                    alt="Sum & Difference of Cubes Cheat Sheet">
                             </a>
                         </div>
                     </div>
