@@ -31,20 +31,20 @@
         }
 
         .games-filter {
-            background: rgba(30, 34, 44, 0.85);
+            background: #1e293b;
             border-radius: 1.2rem;
-            box-shadow: 0 4px 24px rgba(30, 40, 60, 0.18);
-            padding: 0.7rem 1.2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            padding: 1rem 1.5rem;
             display: flex;
             flex-wrap: wrap;
-            gap: 0.7rem;
+            gap: 0.8rem;
             align-items: center;
             justify-content: flex-start;
             margin-bottom: 2.5rem;
             color: #fff;
-            border: 1.5px solid #23272f;
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(75, 179, 253, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             font-size: 0.97rem;
         }
 
@@ -52,26 +52,30 @@
         .games-filter select {
             font-family: 'Cairo', Arial, sans-serif;
             font-size: 0.97rem;
-            padding: 0.45rem 0.8rem;
-            border-radius: 0.6rem;
-            border: 1.5px solid #23272f;
-            background: rgba(40, 44, 54, 0.95);
+            padding: 0.6rem 1rem;
+            border-radius: 0.8rem;
+            border: 1px solid rgba(75, 179, 253, 0.2);
+            background: rgba(255, 255, 255, 0.05);
             color: #fff;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            transition: all 0.3s ease;
             outline: none;
-            box-shadow: 0 1px 2px rgba(80, 120, 120, 0.04);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             min-width: 120px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .games-filter input[type="text"]::placeholder {
-            color: #bfc7d5;
+            color: rgba(255, 255, 255, 0.6);
             opacity: 1;
         }
 
         .games-filter input[type="text"]:focus,
         .games-filter select:focus {
             border-color: #4bb3fd;
-            box-shadow: 0 2px 8px rgba(75, 179, 253, 0.13);
+            box-shadow: 0 4px 16px rgba(75, 179, 253, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-1px);
         }
 
         .games-filter select {
@@ -91,22 +95,25 @@
         }
 
         .game-card {
-            background: #23272f;
+            background: #1e293b;
             border-radius: 1.2rem;
             padding: 2rem 1.5rem 1.5rem 1.5rem;
-            box-shadow: 0 4px 24px rgba(30, 40, 60, 0.18);
-            transition: transform 0.22s cubic-bezier(.4, 2, .6, 1), box-shadow 0.22s;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s ease;
             height: 100%;
             display: flex;
             flex-direction: column;
-            border: 1.5px solid #23272f;
+            border: 1px solid rgba(75, 179, 253, 0.1);
             max-width: 550px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .game-card:hover {
-            transform: translateY(-7px) scale(1.025);
-            box-shadow: 0 8px 32px rgba(75, 179, 253, 0.18);
-            border-color: #4bb3fd;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(75, 179, 253, 0.15);
+            border-color: rgba(75, 179, 253, 0.3);
+            background: linear-gradient(135deg, #1e293b 0%, #2d3748 100%);
         }
 
         .game-header {
@@ -275,78 +282,30 @@
 </head>
 
 <body>
-    <nav class="nav" id="nav">
-        <div class="nav__menu container" id="nav-menu">
-            <div class="nav__shape"></div>
+    <!-- Modern Navigation -->
+    <nav class="modern-nav">
+        <div class="nav-container container">
+            <a href="index.html" class="nav-logo">
+                <img src="./assets/images/icons/LOGO-Transparent.png" alt="Salah Alkmali" width="180px">
+            </a>
 
-            <div class="nav_content">
-                <div class="nav__close" id="nav-close">
-                    <i class='bx bx-x'></i>
-                </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="mathlogame.html" class="nav-link active">MATHLOGAME</a>
+                <a href="index.html#portfolio" class="nav-link">Portfolio</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
 
-                <div class="nav__data">
-                    <div class="nav__mask">
-                        <img src="assets/images/profile/nav-profile.JPG" alt="" class="nav__img">
-                    </div>
-
-                    <span class="nav__greeting">Salah Alkmali</span> <br>
-                </div>
-
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="index.html#home" class="nav__link">
-                            <lord-icon src="https://cdn.lordicon.com/etqbfrgp.json" trigger="hover"
-                                colors="outline:#131432,primary:#ffc738,secondary:#4bb3fd,tertiary:#b26836,quaternary:#ebe6ef">
-                            </lord-icon> Home
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="blog.html" class="nav__link">
-                            <lord-icon src="https://cdn.lordicon.com/ttioogfl.json" trigger="hover"
-                                colors="primary:#121331,secondary:#ebe6ef,tertiary:#4bb3fd,quaternary:#92140c,quinary:#f9c9c0">
-                            </lord-icon> Blog
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="games.html" class="nav__link">
-                            <lord-icon src="https://cdn.lordicon.com/denwspsk.json" trigger="morph"
-                                colors="outline:#121331,primary:#ffc738,tertiary:#4bb3fd,quaternary:#ebe6ef">
-                            </lord-icon> MATHLOGAME
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#portfolio" class="nav__link">
-                            <lord-icon src="https://cdn.lordicon.com/rfnfarqt.json" trigger="hover"
-                                colors="outline:#121331,primary:#4bb3fd,secondary:#ffc738">
-                            </lord-icon> Portfolio
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link">
-                            <lord-icon src="https://cdn.lordicon.com/lfqstkwj.json" trigger="hover"
-                                colors="outline:#121331,primary:#4bb3fd,secondary:#1d1d1d">
-                            </lord-icon> Contact
-                        </a>
-                    </li>
-                </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-
     </nav>
 
-    <main class="main" id="main">
-        <header class="header" id="header">
-            <nav class="header__nav container">
-                <a href="index.html" class="header__logo">
-                    <img src="./assets/images/icons/LOGO-Transparent.png" alt="Salah" width="128px">
-                </a>
-
-                <div class="header__toggle" id="header-toggle">
-                    <i class='bx bx-grid-alt'></i>
-                </div>
-            </nav>
-        </header>
-
+    <main class="main-content">
         <div class="games-container">
             <div class="games-header">
                 <h1>MATHLOGAME</h1>
@@ -984,16 +943,33 @@
                 <!-- Add more game cards as you create new games -->
             </div>
         </div>
+
+        <!-- Modern Footer -->
+        <footer class="modern-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <img src="./assets/images/icons/LOGO-Transparent.png" alt="Salah Alkmali" width="200px">
+                        <p>Full stack developer and educator. Translating your ideas into digital reality.</p>
+                    </div>
+
+                    <div class="footer-links">
+                        <a href="index.html#home" class="footer-link">Home</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="mathlogame.html" class="footer-link">MATHLOGAME</a>
+                        <a href="index.html#portfolio" class="footer-link">Portfolio</a>
+                        <a href="index.html#contact" class="footer-link">Contact</a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; salahalkmali.com | Designed by Salah Alkmali@
+                        <script>document.write(new Date().getFullYear())</script>
+                    </p>
+                </div>
+            </div>
+        </footer>
     </main>
-
-
-    <!-- WhatsApp Icon 
-        
-        <a href="https://wa.me/+905524718600" class="whatsapp-icon" target="_blank">
-            <img src="./assets/images/icons/whatsapp.png" alt="WhatsApp">
-        </a>
-
-        -->
 
     <script src="assets/js/main.js"></script>
     <script>

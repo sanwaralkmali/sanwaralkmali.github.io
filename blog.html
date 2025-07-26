@@ -15,266 +15,114 @@
 </head>
 
 <body>
-    <nav class="nav" id="nav">
-        <div class="nav__menu container" id="nav-menu">
-            <div class="nav__shape"></div>
+    <!-- Modern Navigation -->
+    <nav class="modern-nav">
+        <div class="nav-container container">
+            <a href="index.html" class="nav-logo">
+                <img src="./assets/images/icons/LOGO-Transparent.png" alt="Salah Alkmali" width="180px">
+            </a>
 
-            <div class="nav_content">
-                <div class="nav__close" id="nav-close">
-                    <i class='bx bx-x'></i>
-                </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="blog.html" class="nav-link active">Blog</a>
+                <a href="mathlogame.html" class="nav-link">MATHLOGAME</a>
+                <a href="index.html#portfolio" class="nav-link">Portfolio</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
 
-                <div class="nav__data">
-                    <div class="nav__mask">
-                        <img src="assets/images/profile/nav-profile.JPG" alt="" class="nav__img">
-                    </div>
-                    <span class="nav__greeting">Salah Alkmali</span> <br>
-                </div>
-
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="index.html#home" class="nav__link">
-                            <lord-icon src="https://cdn.lordicon.com/etqbfrgp.json" trigger="hover"
-                                colors="outline:#131432,primary:#ffc738,secondary:#4bb3fd,tertiary:#b26836,quaternary:#ebe6ef">
-                            </lord-icon> Home
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="blog.html" class="nav__link active-link">
-                            <lord-icon src="https://cdn.lordicon.com/ttioogfl.json" trigger="hover"
-                                colors="primary:#121331,secondary:#ebe6ef,tertiary:#4bb3fd,quaternary:#92140c,quinary:#f9c9c0">
-                            </lord-icon> Blog
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="mathlogame.html" class="nav__link">
-                            <lord-icon src="https://cdn.lordicon.com/denwspsk.json" trigger="morph"
-                                colors="outline:#121331,primary:#ffc738,tertiary:#4bb3fd,quaternary:#ebe6ef">
-                            </lord-icon> MATHLOGAME
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="index.html#portfolio" class="nav__link">
-                            <lord-icon src="https://cdn.lordicon.com/rfnfarqt.json" trigger="hover"
-                                colors="outline:#121331,primary:#4bb3fd,secondary:#ffc738">
-                            </lord-icon> Portfolio
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="index.html#contact" class="nav__link">
-                            <lord-icon src="https://cdn.lordicon.com/lfqstkwj.json" trigger="hover"
-                                colors="outline:#121331,primary:#4bb3fd,secondary:#1d1d1d">
-                            </lord-icon> Contact
-                        </a>
-                    </li>
-                </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
 
-    <main class="main" id="main">
-        <header class="header" id="header">
-            <nav class="header__nav container">
-                <a href="index.html" class="header__logo">
-                    <img src="./assets/images/icons/LOGO-Transparent.png" alt="Salah" width="128px">
-                </a>
-
-                <div class="header__toggle" id="header-toggle">
-                    <i class='bx bx-grid-alt'></i>
-                </div>
-            </nav>
-        </header>
-
+    <main class="main-content">
+        <!-- Blog Section -->
         <section class="blog" id="blog">
-            <div class="section__title">Blog Posts</div>
-            
-            <!-- Blog Categories -->
-            <div class="blog-categories">
-                <button class="category-btn active" data-category="all">All Posts</button>
-                <button class="category-btn" data-category="programming">Programming</button>
-                <button class="category-btn" data-category="education">Education</button>
-                <button class="category-btn" data-category="technology">Technology</button>
-            </div>
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Blog Posts</h2>
+                    <p class="section-subtitle">Thoughts on education, technology, and learning</p>
+                </div>
+                
+                <!-- Blog Categories -->
+                <div class="blog-categories">
+                    <button class="category-btn active" data-category="all">All Posts</button>
+                    <button class="category-btn" data-category="programming">Programming</button>
+                    <button class="category-btn" data-category="education">Education</button>
+                    <button class="category-btn" data-category="technology">Technology</button>
+                </div>
 
-            <!-- Blog Grid -->
-            <div class="blog-grid">
-                <!-- New Article: Why Are We Even Learning This? -->
-                <!-- Blog Post 1 -->
-                <article class="blog-card" data-category="education">
-                    <div class="blog-image">
-                        <img src="assets/articles/whyMath/Math is boring.png" alt="Why Are We Even Learning This?">
-                        <div class="blog-date">
-                            <span class="day">21</span>
-                            <span class="month">Jun</span>
+                <!-- Blog Grid -->
+                <div class="blog-grid">
+                    <!-- Blog Post 1 -->
+                    <article class="blog-card" data-category="education">
+                        <div class="blog-image">
+                            <img src="assets/articles/whyMath/Math is boring.png" alt="Why Are We Even Learning This?">
+                            <div class="blog-date">
+                                <span class="day">21</span>
+                                <span class="month">Jun</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-tags">
-                            <span class="tag">Education</span>
-                            <span class="tag">Mindset</span>
+                        <div class="blog-content">
+                            <div class="blog-tags">
+                                <span class="tag">Education</span>
+                                <span class="tag">Mindset</span>
+                            </div>
+                            <h3 class="blog-title">So ... Why Are We Even Learning This?</h3>
+                            <p class="blog-excerpt">A candid letter about why math matters, how it shapes your thinking, and why you don't have to love it to get stronger at it.</p>
+                            <a href="articles/whyMath.html" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                         </div>
-                        <h3 class="blog-title">So ... Why Are We Even Learning This?</h3>
-                        <p class="blog-excerpt">A candid letter about why math matters, how it shapes your thinking, and why you don’t have to love it to get stronger at it.</p>
-                        <a href="articles/whyMath.html" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
-                    </div>
-                </article>
+                    </article>
 
-                <!-- Blog Post 2 -->
-                <article class="blog-card" data-category="education">
-                    <div class="blog-image">
-                        <img src="assets/articles/AI/cover.png" alt="Are You Using AI the Right Way?">
-                        <div class="blog-date">
-                            <span class="day">15</span>
-                            <span class="month">Jun</span>
+                    <!-- Blog Post 2 -->
+                    <article class="blog-card" data-category="education">
+                        <div class="blog-image">
+                            <img src="assets/articles/AI/cover.png" alt="Are You Using AI the Right Way?">
+                            <div class="blog-date">
+                                <span class="day">15</span>
+                                <span class="month">Jun</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-tags">
-                            <span class="tag">Education</span>
-                            <span class="tag">AI</span>
+                        <div class="blog-content">
+                            <div class="blog-tags">
+                                <span class="tag">Education</span>
+                                <span class="tag">AI</span>
+                            </div>
+                            <h3 class="blog-title">Are You Using AI the Right Way?</h3>
+                            <p class="blog-excerpt">A practical guide for students on how to use AI as a tool for learning, not just shortcuts. Discover the difference between smart and lazy use of AI in your studies.</p>
+                            <a href="articles/AIandYou.html" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                         </div>
-                        <h3 class="blog-title">Are You Using AI the Right Way?</h3>
-                        <p class="blog-excerpt">A practical guide for students on how to use AI as a tool for learning, not just shortcuts. Discover the difference between smart and lazy use of AI in your studies.</p>
-                        <a href="articles/AIandYou.html" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
-                    </div>
-                </article>
-
-               <!-- 
-                <article class="blog-card" data-category="programming">
-                    <div class="blog-image">
-                        <img src="./assets/images/icons/LOGO-Transparent.png" alt="Programming Blog">
-                        <div class="blog-date">
-                            <span class="day">15</span>
-                            <span class="month">Mar</span>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-tags">
-                            <span class="tag">Programming</span>
-                            <span class="tag">JavaScript</span>
-                        </div>
-                        <h3 class="blog-title">Getting Started with Modern JavaScript</h3>
-                        <p class="blog-excerpt">Learn the fundamentals of modern JavaScript and how to use it to build interactive web applications...</p>
-                        <a href="#" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="technology">
-                    <div class="blog-image">
-                        <img src="./assets/images/icons/LOGO-Transparent.png" alt="Technology Blog">
-                        <div class="blog-date">
-                            <span class="day">05</span>
-                            <span class="month">Mar</span>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-tags">
-                            <span class="tag">Technology</span>
-                            <span class="tag">AI</span>
-                        </div>
-                        <h3 class="blog-title">The Future of AI in Education</h3>
-                        <p class="blog-excerpt">Exploring how artificial intelligence is transforming the educational landscape...</p>
-                        <a href="#" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="programming">
-                    <div class="blog-image">
-                        <img src="./assets/images/icons/LOGO-Transparent.png" alt="Programming Blog">
-                        <div class="blog-date">
-                            <span class="day">01</span>
-                            <span class="month">Mar</span>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-tags">
-                            <span class="tag">Programming</span>
-                            <span class="tag">Flutter</span>
-                        </div>
-                        <h3 class="blog-title">Building Cross-Platform Apps with Flutter</h3>
-                        <p class="blog-excerpt">A comprehensive guide to creating beautiful mobile applications using Flutter...</p>
-                        <a href="#" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
-                    </div>
-                </article>
-
-                <article class="blog-card" data-category="education">
-                    <div class="blog-image">
-                        <img src="./assets/images/icons/LOGO-Transparent.png" alt="Education Blog">
-                        <div class="blog-date">
-                            <span class="day">25</span>
-                            <span class="month">Feb</span>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-tags">
-                            <span class="tag">Education</span>
-                            <span class="tag">Coding</span>
-                        </div>
-                        <h3 class="blog-title">Teaching Kids to Code: A Parent's Guide</h3>
-                        <p class="blog-excerpt">Essential tips and resources for parents who want to introduce their children to programming...</p>
-                        <a href="#" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
-                    </div>
-                </article>
-            -->
+                    </article>
+                </div>
             </div>
         </section>
 
-        <section class="footer" id="footer">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="./assets/images/icons/LOGO-Transparent.png" alt="Salah">
-                </div>
-
-                <div class="footer-main">
-                    <p>Full stack developer and educator. Translating your ideas into digital reality.</p>
-                    <div class="footer-main-contact">
-                        <span><i class="fas fa-phone"></i> &nbsp; +90 552 471 86 00</span>
-                        <a class="email-link" href="mailto:mtnshsalah@gmail.com"> <span><i class="fas fa-envelope"></i>
-                                &nbsp;
-                                mtnshsalah@gmail.com</span></a>
+        <!-- Modern Footer -->
+        <footer class="modern-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <img src="./assets/images/icons/LOGO-Transparent.png" alt="Salah Alkmali" width="200px">
+                        <p>Full stack developer and educator. Translating your ideas into digital reality.</p>
                     </div>
-                    <div class="socials">
-                        <h2>Social Media</h2>
-                        <div class="socials-links">
-                            <a href="https://www.facebook.com/profile.php?id=100094695554668" target="_blank"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a href="https://twitter.com/SalahAlkmali" target="_blank"><i
-                                    class="fab fa-twitter"></i></a>
-                            <a href="https://www.instagram.com/codludev/" target="_blank"><i
-                                    class="fab fa-instagram"></i></a>
-                            <a href="https://www.linkedin.com/in/salah-alkmali-00063b11a/" target="_blank"><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a href="https://github.com/sanwaralkmali" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
+
+                    <div class="footer-links">
+                        <a href="index.html#home" class="footer-link">Home</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="mathlogame.html" class="footer-link">MATHLOGAME</a>
+                        <a href="index.html#portfolio" class="footer-link">Portfolio</a>
+                        <a href="index.html#contact" class="footer-link">Contact</a>
                     </div>
                 </div>
 
-                <div class="footer-quick">
-                    <h2>Quick Links</h2>
-                    <ul>
-                        <a href="index.html#home">
-                            <li>Home</li>
-                        </a>
-                        <a href="blog.html">
-                            <li>Blog</li>
-                        </a>
-                        <a href="mathlogame.html">
-                            <li>MATHLOGAME</li>
-                        </a>
-                        <a href="index.html#portfolio">
-                            <li>Portfolio</li>
-                        </a>
-                        <a href="index.html#contact">
-                            <li>Contact</li>
-                        </a>
-                    </ul>
+                <div class="footer-bottom">
+                    <p>&copy; salahalkmali.com | Designed by Salah Alkmali@<script>document.write(new Date().getFullYear())</script></p>
                 </div>
             </div>
-
-            <div class="copy-rights"> &copy; salahalkmali.com | Designed by Salah Alkmali@<script>document.write(new Date().getFullYear())</script>
-            </div>
-
-        </section>
+        </footer>
     </main>
 
     <!-- WhatsApp Icon -->
