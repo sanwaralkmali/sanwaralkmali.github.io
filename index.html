@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
@@ -9,370 +10,117 @@
     <script src="https://kit.fontawesome.com/234e9652c2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-
     <link rel="icon" type="image/png" href="favicon.png">
-    <title>Salah Alkmali</title>
+    <title>Salah Alkmali - Founder of MathLogame</title>
 </head>
 
 <body>
+    <!-- Modern Navigation -->
+    <nav class="modern-nav" id="modern-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="./assets/images/icons/LOGO-Transparent.png" alt="Salah Alkmali" width="160px">
+            </div>
 
-    <nav class="nav" id="nav">
-        <div class="nav__menu container" id="nav-menu">
-            <div class="nav__shape"></div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="./mathlogame.html" class="nav-link">MathLogame</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
 
-            <div class="nav_content">
-                <div class="nav__close" id="nav-close">
-                    <i class='bx bx-x'></i>
-                </div>
-
-                <div class="nav__data">
-                    <div class="nav__mask">
-                        <img src="assets/images/profile/nav-profile.JPG" alt="" class="nav__img">
-                    </div>
-
-                    <span class="nav__greeting">Salah Alkmali</span> <br>
-                </div>
-
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link">
-                            <lord-icon src="https://cdn.lordicon.com/etqbfrgp.json" trigger="hover"
-                                colors="outline:#131432,primary:#ffc738,secondary:#4bb3fd,tertiary:#b26836,quaternary:#ebe6ef">
-                            </lord-icon> Home
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="blog.html" class="nav__link">
-                            <lord-icon src="https://cdn.lordicon.com/ttioogfl.json" trigger="hover"
-                                colors="primary:#121331,secondary:#ebe6ef,tertiary:#4bb3fd,quaternary:#92140c,quinary:#f9c9c0">
-                            </lord-icon> Blog
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="mathlogame.html" class="nav__link">
-                            <lord-icon src="https://cdn.lordicon.com/denwspsk.json" trigger="morph"
-                                colors="outline:#121331,primary:#ffc738,tertiary:#4bb3fd,quaternary:#ebe6ef">
-                            </lord-icon> MATHLOGAME
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#portfolio" class="nav__link">
-                            <lord-icon src="https://cdn.lordicon.com/rfnfarqt.json" trigger="hover"
-                                colors="outline:#121331,primary:#4bb3fd,secondary:#ffc738">
-                            </lord-icon> Portfolio
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link">
-                            <lord-icon src="https://cdn.lordicon.com/lfqstkwj.json" trigger="hover"
-                                colors="outline:#121331,primary:#4bb3fd,secondary:#1d1d1d">
-                            </lord-icon> Contact
-                        </a>
-                    </li>
-                </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-
     </nav>
 
-    <main class="main" id="main">
-        <div id='spotlight'></div>
-
-        <!--
-            Lighting effect
-
-        -->
-
-        <header class="header" id="header">
-            <nav class="header__nav container">
-                <a href="#" class="header__logo">
-                    <img src="./assets/images/icons/LOGO-Transparent.png" alt="Salah" width="128px">
-                </a>
-
-                <div class="header__toggle" id="header-toggle">
-                    <i class='bx bx-grid-alt'></i>
-                </div>
-            </nav>
-        </header>
-
-        <!-- HOME SECTION -->
-        <section id="home" class="section home">
-            <div class="home__content">
-                <div class="home__text">
-                    <h1 class="home__title">Empowering Math with Code</h1>
-                    <h2 class="home__subtitle">Mathematics Teacher Who Uses Coding for Education
-                        <span id="typingMobil">
-                            <span id="typed-text"></span>
-                            <span id="cursor">|</span>
-                        </span>
-                    </h2>
-                </div>
-                <div class="home__img">
-                    <img src="assets/images/profile/profile.jpg" alt="Your Image" id="myImage">
-                </div>
-                <div class="home__socials">
-                    <a href="https://www.linkedin.com/in/salah-alkmali-00063b11a/" class="home__social-link" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/sanwaralkmali" class="home__social-link" target="_blank">GitHub</a>
-                    <a href="https://twitter.com/SalahAlkmali" class="home__social-link" target="_blank">Twitter</a>
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="highlight-text">Salah Alkmali</span>
+                            <br>
+                            <span class="subtitle">Founder of MathLogame</span>
+                        </h1>
+                        <p class="hero-description">
+                            Mathematics teacher, educational innovator, and creator of MathLogame -
+                            transforming how students learn and love mathematics through interactive technology.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#mathlogame" class="btn btn-primary">Discover MathLogame</a>
+                            <a href="#about" class="btn btn-secondary">Learn About Me</a>
+                        </div>
+                        <div class="hero-socials">
+                            <a href="https://www.linkedin.com/in/salah-alkmali-00063b11a/" target="_blank"
+                                class="social-link">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/sanwaralkmali" target="_blank" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://twitter.com/SalahAlkmali" target="_blank" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="assets/images/profile/profile.JPG" alt="Salah Alkmali" class="profile-image">
+                        <div class="image-decoration"></div>
+                    </div>
                 </div>
             </div>
         </section>
 
-
-        <div class="shape">
-            <img src="assets/images/icons/infographic.png" alt="">
-        </div>
-
-        <section id="about" class="about section">
-            <div class="section__title">Who I am</div>
-            <div class="section__content">
-                <p>
-                    Hello! I'm <span class="highlight">Salah Alkmali</span>, a mathematics teacher and coding enthusiast.<br>
-                    For 7 years, I've been transforming math education by integrating technology and interactive coding tools.<br><br>
-                    <span class="highlight">My mission: </span> making mathematics engaging and accessible through creative digital resources and coding-based learning experiences. If you want to see how math and code can inspire, you're in the right place!
-                </p>
-            </div>
-        </section>
-
-        <section class="skills" id="skills">
-            <div class="teacher"> <img src="./assets/images/icons/Programmer.png" alt="teacher" class="skills-icons">
-                <h1>Teaching & Mentoring</h1>
-                <p> I empower students to love mathematics by making abstract concepts tangible through coding, games, and interactive lessons.</p>
-                <br>
-                <div class="skills-list">
-                    <div class="skill">
-                        <div class="skill-info">
-                            <h3 class="skill-name">Communication Skills</h3>
-                            <span class="skill-level">100%</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" data-level="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-info">
-                            <h3 class="skill-name">Math Curriculum Development</h3>
-                            <span class="skill-level">100%</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" data-level="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-info">
-                            <h3 class="skill-name">Problem-Solving</h3>
-                            <span class="skill-level">100%</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" data-level="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-info">
-                            <h3 class="skill-name">Mentoring Students</h3>
-                            <span class="skill-level">100%</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" data-level="100"></div>
-                        </div>
-                    </div>
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-subtitle">Founder of MathLogame</p>
                 </div>
-            </div>
-            <div class="line-space"></div>
-            <div class="front-end">
-                <img src="./assets/images/icons/CSS.png" alt="front-end" class="skills-icons">
-                <h1>Educational Technology</h1>
-                <p> I design and implement digital tools that make learning mathematics interactive and fun, blending pedagogy with technology for the modern classroom.</p>
-                <br>
-                <br>
-                <div class="skills-list">
-                    <div class="skill">
-                        <div class="skill-info">
-                            <h3 class="skill-name">Interactive Math Content</h3>
-                            <span class="skill-level">100%</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" data-level="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-info">
-                            <h3 class="skill-name">Digital Curriculum Design</h3>
-                            <span class="skill-level">80%</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" data-level="80"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-info">
-                            <h3 class="skill-name">Coding for Education</h3>
-                            <span class="skill-level">100%</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" data-level="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-info">
-                            <h3 class="skill-name">Mathematics Instruction</h3>
-                            <span class="skill-level">100%</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" data-level="100"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="line-space"></div>
-            <div class="mobile"> <img src="./assets/images/icons/Mobile Programming.png" alt="mobile-edtech" class="skills-icons">
-                <h1>Mobile & Web Math Tools</h1>
-                <p> I create mobile and web applications that help students visualize, practice, and master math concepts anywhere, anytime.</p>
-                <br>
-                <div class="skills-list">
-                    <div class="skill">
-                        <div class="skill-info">
-                            <h3 class="skill-name">Math App Development</h3>
-                            <span class="skill-level">100%</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" data-level="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-info">
-                            <h3 class="skill-name">Gamified Learning</h3>
-                            <span class="skill-level">75%</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" data-level="75"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-info">
-                            <h3 class="skill-name">Cross-Platform Tools</h3>
-                            <span class="skill-level">90%</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" data-level="90"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-info">
-                            <h3 class="skill-name">Student Engagement</h3>
-                            <span class="skill-level">100%</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" data-level="100"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="line-space"></div>
-        </section>
 
-        <section class="experience" id="experience">
-            <div class="section__title">Teaching Experience</div>
-            <div class="timeline-container">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3>Mathematics & STEM Teacher - Elite Academy for High School</h3>
-                                <span class="timeline-date">2024 - Present</span>
-                            </div>
-                            <div class="timeline-details">
-                                <ul>
-                                    <li>Modernized math curriculum by integrating coding and interactive digital tools for deeper conceptual understanding.</li>
-                                    <li>Developed web-based math games and simulations to boost student engagement and retention.</li>
-                                    <li>Used analytics to personalize instruction and track student progress in mathematics.</li>
-                                    <li>Mentored students in coding projects related to math and STEM.</li>
-                                </ul>
-                                <div class="tech-stack">
-                                    <h4 class="tech-stack-title">Technologies & Skills</h4>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">Math Curriculum</span>
-                                        <span class="tech-tag">Educational Game Design</span>
-                                        <span class="tech-tag">JavaScript</span>
-                                        <span class="tech-tag">Python</span>
-                                        <span class="tech-tag">Data Analytics</span>
-                                        <span class="tech-tag">Student Mentorship</span>
-                                    </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                            I'm <strong>Salah Alkmali</strong>, a mathematics teacher passionate about making learning
+                            accessible and engaging.
+                            Through MathLogame, I've created an innovative platform that transforms how students
+                            experience mathematics.
+                        </p>
+
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number">7</div>
+                                    <div class="stat-label">Years of Experience</div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3>Freelancer - Math Education Technology</h3>
-                                <span class="timeline-date">2018 - Present</span>
-                            </div>
-                            <div class="timeline-details">
-                                <ul>
-                                    <li>Designed and deployed interactive math learning apps and web tools for students and teachers.</li>
-                                    <li>Optimized digital resources for effective math instruction and student engagement.</li>
-                                    <li>Collaborated with educators to create innovative math teaching solutions.</li>
-                                </ul>
-                                <div class="tech-stack">
-                                    <h4 class="tech-stack-title">Technologies</h4>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">React JS</span>
-                                        <span class="tech-tag">Python</span>
-                                        <span class="tech-tag">Flutter</span>
-                                        <span class="tech-tag">Math Education</span>
-                                    </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number">500</div>
+                                    <div class="stat-label">Students Taught</div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3>Math Teacher - Alnahda International Schools</h3>
-                                <span class="timeline-date">2019 - 2022</span>
-                            </div>
-                            <div class="timeline-details">
-                                <ul>
-                                    <li>Provided engaging math instruction using technology and coding-based activities.</li>
-                                    <li>Assessed student progress and adapted lessons for diverse learning needs.</li>
-                                    <li>Collaborated with staff to support student growth in mathematics.</li>
-                                </ul>
-                                <div class="tech-stack">
-                                    <h4 class="tech-stack-title">Technologies & Skills</h4>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">Educational Technology</span>
-                                        <span class="tech-tag">Student Assessment</span>
-                                        <span class="tech-tag">Math Curriculum Planning</span>
-                                        <span class="tech-tag">Data Analysis</span>
-                                    </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-book"></i>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3>Computer Science & Robotics Teacher - Aljazari Schools</h3>
-                                <span class="timeline-date">2022 - 2023</span>
-                            </div>
-                            <div class="timeline-details">
-                                <ul>
-                                    <li>Designed programming and web development curriculum with a focus on math applications.</li>
-                                    <li>Created educational resources and coding activities for math and STEM learning.</li>
-                                </ul>
-                                <div class="tech-stack">
-                                    <h4 class="tech-stack-title">Technologies & Skills</h4>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">Programming Education</span>
-                                        <span class="tech-tag">Math Applications</span>
-                                        <span class="tech-tag">Robotics</span>
-                                        <span class="tech-tag">STEM Education</span>
-                                    </div>
+                                <div class="stat-content">
+                                    <div class="stat-number">50</div>
+                                    <div class="stat-label">Digital Resources</div>
                                 </div>
                             </div>
                         </div>
@@ -381,246 +129,347 @@
             </div>
         </section>
 
-        <section class="portfolio" id="portfolio">
-            <div class="section__title">Portfolio</div>
-            
-            <!-- Portfolio Categories -->
-            <div class="portfolio-categories">
-                <button class="category-btn active" data-category="all">All Projects</button>
-                <button class="category-btn" data-category="books">Books & Courses</button>
-                <button class="category-btn" data-category="web">Web Projects</button>
-                <button class="category-btn" data-category="mobile">Mobile Apps</button>
-            </div>
+        <!-- MathLogame Section -->
+        <section id="mathlogame" class="mathlogame-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">MathLogame</h2>
+                    <p class="section-subtitle">Where Mathematics Meets Innovation</p>
+                </div>
 
-            <!-- Portfolio Grid -->
-            <div class="portfolio-grid">
-                <!-- COACHNINJA -->
-                
-                <!-- Math Skills Booklet -->
-                <div class="portfolio-item" data-category="books">
+                <div class="mathlogame-content">
+                    <div class="mathlogame-intro">
+                        <h3>My Vision for Math Education</h3>
+                        <p>
+                            MathLogame is more than just a platform—it's my vision for the future of mathematics
+                            education.
+                            I created it to bridge the gap between traditional teaching methods and modern technology,
+                            making complex mathematical concepts accessible and engaging for students of all ages.
+                        </p>
+
+                        <div class="mathlogame-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Interactive Learning</h4>
+                                    <p>Gamified experiences that make learning mathematics fun and memorable</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Progress Tracking</h4>
+                                    <p>Comprehensive analytics to monitor student growth and adapt instruction</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Personalized Learning</h4>
+                                    <p>Adaptive content that meets each student's unique learning needs</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cta-buttons">
+                            <a href="mathlogame.html" class="btn btn-primary">Explore MathLogame</a>
+                            <a href="blog.html" class="btn btn-outline">Read My Blog</a>
+                        </div>
+                    </div>
+
+                    <div class="mathlogame-preview">
+                        <img src="./assets/images/Projects/math-booklet.png" alt="MathLogame Platform"
+                            class="platform-preview">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">My Work</h2>
+                    <p class="section-subtitle">Projects that showcase my passion for education and technology</p>
+                </div>
+
+                <div class="portfolio-grid">
+                    <!-- MathLogame -->
                     <div class="portfolio-card">
-                        <div class="portfolio-image">
-                            <img src="./assets/images/Projects/math-booklet.png" alt="Math Skills Booklet">
-                            <div class="portfolio-overlay">
-                                <a href="mathlogame.html" class="portfolio-link">
+                        <div class="card-image">
+                            <img src="./assets/images/Projects/math-booklet.png" alt="MathLogame">
+                            <div class="card-overlay">
+                                <a href="mathlogame.html" class="card-link">
                                     <i class="bx bx-link-external"></i>
                                 </a>
                             </div>
                         </div>
-                        <div class="portfolio-content">
-                            <h3>Math Skills Booklet</h3>
-                            <p>An interactive booklet designed to help students learn and practice essential math skills in an engaging way.</p>
-                            <div class="portfolio-tags">
+                        <div class="card-content">
+                            <h3>MathLogame Platform</h3>
+                            <p>My flagship educational platform that revolutionizes mathematics learning through
+                                interactive technology.</p>
+                            <div class="card-tags">
                                 <span class="tag">Education</span>
                                 <span class="tag">Mathematics</span>
                                 <span class="tag">Interactive Learning</span>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="portfolio-item" data-category="web">
+                    <!-- KIDLOGAME -->
                     <div class="portfolio-card">
-                        <div class="portfolio-image">
-                            <img src="./assets/images/Projects/coachninja.jpeg" alt="COACHNINJA">
-                            <div class="portfolio-overlay">
-                                <a href="https://abdurrahmanninja.github.io/coach-abdualrhman-33/#/" class="portfolio-link">
-                                    <i class="bx bx-link-external"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>COACHNINJA</h3>
-                            <p>A professional website for a fighting coach specialized in training young champions for national and international competitions.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Web Development</span>
-                                <span class="tag">Professional Website</span>
-                                <span class="tag">Sports</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- KIDLOGAME -->
-                <div class="portfolio-item" data-category="mobile">
-                    <div class="portfolio-card">
-                        <div class="portfolio-image">
+                        <div class="card-image">
                             <img src="./assets/images/Projects/KidloGame.png" alt="KIDLOGAME">
-                            <div class="portfolio-overlay">
-                                <a href="" class="portfolio-link">
+                            <div class="card-overlay">
+                                <a class="card-link">
                                     <i class="bx bx-link-external"></i>
                                 </a>
                             </div>
                         </div>
-                        <div class="portfolio-content">
+                        <div class="card-content">
                             <h3>KIDLOGAME</h3>
-                            <p>KidloGame is an engaging app combining education and fun into diverse games. It's designed for kids to learn while playing, offering quizzes, puzzles, and challenges that transform learning into an enjoyable adventure.</p>
-                            <div class="portfolio-tags">
+                            <p>Educational gaming app that combines learning with fun, designed specifically for
+                                children.</p>
+                            <div class="card-tags">
                                 <span class="tag">Flutter</span>
-                                <span class="tag">Android</span>
-                                <span class="tag">iOS</span>
+                                <span class="tag">Mobile App</span>
                                 <span class="tag">Education</span>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Routiney -->
-                <div class="portfolio-item" data-category="mobile">
+                    <!-- Python Book -->
                     <div class="portfolio-card">
-                        <div class="portfolio-image">
-                            <img src="./assets/images/Projects/Routiney.png" alt="Routiney">
-                            <div class="portfolio-overlay">
-                                <a href="clea" class="portfolio-link">
-                                    <i class="bx bx-link-external"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>Routiney</h3>
-                            <p>Routiney is an intuitive and comprehensive lifestyle management app designed to help users build, follow, and maintain healthy and productive routines. This application brings together several aspects of daily life into a single, easy-to-use platform.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Flutter</span>
-                                <span class="tag">Mobile Applications</span>
-                                <span class="tag">Android</span>
-                                <span class="tag">iOS</span>
-                                <span class="tag">Lifestyle</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Python Book -->
-                <div class="portfolio-item" data-category="books">
-                    <div class="portfolio-card">
-                        <div class="portfolio-image">
+                        <div class="card-image">
                             <img src="./assets/images/Projects/Python-book.png" alt="Python Course">
-                            <div class="portfolio-overlay">
-                                <a href="./assets/pdf/Learnprogrammingwithpython-1.pdf" target="_blank" class="portfolio-link">
+                            <div class="card-overlay">
+                                <a href="./assets/pdf/Learnprogrammingwithpython-1.pdf" target="_blank"
+                                    class="card-link">
                                     <i class="bx bx-link-external"></i>
                                 </a>
                             </div>
                         </div>
-                        <div class="portfolio-content">
+                        <div class="card-content">
                             <h3>Python Fundamentals for Kids</h3>
-                            <p>An engaging learning journey into Python basics crafted specifically for kids. Featuring interactive challenges to reinforce learning and make coding fun.</p>
-                            <div class="portfolio-tags">
+                            <p>Comprehensive Python learning resource designed to make coding accessible and enjoyable
+                                for young learners.</p>
+                            <div class="card-tags">
                                 <span class="tag">Python</span>
                                 <span class="tag">Education</span>
                                 <span class="tag">Content Creation</span>
-                                <span class="tag">Children Education</span>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Web Course -->
-                <div class="portfolio-item" data-category="books">
+                    <!-- Web Course -->
                     <div class="portfolio-card">
-                        <div class="portfolio-image">
+                        <div class="card-image">
                             <img src="./assets/images/Projects/Book-design-web.png" alt="Web Course">
-                            <div class="portfolio-overlay">
-                                <a href="./assets/pdf/Easy WEB.pdf" target="_blank" class="portfolio-link">
+                            <div class="card-overlay">
+                                <a href="./assets/pdf/Easy WEB.pdf" target="_blank" class="card-link">
                                     <i class="bx bx-link-external"></i>
                                 </a>
                             </div>
                         </div>
-                        <div class="portfolio-content">
+                        <div class="card-content">
                             <h3>Arabic Web Course</h3>
-                            <p>An all-inclusive Arabic Web Course navigating the avenues of Front-end and Back-end development. From the basics of HTML, CSS, and JavaScript to complex roadmap discussions.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Education</span>
+                            <p>Complete web development course in Arabic, covering front-end and back-end technologies.
+                            </p>
+                            <div class="card-tags">
                                 <span class="tag">Web Development</span>
-                                <span class="tag">HTML</span>
-                                <span class="tag">CSS</span>
-                                <span class="tag">JavaScript</span>
+                                <span class="tag">Education</span>
                                 <span class="tag">Arabic</span>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <section class="contact-message" id="contact">
-            <div class="collaboration-item">
-                <h2>Ready to Code?</h2>
-            </div>
-            <div class="collaboration-item">
-                <p>Let's brainstorm ideas, drink coffee and write some amazing code. Your vision plus my skills - we
-                    can create something awesome.</p>
-            </div>
-            <div class="collaboration-item">
-                <button class="collab-button" id="showFormButton">Let's Start!</button>
 
-            </div>
-        </section>
 
-        <section class="footer" id="footer">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="./assets/images/icons/LOGO-Transparent.png" alt="Salah">
-                </div>
-
-                <div class="footer-main">
-                    <p>Full stack developer and educator. Translating your ideas into digital reality.</p>
-                    <div class="footer-main-contact">
-                        <span><i class="fas fa-phone"></i> &nbsp; +90 552 471 86 00</span>
-                        <a class="email-link" href="mailto:mtnshsalah@gmail.com"> <span><i class="fas fa-envelope"></i>
-                                &nbsp;
-                                mtnshsalah@gmail.com</span></a>
+                    <!-- Routiney -->
+                    <div class="portfolio-card">
+                        <div class="card-image">
+                            <img src="./assets/images/Projects/Routiney.png" alt="Routiney">
+                            <div class="card-overlay">
+                                <a class="card-link">
+                                    <i class="bx bx-link-external"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Routiney App</h3>
+                            <p>Mobile application designed to help users create and maintain productive daily routines
+                                and habits.</p>
+                            <div class="card-tags">
+                                <span class="tag">Mobile App</span>
+                                <span class="tag">Productivity</span>
+                                <span class="tag">Habit Tracking</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="socials">
-                        <h2>Social Media</h2>
-                        <div class="socials-links">
-                            <a href="https://www.facebook.com/profile.php?id=100094695554668" target="_blank"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a href="https://twitter.com/SalahAlkmali" target="_blank"><i
-                                    class="fab fa-twitter"></i></a>
-                            <a href="https://www.instagram.com/codludev/" target="_blank"><i
-                                    class="fab fa-instagram"></i></a>
-                            <a href="https://www.linkedin.com/in/salah-alkmali-00063b11a/" target="_blank"><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a href="https://github.com/sanwaralkmali" target="_blank"><i class="fab fa-github"></i></a>
+
+                    <!-- CoachNinja -->
+                    <div class="portfolio-card">
+                        <div class="card-image">
+                            <img src="./assets/images/Projects/coachninja.jpeg" alt="CoachNinja">
+                            <div class="card-overlay">
+                                <a href="https://abdurrahmanninja.github.io/coach-abdualrhman-33/" class="card-link">
+                                    <i class="bx bx-link-external"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>CoachNinja Platform</h3>
+                            <p>Comprehensive coaching and mentoring platform connecting coaches with students for
+                                personalized learning experiences.</p>
+                            <div class="card-tags">
+                                <span class="tag">Coaching</span>
+                                <span class="tag">Platform</span>
+                                <span class="tag">Mentoring</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="footer-quick">
-                    <h2>Quick Links</h2>
-                    <ul>
-                        <a href="#home">
-                            <li>Home</li>
-                        </a>
-                        <a href="blog.html">
-                            <li>Blog</li>
-                        </a>
-                        <a href="mathlogame.html">
-                            <li>MATHLOGAME</li>
-                        </a>
-                        <a href="#portfolio">
-                            <li>Portfolio</li>
-                        </a>
-                        <a href="#contact">
-                            <li>Contact</li>
-                        </a>
-                    </ul>
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Let's Connect</h2>
+                    <p class="section-subtitle">Ready to transform mathematics education together?</p>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <p>
+                            Whether you're interested in MathLogame, want to collaborate on educational projects,
+                            or simply want to discuss the future of mathematics education, I'd love to hear from you.
+                        </p>
+
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:mtnsalah@gmail.com">mtnsalah@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+905524718600">+90 552 471 86 00</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-whatsapp"></i>
+                                <a href="https://wa.me/+905524718600" target="_blank">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-sidebar">
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/salah-alkmali-00063b11a/" target="_blank"
+                                class="social-btn">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/sanwaralkmali" target="_blank" class="social-btn">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://twitter.com/SalahAlkmali" target="_blank" class="social-btn">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                        </div>
+
+                        <div class="contact-actions">
+                            <button class="btn btn-primary contact-btn" id="openContactModal">
+                                <i class="fas fa-envelope"></i>
+                                Send a Message
+                            </button>
+                            <p class="contact-note">Click the button above to open the contact form</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="copy-rights"> &copy; salahalkmali.com | Designed by Salah Alkmali@<script>document.write(new Date().getFullYear())</script>
-            </div>
-
         </section>
     </main>
 
-<!-- WhatsApp Icon -->
-<a href="https://wa.me/+905524718600" class="whatsapp-icon" target="_blank">
-    <img src="./assets/images/icons/whatsapp.png" alt="WhatsApp">
-</a>
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Send a Message</h3>
+                <button class="modal-close" id="closeContactModal" aria-label="Close contact form">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="contactForm" class="modern-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Sending...
+                            </span>
+                        </button>
+                    </div>
+                </form>
+                <div id="formMessage" class="form-message" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    </main>
 
+    <!-- Footer -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="./assets/images/icons/LOGO-Transparent.png" alt="Salah Alkmali" width="120px">
+                    <p>Transforming mathematics education through innovation and technology.</p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="mathlogame.html" class="footer-link">MathLogame Platform</a>
+                    <a href="blog.html" class="footer-link">Blog</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Salah Alkmali. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Icon -->
+    <!--
+    <a href="https://wa.me/+905524718600" class="whatsapp-icon" target="_blank">
+        <img src="./assets/images/icons/whatsapp.png" alt="WhatsApp">
+    </a>
+-->
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
-
-<script src="assets/js/main.js"></script>
 
 </html>
