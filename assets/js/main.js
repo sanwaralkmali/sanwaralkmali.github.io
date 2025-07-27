@@ -8,7 +8,7 @@ const navLinks = document.querySelectorAll('.nav-link');
 if (navToggle) {
     navToggle.addEventListener('click', function () {
         navMenu.classList.toggle('show');
-        
+
         // Animate hamburger menu
         const spans = navToggle.querySelectorAll('span');
         spans.forEach((span, index) => {
@@ -26,10 +26,10 @@ if (navToggle) {
 
 // Close mobile menu when clicking on a link
 navLinks.forEach(link => {
-    link.addEventListener('click', function() {
+    link.addEventListener('click', function () {
         if (navMenu.classList.contains('show')) {
             navMenu.classList.remove('show');
-            
+
             // Reset hamburger menu
             const spans = navToggle.querySelectorAll('span');
             spans.forEach(span => {
@@ -44,12 +44,12 @@ navLinks.forEach(link => {
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         const href = link.getAttribute('href');
-        
+
         // Only handle internal links
         if (href.startsWith('#')) {
             e.preventDefault();
             const targetSection = document.querySelector(href);
-            
+
             if (targetSection) {
                 targetSection.scrollIntoView({
                     behavior: 'smooth',
@@ -100,7 +100,7 @@ window.addEventListener('scroll', () => {
 document.addEventListener('click', (e) => {
     if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
         navMenu.classList.remove('show');
-        
+
         // Reset hamburger menu
         const spans = navToggle.querySelectorAll('span');
         spans.forEach(span => {
@@ -118,7 +118,7 @@ document.addEventListener('click', (e) => {
 function animateCounter(element, target, duration = 2000) {
     let start = 0;
     const increment = target / (duration / 16);
-    
+
     function updateCounter() {
         start += increment;
         if (start < target) {
@@ -128,7 +128,7 @@ function animateCounter(element, target, duration = 2000) {
             element.textContent = target;
         }
     }
-    
+
     updateCounter();
 }
 
@@ -151,41 +151,6 @@ statNumbers.forEach(stat => {
 
 /****************************************************/
 
-/********************** Portfolio Filter **************************/
-
-// Portfolio filtering functionality (if needed in the future)
-function initPortfolioFilter() {
-    const filterButtons = document.querySelectorAll('.category-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-card');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const category = button.getAttribute('data-category');
-            
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            
-            // Filter items
-            portfolioItems.forEach(item => {
-                if (category === 'all' || item.getAttribute('data-category') === category) {
-                    item.style.display = 'block';
-                    item.style.animation = 'fadeInUp 0.6s ease forwards';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-    });
-}
-
-// Initialize portfolio filter if elements exist
-if (document.querySelector('.category-btn')) {
-    initPortfolioFilter();
-}
-
-/****************************************************/
-
 /********************** Modal Handling **************************/
 
 // Modal functionality
@@ -196,7 +161,7 @@ const cancelBtn = document.getElementById('cancelBtn');
 
 // Open modal
 if (openModalBtn) {
-    openModalBtn.addEventListener('click', function() {
+    openModalBtn.addEventListener('click', function () {
         modal.classList.add('show');
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
     });
@@ -228,7 +193,7 @@ if (cancelBtn) {
 
 // Close modal when clicking outside
 if (modal) {
-    modal.addEventListener('click', function(e) {
+    modal.addEventListener('click', function (e) {
         if (e.target === modal) {
             closeModal();
         }
@@ -236,16 +201,149 @@ if (modal) {
 }
 
 // Close modal with Escape key
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && modal.classList.contains('show')) {
         closeModal();
+    }
+});
+
+/********************** Project Modal **************************/
+
+// Project modal elements
+const projectModal = document.getElementById('projectModal');
+const closeProjectModalBtn = document.getElementById('closeProjectModal');
+const projectDetailsBtns = document.querySelectorAll('.project-details-btn');
+
+// Project data
+const projectData = {
+    mathlogame: {
+        title: 'MathLogame Platform',
+        subtitle: 'Revolutionary Mathematics Learning Platform',
+        description: 'My flagship educational platform that combines modern web development with innovative teaching methods. Built with cutting-edge technologies, MathLogame transforms how students experience mathematics through interactive, gamified learning experiences. The platform features responsive design, real-time interactions, and advanced analytics to optimize learning outcomes.',
+        image: './assets/images/Projects/math-booklet.png',
+        tags: ['Education', 'Mathematics', 'Interactive Learning', 'Web Development', 'Gamification'],
+        links: [
+            { text: 'Visit Platform', url: 'mathlogame.html', icon: 'bx bx-link-external' },
+        ]
+    },
+    kidlogame: {
+        title: 'KIDLOGAME',
+        subtitle: 'Educational Gaming for Children',
+        description: 'A comprehensive educational gaming app designed specifically for children. Built with Flutter, this mobile application combines learning with fun through interactive games and activities. The app features age-appropriate content, engaging animations, and progress tracking to make learning enjoyable for young minds.',
+        image: './assets/images/Projects/KidloGame.png',
+        tags: ['Flutter', 'Mobile App', 'Education', 'Children', 'Gaming'],
+        links: []
+    },
+    'python-book': {
+        title: 'Python Fundamentals for Kids',
+        subtitle: 'Comprehensive Python Learning Resource',
+        description: 'A complete Python learning resource designed to make coding accessible and enjoyable for young learners. This comprehensive guide covers fundamental programming concepts through interactive examples, exercises, and projects. Perfect for beginners and educators looking to introduce programming to children.',
+        image: './assets/images/Projects/Python-book.png',
+        tags: ['Python', 'Education', 'Content Creation', 'Programming', 'Beginner-Friendly'],
+        links: [
+            { text: 'Download PDF', url: './assets/pdf/Learnprogrammingwithpython-1.pdf', icon: 'bx bx-file-pdf' },
+        ]
+    },
+    'web-course': {
+        title: 'Arabic Web Course',
+        subtitle: 'Complete Web Development Course in Arabic',
+        description: 'A comprehensive web development course in Arabic, covering both front-end and back-end technologies. This course is designed for Arabic-speaking learners who want to master modern web development. Includes practical projects, real-world examples, and step-by-step tutorials.',
+        image: './assets/images/Projects/Book-design-web.png',
+        tags: ['Web Development', 'Education', 'Arabic', 'Frontend', 'Backend'],
+        links: [
+            { text: 'Download Course', url: './assets/pdf/Easy WEB.pdf', icon: 'bx bx-file-pdf' },
+        ]
+    },
+    routiney: {
+        title: 'Routiney App',
+        subtitle: 'Productive Daily Routines & Habit Tracking',
+        description: 'A mobile application designed to help users create and maintain productive daily routines and habits. Features include habit tracking, progress visualization, reminders, and community support. Built with modern mobile development practices for optimal performance and user experience.',
+        image: './assets/images/Projects/Routiney.png',
+        tags: ['Mobile App', 'Productivity', 'Habit Tracking', 'User Experience', 'Health'],
+        links: []
+    },
+    coachninja: {
+        title: 'CoachNinja Platform',
+        subtitle: 'Comprehensive Coaching & Mentoring Platform',
+        description: 'A comprehensive coaching and mentoring platform that connects coaches with students for personalized learning experiences. Features include video conferencing, progress tracking, payment processing, and community features. Designed to facilitate meaningful mentor-student relationships.',
+        image: './assets/images/Projects/coachninja.jpeg',
+        tags: ['Coaching', 'Platform', 'Mentoring', 'Video Conferencing', 'E-learning'],
+        links: [
+            { text: 'Visit Platform', url: 'https://abdurrahmanninja.github.io/coach-abdualrhman-33/', icon: 'bx bx-link-external' }
+        ]
+    }
+};
+
+// Open project modal
+function openProjectModal(projectId) {
+    const project = projectData[projectId];
+    if (!project) return;
+
+    // Update modal content
+    document.getElementById('projectModalTitle').textContent = project.title;
+    document.getElementById('projectModalSubtitle').textContent = project.subtitle;
+    document.getElementById('projectModalDescription').textContent = project.description;
+    document.getElementById('projectModalImage').src = project.image;
+    document.getElementById('projectModalImage').alt = project.title;
+
+    // Update tags
+    const tagsContainer = document.getElementById('projectModalTags');
+    tagsContainer.innerHTML = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+
+    // Update links
+    const linksContainer = document.getElementById('projectModalLinks');
+    linksContainer.innerHTML = project.links.map(link =>
+        `<a href="${link.url}" target="_blank" rel="noopener">
+            <i class="${link.icon}"></i>
+            ${link.text}
+        </a>`
+    ).join('');
+
+    // Show modal
+    projectModal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+// Close project modal
+function closeProjectModal() {
+    projectModal.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+// Event listeners for project modal
+if (closeProjectModalBtn) {
+    closeProjectModalBtn.addEventListener('click', closeProjectModal);
+}
+
+// Project details button click handlers
+projectDetailsBtns.forEach(btn => {
+    btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const projectId = this.getAttribute('data-project');
+        openProjectModal(projectId);
+    });
+});
+
+// Close project modal when clicking outside
+if (projectModal) {
+    projectModal.addEventListener('click', function (e) {
+        if (e.target === projectModal) {
+            closeProjectModal();
+        }
+    });
+}
+
+// Close project modal with Escape key
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && projectModal.classList.contains('show')) {
+        closeProjectModal();
     }
 });
 
 /********************** Form Handling **************************/
 
 // Initialize EmailJS
-(function() {
+(function () {
     emailjs.init("dyiFkwogR3sfUm21i");
 })();
 
@@ -257,30 +355,30 @@ const btnLoading = document.querySelector('.btn-loading');
 const formMessage = document.getElementById('formMessage');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         // Get form data
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const message = document.getElementById('message').value.trim();
-        
+
         // Basic validation
         if (!name || !email || !message) {
             showMessage('Please fill in all fields', 'error');
             return;
         }
-        
+
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             showMessage('Please enter a valid email address', 'error');
             return;
         }
-        
+
         // Show loading state
         setLoadingState(true);
-        
+
         // Prepare template parameters
         const templateParams = {
             to_email: 'mtnsalah@gmail.com',
@@ -295,10 +393,10 @@ if (contactForm) {
             sender_name: name,
             sender_email: email
         };
-        
+
         // Send email using EmailJS
         emailjs.send('service_jaceyjn', 'template_9jent4n', templateParams)
-            .then(function(response) {
+            .then(function (response) {
                 console.log('SUCCESS!', response.status, response.text);
                 showMessage('Thank you for your message! I\'ll get back to you soon.', 'success');
                 contactForm.reset();
@@ -306,11 +404,11 @@ if (contactForm) {
                 setTimeout(() => {
                     closeModal();
                 }, 2000);
-            }, function(error) {
+            }, function (error) {
                 console.log('FAILED...', error);
                 showMessage('Sorry, there was an error sending your message. Please try again or contact me directly.', 'error');
             })
-            .finally(function() {
+            .finally(function () {
                 setLoadingState(false);
             });
     });
@@ -321,7 +419,7 @@ function showMessage(message, type) {
     formMessage.textContent = message;
     formMessage.className = `form-message ${type}`;
     formMessage.style.display = 'block';
-    
+
     // Hide message after 5 seconds
     setTimeout(() => {
         formMessage.style.display = 'none';
@@ -363,55 +461,12 @@ const observer = new IntersectionObserver((entries) => {
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.hero-content, .about-content, .mathlogame-content, .portfolio-card, .contact-content');
-    
+
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
-    });
-});
-
-/****************************************************/
-
-/********************** Legacy Code (keeping for compatibility) **************************/
-
-// Spotlight effect (if needed)
-const spotlight = document.querySelector('#spotlight');
-if (spotlight) {
-    let spotXpos = 0;
-    
-    window.addEventListener('mousemove', e => {
-        spotlight.style.left = e.pageX + spotXpos + 'px';
-        spotlight.style.top = e.pageY + 'px';
-    });
-}
-
-// Progress bar animation (if needed)
-function startProgressBarAnimation(progressBar, level) {
-    let width = 0;
-    const targetWidth = level;
-    
-    function frame() {
-        if (width >= targetWidth) {
-            clearInterval(id);
-        } else {
-            width++;
-            progressBar.style.width = width + '%';
-        }
-    }
-    
-    const id = setInterval(frame, 10);
-}
-
-// Initialize progress bars if they exist
-document.addEventListener('DOMContentLoaded', () => {
-    const progressBars = document.querySelectorAll('.progress-bar');
-    progressBars.forEach(bar => {
-        const level = bar.getAttribute('data-level');
-        if (level) {
-            startProgressBarAnimation(bar, level);
-        }
     });
 });
 

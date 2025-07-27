@@ -650,7 +650,8 @@ img {
   padding: 16px;
 }
 
-.card {
+/* Legacy card styles - only for specific elements */
+.legacy-card {
   position: relative;
   max-width: 560px;
   height: 100%;
@@ -665,14 +666,14 @@ img {
   transition: all 0.3s ease;
 }
 
-.card-img {
+.legacy-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: opacity 0.3s ease;
 }
 
-.card-overlay {
+.legacy-card-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -690,27 +691,27 @@ img {
   transition: opacity 0.3s ease;
 }
 
-.card:hover .card-img {
+.legacy-card:hover .legacy-card-img {
   opacity: 0.1;
 }
 
-.card:hover .card-overlay {
+.legacy-card:hover .legacy-card-overlay {
   opacity: 0.8;
   cursor: pointer;
 }
 
-.card-title {
+.legacy-card-title {
   font-size: 24px;
   margin-bottom: 10px;
   color: var(--body-color-dark);
 }
 
-.card-description {
+.legacy-card-description {
   font-size: 16px;
   text-align: center;
 }
 
-.card-tags {
+.legacy-card-tags {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -718,20 +719,7 @@ img {
   margin-top: 10px;
 }
 
-.tag {
-  background-color: var(--nav-color-dark-purpul);
-  padding: 5px 10px;
-  border-radius: 10px;
-  color: var(--first-color);
-  font-size: 14px;
-}
-
-.tag:hover {
-  background-color: var(--light-purple);
-  color: var(--body-color);
-}
-
-.card:hover {
+.legacy-card:hover {
   transform: scale(1.05);
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
 }
@@ -819,8 +807,6 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 16px;
-  padding: 24px;
   flex-wrap: wrap;
   background-color:  rgb(25, 25, 30);
   margin-top: 8rem;
@@ -842,15 +828,14 @@ img {
 
 .footer-content p {
   font-size: 1.55rem;
-  padding-bottom: 24px;
+  padding-bottom: 6px;
 }
 
 .footer-main-contact {
-  padding-bottom: 16px;
+  padding-bottom: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
 }
 
 .socials-links {
@@ -858,7 +843,6 @@ img {
   justify-content: center;
   align-items: center;
   gap: 16px;
-  padding: 8px;
 }
 
 .socials-links a,
@@ -1056,15 +1040,15 @@ img {
     align-items: center;
   }
 
-  .card-title {
+  .legacy-card-title {
     font-size: 16px;
   }
 
-  .card-description {
+  .legacy-card-description {
     font-size: 12px;
   }
 
-  .card-tags {
+  .legacy-card-tags {
     gap: 5px;
     margin-top: 4px;
   }
@@ -2085,6 +2069,7 @@ img {
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: var(--spacing-lg);
+  margin-top: 16px;
 }
 
 .highlight-text {
@@ -2125,7 +2110,7 @@ img {
   transition: var(--transition-normal);
   border: none;
   cursor: pointer;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-md) !important;
 }
 
 /* Modal buttons - smaller and more compact */
@@ -2172,7 +2157,8 @@ img {
 
 .hero-socials {
   display: flex;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
+
 }
 
 .social-link {
@@ -2389,7 +2375,7 @@ img {
 .feature-item {
   display: flex;
   gap: var(--spacing-md);
-  align-items: flex-start;
+  align-items: center;
 }
 
 .feature-icon {
@@ -2408,6 +2394,13 @@ img {
   color: white;
 }
 
+.feature-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
 .feature-content h4 {
   font-size: var(--font-size-lg);
   font-weight: 600;
@@ -2418,6 +2411,7 @@ img {
 .feature-content p {
   color: var(--text-secondary);
   line-height: 1.6;
+  margin-bottom: 0;
 }
 
 .cta-buttons {
@@ -2515,11 +2509,21 @@ img {
   text-decoration: none;
   font-size: var(--font-size-xl);
   transition: var(--transition-normal);
+  border: none;
+  cursor: pointer;
 }
 
 .card-link:hover {
   background: var(--primary-dark);
   transform: scale(1.1);
+}
+
+.project-details-btn {
+  background: var(--accent-color) !important;
+}
+
+.project-details-btn:hover {
+  background: #059669 !important;
 }
 
 .card-content {
@@ -2552,16 +2556,16 @@ img {
 
 .card-tags {
   display: flex;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
   flex-wrap: wrap;
 }
 
 .tag {
   background: var(--bg-tertiary);
   color: var(--text-secondary);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-sm);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
   border: 1px solid var(--border-color);
   transition: var(--transition-normal);
 }
@@ -2589,7 +2593,7 @@ img {
 .contact-sidebar {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-sm);
 }
 
 .contact-info h3 {
@@ -2608,8 +2612,8 @@ img {
 
 .contact-details {
   display: grid;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
 }
 
 .contact-item {
@@ -2654,7 +2658,7 @@ img {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  padding: var(--spacing-md) var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-md);
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
@@ -2758,15 +2762,15 @@ img {
 .modern-footer {
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-color);
-  padding: var(--spacing-xl) 0 var(--spacing-lg);
+  padding: var(--spacing-lg) 0 var(--spacing-md);
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-lg);
-  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  gap: var(--spacing-md);
 }
 
 .footer-brand {
@@ -2785,7 +2789,7 @@ img {
 
 .footer-links {
   display: flex;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-xs);
   align-items: center;
 }
 
@@ -2794,7 +2798,7 @@ img {
   text-decoration: none;
   font-weight: 500;
   transition: var(--transition-normal);
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-xs);
   border-radius: var(--border-radius-sm);
 }
 
@@ -2805,7 +2809,7 @@ img {
 
 .footer-bottom {
   text-align: center;
-  padding-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
   border-top: 1px solid var(--border-color);
   color: var(--text-muted);
   font-size: var(--font-size-sm);
@@ -2844,12 +2848,12 @@ img {
   .mathlogame-content,
   .contact-content {
     grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-sm);
   }
   
   .about-content {
     max-width: 100%;
-    padding: 0 var(--spacing-md);
+    padding: 0 var(--spacing-sm);
   }
   
 
@@ -2857,12 +2861,12 @@ img {
   .footer-content {
     flex-direction: column;
     text-align: center;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-sm);
   }
   
   .footer-links {
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-xs);
   }
 }
 
@@ -2935,22 +2939,114 @@ img {
     grid-template-columns: 1fr;
   }
   
-  .card-content {
+  /* Only apply to portfolio cards, not game cards */
+  .portfolio-card .card-content {
     padding: var(--spacing-sm);
   }
   
   .social-links {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .social-btn {
+    padding: var(--spacing-sm);
+    min-width: 50px;
+    justify-content: center;
+  }
+  
+  .social-btn span {
+    display: none;
+  }
+  
+  /* Make buttons smaller on mobile */
+  .btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+  
+  /* Reduce about section content */
+  .about-text p {
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+  }
+  
+  /* Reorder MathLogame section - image first, then content */
+  .mathlogame-content {
+    flex-direction: column-reverse;
+  }
+  
+  .mathlogame-preview {
+    order: -1;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  /* Make portfolio cards more compact */
+  .portfolio-card {
+    max-height: 400px;
+    overflow: hidden;
+  }
+  
+  /* Only apply these styles to portfolio cards, not game cards */
+  .portfolio-card .card-content {
+    padding: var(--spacing-xs);
+  }
+  
+  .portfolio-card .card-content h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .portfolio-card .card-content p {
+    font-size: var(--font-size-sm);
+    line-height: 1.4;
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .portfolio-card .card-tags {
+    gap: 0.25rem;
+  }
+  
+  .portfolio-card .tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+  
+  /* Reduce contact section padding */
+  .contact-item {
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .contact-item i {
+    font-size: var(--font-size-lg);
+  }
+  
+  .contact-item a {
+    font-size: var(--font-size-sm);
+  }
+  
+  .social-btn {
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    min-width: 45px;
   }
 }
 
 @media (max-width: 480px) {
+  .hero-socials {
+    justify-content: center;
+  }
   .container {
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-xs) !important;
   }
   
   .hero-section {
-    padding-top: var(--spacing-md) !important;
+    padding-top: var(--spacing-xs) !important;
   }
   
   .hero-title {
@@ -2971,7 +3067,7 @@ img {
   }
   
   .stat-item {
-    padding: var(--spacing-lg) !important;
+    padding: var(--spacing-md) !important;
   }
   
   .profile-image {
@@ -2989,20 +3085,55 @@ img {
     padding: 0 var(--spacing-sm) !important;
   }
   
-  .card-content {
-    padding: var(--spacing-sm) !important;
+  /* Only apply to portfolio cards, not game cards */
+  .portfolio-card .card-content {
+    padding: var(--spacing-xs) !important;
   }
   
   .nav-logo img {
-    height: 48px !important;
+    height: 64px !important;
   }
+  
   .whatsapp-icon {
     width: 48px;
     height: 48px;
   }
+  
   .whatsapp-icon img {
     width: 32px;
     height: 32px;
+  }
+  
+  /* Even smaller buttons for very small screens */
+  .btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+  
+  /* Compact portfolio cards */
+  .portfolio-card {
+    max-height: 350px;
+  }
+  
+  /* Only apply to portfolio cards, not game cards */
+  .portfolio-card .card-content h3 {
+    font-size: var(--font-size-base);
+  }
+  
+  .portfolio-card .card-content p {
+    font-size: var(--font-size-xs);
+    line-height: 1.3;
+  }
+  
+  /* Reduce contact section spacing */
+  .contact-item {
+    padding: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .social-btn {
+    padding: var(--spacing-xs) var(--spacing-sm) !important;
+    font-size: var(--font-size-xl) !important;
   }
 }
 
@@ -3016,12 +3147,13 @@ img {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
-  padding: var(--spacing-md) var(--spacing-xl);
+  padding: var(--spacing-md) var(--spacing-lg);
   font-size: var(--font-size-lg);
   font-weight: 600;
   border-radius: var(--radius-xl);
   transition: var(--transition-normal);
   box-shadow: var(--shadow-lg);
+  font-family: "cairo" !important;
 }
 
 .contact-btn:hover {
@@ -3158,8 +3290,8 @@ img {
   }
   
   .contact-btn {
-    padding: var(--spacing-sm) var(--spacing-lg);
-    font-size: var(--font-size-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-md);
   }
   
   .form-group input,
@@ -3177,5 +3309,116 @@ img {
 @media (max-width: 1024px) {
   .social-links {
     justify-content: center;
+  }
+}
+
+/* Project Modal Styles */
+.project-modal-content {
+  max-width: 600px;
+  width: 90%;
+}
+
+.project-modal-image {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.project-modal-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.project-modal-content h4 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.project-modal-content p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-lg);
+}
+
+.project-modal-tags {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-lg);
+}
+
+.project-modal-tags .tag {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  border: 1px solid var(--border-color);
+}
+
+.project-modal-links {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.project-modal-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  transition: var(--transition-normal);
+}
+
+.project-modal-links a:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Mobile responsive for project modal */
+@media (max-width: 768px) {
+  .project-modal-content {
+    width: 96%;
+  }
+  
+  .project-modal-image img {
+    max-width: 100%;
+  }
+  
+  .project-modal-content h4 {
+    font-size: var(--font-size-lg);
+  }
+  
+  .project-modal-content p {
+    font-size: var(--font-size-sm);
+  }
+  
+  .project-modal-tags {
+    gap: 0.25rem;
+  }
+  
+  .project-modal-tags .tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+  
+  .project-modal-links {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .project-modal-links a {
+    justify-content: center;
+    padding: var(--spacing-sm);
   }
 }
