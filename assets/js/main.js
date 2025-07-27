@@ -224,6 +224,7 @@ const projectData = {
         tags: ['Education', 'Mathematics', 'Interactive Learning', 'Web Development', 'Gamification'],
         links: [
             { text: 'Visit Platform', url: 'mathlogame.html', icon: 'bx bx-link-external' },
+            { text: 'Preview PDF', url: './assets/pdf/mathlogame-preview.pdf', icon: 'bx bx-file-pdf' },
         ]
     },
     kidlogame: {
@@ -449,7 +450,7 @@ const observerOptions = {
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entrigites) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
