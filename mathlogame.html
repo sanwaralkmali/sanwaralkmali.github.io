@@ -65,6 +65,46 @@
             -webkit-backdrop-filter: blur(10px);
         }
 
+        /* Improved dropdown styling */
+        .games-filter select {
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234bb3fd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
+
+        .games-filter select option {
+            background: #1e293b;
+            color: #fff;
+            padding: 0.5rem;
+            border: none;
+        }
+
+        .games-filter select:focus option:hover,
+        .games-filter select:focus option:focus,
+        .games-filter select:focus option:active,
+        .games-filter select:focus option:checked {
+            background: #4bb3fd;
+            color: #1e293b;
+        }
+
+        /* Additional dropdown improvements */
+        .games-filter select:hover {
+            border-color: #4bb3fd;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .games-filter select option:checked {
+            background: linear-gradient(135deg, #4bb3fd, #38d39f);
+            color: #1e293b;
+            font-weight: 600;
+        }
+
         .games-filter input[type="text"]::placeholder {
             color: rgba(255, 255, 255, 0.6);
             opacity: 1;
@@ -472,14 +512,10 @@
                 <select id="chapterFilter" title="Filter by Chapter"
                     style="padding:0.5rem 1rem;border-radius:0.5rem;border:1px solid #ccc;">
                     <option value="">All Chapters</option>
-                    <option value="Number System">Number System</option>
-                    <option value="Operations">Operations</option>
-                    <option value="Fractions & Decimals">Fractions & Decimals</option>
-                    <option value="Scientific Notation">Scientific Notation</option>
-                    <option value="Algebra">Algebra</option>
-                    <option value="Equations & Inequalities">Equations & Inequalities</option>
-                    <option value="Factoring">Factoring</option>
-                    <option value="Special Products">Special Products</option>
+                    <option value="Number System">1. Number System</option>
+                    <option value="Arithmetic Operations">2. Arithmetic Operations</option>
+                    <option value="Algebra I">3. Algebra I</option>
+                    <option value="Algebra II">4. Algebra II</option>
                 </select>
                 <select id="skillTypeFilter" title="Filter by Skill Type"
                     style="padding:0.5rem 1rem;border-radius:0.5rem;border:1px solid #ccc;">
@@ -501,18 +537,16 @@
                     <option value="9">Grade 9</option>
                     <option value="10">Grade 10</option>
                 </select>
-                <select id="difficultyFilter" title="Filter by Difficulty"
+                <select id="freeFilter" title="Filter by Free Items"
                     style="padding:0.5rem 1rem;border-radius:0.5rem;border:1px solid #ccc;">
-                    <option value="">All Difficulties</option>
-                    <option value="Easy">Easy</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Hard">Hard</option>
+                    <option value="">All Items</option>
+                    <option value="free">Free Items Only</option>
+                    <option value="premium">Premium Items Only</option>
                 </select>
                 <select id="sortFilter" title="Sort Games"
                     style="padding:0.5rem 1rem;border-radius:0.5rem;border:1px solid #ccc;">
                     <option value="">Sort By</option>
                     <option value="name">Name (A-Z)</option>
-                    <option value="difficulty">Difficulty</option>
                     <option value="grade">Grade Level</option>
                 </select>
             </div>
@@ -545,8 +579,8 @@
                     </a>
                 </div>
 
-                <div class="game-card" data-chapter="Operations" data-skilltype="Calculation" data-grade="6,7"
-                    data-difficulty="Easy,Medium"
+                <div class="game-card" data-chapter="Arithmetic Operations" data-skilltype="Calculation"
+                    data-grade="6,7" data-difficulty="Easy,Medium"
                     data-keywords="operations,integers,rational,order,arithmetic,practice">
                     <div class="game-header">
                         <div class="game-icon">
@@ -593,8 +627,8 @@
                     </a>
                 </div>
 
-                <div class="game-card" data-chapter="Fractions & Decimals" data-skilltype="Conversion" data-grade="6,7"
-                    data-difficulty="Easy,Medium"
+                <div class="game-card" data-chapter="Arithmetic Operations" data-skilltype="Conversion" data-grade="6,7"
+                    data-difficulty="Easy,Medium" data-free="true"
                     data-keywords="fractions,decimals,percentages,conversion,match,equivalent">
                     <div class="game-header">
                         <div class="game-icon">
@@ -621,8 +655,9 @@
                 </div>
 
                 <!-- Scientific Notation Game Card -->
-                <div class="game-card" data-chapter="Scientific Notation" data-skilltype="Calculation" data-grade="8,9"
-                    data-difficulty="Medium" data-keywords="scientific,notation,standard,form,large,small,numbers">
+                <div class="game-card" data-chapter="Arithmetic Operations" data-skilltype="Calculation"
+                    data-grade="8,9" data-difficulty="Medium"
+                    data-keywords="scientific,notation,standard,form,large,small,numbers">
                     <div class="game-header">
                         <div class="game-icon">
                             <img src="assets/images/icons/science.png" alt="Scientific Notation" srcset="">
@@ -658,7 +693,7 @@
                 </div>
 
                 <!-- Understanding Variables and Constants Game Card -->
-                <div class="game-card" data-chapter="Algebra" data-skilltype="Classification" data-grade="7,8"
+                <div class="game-card" data-chapter="Algebra I" data-skilltype="Classification" data-grade="7,8"
                     data-difficulty="Medium" data-keywords="algebra,variables,constants,expressions,equations">
                     <div class="game-header">
                         <div class="game-icon">
@@ -685,7 +720,7 @@
                 </div>
 
                 <!-- Simplifying Expressions Game Card -->
-                <div class="game-card" data-chapter="Algebra" data-skilltype="Simplification" data-grade="7,8"
+                <div class="game-card" data-chapter="Algebra I" data-skilltype="Simplification" data-grade="7,8"
                     data-difficulty="Medium" data-keywords="simplifying,expressions,distributive,property,like terms">
                     <div class="game-header">
                         <div class="game-icon">
@@ -712,7 +747,7 @@
                 </div>
 
                 <!-- Solving Linear Equations Game Card -->
-                <div class="game-card" data-chapter="Equations & Inequalities" data-skilltype="Solving" data-grade="7,8"
+                <div class="game-card" data-chapter="Algebra I" data-skilltype="Solving" data-grade="7,8"
                     data-difficulty="Medium" data-keywords="linear,equations,solving,one-step,two-step,variables">
                     <div class="game-header">
                         <div class="game-icon">
@@ -750,7 +785,7 @@
                 </div>
 
                 <!-- Solving Inequalities Game Card -->
-                <div class="game-card" data-chapter="Equations & Inequalities" data-skilltype="Solving" data-grade="7,8"
+                <div class="game-card" data-chapter="Algebra I" data-skilltype="Solving" data-grade="7,8"
                     data-difficulty="Medium" data-keywords="inequalities,solving,graph,one-step,two-step,number line">
                     <div class="game-header">
                         <div class="game-icon">
@@ -788,7 +823,7 @@
                 </div>
 
                 <!-- Factoring Game Card -->
-                <div class="game-card" data-chapter="Factoring" data-skilltype="Factoring" data-grade="8,9"
+                <div class="game-card" data-chapter="Algebra II" data-skilltype="Factoring" data-grade="8,9"
                     data-difficulty="Medium" data-keywords="factoring,gcf,grouping,expressions,algebra">
                     <div class="game-header">
                         <div class="game-icon">
@@ -825,8 +860,9 @@
                     </a>
                 </div>
                 <!-- Factoring Trinomials Game Card -->
-                <div class="game-card" data-chapter="Factoring" data-skilltype="Factoring" data-grade="9"
-                    data-difficulty="Hard" data-keywords="factoring,trinomials,quadratic,ax2,expressions">
+                <div class="game-card" data-chapter="Algebra II" data-skilltype="Factoring" data-grade="9"
+                    data-difficulty="Hard" data-free="true"
+                    data-keywords="factoring,trinomials,quadratic,ax2,expressions">
                     <div class="game-header">
                         <div class="game-icon">
                             <img src="assets/images/icons/factoring.png" alt="Factoring Trinomials" srcset="">
@@ -863,9 +899,8 @@
                     </a>
                 </div>
                 <!-- Difference of Squares & Perfect Square Trinomials Game Card -->
-                <div class="game-card" data-chapter="Special Products" data-skilltype="Pattern Recognition"
-                    data-grade="9,10" data-difficulty="Hard"
-                    data-keywords="difference,squares,perfect,square,trinomials,patterns">
+                <div class="game-card" data-chapter="Algebra II" data-skilltype="Pattern Recognition" data-grade="9,10"
+                    data-difficulty="Hard" data-keywords="difference,squares,perfect,square,trinomials,patterns">
                     <div class="game-header">
                         <div class="game-icon">
                             <img src="assets/images/icons/fsquare.png"
@@ -902,8 +937,8 @@
                     </a>
                 </div>
                 <!-- Sum and Difference of Cubes Game Card -->
-                <div class="game-card" data-chapter="Special Products" data-skilltype="Pattern Recognition"
-                    data-grade="10" data-difficulty="Hard" data-keywords="sum,difference,cubes,polynomials,patterns">
+                <div class="game-card" data-chapter="Algebra II" data-skilltype="Pattern Recognition" data-grade="10"
+                    data-difficulty="Hard" data-keywords="sum,difference,cubes,polynomials,patterns">
                     <div class="game-header">
                         <div class="game-icon">
                             <img src="assets/images/icons/cubed.png" alt="Sum and Difference of Cubes" srcset="">
@@ -928,8 +963,8 @@
                         Start Game
                     </a>
                 </div>
-                <div class="game-card" data-chapter="Algebra" data-skilltype="Solving" data-grade="9,10"
-                    data-difficulty="Hard" data-keywords="completing,square,quadratic,algebra,roots">
+                <div class="game-card" data-chapter="Algebra II" data-skilltype="Solving" data-grade="9,10"
+                    data-difficulty="Hard" data-free="true" data-keywords="completing,square,quadratic,algebra,roots">
                     <div class="game-header">
                         <div class="game-icon">
                             <img src="assets/images/icons/complete-square.png" alt="Completing the Square" />
@@ -954,7 +989,7 @@
                     </a>
                 </div>
 
-                <div class="game-card" data-chapter="Algebra" data-skilltype="Solving" data-grade="9,10"
+                <div class="game-card" data-chapter="Algebra II" data-skilltype="Solving" data-grade="9,10"
                     data-difficulty="Hard" data-keywords="quadratic,equations,completing,square,roots">
                     <div class="game-header">
                         <div class="game-icon">
@@ -982,7 +1017,7 @@
                 </div>
 
                 <!-- Quadratic Formula Game Card -->
-                <div class="game-card" data-chapter="Algebra" data-skilltype="Solving" data-grade="9,10"
+                <div class="game-card" data-chapter="Algebra II" data-skilltype="Solving" data-grade="9,10"
                     data-difficulty="Hard" data-keywords="quadratic,equations,completing,square,roots">
                     <div class="game-header">
                         <div class="game-icon">
@@ -1010,7 +1045,7 @@
                 </div>
 
                 <!-- Adding new card for understanding-polynomials -->
-                <div class="game-card" data-chapter="Algebra" data-skilltype="Solving" data-grade="9,10"
+                <div class="game-card" data-chapter="Algebra II" data-skilltype="Solving" data-grade="9,10"
                     data-difficulty="Hard" data-keywords="quadratic,equations,completing,square,roots">
                     <div class="game-header">
                         <div class="game-icon">
@@ -1038,7 +1073,7 @@
 
                 <!-- adding-and-subtracting-polynomials -->
 
-                <div class="game-card" data-chapter="Algebra" data-skilltype="Solving" data-grade="9,10"
+                <div class="game-card" data-chapter="Algebra II" data-skilltype="Solving" data-grade="9,10"
                     data-difficulty="Hard" data-keywords="quadratic,equations,completing,square,roots">
                     <div class="game-header">
                         <div class="game-icon">
@@ -1067,8 +1102,8 @@
                 </div>
 
                 <!-- multiplying-polynomials -->
-                <div class="game-card" data-chapter="Algebra" data-skilltype="Solving" data-grade="9,10"
-                    data-difficulty="Hard" data-keywords="quadratic,equations,completing,square,roots">
+                <div class="game-card" data-chapter="Algebra II" data-skilltype="Solving" data-grade="9,10"
+                    data-difficulty="Hard" data-free="true" data-keywords="quadratic,equations,completing,square,roots">
                     <div class="game-header">
                         <div class="game-icon">
                             <img src="assets/images/icons/multiply-poly.png" alt="Multiplying Polynomials" srcset="">
@@ -1146,7 +1181,7 @@
         const chapterFilter = document.getElementById('chapterFilter');
         const skillTypeFilter = document.getElementById('skillTypeFilter');
         const gradeFilter = document.getElementById('gradeFilter');
-        const difficultyFilter = document.getElementById('difficultyFilter');
+        const freeFilter = document.getElementById('freeFilter');
         const sortFilter = document.getElementById('sortFilter');
         const gameCards = Array.from(document.querySelectorAll('.game-card'));
         const gamesGrid = document.querySelector('.games-grid');
@@ -1156,7 +1191,7 @@
             const chapter = chapterFilter.value;
             const skillType = skillTypeFilter.value;
             const grade = gradeFilter.value;
-            const difficulty = difficultyFilter.value;
+            const free = freeFilter.value;
             const sortBy = sortFilter.value;
 
             let filtered = gameCards.filter(card => {
@@ -1170,9 +1205,11 @@
                 const matchesSkillType = !skillType || card.dataset.skilltype === skillType;
                 // Filter by grade (can be comma separated)
                 const matchesGrade = !grade || card.dataset.grade.split(',').map(g => g.trim()).includes(grade);
-                // Filter by difficulty (can be comma separated)
-                const matchesDifficulty = !difficulty || card.dataset.difficulty.split(',').map(d => d.trim()).includes(difficulty);
-                return matchesSearch && matchesChapter && matchesSkillType && matchesGrade && matchesDifficulty;
+                // Filter by free/premium status
+                const matchesFree = !free ||
+                    (free === 'free' && card.dataset.free === 'true') ||
+                    (free === 'premium' && !card.dataset.free);
+                return matchesSearch && matchesChapter && matchesSkillType && matchesGrade && matchesFree;
             });
 
             // Sorting
@@ -1190,7 +1227,7 @@
             filtered.forEach(card => gamesGrid.appendChild(card));
         }
 
-        [searchInput, chapterFilter, skillTypeFilter, gradeFilter, difficultyFilter, sortFilter].forEach(el => {
+        [searchInput, chapterFilter, skillTypeFilter, gradeFilter, freeFilter, sortFilter].forEach(el => {
             el.addEventListener('input', filterAndSortCards);
             el.addEventListener('change', filterAndSortCards);
         });
