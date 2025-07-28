@@ -89,9 +89,10 @@ body {
 /* Article Header */
 .article-header {
   text-align: center;
-  margin-bottom: var(--spacing-2xl);
-  padding-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-md);
   border-bottom: 1px solid var(--border-color);
+
+
 }
 
 .back-link {
@@ -218,6 +219,7 @@ body {
 
 .article-content ul li::marker {
   color: var(--primary-color);
+  
 }
 
 /* Blockquotes */
@@ -233,20 +235,14 @@ body {
 }
 
 /* Special Content Blocks */
-.intro-section {
-  background: var(--container-color);
-  border-radius: var(--radius-2xl);
-  padding: var(--spacing-xl);
-  margin: var(--spacing-xl) 0;
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-lg);
-}
+
 
 .intro-lead {
   font-size: var(--font-size-xl);
   font-weight: 600;
   color: var(--accent-color);
   margin-bottom: var(--spacing-md);
+  
 }
 
 .boring-block {
@@ -395,7 +391,7 @@ body {
 /* Featured Image */
 .featured-image {
   width: 100%;
-  margin: var(--spacing-xl) 0;
+  margin: var(--spacing-sm) 0;
   text-align: center;
 }
 

@@ -270,7 +270,7 @@ const projectData = {
         title: 'Interactive Equation Solver',
         subtitle: 'Educational Platform for Mathematical Learning',
         description: 'An educational platform designed to help students understand the mathematical process of solving linear and quadratic equations. Rather than just giving you the answer, this tool breaks down each equation into clear, logical steps, showing you exactly how mathematical operations transform one form of an equation into another. Features step-by-step animated solutions, interactive equation input, and support for multiple equation types including linear equations, quadratic equations, and systems of equations.',
-        image: './assets/images/Projects/equation-solver.jpeg',
+        image: './assets/images/Projects/equation-solver.png',
         tags: ['Education', 'Mathematics', 'Interactive Learning', 'Equation Solving', 'Web Development'],
         links: [
             { text: 'Try the Tool', url: 'https://equations-animated-solution.vercel.app/', icon: 'bx bx-link-external' }
