@@ -3479,3 +3479,251 @@ img {
     font-size: 0.875rem;
   }
 }
+
+/* Subtle Call-to-Action Styles */
+
+.subtle-cta {
+  display: inline;
+}
+
+.inline-cta {
+  display: inline;
+  color: #38d39f;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  background: rgba(56, 211, 159, 0.05);
+}
+
+.inline-cta::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #38d39f, #10b981);
+  transition: width 0.3s ease;
+}
+
+.inline-cta:hover {
+  color: #10b981;
+  background: rgba(56, 211, 159, 0.1);
+  transform: translateY(-1px);
+}
+
+.inline-cta:hover::before {
+  width: 100%;
+}
+
+/* Subtle animation for attention */
+@keyframes subtleGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(56, 211, 159, 0);
+  }
+  50% {
+    box-shadow: 0 0 8px rgba(56, 211, 159, 0.3);
+  }
+}
+
+.inline-cta {
+  animation: subtleGlow 4s ease-in-out infinite;
+}
+
+.inline-cta:hover {
+  animation: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .inline-cta {
+    font-size: 0.9em;
+    padding: 0.1rem 0.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .inline-cta {
+    font-size: 0.85em;
+    padding: 0.075rem 0.15rem;
+  }
+}
+
+/* Contextual Placement Styles */
+
+/* Contextual Tool Section in MathLogame */
+.contextual-tool-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(56, 211, 159, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+  border-radius: 1rem;
+  border: 1px solid rgba(56, 211, 159, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.tool-highlight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+.tool-info {
+  flex: 1;
+}
+
+.tool-info h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.tool-info p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.tool-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #38d39f;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.tool-link:hover {
+  color: #10b981;
+  transform: translateX(4px);
+}
+
+.tool-link i {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.tool-link:hover i {
+  transform: translateX(2px);
+}
+
+/* Inline Tool Mention in About Section */
+.tool-mention {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(56, 211, 159, 0.05);
+  border-radius: 0.75rem;
+  border-left: 3px solid #38d39f;
+}
+
+.tool-mention p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.inline-tool-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #38d39f;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  background: rgba(56, 211, 159, 0.1);
+}
+
+.inline-tool-link:hover {
+  color: #10b981;
+  background: rgba(56, 211, 159, 0.15);
+  transform: translateY(-1px);
+}
+
+.inline-tool-link i {
+  font-size: 0.875rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tool-highlight {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .tool-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .tool-icon i {
+    font-size: 1rem;
+  }
+  
+  .tool-info h4 {
+    font-size: 1rem;
+  }
+  
+  .tool-info p {
+    font-size: 0.8rem;
+  }
+  
+  .tool-mention {
+    padding: 0.75rem;
+  }
+  
+  .tool-mention p {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contextual-tool-section {
+    padding: 1rem;
+  }
+  
+  .tool-highlight {
+    gap: 0.75rem;
+  }
+  
+  .tool-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+  
+  .tool-info h4 {
+    font-size: 0.95rem;
+  }
+  
+  .tool-info p {
+    font-size: 0.75rem;
+  }
+  
+  .tool-link {
+    font-size: 0.8rem;
+  }
+  
+  .inline-tool-link {
+    font-size: 0.875rem;
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+
+
+
+
+
+
+
