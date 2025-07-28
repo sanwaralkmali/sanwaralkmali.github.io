@@ -227,14 +227,7 @@ const projectData = {
             { text: 'Preview PDF', url: './assets/pdf/mathlogame-preview.pdf', icon: 'bx bx-file-pdf' },
         ]
     },
-    kidlogame: {
-        title: 'KIDLOGAME',
-        subtitle: 'Educational Gaming for Children',
-        description: 'A comprehensive educational gaming app designed specifically for children. Built with Flutter, this mobile application combines learning with fun through interactive games and activities. The app features age-appropriate content, engaging animations, and progress tracking to make learning enjoyable for young minds.',
-        image: './assets/images/Projects/KidloGame.png',
-        tags: ['Flutter', 'Mobile App', 'Education', 'Children', 'Gaming'],
-        links: []
-    },
+
     'python-book': {
         title: 'Python Fundamentals for Kids',
         subtitle: 'Comprehensive Python Learning Resource',
@@ -271,6 +264,16 @@ const projectData = {
         tags: ['Coaching', 'Platform', 'Mentoring', 'Video Conferencing', 'E-learning'],
         links: [
             { text: 'Visit Platform', url: 'https://abdurrahmanninja.github.io/coach-abdualrhman-33/', icon: 'bx bx-link-external' }
+        ]
+    },
+    'equation-solver': {
+        title: 'Interactive Equation Solver',
+        subtitle: 'Educational Platform for Mathematical Learning',
+        description: 'An educational platform designed to help students understand the mathematical process of solving linear and quadratic equations. Rather than just giving you the answer, this tool breaks down each equation into clear, logical steps, showing you exactly how mathematical operations transform one form of an equation into another. Features step-by-step animated solutions, interactive equation input, and support for multiple equation types including linear equations, quadratic equations, and systems of equations.',
+        image: './assets/images/Projects/equation-solver.jpeg',
+        tags: ['Education', 'Mathematics', 'Interactive Learning', 'Equation Solving', 'Web Development'],
+        links: [
+            { text: 'Try the Tool', url: 'https://equations-animated-solution.vercel.app/', icon: 'bx bx-link-external' }
         ]
     }
 };
@@ -438,6 +441,46 @@ function setLoadingState(isLoading) {
         btnLoading.style.display = 'none';
         submitBtn.disabled = false;
     }
+}
+
+/****************************************************/
+
+/********************** Portfolio Toggle **************************/
+
+// Portfolio toggle functionality
+const portfolioToggleBtn = document.getElementById('portfolioToggleBtn');
+const hiddenProjects = document.querySelectorAll('.hidden-project');
+const toggleText = document.querySelector('.toggle-text');
+
+if (portfolioToggleBtn) {
+    portfolioToggleBtn.addEventListener('click', function () {
+        const isExpanded = this.classList.contains('expanded');
+        
+        if (isExpanded) {
+            // Collapse - hide additional projects
+            hiddenProjects.forEach(project => {
+                project.classList.remove('show');
+            });
+            this.classList.remove('expanded');
+            toggleText.textContent = 'See More';
+            
+            // Scroll to the portfolio section when "See Less" is clicked
+            const portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) {
+                portfolioSection.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }
+        } else {
+            // Expand - show additional projects
+            hiddenProjects.forEach(project => {
+                project.classList.add('show');
+            });
+            this.classList.add('expanded');
+            toggleText.textContent = 'See Less';
+        }
+    });
 }
 
 /****************************************************/

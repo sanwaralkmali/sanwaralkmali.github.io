@@ -3421,3 +3421,61 @@ img {
     padding: var(--spacing-sm);
   }
 }
+
+/* Portfolio Toggle Styles */
+.hidden-project {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-in-out;
+}
+
+.hidden-project.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio-toggle-container {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.portfolio-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #1e293b 0%, #2d3748 100%);
+  border: 1px solid rgba(75, 179, 253, 0.2);
+  border-radius: 0.75rem;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.portfolio-toggle-btn:hover {
+  background: linear-gradient(135deg, #2d3748 0%, #1e293b 100%);
+  border-color: rgba(75, 179, 253, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(75, 179, 253, 0.15);
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.portfolio-toggle-btn.expanded .toggle-icon {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .portfolio-toggle-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}

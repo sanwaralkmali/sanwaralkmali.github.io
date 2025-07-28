@@ -454,6 +454,56 @@
             filter: brightness(1);
         }
 
+        /* Math Tools Icon Styles */
+        .math-tools-icon {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .tool-icon-link {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .tool-icon-container {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, #1e293b 0%, #2d3748 100%);
+            border-radius: 1.2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(75, 179, 253, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            min-width: 120px;
+        }
+
+        .tool-icon-container:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(75, 179, 253, 0.15);
+            border-color: rgba(75, 179, 253, 0.3);
+        }
+
+        .tool-icon-container i {
+            font-size: 2.5rem;
+            color: #38d39f;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-icon-container:hover i {
+            transform: scale(1.1);
+        }
+
+        .tool-label {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: 'Cairo', Arial, sans-serif;
+        }
+
         @media screen and (max-width: 600px) {
             .paid-pdf-modal-content {
                 margin: 10% auto;
@@ -468,6 +518,8 @@
             .paid-pdf-modal-btn {
                 width: 100%;
             }
+
+
         }
     </style>
 </head>
@@ -502,6 +554,17 @@
                 <p>Welcome to MATHLOGAME – the mini-platform where learning math is fun! Play interactive games designed
                     to help you master essential math skills, from number sense to algebra and beyond. Practice,
                     challenge yourself, and build confidence through play!</p>
+            </div>
+
+            <!-- Math Tools Icon -->
+            <div class="math-tools-icon" style="text-align: center; margin-bottom: 2rem;">
+                <a href="https://equations-animated-solution.vercel.app/" target="_blank" class="tool-icon-link">
+                    <div class="tool-icon-container">
+                        <img src="assets/images/icons/equation-solver.png" alt="Equation Solver" srcset=""
+                            class="tool-icon" style="width: 48px; height: 48px;">
+                        <span class="tool-label">Equation Solver</span>
+                    </div>
+                </a>
             </div>
 
             <!-- Filter/Search UI -->
@@ -1155,6 +1218,8 @@
         </footer>
     </main>
 
+
+
     <!-- Paid PDF Modal -->
     <div id="paidPdfModal" class="paid-pdf-modal">
         <div class="paid-pdf-modal-content">
@@ -1247,11 +1312,13 @@
 
         // Close modal when clicking outside of it
         window.onclick = function (event) {
-            const modal = document.getElementById('paidPdfModal');
-            if (event.target === modal) {
+            const paidModal = document.getElementById('paidPdfModal');
+            if (event.target === paidModal) {
                 closePaidPdfModal();
             }
         }
+
+
 
         // Close modal with Escape key
         document.addEventListener('keydown', function (event) {
