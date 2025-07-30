@@ -284,6 +284,9 @@ blockquote {
   background: #181c24;
   padding: 1.5rem 0;
   text-align: center;
+  display: flex !important;
+  flex-direction: column;
+
 }
 .footer-nav {
   display: flex;

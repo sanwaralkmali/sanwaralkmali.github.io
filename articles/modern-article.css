@@ -395,9 +395,18 @@ body {
   text-align: center;
 }
 
+
+.lighting-logo {
+  content: url(../assets/images/LOGO/MATHLOGAME-light.png) !important;
+}
+
+.lighting-logo:hover {
+  content: url(../assets/images/LOGO/MATHLOGAME-dark.png) !important;
+}
+
 .featured-image img {
   width: 100%;
-  max-width: 600px;
+  max-width: 990px;
   height: auto;
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-xl);
@@ -429,6 +438,7 @@ body {
   
   .featured-image img {
     border-radius: var(--radius-lg);
+
   }
 }
 
@@ -493,7 +503,8 @@ body {
   }
   
   .intro-section {
-    padding: var(--spacing-md);
+    padding: var(--spacing-xs);
+
   }
   
   .boring-img-card {
@@ -503,4 +514,71 @@ body {
   .figure-row {
     padding: var(--spacing-md);
   }
+}
+
+/* Article Footer */
+.article-footer {
+  margin-top: var(--spacing-2xl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: var(--spacing-lg) !important;
+}
+
+.footer-logo {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 0 !important;
+}
+
+.article-signature {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.article-signature p {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+ 
+}
+
+/* MATHLOGAME Logo Animation */
+.mathlogame-logo {
+  font-family: 'Cairo', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  background: linear-gradient(135deg, #4BB3FD 0%, #10B981 50%, #4BB3FD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: logoGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 5px rgba(75, 179, 253, 0.3));
+  }
+  100% {
+    filter: brightness(1.2) drop-shadow(0 0 15px rgba(75, 179, 253, 0.6));
+  }
+}
+
+.powered-by {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin-top: 0 !important;
+  display: flex;
+  align-items: center;
+}
+
+.powered-by .mathlogame-logo {
+  font-size: 18px;
+  margin-left: 4px;
 } 
