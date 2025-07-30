@@ -1,5 +1,7 @@
 /************** Modern Navigation ****************************/
 
+console.log('🚀 main.js loaded successfully!');
+
 // Modern Navigation Toggle
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
@@ -81,10 +83,10 @@ function updateActiveNavLink() {
 // Navbar scroll effect
 function scrollNavbar() {
     const navbar = document.getElementById('modern-nav');
-    if (window.scrollY > 50) {
+    if (navbar && window.scrollY > 50) {
         navbar.style.background = 'rgba(15, 23, 42, 0.98)';
         navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-    } else {
+    } else if (navbar) {
         navbar.style.background = 'rgba(15, 23, 42, 0.95)';
         navbar.style.boxShadow = 'none';
     }
@@ -358,7 +360,15 @@ document.addEventListener('keydown', function (e) {
 
 // Initialize EmailJS
 (function () {
-    emailjs.init("dyiFkwogR3sfUm21i");
+    try {
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init("dyiFkwogR3sfUm21i");
+        } else {
+            console.log('EmailJS not loaded, skipping initialization');
+        }
+    } catch (error) {
+        console.log('EmailJS initialization failed:', error);
+    }
 })();
 
 // Contact form handling
@@ -368,7 +378,7 @@ const btnText = document.querySelector('.btn-text');
 const btnLoading = document.querySelector('.btn-loading');
 const formMessage = document.getElementById('formMessage');
 
-if (contactForm) {
+if (contactForm && submitBtn && btnText && btnLoading && formMessage) {
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -409,22 +419,28 @@ if (contactForm) {
         };
 
         // Send email using EmailJS
-        emailjs.send('service_jaceyjn', 'template_9jent4n', templateParams)
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                showMessage('Thank you for your message! I\'ll get back to you soon.', 'success');
-                contactForm.reset();
-                // Close modal after 2 seconds on success
-                setTimeout(() => {
-                    closeModal();
-                }, 2000);
-            }, function (error) {
-                console.log('FAILED...', error);
-                showMessage('Sorry, there was an error sending your message. Please try again or contact me directly.', 'error');
-            })
-            .finally(function () {
-                setLoadingState(false);
-            });
+        if (typeof emailjs !== 'undefined') {
+            emailjs.send('service_jaceyjn', 'template_9jent4n', templateParams)
+                .then(function (response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    showMessage('Thank you for your message! I\'ll get back to you soon.', 'success');
+                    contactForm.reset();
+                    // Close modal after 2 seconds on success
+                    setTimeout(() => {
+                        closeModal();
+                    }, 2000);
+                }, function (error) {
+                    console.log('FAILED...', error);
+                    showMessage('Sorry, there was an error sending your message. Please try again or contact me directly.', 'error');
+                })
+                .finally(function () {
+                    setLoadingState(false);
+                });
+        } else {
+            console.log('EmailJS not available');
+            showMessage('Contact form not available. Please contact me directly.', 'error');
+            setLoadingState(false);
+        }
     });
 }
 
@@ -512,7 +528,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for animation
+// Set up animations
 document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.hero-content, .about-content, .mathlogame-content, .portfolio-card, .contact-content');
 
@@ -522,6 +538,74 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
+});
+
+/****************************************************/
+
+/********************** Blog Filtering **************************/
+
+// Simple blog filtering functionality
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('=== BLOG FILTERING SETUP START ===');
+    
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
+    
+    console.log('Found buttons:', categoryButtons.length);
+    console.log('Found cards:', blogCards.length);
+    
+    // Test if we can find the elements
+    if (categoryButtons.length === 0) {
+        console.error('❌ No category buttons found!');
+        return;
+    }
+    
+    if (blogCards.length === 0) {
+        console.error('❌ No blog cards found!');
+        return;
+    }
+    
+    console.log('✅ Elements found successfully');
+    
+    // Test button click
+    categoryButtons.forEach((button, index) => {
+        console.log(`Button ${index}:`, button.textContent, 'Category:', button.getAttribute('data-category'));
+        
+        button.addEventListener('click', function() {
+            console.log('🎯 BUTTON CLICKED:', this.textContent);
+            
+            const selectedCategory = this.getAttribute('data-category');
+            console.log('Selected category:', selectedCategory);
+            
+            // Update active button
+            categoryButtons.forEach(btn => {
+                btn.classList.remove('active');
+                console.log('Removed active from:', btn.textContent);
+            });
+            
+            this.classList.add('active');
+            console.log('Added active to:', this.textContent);
+            
+            // Filter cards
+            blogCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                console.log('Card category:', cardCategory, 'Should show:', selectedCategory === 'all' || cardCategory === selectedCategory);
+                
+                if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+                    card.style.display = 'block';
+                    console.log('✅ Showing card:', cardCategory);
+                } else {
+                    card.style.display = 'none';
+                    console.log('❌ Hiding card:', cardCategory);
+                }
+            });
+            
+            console.log('=== FILTERING COMPLETE ===');
+        });
+    });
+    
+    console.log('✅ Blog filtering setup complete!');
+    console.log('=== BLOG FILTERING SETUP END ===');
 });
 
 /****************************************************/
