@@ -220,11 +220,21 @@ const projectData = {
         title: 'MathLogame Platform',
         subtitle: 'Revolutionary Mathematics Learning Platform',
         description: 'My flagship educational platform that combines modern web development with innovative teaching methods. Built with cutting-edge technologies, MathLogame transforms how students experience mathematics through interactive, gamified learning experiences. The platform features responsive design, real-time interactions, and advanced analytics to optimize learning outcomes.',
-        image: './assets/images/Projects/math-booklet.png',
+        image: './assets/images/LOGO/MATHLOGAME.png',
         tags: ['Education', 'Mathematics', 'Interactive Learning', 'Web Development', 'Gamification'],
         links: [
             { text: 'Visit Platform', url: 'mathlogame.html', icon: 'bx bx-link-external' },
             { text: 'Preview PDF', url: './assets/pdf/mathlogame-preview.pdf', icon: 'bx bx-file-pdf' },
+        ]
+    },
+    'Math Booklet': {
+        title: 'Math Booklet',
+        subtitle: 'Comprehensive Mathematics Learning Resource',
+        description: 'A comprehensive mathematics learning resource designed to help students understand the fundamental concepts of mathematics. This resource covers a wide range of topics, from basic arithmetic to advanced algebra and geometry. It is designed to be a comprehensive resource for students who are looking to improve their mathematical skills.',
+        image: './assets/images/Projects/math-booklet.png',
+        tags: ['Education', 'Mathematics', 'Interactive Learning', 'Web Development', 'Gamification'],
+        links: [
+            { text: 'Preview PDF', url: './assets/pdf/math-booklet.pdf', icon: 'bx bx-file-pdf' },
         ]
     },
 
