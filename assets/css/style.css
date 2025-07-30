@@ -3692,11 +3692,8 @@ img {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-.mathlogame-logo-img {
-  width: 320px;
-  object-fit: contain;
-  object-position: center;
-}
+
+
 
 
 
