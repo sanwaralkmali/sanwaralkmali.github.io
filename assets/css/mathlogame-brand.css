@@ -1,0 +1,22 @@
+:root {
+  /* Primary Brand Colors */
+  --mathlogame-blue: #4BB3FD;
+  --mathlogame-dark: #1E293B;
+  --mathlogame-white: #FFFFFF;
+  
+  /* Secondary Colors */
+  --mathlogame-green: #10B981;
+  --mathlogame-orange: #F59E0B;
+  --mathlogame-red: #EF4444;
+  --mathlogame-gray: #F1F5F9;
+  
+  /* Gradients */
+  --mathlogame-gradient: linear-gradient(135deg, #4BB3FD 0%, #10B981 50%, #4BB3FD 100%);
+  --mathlogame-gradient-horizontal: linear-gradient(90deg, #4BB3FD 0%, #10B981 100%);
+  
+  /* Typography */
+  --font-primary: 'Cairo', Arial, sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}

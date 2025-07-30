@@ -86,6 +86,11 @@
   --normal-font-size: var(--font-size-base);
   --small-font-size: var(--font-size-sm);
   --z-fixed: 100;
+  
+  /* MathLogame Brand Variables */
+  --mathlogame-gradient: linear-gradient(135deg, #4BB3FD 0%, #10B981 50%, #4BB3FD 100%);
+  --font-primary: 'Cairo', Arial, sans-serif;
+  --font-weight-bold: 700;
 }
 
 * {
@@ -3654,7 +3659,23 @@ img {
   font-size: 0.875rem;
 }
 
-/* Responsive adjustments */
+/* MathLogame Logo Styles */
+
+.mathlogame-logo {
+  font-family: 'Cairo', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  background: linear-gradient(135deg, #4BB3FD 0%, #10B981 50%, #4BB3FD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+
+
+
+  /* Responsive adjustments */
 @media (max-width: 768px) {
   .tool-highlight {
     flex-direction: column;
