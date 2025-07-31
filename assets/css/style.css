@@ -2047,12 +2047,17 @@ img {
 .section-title {
   font-size: var(--font-size-4xl);
   font-weight: 700;
-  color: var(--text-primary);
   margin-bottom: var(--spacing-sm);
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  /* Ensure the gradient is visible */
+  display: inline-block;
+  background-size: 100% 100%;
+  /* Force the gradient to be visible */
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .section-subtitle {
@@ -2060,6 +2065,68 @@ img {
   color: var(--text-secondary);
   max-width: 600px;
   margin: 0 auto;
+}
+
+/* Fallback for browsers that don't support background-clip: text */
+@supports not (background-clip: text) {
+  .section-title {
+    color: var(--primary-color);
+    background: none;
+    -webkit-text-fill-color: initial;
+  }
+  
+  .section-header .section-title {
+    color: var(--primary-color) !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+  }
+  
+  .section-header h2.section-title {
+    color: var(--primary-color) !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+  }
+}
+
+/* Ensure section titles have proper styling with higher specificity */
+.section-header .section-title {
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  background-size: 100% 100%;
+}
+
+/* Override any conflicting h2 styles */
+.section-header h2.section-title {
+  font-size: var(--font-size-4xl) !important;
+  font-weight: 700 !important;
+  margin-bottom: var(--spacing-sm) !important;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  display: inline-block !important;
+  background-size: 100% 100% !important;
+  color: transparent !important;
+}
+
+/* Alternative approach for better browser support */
+.section-header .section-title::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.8;
 }
 
 /* Hero Section */
@@ -2425,10 +2492,10 @@ img {
   flex-shrink: 0;
 }
 
-.feature-icon i {
-  font-size: var(--font-size-lg);
-  color: white;
-}
+  .feature-icon i {
+    font-size: var(--font-size-lg);
+    color: white;
+  }
 
 .feature-content {
   display: flex;
@@ -3807,6 +3874,151 @@ img {
     color: #1e293b !important;
     transform: translateY(-2px) !important;
     box-shadow: 0 5px 15px rgba(75, 179, 253, 0.2) !important;
+}
+
+/* Features Section */
+.features-section {
+  padding: var(--spacing-2xl) 0;
+  background: var(--bg-secondary);
+}
+
+.features-section .row {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  align-items: stretch;
+}
+
+.features-section .col-md-4 {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.feature-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  opacity: 0;
+  transition: var(--transition-normal);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-color);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+  transition: var(--transition-normal);
+  position: relative;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(var(--primary-color-rgb), 0.3);
+}
+
+.feature-icon i {
+  font-size: var(--font-size-xl);
+  color: white;
+  transition: var(--transition-normal);
+}
+
+.feature-card:hover .feature-icon i {
+  transform: scale(1.1);
+}
+
+.feature-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  transition: var(--transition-normal);
+}
+
+.feature-card:hover .feature-title {
+  color: var(--primary-color);
+}
+
+.feature-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+  flex-grow: 1;
+}
+
+/* Responsive adjustments for features section */
+@media (max-width: 768px) {
+  .features-section .row {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .features-section .col-md-4 {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .feature-card {
+    padding: var(--spacing-lg);
+  }
+  
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .feature-icon i {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .features-section {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .feature-card {
+    padding: var(--spacing-md);
+  }
+  
+  .feature-title {
+    font-size: var(--font-size-md);
+  }
 }
 
 
