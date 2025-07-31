@@ -46,6 +46,16 @@
 
         .hero-text {
             text-align: left;
+            width: 100%;
+
+        }
+
+        .hero-text-description {
+            font-size: 1.1rem !important;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            max-width: 750px;
+            width: 100%;
         }
 
         .hero-logo {
@@ -91,55 +101,195 @@
             line-height: 1.6;
         }
 
+
+        /* Creative CTA Buttons */
         .cta-buttons {
             display: flex;
             gap: 1.5rem;
             flex-wrap: wrap;
+            margin-top: 2rem;
         }
 
-        .btn-play {
-            background: var(--primary-color);
-            color: white;
-            padding: 1.2rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
+        .creative-cta-container {
+            position: relative;
+        }
+
+        .creative-cta {
+            display: flex;
             align-items: center;
-            gap: 0.5rem;
-            box-shadow: var(--shadow-md);
+            justify-content: space-between;
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            min-width: 280px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+
         }
 
-        .btn-play:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
+        .creative-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .creative-cta:hover::before {
+            left: 100%;
+        }
+
+        .primary-cta {
+            background: linear-gradient(135deg, #5497a980 0%, #13a98988 50%, #c5581082 100%);
             color: white;
+            box-shadow: 0 8px 32px rgba(84, 150, 169, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
         }
 
-        .btn-tools {
+        .primary-cta::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg,
+                    rgba(84, 151, 169, 0.389) 0%,
+                    rgba(19, 169, 137, 0.388) 33%,
+                    rgba(197, 89, 16, 0.3) 66%,
+                    rgba(84, 189, 218, 0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .primary-cta:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(84, 150, 169, 0.6);
+            background: linear-gradient(135deg, #c5581072 0%, #13a98983 50%, #5497a998 100%);
+        }
+
+        .primary-cta:hover::after {
+            opacity: 1;
+        }
+
+        .secondary-cta {
             background: rgba(255, 255, 255, 0.1);
             color: white;
-            padding: 1.2rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+        }
+
+        .secondary-cta:hover {
+            transform: translateY(-5px) scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-content {
+            display: flex;
             align-items: center;
-            gap: 0.5rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            gap: 1rem;
+            flex: 1;
+        }
+
+        .cta-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .primary-cta .cta-icon {
+            background: rgba(255, 255, 255, 0.2);
             -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
 
-        .btn-tools:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-            color: white;
+        .secondary-cta .cta-icon {
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .creative-cta:hover .cta-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .cta-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .cta-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            line-height: 1.2;
+            text-shadow: 2px 1px rgb(26, 62, 99) !important;
+
+        }
+
+        .cta-subtitle {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
+        .cta-arrow {
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .creative-cta:hover .cta-arrow {
+            transform: translateX(5px);
+            opacity: 1;
+        }
+
+        .primary-cta:hover .cta-arrow {
+            transform: translateX(8px) scale(1.1);
+        }
+
+        /* Subtle glow animation */
+        @keyframes subtlePulse {
+
+            0%,
+            100% {
+                box-shadow: 0 8px 32px rgba(84, 150, 169, 0.4);
+            }
+
+            25% {
+                box-shadow: 0 8px 32px rgba(19, 169, 136, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 8px 32px rgba(197, 89, 16, 0.4);
+            }
+
+            75% {
+                box-shadow: 0 8px 32px rgba(84, 150, 169, 0.6);
+            }
+        }
+
+        .primary-cta {
+            animation: subtlePulse 3s ease-in-out infinite;
+        }
+
+        .primary-cta:hover {
+            animation: none;
         }
 
         .hero-illustration {
@@ -188,9 +338,9 @@
             position: absolute;
             width: 60px;
             height: 60px;
-            opacity: 0.15;
-            animation: float-symbol 8s ease-in-out infinite;
+            opacity: 0;
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            transition: opacity 1s ease-in-out, transform 2s ease-in-out;
         }
 
         .math-symbol img {
@@ -202,7 +352,6 @@
         .math-symbol:nth-child(1) {
             top: 10%;
             left: 5%;
-            animation-delay: 0s;
             width: 70px;
             height: 70px;
         }
@@ -210,7 +359,6 @@
         .math-symbol:nth-child(2) {
             top: 20%;
             left: 25%;
-            animation-delay: 1s;
             width: 55px;
             height: 55px;
         }
@@ -218,7 +366,6 @@
         .math-symbol:nth-child(3) {
             top: 15%;
             left: 45%;
-            animation-delay: 2s;
             width: 65px;
             height: 65px;
         }
@@ -226,7 +373,6 @@
         .math-symbol:nth-child(4) {
             top: 25%;
             left: 65%;
-            animation-delay: 3s;
             width: 60px;
             height: 60px;
         }
@@ -234,7 +380,6 @@
         .math-symbol:nth-child(5) {
             top: 35%;
             left: 85%;
-            animation-delay: 4s;
             width: 50px;
             height: 50px;
         }
@@ -242,7 +387,6 @@
         .math-symbol:nth-child(6) {
             top: 50%;
             left: 10%;
-            animation-delay: 5s;
             width: 65px;
             height: 65px;
         }
@@ -250,7 +394,6 @@
         .math-symbol:nth-child(7) {
             top: 60%;
             left: 30%;
-            animation-delay: 6s;
             width: 55px;
             height: 55px;
         }
@@ -258,7 +401,6 @@
         .math-symbol:nth-child(8) {
             top: 55%;
             left: 50%;
-            animation-delay: 7s;
             width: 60px;
             height: 60px;
         }
@@ -266,7 +408,6 @@
         .math-symbol:nth-child(9) {
             top: 65%;
             left: 70%;
-            animation-delay: 8s;
             width: 50px;
             height: 50px;
         }
@@ -274,7 +415,6 @@
         .math-symbol:nth-child(10) {
             top: 70%;
             left: 90%;
-            animation-delay: 9s;
             width: 70px;
             height: 70px;
         }
@@ -282,7 +422,6 @@
         .math-symbol:nth-child(11) {
             top: 80%;
             left: 15%;
-            animation-delay: 10s;
             width: 55px;
             height: 55px;
         }
@@ -290,23 +429,17 @@
         .math-symbol:nth-child(12) {
             top: 85%;
             left: 40%;
-            animation-delay: 11s;
             width: 60px;
             height: 60px;
         }
 
-        @keyframes float-symbol {
+        .math-symbol.visible {
+            opacity: 0.2;
+        }
 
-            0%,
-            100% {
-                transform: translateY(0px) rotate(0deg);
-                opacity: 0.15;
-            }
-
-            50% {
-                transform: translateY(-25px) rotate(8deg);
-                opacity: 0.25;
-            }
+        .math-symbol.visible:hover {
+            opacity: 0.4;
+            transform: scale(1.1);
         }
 
         /* Quote Section */
@@ -615,6 +748,75 @@
             margin-bottom: 3rem;
         }
 
+        /* Tablet Styles (768px - 1024px) */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .hero-headline {
+                font-size: 3rem;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .hero-logo img {
+                max-width: 280px;
+            }
+
+            .logo-animation img {
+                max-width: 350px;
+            }
+
+            .cta-buttons {
+                flex-direction: row;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .creative-cta {
+                min-width: 200px;
+                padding: 1.2rem 1.5rem;
+            }
+
+            .cta-title {
+                font-size: 1rem;
+            }
+
+            .cta-subtitle {
+                font-size: 0.8rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .ad-title {
+                font-size: 2.2rem;
+            }
+
+            .final-cta-title {
+                font-size: 2.2rem;
+            }
+
+            .math-symbol {
+                width: 45px !important;
+                height: 45px !important;
+            }
+
+            .math-symbol:nth-child(1),
+            .math-symbol:nth-child(4),
+            .math-symbol:nth-child(10) {
+                width: 55px !important;
+                height: 55px !important;
+            }
+
+            .math-symbol:nth-child(3),
+            .math-symbol:nth-child(6) {
+                width: 50px !important;
+                height: 50px !important;
+            }
+        }
+
+        /* Mobile Styles (up to 768px) */
         @media (max-width: 768px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -623,54 +825,190 @@
             }
 
             .hero-headline {
-                font-size: 2.5rem;
+                font-size: 1.8rem;
+                line-height: 1.1;
+            }
+
+            .hero-description {
+                font-size: 0.9rem;
+                margin-bottom: 2rem;
             }
 
             .hero-logo img {
-                max-width: 250px;
+                max-width: 200px;
             }
 
             .logo-animation img {
-                max-width: 300px;
+                max-width: 220px;
             }
 
             .hero-illustration {
-                height: 300px;
+                height: 220px;
+            }
+
+            /* Buttons in one row for mobile */
+            .cta-buttons {
+                flex-direction: row;
+                justify-content: center;
+                gap: 0.8rem;
+                flex-wrap: wrap;
+                padding-bottom: 20px;
+            }
+
+            .creative-cta {
+                min-width: 130px;
+                padding: 0.9rem 1rem;
+            }
+
+            .cta-content {
+                gap: 0.4rem;
+            }
+
+            .cta-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+
+            .cta-title {
+                font-size: 0.8rem;
+            }
+
+            .cta-subtitle {
+                font-size: 0.65rem;
+            }
+
+            .cta-arrow {
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .ad-title {
+                font-size: 1.6rem;
+            }
+
+            .ad-description {
+                font-size: 0.9rem;
+            }
+
+            .final-cta-title {
+                font-size: 1.6rem;
+            }
+
+            .final-cta-description {
+                font-size: 0.9rem;
+            }
+
+            .quote-text {
+                font-size: 1rem;
+            }
+
+            .feature-title {
+                font-size: 1rem;
+            }
+
+            .feature-description {
+                font-size: 0.8rem;
+            }
+
+            .tool-title {
+                font-size: 1.1rem;
+            }
+
+            .tool-description {
+                font-size: 0.8rem;
+            }
+
+            .testimonial-text {
+                font-size: 0.9rem;
             }
 
             .math-symbol {
-                width: 35px !important;
-                height: 35px !important;
+                width: 25px !important;
+                height: 25px !important;
             }
 
             .math-symbol:nth-child(1),
             .math-symbol:nth-child(4),
             .math-symbol:nth-child(10) {
-                width: 45px !important;
-                height: 45px !important;
+                width: 30px !important;
+                height: 30px !important;
             }
 
             .math-symbol:nth-child(3),
             .math-symbol:nth-child(6) {
-                width: 40px !important;
-                height: 40px !important;
+                width: 28px !important;
+                height: 28px !important;
+            }
+        }
+
+        /* Small Mobile Styles (up to 480px) */
+        @media (max-width: 480px) {
+            .hero-headline {
+                font-size: 1.5rem;
+            }
+
+            .hero-description {
+                font-size: 0.8rem;
+            }
+
+            .hero-logo img {
+                max-width: 160px;
+            }
+
+            .logo-animation img {
+                max-width: 180px;
             }
 
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 0.8rem;
+                padding-bottom: 30px;
+            }
+
+            .creative-cta {
+                min-width: 180px;
+                padding: 0.7rem 0.9rem;
+            }
+
+            .cta-title {
+                font-size: 0.75rem;
+            }
+
+            .cta-subtitle {
+                font-size: 0.6rem;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 1.4rem;
             }
 
             .ad-title {
-                font-size: 2rem;
+                font-size: 1.4rem;
             }
 
             .final-cta-title {
-                font-size: 2rem;
+                font-size: 1.4rem;
+            }
+
+            .math-symbol {
+                width: 20px !important;
+                height: 20px !important;
+            }
+
+            .math-symbol:nth-child(1),
+            .math-symbol:nth-child(4),
+            .math-symbol:nth-child(10) {
+                width: 25px !important;
+                height: 25px !important;
             }
         }
     </style>
@@ -752,22 +1090,41 @@
                         <h1 class="hero-headline">
                             Where Learning Can Be Fun!
                         </h1>
-                        <p class="hero-description">
-                            Welcome to MATHLOGAME – the innovative platform where learning math becomes an exciting
+                        <p class="hero-description hero-text-description">
+                            Welcome to <span class="mathlogame-logo">MATHLOGAME</span> – the innovative platform where
+                            learning math becomes an exciting
                             adventure!
                             Dive into interactive games designed to master essential math skills, from number sense to
                             algebra and beyond.
                             Practice, challenge yourself, and build confidence through play!
                         </p>
                         <div class="cta-buttons">
-                            <a href="mathlogame.html" class="btn-play">
-                                <i class="fas fa-gamepad"></i>
-                                Play Math Games
-                            </a>
-                            <a href="#tools" class="btn-tools">
-                                <i class="fas fa-tools"></i>
-                                Try Our Tools
-                            </a>
+                            <div class="creative-cta-container">
+                                <a href="mathlogame.html" class="creative-cta primary-cta">
+                                    <div class="cta-content">
+                                        <div class="cta-icon">
+                                            <i class="fas fa-gamepad"></i>
+                                        </div>
+                                        <div class="cta-text">
+                                            <span class="cta-title">Play Games</span>
+                                            <span class="cta-subtitle">Start Learning Now</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="creative-cta-container">
+                                <a href="#tools" class="creative-cta secondary-cta">
+                                    <div class="cta-content">
+                                        <div class="cta-icon">
+                                            <i class="fas fa-tools"></i>
+                                        </div>
+                                        <div class="cta-text">
+                                            <span class="cta-title">Try Education Tools</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
@@ -1047,6 +1404,152 @@
     </a>
 
     <script src="assets/js/main.js"></script>
+
+    <script>
+        // Crazy Math Symbols Animation System - Independent Icons
+        class CrazyMathAnimation {
+            constructor() {
+                this.symbols = document.querySelectorAll('.math-symbol');
+                this.occupiedPositions = new Set(); // Track occupied positions
+                this.positions = [
+                    { top: '5%', left: '5%' },
+                    { top: '10%', left: '15%' },
+                    { top: '15%', left: '25%' },
+                    { top: '20%', left: '35%' },
+                    { top: '25%', left: '45%' },
+                    { top: '30%', left: '55%' },
+                    { top: '35%', left: '65%' },
+                    { top: '40%', left: '75%' },
+                    { top: '45%', left: '85%' },
+                    { top: '50%', left: '95%' },
+                    { top: '55%', left: '10%' },
+                    { top: '60%', left: '20%' },
+                    { top: '65%', left: '30%' },
+                    { top: '70%', left: '40%' },
+                    { top: '75%', left: '50%' },
+                    { top: '80%', left: '60%' },
+                    { top: '85%', left: '70%' },
+                    { top: '90%', left: '80%' },
+                    { top: '95%', left: '90%' },
+                    { top: '8%', left: '80%' },
+                    { top: '12%', left: '60%' },
+                    { top: '18%', left: '40%' },
+                    { top: '22%', left: '20%' },
+                    { top: '28%', left: '80%' },
+                    { top: '32%', left: '60%' },
+                    { top: '38%', left: '40%' },
+                    { top: '42%', left: '20%' },
+                    { top: '48%', left: '80%' },
+                    { top: '52%', left: '60%' },
+                    { top: '58%', left: '40%' },
+                    { top: '62%', left: '20%' },
+                    { top: '68%', left: '80%' },
+                    { top: '72%', left: '60%' },
+                    { top: '78%', left: '40%' },
+                    { top: '82%', left: '20%' },
+                    { top: '88%', left: '80%' },
+                    { top: '92%', left: '60%' },
+                    { top: '98%', left: '40%' }
+                ];
+                this.init();
+            }
+
+            init() {
+                // Start each symbol independently
+                this.symbols.forEach((symbol, index) => {
+                    this.startIndependentAnimation(symbol, index);
+                });
+            }
+
+            getRandomPosition() {
+                return this.positions[Math.floor(Math.random() * this.positions.length)];
+            }
+
+            getAvailablePosition() {
+                let attempts = 0;
+                let position;
+
+                do {
+                    position = this.getRandomPosition();
+                    attempts++;
+
+                    // If we can't find an available position after 10 attempts, just use any position
+                    if (attempts > 10) {
+                        break;
+                    }
+                } while (this.occupiedPositions.has(`${position.top}-${position.left}`));
+
+                return position;
+            }
+
+            occupyPosition(position) {
+                this.occupiedPositions.add(`${position.top}-${position.left}`);
+            }
+
+            releasePosition(position) {
+                this.occupiedPositions.delete(`${position.top}-${position.left}`);
+            }
+
+            getRandomDuration() {
+                // Random duration between 3-7 seconds
+                return (Math.random() * 4 + 3) * 1000;
+            }
+
+            getRandomDelay() {
+                // Random initial delay between 0-3 seconds
+                return Math.random() * 3000;
+            }
+
+            startIndependentAnimation(symbol, index) {
+                let currentPosition = null;
+
+                const animate = () => {
+                    // Release current position if exists
+                    if (currentPosition) {
+                        this.releasePosition(currentPosition);
+                    }
+
+                    // Get new available position
+                    const newPos = this.getAvailablePosition();
+                    currentPosition = newPos;
+                    this.occupyPosition(newPos);
+
+                    // Move to new position
+                    symbol.style.top = newPos.top;
+                    symbol.style.left = newPos.left;
+
+                    // Fade in
+                    symbol.classList.add('visible');
+
+                    // Show for 4-6 seconds
+                    const showDuration = (Math.random() * 2 + 4) * 1000;
+
+                    setTimeout(() => {
+                        // Fade out
+                        symbol.classList.remove('visible');
+
+                        // Wait 1-3 seconds then start next cycle
+                        const waitDuration = (Math.random() * 2 + 1) * 1000;
+
+                        setTimeout(() => {
+                            animate();
+                        }, waitDuration);
+
+                    }, showDuration);
+                };
+
+                // Start with random delay
+                setTimeout(() => {
+                    animate();
+                }, this.getRandomDelay());
+            }
+        }
+
+        // Initialize the crazy animation when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new CrazyMathAnimation();
+        });
+    </script>
 </body>
 
 </html>
