@@ -2891,6 +2891,8 @@ img {
   display: flex;
   gap: var(--spacing-xs);
   align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-link {
@@ -2968,8 +2970,7 @@ img {
   }
   
   .footer-links {
-    flex-direction: column;
-    gap: var(--spacing-xs);
+   margin-top: 25px;
   }
 }
 
