@@ -10,8 +10,670 @@
     <script src="https://kit.fontawesome.com/234e9652c2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <title>Salah Alkmali - Founder of MathLogame</title>
+    <link rel="icon" type="image/png" href="mathlogame-favicon.ico">
+    <title>MATHLOGAME - Fun Math Learning for Everyone</title>
+    <style>
+        /* Custom styles for playful landing page - using project color theme */
+        .hero-section {
+            background: var(--bg-primary);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            display: flex;
+
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
+        .hero-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-logo img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hero-headline {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-play {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-play:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            color: white;
+        }
+
+        .btn-tools {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-tools:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        .hero-illustration {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-animation {
+            position: relative;
+            animation: pulse 4s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .logo-animation img {
+            max-width: 400px;
+            height: auto;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Math Symbols and Fun Elements - Background Only */
+        .math-symbols {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .math-symbol {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            opacity: 0.15;
+            animation: float-symbol 8s ease-in-out infinite;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        .math-symbol img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .math-symbol:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+            width: 70px;
+            height: 70px;
+        }
+
+        .math-symbol:nth-child(2) {
+            top: 20%;
+            left: 25%;
+            animation-delay: 1s;
+            width: 55px;
+            height: 55px;
+        }
+
+        .math-symbol:nth-child(3) {
+            top: 15%;
+            left: 45%;
+            animation-delay: 2s;
+            width: 65px;
+            height: 65px;
+        }
+
+        .math-symbol:nth-child(4) {
+            top: 25%;
+            left: 65%;
+            animation-delay: 3s;
+            width: 60px;
+            height: 60px;
+        }
+
+        .math-symbol:nth-child(5) {
+            top: 35%;
+            left: 85%;
+            animation-delay: 4s;
+            width: 50px;
+            height: 50px;
+        }
+
+        .math-symbol:nth-child(6) {
+            top: 50%;
+            left: 10%;
+            animation-delay: 5s;
+            width: 65px;
+            height: 65px;
+        }
+
+        .math-symbol:nth-child(7) {
+            top: 60%;
+            left: 30%;
+            animation-delay: 6s;
+            width: 55px;
+            height: 55px;
+        }
+
+        .math-symbol:nth-child(8) {
+            top: 55%;
+            left: 50%;
+            animation-delay: 7s;
+            width: 60px;
+            height: 60px;
+        }
+
+        .math-symbol:nth-child(9) {
+            top: 65%;
+            left: 70%;
+            animation-delay: 8s;
+            width: 50px;
+            height: 50px;
+        }
+
+        .math-symbol:nth-child(10) {
+            top: 70%;
+            left: 90%;
+            animation-delay: 9s;
+            width: 70px;
+            height: 70px;
+        }
+
+        .math-symbol:nth-child(11) {
+            top: 80%;
+            left: 15%;
+            animation-delay: 10s;
+            width: 55px;
+            height: 55px;
+        }
+
+        .math-symbol:nth-child(12) {
+            top: 85%;
+            left: 40%;
+            animation-delay: 11s;
+            width: 60px;
+            height: 60px;
+        }
+
+        @keyframes float-symbol {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.15;
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(8deg);
+                opacity: 0.25;
+            }
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background: var(--bg-secondary);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .quote-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .quote-author {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Features Section */
+        .features-section {
+            background: var(--bg-primary);
+            padding: 5rem 0;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid var(--border-color);
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Ad Section */
+        .ad-section {
+            background: var(--bg-primary);
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .ad-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .ad-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .ad-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .ad-cta {
+            background: white;
+            color: var(--primary-color);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ad-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            color: var(--primary-color);
+        }
+
+        /* Tools Section */
+        .tools-section {
+            background: var(--bg-secondary);
+            padding: 5rem 0;
+        }
+
+        .tool-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid var(--border-color);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-color);
+        }
+
+        .tool-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .tool-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .tool-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-cta {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tool-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: var(--bg-primary);
+            padding: 5rem 0;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .testimonial-text {
+            color: var(--text-primary);
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .testimonial-role {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Final CTA Section */
+        .final-cta-section {
+            background: var(--bg-secondary);
+            padding: 5rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .final-cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .final-cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .final-cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .final-cta-btn {
+            background: white;
+            color: var(--primary-color);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .final-cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+            color: var(--primary-color);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-headline {
+                font-size: 2.5rem;
+            }
+
+            .hero-logo img {
+                max-width: 250px;
+            }
+
+            .logo-animation img {
+                max-width: 300px;
+            }
+
+            .hero-illustration {
+                height: 300px;
+            }
+
+            .math-symbol {
+                width: 35px !important;
+                height: 35px !important;
+            }
+
+            .math-symbol:nth-child(1),
+            .math-symbol:nth-child(4),
+            .math-symbol:nth-child(10) {
+                width: 45px !important;
+                height: 45px !important;
+            }
+
+            .math-symbol:nth-child(3),
+            .math-symbol:nth-child(6) {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .ad-title {
+                font-size: 2rem;
+            }
+
+            .final-cta-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -19,15 +681,15 @@
     <nav class="modern-nav" id="modern-nav">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="assets/images/icons/LOGO-Transparent.png" alt="Salah Alkmali">
+                <img src="assets/images/LOGO/MATHLOGAME-dark.png" alt="MathLogame" style="height: 42px;">
             </div>
 
             <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="./mathlogame.html" class="nav-link">MathLogame</a>
-                <a href="./blog.html" class="nav-link">Blog</a>
-                <a href="#contact" class="nav-link">Contact</a>
-
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="mathlogame.html" class="nav-link">Games</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="about.html#contact" class="nav-link">Contact</a>
             </div>
 
             <div class="nav-toggle" id="nav-toggle">
@@ -40,361 +702,274 @@
 
     <main class="main-content">
         <!-- Hero Section -->
-        <section id="home" class="hero-section">
+        <section class="hero-section">
+            <!-- Math Symbols Background -->
+            <div class="math-symbols">
+                <div class="math-symbol">
+                    <img src="assets/images/bg-icons/1.png" alt="Math Symbol">
+                </div>
+                <div class="math-symbol">
+                    <img src="assets/images/bg-icons/2.png" alt="Math Symbol">
+                </div>
+                <div class="math-symbol">
+                    <img src="assets/images/bg-icons/3.png" alt="Math Symbol">
+                </div>
+                <div class="math-symbol">
+                    <img src="assets/images/bg-icons/4.png" alt="Math Symbol">
+                </div>
+                <div class="math-symbol">
+                    <img src="assets/images/bg-icons/5.png" alt="Math Symbol">
+                </div>
+                <div class="math-symbol">
+                    <img src="assets/images/bg-icons/6.png" alt="Math Symbol">
+                </div>
+                <div class="math-symbol">
+                    <img src="assets/images/bg-icons/7.png" alt="Math Symbol">
+                </div>
+                <div class="math-symbol">
+                    <img src="assets/images/bg-icons/8.png" alt="Math Symbol">
+                </div>
+                <div class="math-symbol">
+                    <img src="assets/images/bg-icons/9.png" alt="Math Symbol">
+                </div>
+                <div class="math-symbol">
+                    <img src="assets/images/bg-icons/10.png" alt="Math Symbol">
+                </div>
+                <div class="math-symbol">
+                    <img src="assets/images/bg-icons/11.png" alt="Math Symbol">
+                </div>
+                <div class="math-symbol">
+                    <img src="assets/images/bg-icons/12.png" alt="Math Symbol">
+                </div>
+            </div>
+
             <div class="hero-container">
                 <div class="hero-content">
                     <div class="hero-text">
-                        <h1 class="hero-title">
-                            <span class="highlight-text">Salah Alkmali</span>
-                            <br>
-                            <span class="subtitle">Full-Stack Developer & Math Educator</span>
+                        <div class="hero-logo logo-animation ">
+                            <img src="assets/images/LOGO/MATHLOGAME-light.png" alt="MathLogame">
+                        </div>
+                        <h1 class="hero-headline">
+                            Where Learning Can Be Fun!
                         </h1>
                         <p class="hero-description">
-                            Passionate full-stack developer and mathematics teacher. Creator of
-                            <span class="mathlogame-logo">MATHLOGAME</span> -
-                            an innovative educational platform that combines programming expertise with teaching
-                            excellence
-                            to transform how students learn mathematics.
-                            <br>
-                            <br>
-                            <span class="subtle-cta">
-                                <a href="https://equations-animated-solution.vercel.app/" target="_blank"
-                                    class="inline-cta">
-                                    Try out Equation Solver tool
-                                </a>
-                            </span>
+                            Welcome to MATHLOGAME – the innovative platform where learning math becomes an exciting
+                            adventure!
+                            Dive into interactive games designed to master essential math skills, from number sense to
+                            algebra and beyond.
+                            Practice, challenge yourself, and build confidence through play!
                         </p>
-                        <div class="hero-buttons">
-                            <a href="#mathlogame" class="btn btn-outline discover-mathlogame">Discover
-                                <span class="mathlogame-logo"
-                                    style="margin-left: 10px; font-size: 1.2rem; font-weight: 700;">MATHLOGAME</span>
+                        <div class="cta-buttons">
+                            <a href="mathlogame.html" class="btn-play">
+                                <i class="fas fa-gamepad"></i>
+                                Play Math Games
                             </a>
-                        </div>
-                        <div class="hero-socials">
-                            <a href="https://www.linkedin.com/in/salah-alkmali-00063b11a/" target="_blank"
-                                class="social-link">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/sanwaralkmali" target="_blank" class="social-link">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://x.com/sanwaralkmali" target="_blank" class="social-link">
-                                <i class="fab fa-twitter"></i>
+                            <a href="#tools" class="btn-tools">
+                                <i class="fas fa-tools"></i>
+                                Try Our Tools
                             </a>
                         </div>
                     </div>
-                    <div class="hero-image">
-                        <img src="assets/images/profile/profile.jpg" alt="Salah Alkmali" class="profile-image">
-                        <div class="image-decoration"></div>
-                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="about-section">
+        <!-- Quote Section -->
+        <section class="quote-section">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">About Me</h2>
-                    <p class="section-subtitle">Full-Stack Developer & Math Educator</p>
-                </div>
-
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>
-                            I'm <strong>Salah Alkmali</strong>, a full-stack developer and mathematics teacher who
-                            bridges
-                            the gap between technology and education. With expertise in modern web technologies and
-                            a passion for teaching, I create innovative educational solutions that make learning
-                            accessible and engaging.
-                        </p>
-                        <p>
-                            Through MathLogame, I've combined my programming skills with my teaching experience
-                            to build an interactive platform that transforms how students experience mathematics.
-
-
-                        </p>
-
-                        <!-- Contextual Tool Mention -->
-                        <!-- 
-                        <div class="tool-mention">
-                            <p>
-                                <strong>Latest Addition:</strong> I've also developed an
-                                <a href="https://equations-animated-solution.vercel.app/" target="_blank"
-                                    class="inline-tool-link">
-                                    Interactive Equation Solver
-                                    <i class='bx bx-calculator'></i>
-                                </a>
-                                that helps students understand mathematical concepts through step-by-step animated
-                                solutions.
-                            </p>
-                        </div>
-                        -->
-
-                        <div class="about-stats">
-                            <div class="stat-item">
-                                <div class="stat-icon">
-                                    <i class="fas fa-clock"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <div class="stat-number">7</div>
-                                    <div class="stat-label">Years of Experience</div>
-                                </div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <div class="stat-number">1500</div>
-                                    <div class="stat-label">Students Taught</div>
-                                </div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-icon">
-                                    <i class="fas fa-book"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <div class="stat-number">50</div>
-                                    <div class="stat-label">Digital Resources</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MathLogame Section -->
-        <section id="mathlogame" class="mathlogame-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">MATHLOGAME</h2>
-                    <p class="section-subtitle">Where Programming Meets Mathematics Education</p>
-                </div>
-
-                <div class="mathlogame-content">
-                    <div class="mathlogame-intro">
-                        <h3>Where Programming Meets Education</h3>
-                        <p>
-                            MathLogame is my flagship platform that combines modern web development with innovative
-                            teaching methods. Built with cutting-edge technologies, it transforms how students
-                            experience mathematics through interactive, gamified learning.
-                        </p>
-
-                        <div class="mathlogame-features">
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                                <div class="feature-content">
-                                    <h4>Modern Web Development</h4>
-                                    <p>Responsive design with real-time interactions</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i class="fas fa-gamepad"></i>
-                                </div>
-                                <div class="feature-content">
-                                    <h4>Interactive Learning</h4>
-                                    <p>Gamified experiences that make math engaging</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="feature-content">
-                                    <h4>Smart Analytics</h4>
-                                    <p>Progress tracking and personalized insights</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contextual Tool Section -->
-                        <div class="contextual-tool-section">
-                            <div class="tool-highlight">
-                                <img src="assets/images/icons/equation-solver.png" alt="Equation Solver" srcset=""
-                                    class="tool-icon" style="width: 38px; height: 38px;">
-                                <div class="tool-info">
-                                    <h4>Try Out The Equation Solver</h4>
-                                    <p>Interactive step-by-step solutions for mathematical equations</p>
-                                    <a href="https://equations-animated-solution.vercel.app/" target="_blank"
-                                        class="tool-link">
-                                        <span>Try Now</span>
-                                        <i class='bx bx-arrow-right'></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="mathlogame-preview">
-                        <div class="mathlogame-preview-image">
-                            <a href="mathlogame.html">
-                                <img src="assets/images/LOGO/MATHLOGAME-light.png" alt="MathLogame Platform"
-                                    class="platform-preview"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="portfolio-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">My Projects</h2>
-                    <p class="section-subtitle">Showcasing my expertise in web development and educational technology
+                <div class="quote-content">
+                    <p class="quote-text">
+                        "Education should be an adventure, not a chore. When we make learning fun, we unlock the true
+                        potential of every student. MathLogame embodies this philosophy by transforming complex
+                        mathematical concepts into engaging, interactive experiences that inspire curiosity and build
+                        confidence."
                     </p>
+                    <p class="quote-author">- Personal Thought on Education</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Features Overview</h2>
+                    <p class="section-subtitle">Why Choose MathLogame?</p>
                 </div>
 
-                <div class="portfolio-grid">
-                    <!-- MathLogame -->
-                    <div class="portfolio-card" data-project="mathlogame">
-                        <div class="card-image">
-                            <img src="assets/images/LOGO/MATHLOGAME-dark.png" alt="MathLogame">
-                            <div class="card-overlay">
-                                <button class="card-link project-details-btn" data-project="mathlogame"
-                                    aria-label="View MathLogame project details">
-                                    <i class="bx bx-info-circle"></i>
-                                </button>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-gamepad"></i>
                             </div>
-                        </div>
-                        <div class="card-content">
-                            <h3>MathLogame Platform</h3>
-                            <p>My flagship educational platform that revolutionizes mathematics learning through
-                                interactive technology.</p>
-
-                        </div>
-                    </div>
-
-                    <!-- Equation Solver -->
-                    <div class="portfolio-card" data-project="equation-solver">
-                        <div class="card-image">
-                            <img src="assets/images/Projects/equation-solver.png" alt="Interactive Equation Solver">
-                            <div class="card-overlay">
-                                <button class="card-link project-details-btn" data-project="equation-solver"
-                                    aria-label="View Interactive Equation Solver project details">
-                                    <i class="bx bx-info-circle"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3>Interactive Equation Solver</h3>
-                            <p>An educational platform designed to help students understand the mathematical process of
-                                solving linear equations through step-by-step animated solutions.</p>
-                        </div>
-                    </div>
-
-                    <!-- Math Booklet -->
-                    <div class="portfolio-card hidden-project" data-project="math-booklet">
-                        <div class="card-image">
-                            <img src="assets/images/Projects/math-booklet.png" alt="Math Booklet">
-                            <div class="card-overlay">
-                                <button class="card-link project-details-btn" data-project="math-booklet"
-                                    aria-label="View Math Booklet project details">
-                                    <i class="bx bx-info-circle"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3>Math Booklet</h3>
-                            <p>Comprehensive mathematics learning resource designed to help students understand the
-                                fundamental concepts of mathematics.
+                            <h3 class="feature-title">Play Math Games</h3>
+                            <p class="feature-description">
+                                Interactive games that make learning math fun and engaging for all ages.
                             </p>
-
                         </div>
                     </div>
-
-                    <!-- Python Book -->
-                    <div class="portfolio-card hidden-project" data-project="python-book">
-                        <div class="card-image">
-                            <img src="assets/images/Projects/Python-book.png" alt="Python Course">
-                            <div class="card-overlay">
-                                <button class="card-link project-details-btn" data-project="python-book"
-                                    aria-label="View Python Book project details">
-                                    <i class="bx bx-info-circle"></i>
-                                </button>
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-tools"></i>
                             </div>
-                        </div>
-                        <div class="card-content">
-                            <h3>Python Fundamentals for Kids</h3>
-                            <p>Comprehensive Python learning resource designed to make coding accessible and enjoyable
-                                for young learners.</p>
-
+                            <h3 class="feature-title">Use Learning Tools</h3>
+                            <p class="feature-description">
+                                Powerful educational tools to help with homework and concept understanding.
+                            </p>
                         </div>
                     </div>
-                    <!-- Math Booklet -->
-
-
-
-                    <!-- Routiney -->
-                    <div class="portfolio-card hidden-project" data-project="routiney">
-                        <div class="card-image">
-                            <img src="assets/images/Projects/Routiney.png" alt="Routiney">
-                            <div class="card-overlay">
-                                <button class="card-link project-details-btn" data-project="routiney"
-                                    aria-label="View Routiney project details">
-                                    <i class="bx bx-info-circle"></i>
-                                </button>
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
                             </div>
-                        </div>
-                        <div class="card-content">
-                            <h3>Routiney App</h3>
-                            <p>Mobile application designed to help users create and maintain productive daily routines
-                                and habits.</p>
-
-                        </div>
-                    </div>
-
-                    <!-- CoachNinja -->
-                    <div class="portfolio-card hidden-project" data-project="coachninja">
-                        <div class="card-image">
-                            <img src="assets/images/Projects/coachninja.jpeg" alt="CoachNinja">
-                            <div class="card-overlay">
-                                <button class="card-link project-details-btn" data-project="coachninja"
-                                    aria-label="View CoachNinja project details">
-                                    <i class="bx bx-info-circle"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3>CoachNinja Platform</h3>
-                            <p>Comprehensive coaching and mentoring platform connecting coaches with students for
-                                personalized learning experiences.</p>
-
+                            <h3 class="feature-title">Support for Teachers</h3>
+                            <p class="feature-description">
+                                Special features and resources designed to help educators enhance their teaching.
+                            </p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- See More/Less Button -->
-                <div class="portfolio-toggle-container">
-                    <button class="btn btn-secondary portfolio-toggle-btn" id="portfolioToggleBtn">
-                        <span class="toggle-text">See More</span>
-                        <i class="bx bx-chevron-down toggle-icon"></i>
-                    </button>
+        <!-- Ad Section -->
+        <section class="ad-section">
+            <div class="container">
+                <div class="ad-content">
+                    <h2 class="ad-title">Ready to Start Your Math Journey?</h2>
+                    <p class="ad-description">
+                        Join thousands of students and educators who are already making math fun and effective with
+                        MathLogame.
+                    </p>
+                    <a href="mathlogame.html" class="ad-cta">
+                        <i class="fas fa-gamepad"></i>
+                        Start Learning Now
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section id="tools" class="tools-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Educational Tools</h2>
+                    <p class="section-subtitle">Powerful tools to help with math learning and homework</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h3 class="tool-title">Equation Solver</h3>
+                            <p class="tool-description">
+                                Get step-by-step solutions for mathematical equations. Perfect for homework help!
+                            </p>
+                            <a href="https://equations-animated-solution.vercel.app/" target="_blank" class="tool-cta">
+                                <i class="fas fa-external-link-alt"></i>
+                                Try Equation Solver
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <h3 class="tool-title">More Tools Coming</h3>
+                            <p class="tool-description">
+                                We're constantly adding new educational tools to help with math learning.
+                            </p>
+                            <a href="about.html" class="tool-cta">
+                                <i class="fas fa-info-circle"></i>
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What Our Users Say</h2>
+                    <p class="section-subtitle">Hear from the community about their MathLogame experience</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">
+                                "MathLogame is a game-changer for my 8-year-old. The games are so engaging and the
+                                progress tracking is fantastic. Highly recommend!"
+                            </p>
+                            <p class="testimonial-author">- Michael Thompson, Teacher</p>
+                            <p class="testimonial-role">Math Teacher</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">
+                                "I've been using MathLogame for a few months now, and my confidence in math has improved
+                                significantly. The games are fun and the tools are a lifesaver!"
+                            </p>
+                            <p class="testimonial-author">- Emily Davis, Student</p>
+                            <p class="testimonial-role">Middle School Student</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">
+                                "MathLogame is the perfect blend of fun and learning. My 5-year-old loves the colorful
+                                graphics and the games are just the right level of challenge."
+                            </p>
+                            <p class="testimonial-author">- David Rodriguez, Parent</p>
+                            <p class="testimonial-role">Parent</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta-section">
+            <div class="container">
+                <div class="final-cta-content">
+                    <h2 class="final-cta-title">Join the MathLogame Community!</h2>
+                    <p class="final-cta-description">
+                        Are you ready to make math fun and effective? Join MathLogame today and start your journey to
+                        mastering mathematics.
+                    </p>
+                    <a href="about.html#contact" class="final-cta-btn">
+                        <i class="fas fa-envelope"></i>
+                        Contact Us
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact-section">
+        <section class="contact-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Let's Connect</h2>
-                    <p class="section-subtitle">I will be happy if anyone wants to improve any education tools</p>
+                    <h2 class="section-title">Need Help?</h2>
+                    <p class="section-subtitle">Get support with MathLogame</p>
                 </div>
 
                 <div class="contact-content">
                     <div class="contact-info">
-                        <h3>Get in Touch</h3>
+                        <h3>Contact Us</h3>
                         <p>
-                            Whether you're interested in MathLogame, want to collaborate on educational projects,
-                            or simply want to discuss the future of mathematics education, I'd love to hear from you.
-
+                            Have questions about MathLogame? Need help with a game?
+                            We're here to help you get the most out of your learning experience.
                         </p>
 
                         <div class="contact-details">
@@ -431,11 +1006,11 @@
                         </div>
 
                         <div class="contact-actions">
-                            <button class="btn btn-primary contact-btn" id="openContactModal">
+                            <a href="about.html#contact" class="btn btn-primary contact-btn">
                                 <i class="fas fa-envelope"></i>
-                                Send a Message
-                            </button>
-                            <p class="contact-note">Click the button above to open the contact form</p>
+                                Send Message
+                            </a>
+                            <p class="contact-note">Ask questions or share feedback about MathLogame</p>
                         </div>
                     </div>
                 </div>
@@ -443,102 +1018,34 @@
         </section>
     </main>
 
-    <!-- Contact Modal -->
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Send a Message</h3>
-                <button class="modal-close" id="closeContactModal" aria-label="Close contact form">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="contactForm" class="modern-form">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <div class="form-actions">
-                        <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
-                        <button type="submit" class="btn btn-primary" id="submitBtn">
-                            <span class="btn-text">Send Message</span>
-                            <span class="btn-loading" style="display: none;">
-                                <i class="fas fa-spinner fa-spin"></i> Sending...
-                            </span>
-                        </button>
-                    </div>
-                </form>
-                <div id="formMessage" class="form-message" style="display: none;"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Project Details Modal -->
-    <div id="projectModal" class="modal">
-        <div class="modal-content project-modal-content">
-            <div class="modal-header">
-                <h3 id="projectModalTitle">Project Details</h3>
-                <button class="modal-close" id="closeProjectModal" aria-label="Close project details">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="project-modal-image">
-                    <img id="projectModalImage" src="" alt="Project Image">
-                </div>
-                <div class="project-modal-content">
-                    <h4 id="projectModalSubtitle"></h4>
-                    <p id="projectModalDescription"></p>
-                    <div class="project-modal-tags" id="projectModalTags"></div>
-                    <div class="project-modal-links" id="projectModalLinks"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    </div>
-    </section>
-    </main>
-
     <!-- Footer -->
     <footer class="modern-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="assets/images/icons/LOGO-Transparent.png" alt="Salah Alkmali" width="150px">
+                    <img src="assets/images/LOGO/MATHLOGAME-dark.png" alt="MathLogame" width="200px">
+                    <p>Making mathematics learning fun and effective through interactive games.</p>
                 </div>
 
                 <div class="footer-links">
-                    <a href="mathlogame.html" class="footer-link">MathLogame Platform</a>
+                    <a href="mathlogame.html" class="footer-link">Games</a>
+                    <a href="about.html" class="footer-link">About</a>
                     <a href="blog.html" class="footer-link">Blog</a>
-                    <a href="#contact" class="footer-link">Contact</a>
+                    <a href="about.html#contact" class="footer-link">Contact</a>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 Salah Alkmali. All rights reserved.</p>
+                <p>&copy; 2024 MathLogame. Created by Salah Alkmali. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- WhatsApp Icon -->
-    <!--
     <a href="https://wa.me/+905524718600" class="whatsapp-icon" target="_blank">
         <img src="assets/images/icons/whatsapp.png" alt="WhatsApp">
     </a>
--->
 
-
-
-
-
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 
