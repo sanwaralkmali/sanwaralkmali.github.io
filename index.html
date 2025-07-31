@@ -58,6 +58,10 @@
             width: 100%;
         }
 
+        .hero-text-description span.mathlogame-logo {
+            font-size: 1.2rem !important;
+        }
+
         .hero-logo {
             display: flex;
             justify-content: center;
@@ -444,28 +448,284 @@
 
         /* Quote Section */
         .quote-section {
-            background: var(--bg-secondary);
-            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(84, 150, 169, 0.1) 50%, var(--bg-secondary) 100%);
+            padding: 5rem 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
         }
 
         .quote-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
-        .quote-text {
+        .quote-decoration {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .quote-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #5496a9, #13a988);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.5rem;
-            font-style: italic;
+            color: white;
+            box-shadow: 0 8px 25px rgba(84, 150, 169, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .quote-line {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            position: relative;
+        }
+
+        .quote-line::before,
+        .quote-line::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .quote-line::before {
+            left: -4px;
+        }
+
+        .quote-line::after {
+            right: -4px;
+        }
+
+        .quote-text-container {
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .quote-text {
+            font-size: 1.4rem;
             color: var(--text-primary);
-            margin-bottom: 1rem;
-            line-height: 1.6;
+            line-height: 1.8;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+            text-align: left;
+        }
+
+        .quote-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .quote-author-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #13a988, #c55910);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            box-shadow: 0 4px 15px rgba(19, 169, 136, 0.3);
+        }
+
+        .author-info {
+            text-align: left;
         }
 
         .quote-author {
             color: var(--primary-color);
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .author-title {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        .quote-stats {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(84, 150, 169, 0.2);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .stat-label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Quote Section Responsive */
+        @media (max-width: 768px) {
+            .quote-section {
+                padding: 3rem 0;
+            }
+
+            .quote-content {
+                max-width: 100%;
+                padding: 0 1rem;
+            }
+
+            .quote-text {
+                font-size: 1.2rem;
+                line-height: 1.7;
+            }
+
+            .quote-text-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .quote-footer {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .quote-stats {
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 0.4rem 0.8rem;
+            }
+
+            .stat-number {
+                font-size: 1.1rem;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
+            }
+
+            .quote-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .quote-line {
+                width: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quote-text {
+                font-size: 1.1rem;
+            }
+
+            .quote-text-container {
+                padding: 1.5rem 1rem;
+            }
+
+            .quote-stats {
+                gap: 0.8rem;
+            }
+
+            .stat-item {
+                padding: 0.3rem 0.6rem;
+            }
+
+            .stat-number {
+                font-size: 1rem;
+            }
+
+            .stat-label {
+                font-size: 0.65rem;
+            }
+
+            .quote-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .quote-line {
+                width: 50px;
+            }
         }
 
         /* Features Section */
@@ -1136,13 +1396,22 @@
         <section class="quote-section">
             <div class="container">
                 <div class="quote-content">
-                    <p class="quote-text">
-                        "Education should be an adventure, not a chore. When we make learning fun, we unlock the true
-                        potential of every student. MathLogame embodies this philosophy by transforming complex
-                        mathematical concepts into engaging, interactive experiences that inspire curiosity and build
-                        confidence."
-                    </p>
-                    <p class="quote-author">- Personal Thought on Education</p>
+                    <div class="quote-decoration">
+                        <div class="quote-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="quote-line"></div>
+                    </div>
+                    <div class="quote-text-container">
+                        <p class="quote-text">
+                            "Education should be an adventure, not a chore. When we make learning fun, we unlock the
+                            true
+                            potential of every student. MathLogame embodies this philosophy by transforming complex
+                            mathematical concepts into engaging, interactive experiences that inspire curiosity and
+                            build
+                            confidence."
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
