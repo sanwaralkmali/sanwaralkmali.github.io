@@ -229,14 +229,14 @@ const projectData = {
             { text: 'Preview PDF', url: './assets/pdf/mathlogame-preview.pdf', icon: 'bx bx-file-pdf' },
         ]
     },
-    'Math Booklet': {
+    'math-booklet': {
         title: 'Math Booklet',
         subtitle: 'Comprehensive Mathematics Learning Resource',
         description: 'A comprehensive mathematics learning resource designed to help students understand the fundamental concepts of mathematics. This resource covers a wide range of topics, from basic arithmetic to advanced algebra and geometry. It is designed to be a comprehensive resource for students who are looking to improve their mathematical skills.',
         image: './assets/images/Projects/math-booklet.png',
         tags: ['Education', 'Mathematics', 'Interactive Learning', 'Web Development', 'Gamification'],
         links: [
-            { text: 'Preview PDF', url: './assets/pdf/math-booklet.pdf', icon: 'bx bx-file-pdf' },
+            { text: 'Preview PDF', url: './assets/pdf/mathlogame-preview.pdf', icon: 'bx bx-file-pdf' },
         ]
     },
 
