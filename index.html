@@ -4,290 +4,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Performance: font preconnect/preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-    <script src="https://kit.fontawesome.com/234e9652c2.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/234e9652c2.js" crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/index.css">
-    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-    <link rel="icon" type="image/png" href="mathlogame-favicon.ico">
-    <title>MATHLOGAME - Fun Math Learning for Everyone</title>
-
-
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <title>Salah Alkmali — Developer &amp; Math Educator</title>
+    <meta name="description" content="Salah Alkmali — full-stack developer and high-school math teacher. I build interactive learning tools, teach math daily, and write about education, math, and code.">
+    <link rel="canonical" href="https://sanwaralkmali.github.io/">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Salah Alkmali — Developer &amp; Math Educator">
+    <meta property="og:description" content="Full-stack developer and high-school math teacher. I build interactive learning tools, teach math daily, and write about education, math, and code.">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://sanwaralkmali.github.io/">
+    <meta property="og:image" content="https://sanwaralkmali.github.io/assets/images/profile/profile.jpg">
+    <meta property="og:site_name" content="Salah Alkmali">
+    <meta property="og:locale" content="en_US">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Salah Alkmali — Developer &amp; Math Educator">
+    <meta name="twitter:description" content="Full-stack developer and high-school math teacher. I build interactive learning tools, teach math daily, and write about education, math, and code.">
+    <meta name="twitter:image" content="https://sanwaralkmali.github.io/assets/images/profile/profile.jpg">
+    <meta name="twitter:site" content="@sanwaralkmali">
+    <!-- JSON-LD: WebSite + Person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Salah Alkmali",
+          "url": "https://sanwaralkmali.github.io/",
+          "description": "Personal site of Salah Alkmali — developer, math educator, and writer.",
+          "author": {"@id": "https://sanwaralkmali.github.io/#person"}
+        },
+        {
+          "@type": "Person",
+          "@id": "https://sanwaralkmali.github.io/#person",
+          "name": "Salah Alkmali",
+          "url": "https://sanwaralkmali.github.io/",
+          "jobTitle": "Developer & Math Educator",
+          "image": "https://sanwaralkmali.github.io/assets/images/profile/profile.jpg",
+          "knowsAbout": ["Mathematics", "Web Development", "Education Technology", "Python", "JavaScript"],
+          "sameAs": [
+            "https://github.com/sanwaralkmali",
+            "https://www.linkedin.com/in/salah-alkmali-00063b11a/",
+            "https://x.com/sanwaralkmali"
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
-    <!-- Modern Navigation -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <!-- Navigation -->
     <nav class="modern-nav" id="modern-nav">
         <div class="nav-container">
-            <div class="nav-logo">
-                <img src="assets/images/LOGO/MATHLOGAME-dark.png" alt="MathLogame" style="height: 42px;">
-            </div>
+            <a href="index.html" class="nav-wordmark" aria-label="Salah Alkmali — Home">Salah Alkmali</a>
 
             <div class="nav-menu" id="nav-menu">
                 <a href="index.html" class="nav-link active">Home</a>
-                <a href="mathlogame.html" class="nav-link">Games</a>
-                <a href="about.html" class="nav-link">About</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link">Projects</a>
                 <a href="blog.html" class="nav-link">Blog</a>
+                <button type="button" class="theme-toggle" aria-label="Switch to light mode">
+                    <i class="bx bxs-sun"></i>
+                </button>
             </div>
 
-            <div class="nav-toggle" id="nav-toggle">
+            <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
-    <main class="main-content">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <!-- Math Symbols Background -->
-            <div class="math-symbols">
-                <div class="math-symbol">
-                    <img src="assets/images/bg-icons/1.png" alt="Math Symbol">
+    <main class="main-content" id="main-content">
+
+        <!-- Hero — asymmetric two-column -->
+        <section class="index-hero">
+            <div class="index-hero-inner">
+                <div class="index-hero-text">
+                    <p class="index-hero-eyebrow">Developer · Educator · Writer</p>
+                    <h1 class="index-hero-h1">Salah Alkmali</h1>
+                    <p class="index-hero-sub">I build tools for learning and teach high-school math. Occasional writer. Seven years in classrooms.</p>
+                    <div class="index-hero-ctas">
+                        <a href="projects.html" class="hero-text-link">See my work</a>
+                        <a href="blog.html" class="hero-text-link">Read what I write</a>
+                    </div>
                 </div>
-                <div class="math-symbol">
-                    <img src="assets/images/bg-icons/2.png" alt="Math Symbol">
-                </div>
-                <div class="math-symbol">
-                    <img src="assets/images/bg-icons/3.png" alt="Math Symbol">
-                </div>
-                <div class="math-symbol">
-                    <img src="assets/images/bg-icons/4.png" alt="Math Symbol">
-                </div>
-                <div class="math-symbol">
-                    <img src="assets/images/bg-icons/5.png" alt="Math Symbol">
-                </div>
-                <div class="math-symbol">
-                    <img src="assets/images/bg-icons/6.png" alt="Math Symbol">
-                </div>
-                <div class="math-symbol">
-                    <img src="assets/images/bg-icons/7.png" alt="Math Symbol">
-                </div>
-                <div class="math-symbol">
-                    <img src="assets/images/bg-icons/8.png" alt="Math Symbol">
-                </div>
-                <div class="math-symbol">
-                    <img src="assets/images/bg-icons/9.png" alt="Math Symbol">
-                </div>
-                <div class="math-symbol">
-                    <img src="assets/images/bg-icons/10.png" alt="Math Symbol">
-                </div>
-                <div class="math-symbol">
-                    <img src="assets/images/bg-icons/11.png" alt="Math Symbol">
-                </div>
-                <div class="math-symbol">
-                    <img src="assets/images/bg-icons/12.png" alt="Math Symbol">
+                <div class="index-hero-portrait-col">
+                    <img
+                        src="assets/images/profile/profile.jpg"
+                        alt="Salah Alkmali — developer and math educator"
+                        class="index-hero-portrait"
+                        width="640" height="640"
+                        fetchpriority="high"
+                        decoding="async">
                 </div>
             </div>
+        </section>
 
-            <div class="hero-container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <div class="hero-logo logo-animation ">
-                            <img src="assets/images/LOGO/MATHLOGAME-light.png" alt="MathLogame">
-                        </div>
-                        <h1 class="hero-headline">
-                            Where Learning Can Be Fun!
-                        </h1>
-                        <p class="hero-description hero-text-description">
-                            Welcome to <span class="mathlogame-logo">MATHLOGAME</span> – the innovative platform where
-                            learning math becomes an exciting
-                            adventure!
-                            Dive into interactive games designed to master essential math skills, from number sense to
-                            algebra and beyond.
-                            Practice, challenge yourself, and build confidence through play!
+        <!-- About -->
+        <section id="about" class="about-section fade-in">
+            <div class="container">
+                <span class="section-eyebrow">About</span>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                            I'm a full-stack developer and mathematics teacher. I spend my days in high-school classrooms figuring out what actually helps students understand math — then I go home and build it. The best ideas always come from a real student stuck on a real problem.
                         </p>
-                        <div class="cta-buttons">
-                            <div class="creative-cta-container">
-                                <a href="mathlogame.html" class="creative-cta primary-cta">
-                                    <div class="cta-content">
-                                        <div class="cta-icon">
-                                            <i class="fas fa-gamepad"></i>
-                                        </div>
-                                        <div class="cta-text">
-                                            <span class="cta-title">Play Games</span>
-                                            <span class="cta-subtitle">Start Learning Now</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="creative-cta-container">
-                                <a href="#tools" class="creative-cta secondary-cta">
-                                    <div class="cta-content">
-                                        <div class="cta-icon">
-                                            <i class="fas fa-tools"></i>
-                                        </div>
-                                        <div class="cta-text">
-                                            <span class="cta-title">Try Education Tools</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Quote Section -->
-        <section class="quote-section">
-            <div class="container">
-                <div class="quote-content">
-                    <div class="quote-decoration">
-                        <div class="quote-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <div class="quote-line"></div>
-                    </div>
-                    <div class="quote-text-container">
-                        <p class="quote-text">
-                            "Education should be an adventure, not a chore. When we make learning fun, we unlock the
-                            true
-                            potential of every student. MathLogame embodies this philosophy by transforming complex
-                            mathematical concepts into engaging, interactive experiences that inspire curiosity and
-                            build
-                            confidence."
+                        <p>
+                            Seven years of teaching has taught me that understanding beats memorizing every time. That conviction is what drives every tool I build — including <a href="projects/mathlogame.html" class="prose-link">MATHLOGAME</a>, my latest essay on <a href="articles/better-marks.html" class="prose-link">why effort alone isn't enough</a>, and the equation solvers I use in the classroom.
                         </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section class="features-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Why Choose MathLogame?</h2>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <img src="assets/images/feature-icons/letter-m.png" alt="Math" class="feature-icon-img">
-                            </div>
-                            <h3 class="feature-title">Math is Fun</h3>
-                            <p class="feature-description">
-                                Say goodbye to boring worksheets! with MATHLOGAME, every equation becomes an
-                                adventure.<br>
-                                Dive into a world where numbers aren't boring—they're exciting! From solving puzzles to
-                                cracking codes, every game is built on real math skills!
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <img src="assets/images/feature-icons/letter-l.png" alt="Learning"
-                                    class="feature-icon-img">
-                            </div>
-                            <h3 class="feature-title">Learn Without Even Noticing</h3>
-                            <p class="feature-description">
-                                Every level, every challenge is a lesson. MATHLOGAME is designed to build your math
-                                confidence as you go. <br> The more you play, the more you understand—no pressure, no
-                                stress, just smart learning that fits your pace.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <img src="assets/images/feature-icons/letter-g.png" alt="Games"
-                                    class="feature-icon-img">
-                            </div>
-                            <h3 class="feature-title">Gaming That Grows Your Brain</h3>
-                            <p class="feature-description">
-                                Fast-paced, fun, and full of surprises! MATHLOGAME turns math practice into exciting
-                                challenges. <br> Whether you're racing the clock, unlocking new levels, or competing
-                                with friends—learning math has never been this fun.
-                            </p>
+                        <div class="hero-socials">
+                            <a href="https://www.linkedin.com/in/salah-alkmali-00063b11a/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn profile (opens in new tab)">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/sanwaralkmali" target="_blank" rel="noopener" class="social-link" aria-label="GitHub profile (opens in new tab)">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://x.com/sanwaralkmali" target="_blank" rel="noopener" class="social-link" aria-label="Twitter / X profile (opens in new tab)">
+                                <i class="fab fa-twitter"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Ad Section -->
-        <section class="ad-section">
-            <div class="container">
-                <div class="ad-content">
-                    <h2 class="ad-title section-title">Ready to Start Your Math Journey?</h2>
-                    <p class="ad-description">
-                        Ready to see what happens when math meets fun? I've built these games to make learning feel like
-                        playtime.
-                        No more boring worksheets — just pure math excitement that actually works.
+                <!-- Currently block -->
+                <div class="currently-block fade-in" aria-label="What I'm working on now">
+                    <span class="section-eyebrow">Currently</span>
+                    <p>
+                        I'm building out MATHLOGAME — adding new game modes and refining the learning feedback loop so students get genuine insight, not just a score.
+                        In the classroom, I'm experimenting with short competitive games that make daily practice feel less like work.
+                        Outside of school, I'm learning how AI can assist the kind of slow, careful thinking I want students to practice — not replace it.
                     </p>
-                    <a href="mathlogame.html" class="ad-cta">
-                        <i class="fas fa-gamepad"></i>
-                        Start Learning Now
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Projects — editorial rows -->
+        <section class="selected-projects fade-in">
+            <div class="container">
+                <span class="section-eyebrow">Projects</span>
+                <div class="editorial-list">
+
+                    <article class="project-row">
+                        <div class="project-row-body">
+                            <h3><a href="projects/mathlogame.html" class="prose-link">MATHLOGAME</a></h3>
+                            <p>Interactive math games for students — now a standalone platform at mathlogame.com.</p>
+                            <a href="projects/mathlogame.html" class="project-row-cta">View case study</a>
+                        </div>
+                        <div class="project-row-image">
+                            <img src="assets/images/Projects/mathlogame.jpeg" alt="MATHLOGAME — interactive math games platform" width="400" height="225" loading="lazy" decoding="async">
+                        </div>
+                    </article>
+
+                    <article class="project-row">
+                        <div class="project-row-body">
+                            <h3><a href="projects/mithaq.html" class="prose-link">Mithaq</a></h3>
+                            <p>Quran companion app for Muslim students. Read · Listen · Reflect · Memorize.</p>
+                            <a href="projects/mithaq.html" class="project-row-cta">View case study</a>
+                        </div>
+                        <div class="project-row-image">
+                            <img src="assets/images/Projects/mithaq.png" alt="Mithaq — Quran companion app" width="400" height="225" loading="lazy" decoding="async">
+                        </div>
+                    </article>
+
+                    <article class="project-row">
+                        <div class="project-row-body">
+                            <h3><a href="projects/routiney.html" class="prose-link">Routiney</a></h3>
+                            <p>Habit and routine tracking app for building productive daily systems.</p>
+                            <a href="projects/routiney.html" class="project-row-cta">View case study</a>
+                        </div>
+                        <div class="project-row-image">
+                            <picture>
+                                <source type="image/webp" srcset="assets/images/Projects/Routiney.webp">
+                                <img src="assets/images/Projects/Routiney.png" alt="Routiney — habit and routine tracker" width="400" height="225" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                    </article>
+
+                </div>
+                <p class="see-all-wrap"><a href="projects.html" class="see-all-link">All projects →</a></p>
+            </div>
+        </section>
+
+        <!-- Latest Writing — editorial rows -->
+        <section class="latest-writing fade-in">
+            <div class="container">
+                <span class="section-eyebrow">Writing</span>
+                <div class="editorial-list">
+
+                    <a href="articles/better-marks.html" class="writing-row">
+                        <div class="writing-row-body">
+                            <p class="writing-row-date">Jan 29, 2026</p>
+                            <h3>I Did My Best — So Why Are My Marks Still Low?</h3>
+                            <p>Discover why working hard isn't always enough and the real difference between "Homework Heroes" and "Steady Achievers."</p>
+                        </div>
+                        <div class="writing-row-image">
+                            <picture>
+                                <source type="image/webp" srcset="assets/articles/effort-not-enough/I did my best.webp">
+                                <img src="assets/articles/effort-not-enough/I did my best.png" alt="Article cover: I Did My Best — So Why Are My Marks Still Low?" width="1200" height="670" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
                     </a>
+
+                    <a href="articles/speed-math-battle.html" class="writing-row">
+                        <div class="writing-row-body">
+                            <p class="writing-row-date">Jul 30, 2025</p>
+                            <h3>Speed Math Battle: Making Math Fun for Kids</h3>
+                            <p>A fast-paced, competitive math game that transforms learning into an exciting adventure.</p>
+                        </div>
+                        <div class="writing-row-image">
+                            <picture>
+                                <source type="image/webp" srcset="assets/articles/SPEED-Game/cover.webp">
+                                <img src="assets/articles/SPEED-Game/cover.png" alt="Article cover: Speed Math Battle" width="1200" height="583" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                    </a>
+
+                    <a href="articles/educational-tools.html" class="writing-row">
+                        <div class="writing-row-body">
+                            <p class="writing-row-date">Jul 28, 2025</p>
+                            <h3>Building Educational Tools That Actually Teach</h3>
+                            <p>How I built an animated equation solver that shows students the process, not just the answer.</p>
+                        </div>
+                        <div class="writing-row-image">
+                            <picture>
+                                <source type="image/webp" srcset="assets/images/Projects/equation-solver.webp">
+                                <img src="assets/images/Projects/equation-solver.png" alt="Article cover: Building Educational Tools That Actually Teach" width="906" height="712" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                    </a>
+
                 </div>
+                <p class="see-all-wrap"><a href="blog.html" class="see-all-link">All writing →</a></p>
             </div>
         </section>
 
-
-
-        <!-- Final CTA Section -->
-        <section class="final-cta-section">
+        <!-- Contact CTA -->
+        <section class="contact-cta-strip fade-in">
             <div class="container">
-                <div class="final-cta-content">
-                    <h2 class="section-title final-cta-title ">Feedback and Comments</h2>
-                    <p class="final-cta-description">
-                        Your feedback helps improve the platform. Share what works, what doesn't, or any ideas you have.
-                        Students, parents, and teachers — all feedback is welcome!
-                    </p>
-                    <div class="contact-actions">
-                        <button class="btn btn-primary contact-btn" id="openContactModal">
-                            <i class="fas fa-envelope"></i>
-                            Send a Message
-                        </button>
-                        <p class="contact-note">Click the button above to open the contact form</p>
-                    </div>
-                </div>
+                <h2>Have a question or an idea?</h2>
+                <p>Send me a message — I'd love to hear from you.</p>
+                <button type="button" class="btn btn-primary contact-btn" id="openContactModal">
+                    <i class="fas fa-envelope"></i>
+                    Send a Message
+                </button>
             </div>
         </section>
-
 
     </main>
 
-    <!-- Footer -->
+    <!-- Footer v2 — signature treatment -->
     <footer class="modern-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="assets/images/LOGO/MATHLOGAME-dark.png" alt="MathLogame" width="200px">
-                    <p class="footer-brand-p">Making mathematics learning fun and effective through interactive games.
-                    </p>
+                    <p class="footer-wordmark">Salah Alkmali</p>
+                    <p class="footer-brand-p">Istanbul, 2026.</p>
                 </div>
-
                 <div class="footer-links">
-                    <a href="mathlogame.html" class="footer-link">Games</a>
-                    <a href="about.html" class="footer-link">About</a>
-                    <a href="blog.html" class="footer-link">Blog</a>
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="projects.html" class="footer-link">Projects</a>
+                    <a href="blog.html" class="footer-link">Writing</a>
+                    <a href="now.html" class="footer-link">Now</a>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2025 MATHLOGAME. Created by Salah Alkmali. All rights reserved.</p>
+                <p>Salah Alkmali &mdash; 2026</p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Icon 
-    <a href="https://wa.me/+905524718600" class="whatsapp-icon" target="_blank">
-        <img src="assets/images/icons/whatsapp.png" alt="WhatsApp">
-    </a>
-    -->
     <!-- Contact Modal -->
-    <div id="contactModal" class="modal">
+    <div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Send a Message</h3>
+                <h3 id="contactModalTitle">Send a Message</h3>
                 <button class="modal-close" id="closeContactModal" aria-label="Close contact form">
                     <i class="fas fa-times"></i>
                 </button>
@@ -295,177 +297,34 @@
             <div class="modal-body">
                 <form id="contactForm" class="modern-form">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <label for="name" class="visually-hidden">Your name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required aria-required="true">
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <label for="email" class="visually-hidden">Your email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required aria-required="true">
                     </div>
                     <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <label for="message" class="visually-hidden">Your message</label>
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required aria-required="true"></textarea>
                     </div>
                     <div class="form-actions">
                         <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
                         <button type="submit" class="btn btn-primary" id="submitBtn">
                             <span class="btn-text">Send Message</span>
-                            <span class="btn-loading" style="display: none;">
+                            <span class="btn-loading">
                                 <i class="fas fa-spinner fa-spin"></i> Sending...
                             </span>
                         </button>
                     </div>
                 </form>
-                <div id="formMessage" class="form-message" style="display: none;"></div>
+                <div id="formMessage" class="form-message" aria-live="polite" aria-atomic="true"></div>
             </div>
         </div>
     </div>
+
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
     <script src="assets/js/main.js"></script>
-
-    <script>
-        // Crazy Math Symbols Animation System - Independent Icons
-        class CrazyMathAnimation {
-            constructor() {
-                this.symbols = document.querySelectorAll('.math-symbol');
-                this.occupiedPositions = new Set(); // Track occupied positions
-                this.positions = [
-                    { top: '5%', left: '5%' },
-                    { top: '10%', left: '15%' },
-                    { top: '15%', left: '25%' },
-                    { top: '20%', left: '35%' },
-                    { top: '25%', left: '45%' },
-                    { top: '30%', left: '55%' },
-                    { top: '35%', left: '65%' },
-                    { top: '40%', left: '75%' },
-                    { top: '45%', left: '85%' },
-                    { top: '50%', left: '95%' },
-                    { top: '55%', left: '10%' },
-                    { top: '60%', left: '20%' },
-                    { top: '65%', left: '30%' },
-                    { top: '70%', left: '40%' },
-                    { top: '75%', left: '50%' },
-                    { top: '80%', left: '60%' },
-                    { top: '85%', left: '70%' },
-                    { top: '90%', left: '80%' },
-                    { top: '95%', left: '90%' },
-                    { top: '8%', left: '80%' },
-                    { top: '12%', left: '60%' },
-                    { top: '18%', left: '40%' },
-                    { top: '22%', left: '20%' },
-                    { top: '28%', left: '80%' },
-                    { top: '32%', left: '60%' },
-                    { top: '38%', left: '40%' },
-                    { top: '42%', left: '20%' },
-                    { top: '48%', left: '80%' },
-                    { top: '52%', left: '60%' },
-                    { top: '58%', left: '40%' },
-                    { top: '62%', left: '20%' },
-                    { top: '68%', left: '80%' },
-                    { top: '72%', left: '60%' },
-                    { top: '78%', left: '40%' },
-                    { top: '82%', left: '20%' },
-                    { top: '88%', left: '80%' },
-                    { top: '92%', left: '60%' },
-                    { top: '98%', left: '40%' }
-                ];
-                this.init();
-            }
-
-            init() {
-                // Start each symbol independently
-                this.symbols.forEach((symbol, index) => {
-                    this.startIndependentAnimation(symbol, index);
-                });
-            }
-
-            getRandomPosition() {
-                return this.positions[Math.floor(Math.random() * this.positions.length)];
-            }
-
-            getAvailablePosition() {
-                let attempts = 0;
-                let position;
-
-                do {
-                    position = this.getRandomPosition();
-                    attempts++;
-
-                    // If we can't find an available position after 10 attempts, just use any position
-                    if (attempts > 10) {
-                        break;
-                    }
-                } while (this.occupiedPositions.has(`${position.top}-${position.left}`));
-
-                return position;
-            }
-
-            occupyPosition(position) {
-                this.occupiedPositions.add(`${position.top}-${position.left}`);
-            }
-
-            releasePosition(position) {
-                this.occupiedPositions.delete(`${position.top}-${position.left}`);
-            }
-
-            getRandomDuration() {
-                // Random duration between 3-7 seconds
-                return (Math.random() * 4 + 3) * 1000;
-            }
-
-            getRandomDelay() {
-                // Random initial delay between 0-3 seconds
-                return Math.random() * 3000;
-            }
-
-            startIndependentAnimation(symbol, index) {
-                let currentPosition = null;
-
-                const animate = () => {
-                    // Release current position if exists
-                    if (currentPosition) {
-                        this.releasePosition(currentPosition);
-                    }
-
-                    // Get new available position
-                    const newPos = this.getAvailablePosition();
-                    currentPosition = newPos;
-                    this.occupyPosition(newPos);
-
-                    // Move to new position
-                    symbol.style.top = newPos.top;
-                    symbol.style.left = newPos.left;
-
-                    // Fade in
-                    symbol.classList.add('visible');
-
-                    // Show for 4-6 seconds
-                    const showDuration = (Math.random() * 2 + 4) * 1000;
-
-                    setTimeout(() => {
-                        // Fade out
-                        symbol.classList.remove('visible');
-
-                        // Wait 1-3 seconds then start next cycle
-                        const waitDuration = (Math.random() * 2 + 1) * 1000;
-
-                        setTimeout(() => {
-                            animate();
-                        }, waitDuration);
-
-                    }, showDuration);
-                };
-
-                // Start with random delay
-                setTimeout(() => {
-                    animate();
-                }, this.getRandomDelay());
-            }
-        }
-
-        // Initialize the crazy animation when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            new CrazyMathAnimation();
-        });
-    </script>
 </body>
 
 </html>

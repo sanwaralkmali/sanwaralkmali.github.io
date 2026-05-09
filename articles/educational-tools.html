@@ -1,17 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Building Educational Tools That Actually Teach | Article</title>
+    <title>Building Educational Tools That Actually Teach — Salah Alkmali</title>
+    <!-- Performance: font preconnect/preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="modern-article.css">
     <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/234e9652c2.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/234e9652c2.js" crossorigin="anonymous" defer></script>
+    <meta name="description" content="How I built an animated equation solver that shows students the process, not just the answer. A look at what it really means to design an educational tool that actually teaches.">
+    <link rel="canonical" href="https://sanwaralkmali.github.io/articles/educational-tools.html">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Building Educational Tools That Actually Teach">
+    <meta property="og:description" content="How I built an animated equation solver that shows students the process, not just the answer. A look at what it really means to design an educational tool that actually teaches.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sanwaralkmali.github.io/articles/educational-tools.html">
+    <meta property="og:image" content="https://sanwaralkmali.github.io/assets/articles/Equation-solver/equation-solver.png">
+    <meta property="og:site_name" content="Salah Alkmali">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="https://sanwaralkmali.github.io/#person">
+    <meta property="article:published_time" content="2025-07-28">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Building Educational Tools That Actually Teach">
+    <meta name="twitter:description" content="How I built an animated equation solver that shows students the process, not just the answer.">
+    <meta name="twitter:image" content="https://sanwaralkmali.github.io/assets/articles/Equation-solver/equation-solver.png">
+    <meta name="twitter:site" content="@sanwaralkmali">
+    <!-- JSON-LD: Article + BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Building Educational Tools That Actually Teach",
+          "datePublished": "2025-07-28",
+          "dateModified": "2025-07-28",
+          "image": "https://sanwaralkmali.github.io/assets/articles/Equation-solver/equation-solver.png",
+          "mainEntityOfPage": "https://sanwaralkmali.github.io/articles/educational-tools.html",
+          "author": {
+            "@type": "Person",
+            "@id": "https://sanwaralkmali.github.io/#person",
+            "name": "Salah Alkmali",
+            "url": "https://sanwaralkmali.github.io/"
+          },
+          "publisher": {
+            "@type": "Person",
+            "@id": "https://sanwaralkmali.github.io/#person",
+            "name": "Salah Alkmali"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sanwaralkmali.github.io/"},
+            {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://sanwaralkmali.github.io/blog.html"},
+            {"@type": "ListItem", "position": 3, "name": "Building Educational Tools That Actually Teach", "item": "https://sanwaralkmali.github.io/articles/educational-tools.html"}
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <div class="article-container">
         <header class="article-header">
             <a class="back-link" href="/blog.html" aria-label="Back to Blog">
@@ -25,11 +84,14 @@
             </div>
         </header>
 
-        <main class="article-content">
+        <main class="article-content" id="main-content">
             <section class="intro-section">
                 <div class="featured-image">
-                    <img src="../assets/images/Projects/equation-solver.png" alt="Equation Solver Tool"
-                        class="hero-image">
+                    <picture>
+                        <source type="image/webp" srcset="../assets/images/Projects/equation-solver.webp">
+                        <img src="../assets/images/Projects/equation-solver.png" alt="Equation Solver Tool"
+                            class="hero-image" width="906" height="712" fetchpriority="high" decoding="async">
+                    </picture>
                 </div>
             </section>
 
@@ -75,7 +137,7 @@
                 <h3>Interactive Equation Solver</h3>
                 <p>Watch as each step unfolds with smooth animations, showing exactly how the equation transforms from
                     start to finish.</p>
-                <a href="https://equations-animated-solution.vercel.app/" target="_blank" class="cta-button">
+                <a href="https://equations-animated-solution.vercel.app/" target="_blank" rel="noopener" class="cta-button">
                     <i class='bx bx-calculator'></i>
                     Try the Equation Solver
                 </a>
@@ -129,11 +191,20 @@
 
         </main>
 
+        <nav class="article-prev-next" aria-label="Article navigation">
+            <a class="article-prev-next__link article-prev-next__prev" href="/articles/learning-games.html">
+                <span class="article-prev-next__label">Previous</span>
+                <span class="article-prev-next__title">Can a Game Really Change How Students Learn?</span>
+            </a>
+            <a class="article-prev-next__link article-prev-next__next" href="/articles/speed-math-battle.html">
+                <span class="article-prev-next__label">Next</span>
+                <span class="article-prev-next__title">Speed Math Battle: Making Math Fun for Kids</span>
+            </a>
+        </nav>
+
         <footer class="article-footer">
-            <img src="../assets/images/LOGO/MATHLOGAME-light.png" alt="MATHLOGAME" class="footer-logo lighting-logo">
-            <div class="powered-by">
-                Powered By <span class="mathlogame-logo">MATHLOGAME</span>
-            </div>
+            <a class="back-link" href="/blog.html"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+            <p class="article-footer-meta">&copy; 2026 Salah Alkmali</p>
         </footer>
     </div>
 

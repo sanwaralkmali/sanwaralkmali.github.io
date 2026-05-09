@@ -4,64 +4,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Performance: font preconnect/preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-    <script src="https://kit.fontawesome.com/234e9652c2.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/234e9652c2.js" crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <link rel="icon" type="image/png" href="favicon.png">
-    <title>Blog - Salah Alkmali</title>
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <title>Writing — Salah Alkmali</title>
+    <meta name="description" content="Articles on math, education, and building things by Salah Alkmali. Honest writing on study strategies, ed-tech, gamification, and how to make learning actually stick.">
+    <link rel="canonical" href="https://sanwaralkmali.github.io/blog.html">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Writing — Salah Alkmali">
+    <meta property="og:description" content="Articles on math, education, and building things by Salah Alkmali. Honest writing on study strategies, ed-tech, gamification, and how to make learning actually stick.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanwaralkmali.github.io/blog.html">
+    <meta property="og:image" content="https://sanwaralkmali.github.io/assets/images/profile/profile.jpg">
+    <meta property="og:site_name" content="Salah Alkmali">
+    <meta property="og:locale" content="en_US">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Writing — Salah Alkmali">
+    <meta name="twitter:description" content="Articles on math, education, and building things by Salah Alkmali. Honest writing on study strategies, ed-tech, gamification, and how to make learning actually stick.">
+    <meta name="twitter:image" content="https://sanwaralkmali.github.io/assets/images/profile/profile.jpg">
+    <meta name="twitter:site" content="@sanwaralkmali">
 </head>
 
 <body>
-    <!-- Modern Navigation -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <!-- Navigation -->
     <nav class="modern-nav" id="modern-nav">
         <div class="nav-container">
-            <div class="nav-logo">
-                <img src="assets/images/LOGO/MATHLOGAME-dark.png" alt="MathLogame" style="height: 42px;">
-            </div>
+            <a href="index.html" class="nav-wordmark" aria-label="Salah Alkmali — Home">Salah Alkmali</a>
 
             <div class="nav-menu" id="nav-menu">
                 <a href="index.html" class="nav-link">Home</a>
-                <a href="mathlogame.html" class="nav-link">Games</a>
-                <a href="about.html" class="nav-link">About</a>
+                <a href="/#about" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link">Projects</a>
                 <a href="blog.html" class="nav-link active">Blog</a>
+                <button type="button" class="theme-toggle" aria-label="Switch to light mode">
+                    <i class="bx bxs-sun"></i>
+                </button>
             </div>
 
-            <div class="nav-toggle" id="nav-toggle">
+            <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
-    <main class="main-content">
-        <!-- Blog Section -->
+    <main class="main-content" id="main-content">
+        <!-- Writing Section -->
         <section class="blog" id="blog">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Blog Posts</h2>
-                    <p class="section-subtitle">Thoughts on education, technology, and learning</p>
+                    <h1 class="section-title">Writing</h1>
+                    <p class="section-subtitle">Notes on math, education, and the craft of building things.</p>
                 </div>
 
                 <!-- Blog Categories -->
-                <div class="blog-categories">
-                    <button class="category-btn active" data-category="all">All Posts</button>
-                    <button class="category-btn" data-category="programming">Programming</button>
-                    <button class="category-btn" data-category="education">Education</button>
-                    <button class="category-btn" data-category="technology">Technology</button>
+                <div class="blog-categories" role="group" aria-label="Filter articles by category">
+                    <button class="category-btn active" data-category="all" type="button">All Posts</button>
+                    <button class="category-btn" data-category="programming" type="button">Programming</button>
+                    <button class="category-btn" data-category="education" type="button">Education</button>
+                    <button class="category-btn" data-category="technology" type="button">Technology</button>
                 </div>
 
                 <!-- Blog Grid -->
                 <div class="blog-grid">
 
-                    <!-- Blog Post 1 - Better Marks (Newest) -->
+                    <!-- Effort Is Not Enough (Newest) -->
                     <article class="blog-card" data-category="education">
                         <div class="blog-image">
-                            <img src="assets/articles/effort-not-enough/I did my best.png"
-                                alt="I Did My Best—So Why Are My Marks Still Low?">
+                            <picture>
+                                <source type="image/webp" srcset="assets/articles/effort-not-enough/I did my best.webp">
+                                <img src="assets/articles/effort-not-enough/I did my best.png"
+                                    alt="I Did My Best — So Why Are My Marks Still Low?"
+                                    width="1200" height="670" fetchpriority="high" decoding="async">
+                            </picture>
                             <div class="blog-date">
                                 <span class="day">29</span>
                                 <span class="month">Jan</span>
@@ -73,18 +97,21 @@
                                 <span class="tag">Study Tips</span>
                                 <span class="tag">Mindset</span>
                             </div>
-                            <h3 class="blog-title">I Did My Best—So Why Are My Marks Still Low?</h3>
+                            <h2 class="blog-title">I Did My Best — So Why Are My Marks Still Low?</h2>
                             <p class="blog-excerpt">Discover why working hard isn't always enough and learn the real difference between "Homework Heroes" and "Steady Achievers." Stop memorizing and start understanding.</p>
-                            <a href="articles/better-marks.html" class="read-more">Read More <i
-                                    class='bx bx-right-arrow-alt'></i></a>
+                            <a href="articles/better-marks.html" class="read-more" aria-label="Read more about I Did My Best — So Why Are My Marks Still Low?">Read More <i class='bx bx-right-arrow-alt'></i></a>
                         </div>
                     </article>
 
-                    <!-- Blog Post 2 - Speed Math Battle -->
+                    <!-- Speed Math Battle -->
                     <article class="blog-card" data-category="programming">
                         <div class="blog-image">
-                            <img src="assets/articles/SPEED-Game/cover.png"
-                                alt="Speed Math Battle: Making Math Fun for Kids!">
+                            <picture>
+                                <source type="image/webp" srcset="assets/articles/SPEED-Game/cover.webp">
+                                <img src="assets/articles/SPEED-Game/cover.png"
+                                    alt="Speed Math Battle: Making Math Fun for Kids"
+                                    width="1200" height="583" loading="lazy" decoding="async">
+                            </picture>
                             <div class="blog-date">
                                 <span class="day">30</span>
                                 <span class="month">Jul</span>
@@ -96,19 +123,21 @@
                                 <span class="tag">Gamification</span>
                                 <span class="tag">Math Games</span>
                             </div>
-                            <h3 class="blog-title">🚀 Speed Math Battle: Making Math Fun for Kids!</h3>
-                            <p class="blog-excerpt">A fast-paced, competitive math game that transforms learning into an
-                                exciting adventure. See how two-player battles make math practice engaging and fun.</p>
-                            <a href="articles/speed-math-battle.html" class="read-more">Read More <i
-                                    class='bx bx-right-arrow-alt'></i></a>
+                            <h2 class="blog-title">Speed Math Battle: Making Math Fun for Kids</h2>
+                            <p class="blog-excerpt">A fast-paced, competitive math game that transforms learning into an exciting adventure. See how two-player battles make math practice engaging and fun.</p>
+                            <a href="articles/speed-math-battle.html" class="read-more" aria-label="Read more about Speed Math Battle: Making Math Fun for Kids">Read More <i class='bx bx-right-arrow-alt'></i></a>
                         </div>
                     </article>
 
-                    <!-- Blog Post 2 -->
+                    <!-- Educational Tools -->
                     <article class="blog-card" data-category="programming">
                         <div class="blog-image">
-                            <img src="assets/images/Projects/equation-solver.png"
-                                alt="Building Educational Tools That Actually Teach">
+                            <picture>
+                                <source type="image/webp" srcset="assets/images/Projects/equation-solver.webp">
+                                <img src="assets/images/Projects/equation-solver.png"
+                                    alt="Building Educational Tools That Actually Teach"
+                                    width="906" height="712" loading="lazy" decoding="async">
+                            </picture>
                             <div class="blog-date">
                                 <span class="day">28</span>
                                 <span class="month">Jul</span>
@@ -119,19 +148,21 @@
                                 <span class="tag">Education</span>
                                 <span class="tag">Programming</span>
                             </div>
-                            <h3 class="blog-title">Building Educational Tools That Actually Teach</h3>
-                            <p class="blog-excerpt">How I built an animated equation solver that shows students the
-                                process, not just the answer.</p>
-                            <a href="articles/educational-tools.html" class="read-more">Read More <i
-                                    class='bx bx-right-arrow-alt'></i></a>
+                            <h2 class="blog-title">Building Educational Tools That Actually Teach</h2>
+                            <p class="blog-excerpt">How I built an animated equation solver that shows students the process, not just the answer.</p>
+                            <a href="articles/educational-tools.html" class="read-more" aria-label="Read more about Building Educational Tools That Actually Teach">Read More <i class='bx bx-right-arrow-alt'></i></a>
                         </div>
                     </article>
 
-                    <!-- Blog Post 2 -->
+                    <!-- Classroom Games -->
                     <article class="blog-card" data-category="education">
                         <div class="blog-image">
-                            <img src="assets/articles/Classroom-Games/learning-games.png"
-                                alt="Can a Game Really Change How Students Learn?">
+                            <picture>
+                                <source type="image/webp" srcset="assets/articles/Classroom-Games/learning-games.webp">
+                                <img src="assets/articles/Classroom-Games/learning-games.png"
+                                    alt="Can a Game Really Change How Students Learn?"
+                                    width="1200" height="800" loading="lazy" decoding="async">
+                            </picture>
                             <div class="blog-date">
                                 <span class="day">27</span>
                                 <span class="month">Jul</span>
@@ -142,20 +173,21 @@
                                 <span class="tag">Education</span>
                                 <span class="tag">Gamification</span>
                             </div>
-                            <h3 class="blog-title">Can a Game Really Change How Students Learn? I Think So.</h3>
-                            <p class="blog-excerpt">A teacher's honest reflection on how games transformed his classroom
-                                and sparked the creation of MathLogame.</p>
-                            <a href="articles/learning-games.html" class="read-more">Read More <i
-                                    class='bx bx-right-arrow-alt'></i></a>
+                            <h2 class="blog-title">Can a Game Really Change How Students Learn? I Think So.</h2>
+                            <p class="blog-excerpt">A teacher's honest reflection on how games transformed his classroom and sparked the creation of MATHLOGAME.</p>
+                            <a href="articles/learning-games.html" class="read-more" aria-label="Read more about Can a Game Really Change How Students Learn?">Read More <i class='bx bx-right-arrow-alt'></i></a>
                         </div>
                     </article>
 
-
-
-                    <!-- Blog Post 3 -->
+                    <!-- Why Math -->
                     <article class="blog-card" data-category="education">
                         <div class="blog-image">
-                            <img src="assets/articles/whyMath/Math is boring.png" alt="Why Are We Even Learning This?">
+                            <picture>
+                                <source type="image/webp" srcset="assets/articles/whyMath/Math is boring.webp">
+                                <img src="assets/articles/whyMath/Math is boring.png"
+                                    alt="So ... Why Are We Even Learning This?"
+                                    width="736" height="988" loading="lazy" decoding="async">
+                            </picture>
                             <div class="blog-date">
                                 <span class="day">21</span>
                                 <span class="month">Jun</span>
@@ -166,18 +198,21 @@
                                 <span class="tag">Education</span>
                                 <span class="tag">Mindset</span>
                             </div>
-                            <h3 class="blog-title">So ... Why Are We Even Learning This?</h3>
-                            <p class="blog-excerpt">A candid letter about why math matters, how it shapes your thinking,
-                                and why you don't have to love it to get stronger at it.</p>
-                            <a href="articles/whyMath.html" class="read-more">Read More <i
-                                    class='bx bx-right-arrow-alt'></i></a>
+                            <h2 class="blog-title">So ... Why Are We Even Learning This?</h2>
+                            <p class="blog-excerpt">A candid letter about why math matters, how it shapes your thinking, and why you don't have to love it to get stronger at it.</p>
+                            <a href="articles/whyMath.html" class="read-more" aria-label="Read more about So ... Why Are We Even Learning This?">Read More <i class='bx bx-right-arrow-alt'></i></a>
                         </div>
                     </article>
 
-                    <!-- Blog Post 4 -->
+                    <!-- AI and You -->
                     <article class="blog-card" data-category="technology">
                         <div class="blog-image">
-                            <img src="assets/articles/AI/cover.png" alt="Are You Using AI the Right Way?">
+                            <picture>
+                                <source type="image/webp" srcset="assets/articles/AI/cover.webp">
+                                <img src="assets/articles/AI/cover.png"
+                                    alt="Are You Using AI the Right Way?"
+                                    width="1200" height="800" loading="lazy" decoding="async">
+                            </picture>
                             <div class="blog-date">
                                 <span class="day">15</span>
                                 <span class="month">Jun</span>
@@ -188,45 +223,37 @@
                                 <span class="tag">Education</span>
                                 <span class="tag">AI</span>
                             </div>
-                            <h3 class="blog-title">Are You Using AI the Right Way?</h3>
-                            <p class="blog-excerpt">A practical guide for students on how to use AI as a tool for
-                                learning, not just shortcuts. Discover the difference between smart and lazy use of AI
-                                in your studies.</p>
-                            <a href="articles/AIandYou.html" class="read-more">Read More <i
-                                    class='bx bx-right-arrow-alt'></i></a>
+                            <h2 class="blog-title">Are You Using AI the Right Way?</h2>
+                            <p class="blog-excerpt">A practical guide for students on how to use AI as a tool for learning, not just shortcuts. Discover the difference between smart and lazy use of AI in your studies.</p>
+                            <a href="articles/AIandYou.html" class="read-more" aria-label="Read more about Are You Using AI the Right Way?">Read More <i class='bx bx-right-arrow-alt'></i></a>
                         </div>
                     </article>
+
                 </div>
             </div>
         </section>
-
-        <!-- Footer -->
-        <footer class="modern-footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-brand">
-                        <img src="assets/images/LOGO/MATHLOGAME-dark.png" alt="MathLogame" width="200px">
-                        <p>Making mathematics learning fun and effective through interactive games.</p>
-                    </div>
-
-                    <div class="footer-links">
-                        <a href="mathlogame.html" class="footer-link">Games</a>
-                        <a href="about.html" class="footer-link">About</a>
-                        <a href="blog.html" class="footer-link">Blog</a>
-                    </div>
-                </div>
-
-                <div class="footer-bottom">
-                    <p>&copy; 2025 MATHLOGAME. Created by Salah Alkmali. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
     </main>
 
-    <!-- WhatsApp Icon -->
-    <a href="https://wa.me/+905524718600" class="whatsapp-icon" target="_blank">
-        <img src="assets/images/icons/whatsapp.png" alt="WhatsApp">
-    </a>
+    <!-- Footer v2 -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <p class="footer-wordmark">Salah Alkmali</p>
+                    <p class="footer-brand-p">Istanbul, 2026.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/#about" class="footer-link">About</a>
+                    <a href="projects.html" class="footer-link">Projects</a>
+                    <a href="blog.html" class="footer-link">Writing</a>
+                    <a href="now.html" class="footer-link">Now</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Salah Alkmali &mdash; 2026</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="assets/js/main.js"></script>
 </body>

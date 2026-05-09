@@ -1,15 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>So ... Why Are We Even Learning This? | Article</title>
+  <title>So ... Why Are We Even Learning This? — Salah Alkmali</title>
+  <!-- Performance: font preconnect/preload -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap">
   <link rel="stylesheet" href="modern-article.css">
   <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <meta name="description" content="A candid letter about why math matters, how it shapes your thinking, and why you don't have to love it to get stronger at it. Written by a math teacher who gets it.">
+  <link rel="canonical" href="https://sanwaralkmali.github.io/articles/whyMath.html">
+  <!-- Open Graph -->
+  <meta property="og:title" content="So ... Why Are We Even Learning This?">
+  <meta property="og:description" content="A candid letter about why math matters, how it shapes your thinking, and why you don't have to love it to get stronger at it. Written by a math teacher who gets it.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sanwaralkmali.github.io/articles/whyMath.html">
+  <meta property="og:image" content="https://sanwaralkmali.github.io/assets/articles/whyMath/Math%20is%20boring.png">
+  <meta property="og:site_name" content="Salah Alkmali">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:author" content="https://sanwaralkmali.github.io/#person">
+  <meta property="article:published_time" content="2024-06-21">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="So ... Why Are We Even Learning This?">
+  <meta name="twitter:description" content="A candid letter about why math matters, how it shapes your thinking, and why you don't have to love it to get stronger at it.">
+  <meta name="twitter:image" content="https://sanwaralkmali.github.io/assets/articles/whyMath/Math%20is%20boring.png">
+  <meta name="twitter:site" content="@sanwaralkmali">
+  <!-- JSON-LD: Article + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "So ... Why Are We Even Learning This?",
+        "datePublished": "2024-06-21",
+        "dateModified": "2024-06-21",
+        "image": "https://sanwaralkmali.github.io/assets/articles/whyMath/Math%20is%20boring.png",
+        "mainEntityOfPage": "https://sanwaralkmali.github.io/articles/whyMath.html",
+        "author": {
+          "@type": "Person",
+          "@id": "https://sanwaralkmali.github.io/#person",
+          "name": "Salah Alkmali",
+          "url": "https://sanwaralkmali.github.io/"
+        },
+        "publisher": {
+          "@type": "Person",
+          "@id": "https://sanwaralkmali.github.io/#person",
+          "name": "Salah Alkmali"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sanwaralkmali.github.io/"},
+          {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://sanwaralkmali.github.io/blog.html"},
+          {"@type": "ListItem", "position": 3, "name": "So ... Why Are We Even Learning This?", "item": "https://sanwaralkmali.github.io/articles/whyMath.html"}
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="article-container">
     <header class="article-header">
       <a class="back-link" href="/blog.html" aria-label="Back to Blog">
@@ -23,11 +82,14 @@
       </div>
     </header>
 
-    <main class="article-content">
+    <main class="article-content" id="main-content">
       <section class="intro-section">
         <div class="boring-block">
           <div class="boring-img-card">
-            <img src="../assets/articles/whyMath/Math is boring.png" alt="Math is boring" class="boring-img">
+            <picture>
+              <source type="image/webp" srcset="../assets/articles/whyMath/Math is boring.webp">
+              <img src="../assets/articles/whyMath/Math is boring.png" alt="Math is boring" class="boring-img" width="736" height="988" fetchpriority="high" decoding="async">
+            </picture>
           </div>
           <div class="boring-quotes">
             <ul>
@@ -60,7 +122,10 @@
       <h2>Math trains your brain to think.</h2>
 
       <div class="featured-image">
-        <img src="../assets/articles/whyMath/Math trains you brain to think.png" alt="Math trains your brain to think">
+        <picture>
+          <source type="image/webp" srcset="../assets/articles/whyMath/Math trains you brain to think.webp">
+          <img src="../assets/articles/whyMath/Math trains you brain to think.png" alt="Math trains your brain to think" width="752" height="1024" loading="lazy" decoding="async">
+        </picture>
       </div>
 
       <p>Every time you work through a tough problem—<br>
@@ -117,15 +182,24 @@
       </div>
     </main>
 
+    <nav class="article-prev-next" aria-label="Article navigation">
+      <a class="article-prev-next__link article-prev-next__prev" href="/articles/AIandYou.html">
+        <span class="article-prev-next__label">Previous</span>
+        <span class="article-prev-next__title">Are You Using AI the Right Way?</span>
+      </a>
+      <a class="article-prev-next__link article-prev-next__next" href="/articles/learning-games.html">
+        <span class="article-prev-next__label">Next</span>
+        <span class="article-prev-next__title">Can a Game Really Change How Students Learn?</span>
+      </a>
+    </nav>
+
     <footer class="article-footer">
-      <img src="../assets/images/LOGO/MATHLOGAME-light.png" alt="MATHLOGAME" class="footer-logo lighting-logo">
-      <div class="powered-by">
-        Powered By <span class="mathlogame-logo">MATHLOGAME</span>
-      </div>
+      <a class="back-link" href="/blog.html"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+      <p class="article-footer-meta">&copy; 2026 Salah Alkmali</p>
     </footer>
   </div>
 
-  <script src="https://kit.fontawesome.com/234e9652c2.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/234e9652c2.js" crossorigin="anonymous" defer></script>
 </body>
 
 </html>

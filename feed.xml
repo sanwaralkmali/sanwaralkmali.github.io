@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Salah Alkmali — Writing</title>
+    <link>https://sanwaralkmali.github.io/blog.html</link>
+    <description>Articles on math, education, and building things by Salah Alkmali.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sanwaralkmali.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>I Did My Best — So Why Are My Marks Still Low?</title>
+      <link>https://sanwaralkmali.github.io/articles/better-marks.html</link>
+      <guid isPermaLink="true">https://sanwaralkmali.github.io/articles/better-marks.html</guid>
+      <pubDate>Thu, 29 Jan 2026 00:00:00 +0000</pubDate>
+      <description>Discover why working hard isn't always enough and learn the real difference between "Homework Heroes" and "Steady Achievers." Stop memorizing and start understanding.</description>
+    </item>
+
+    <item>
+      <title>Speed Math Battle: Making Math Fun for Kids</title>
+      <link>https://sanwaralkmali.github.io/articles/speed-math-battle.html</link>
+      <guid isPermaLink="true">https://sanwaralkmali.github.io/articles/speed-math-battle.html</guid>
+      <pubDate>Wed, 30 Jul 2025 00:00:00 +0000</pubDate>
+      <description>A fast-paced, competitive math game that transforms learning into an exciting adventure. See how two-player battles make math practice engaging and fun.</description>
+    </item>
+
+    <item>
+      <title>Building Educational Tools That Actually Teach</title>
+      <link>https://sanwaralkmali.github.io/articles/educational-tools.html</link>
+      <guid isPermaLink="true">https://sanwaralkmali.github.io/articles/educational-tools.html</guid>
+      <pubDate>Mon, 28 Jul 2025 00:00:00 +0000</pubDate>
+      <description>How I built an animated equation solver that shows students the process, not just the answer. A look at what it really means to design an educational tool that actually teaches.</description>
+    </item>
+
+    <item>
+      <title>Can a Game Really Change How Students Learn? I Think So.</title>
+      <link>https://sanwaralkmali.github.io/articles/learning-games.html</link>
+      <guid isPermaLink="true">https://sanwaralkmali.github.io/articles/learning-games.html</guid>
+      <pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate>
+      <description>A teacher's honest reflection on how classroom games transformed student engagement and sparked the creation of MATHLOGAME. Can play really change how students learn?</description>
+    </item>
+
+    <item>
+      <title>So ... Why Are We Even Learning This?</title>
+      <link>https://sanwaralkmali.github.io/articles/whyMath.html</link>
+      <guid isPermaLink="true">https://sanwaralkmali.github.io/articles/whyMath.html</guid>
+      <pubDate>Fri, 21 Jun 2024 00:00:00 +0000</pubDate>
+      <description>A candid letter about why math matters, how it shapes your thinking, and why you don't have to love it to get stronger at it.</description>
+    </item>
+
+    <item>
+      <title>Are You Using AI the Right Way?</title>
+      <link>https://sanwaralkmali.github.io/articles/AIandYou.html</link>
+      <guid isPermaLink="true">https://sanwaralkmali.github.io/articles/AIandYou.html</guid>
+      <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
+      <description>A practical guide for students on how to use AI as a tool for genuine learning, not just shortcuts. Discover the difference between smart and lazy use of AI in your studies.</description>
+    </item>
+
+  </channel>
+</rss>

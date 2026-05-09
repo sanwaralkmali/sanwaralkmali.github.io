@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git add:*)",
+      "Bash(git restore:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(find:*)",
+      "Bash(rg:*)",
+      "Bash(npx -y lighthouse:*)",
+      "Bash(npx -y @lhci/cli:*)",
+      "Bash(npx -y pa11y:*)",
+      "Bash(npx -y html-validate:*)"
+    ],
+    "deny": [
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(rm -rf:*)",
+      "Edit(.git/**)",
+      "Write(.git/**)",
+      "Edit(assets/Worksheet PDFs/**)",
+      "Edit(assets/More Examples/**)",
+      "Edit(assets/cheatsheet/**)"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "WebFetch"
+    ]
+  },
+  "env": {
+    "PROJECT_KIND": "static-site",
+    "PROJECT_NAME": "sanwaralkmali.github.io",
+    "DEPLOY_TARGET": "github-pages",
+    "STACK": "vanilla-html-css-js"
+  }
+}

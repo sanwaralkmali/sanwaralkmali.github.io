@@ -1,7 +1,5 @@
 /************** Modern Navigation ****************************/
 
-console.log('🚀 main.js loaded successfully!');
-
 // Modern Navigation Toggle
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
@@ -10,11 +8,16 @@ const navLinks = document.querySelectorAll('.nav-link');
 if (navToggle) {
     navToggle.addEventListener('click', function () {
         navMenu.classList.toggle('show');
+        const isOpen = navMenu.classList.contains('show');
+
+        // Toggle aria-expanded (#20)
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
 
         // Animate hamburger menu
         const spans = navToggle.querySelectorAll('span');
         spans.forEach((span, index) => {
-            if (navMenu.classList.contains('show')) {
+            if (isOpen) {
                 if (index === 0) span.style.transform = 'rotate(45deg) translate(5px, 5px)';
                 if (index === 1) span.style.opacity = '0';
                 if (index === 2) span.style.transform = 'rotate(-45deg) translate(7px, -6px)';
@@ -29,15 +32,19 @@ if (navToggle) {
 // Close mobile menu when clicking on a link
 navLinks.forEach(link => {
     link.addEventListener('click', function () {
-        if (navMenu.classList.contains('show')) {
+        if (navMenu && navMenu.classList.contains('show')) {
             navMenu.classList.remove('show');
 
-            // Reset hamburger menu
-            const spans = navToggle.querySelectorAll('span');
-            spans.forEach(span => {
-                span.style.transform = 'none';
-                span.style.opacity = '1';
-            });
+            // Reset hamburger menu + aria-expanded (#20)
+            if (navToggle) {
+                navToggle.setAttribute('aria-expanded', 'false');
+                navToggle.setAttribute('aria-label', 'Open navigation menu');
+                const spans = navToggle.querySelectorAll('span');
+                spans.forEach(span => {
+                    span.style.transform = 'none';
+                    span.style.opacity = '1';
+                });
+            }
         }
     });
 });
@@ -48,7 +55,7 @@ navLinks.forEach(link => {
         const href = link.getAttribute('href');
 
         // Only handle internal links
-        if (href.startsWith('#')) {
+        if (href && href.startsWith('#')) {
             e.preventDefault();
             const targetSection = document.querySelector(href);
 
@@ -80,30 +87,38 @@ function updateActiveNavLink() {
     });
 }
 
-// Navbar scroll effect
+// Navbar scroll effect — adds/removes .scrolled class so CSS handles theming
 function scrollNavbar() {
     const navbar = document.getElementById('modern-nav');
-    if (navbar && window.scrollY > 50) {
-        navbar.style.background = 'rgba(15, 23, 42, 0.98)';
-        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-    } else if (navbar) {
-        navbar.style.background = 'rgba(15, 23, 42, 0.95)';
-        navbar.style.boxShadow = 'none';
+    if (!navbar) return;
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
     }
 }
 
-// Event listeners
+// Event listeners — rAF throttle prevents scroll-handler INP spikes on mobile
+let scrollPending = false;
 window.addEventListener('scroll', () => {
-    updateActiveNavLink();
-    scrollNavbar();
-});
+    if (scrollPending) return;
+    scrollPending = true;
+    requestAnimationFrame(() => {
+        updateActiveNavLink();
+        scrollNavbar();
+        scrollPending = false;
+    });
+}, { passive: true });
 
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
+    if (!navToggle || !navMenu) return;
     if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
         navMenu.classList.remove('show');
 
-        // Reset hamburger menu
+        // Reset hamburger menu + aria-expanded (#20)
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Open navigation menu');
         const spans = navToggle.querySelectorAll('span');
         spans.forEach(span => {
             span.style.transform = 'none';
@@ -111,6 +126,57 @@ document.addEventListener('click', (e) => {
         });
     }
 });
+
+/****************************************************/
+
+/********************** Theme Toggle **************************/
+
+(function () {
+    const root = document.documentElement;
+    const STORAGE_KEY = 'theme';
+
+    // Apply saved theme on load (prefers-color-scheme is the CSS fallback)
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+        root.setAttribute('data-theme', saved);
+    }
+
+    function getCurrentTheme() {
+        return root.getAttribute('data-theme') ||
+            (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    }
+
+    function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem(STORAGE_KEY, theme);
+        updateToggleIcon(theme);
+    }
+
+    function updateToggleIcon(theme) {
+        const btn = document.querySelector('.theme-toggle');
+        if (!btn) return;
+        if (theme === 'light') {
+            btn.innerHTML = '<i class="bx bxs-moon"></i>';
+            btn.setAttribute('aria-label', 'Switch to dark mode');
+        } else {
+            btn.innerHTML = '<i class="bx bxs-sun"></i>';
+            btn.setAttribute('aria-label', 'Switch to light mode');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.querySelector('.theme-toggle');
+        if (!btn) return;
+
+        const current = getCurrentTheme();
+        updateToggleIcon(current);
+
+        btn.addEventListener('click', () => {
+            const next = getCurrentTheme() === 'light' ? 'dark' : 'light';
+            applyTheme(next);
+        });
+    });
+})();
 
 /****************************************************/
 
@@ -161,22 +227,40 @@ const openModalBtn = document.getElementById('openContactModal');
 const closeModalBtn = document.getElementById('closeContactModal');
 const cancelBtn = document.getElementById('cancelBtn');
 
-// Open modal
+// Open modal (#21, #22, #25)
 if (openModalBtn) {
     openModalBtn.addEventListener('click', function () {
-        modal.classList.add('show');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        if (modal) {
+            lastFocused = document.activeElement;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            // Move focus to first focusable element inside modal
+            const focusable = getFocusableElements();
+            if (focusable.length > 0) focusable[0].focus();
+            modal.addEventListener('keydown', trapFocus);
+        }
     });
 }
 
-// Close modal functions
+// Close modal functions (#21, #22, #25)
 function closeModal() {
+    if (!modal) return;
     modal.classList.remove('show');
+    modal.removeEventListener('keydown', trapFocus);
     document.body.style.overflow = ''; // Restore scrolling
+    // Restore focus to trigger (#25)
+    if (lastFocused && lastFocused.focus) {
+        lastFocused.focus();
+    } else if (openModalBtn) {
+        openModalBtn.focus();
+    }
+    lastFocused = null;
     // Reset form
     const form = document.getElementById('contactForm');
     if (form) {
         form.reset();
+        // Clear aria-invalid on all inputs
+        form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
         const formMessage = document.getElementById('formMessage');
         if (formMessage) {
             formMessage.style.display = 'none';
@@ -202,157 +286,40 @@ if (modal) {
     });
 }
 
+// Focus trap + focus restore for modal (#21, #22, #25)
+let lastFocused = null;
+
+function getFocusableElements() {
+    if (!modal) return [];
+    return Array.from(modal.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )).filter(el => !el.disabled && el.offsetParent !== null);
+}
+
+function trapFocus(e) {
+    const focusable = getFocusableElements();
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.key === 'Tab') {
+        if (e.shiftKey) {
+            if (document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            }
+        } else {
+            if (document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+    }
+}
+
 // Close modal with Escape key
 document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && modal.classList.contains('show')) {
+    if (modal && e.key === 'Escape' && modal.classList.contains('show')) {
         closeModal();
-    }
-});
-
-/********************** Project Modal **************************/
-
-// Project modal elements
-const projectModal = document.getElementById('projectModal');
-const closeProjectModalBtn = document.getElementById('closeProjectModal');
-const projectDetailsBtns = document.querySelectorAll('.project-details-btn');
-
-// Project data
-const projectData = {
-    mathlogame: {
-        title: 'MathLogame Platform',
-        subtitle: 'Revolutionary Mathematics Learning Platform',
-        description: 'My flagship educational platform that combines modern web development with innovative teaching methods. Built with cutting-edge technologies, MathLogame transforms how students experience mathematics through interactive, gamified learning experiences. The platform features responsive design, real-time interactions, and advanced analytics to optimize learning outcomes.',
-        image: './assets/images/LOGO/MATHLOGAME.png',
-        tags: ['Education', 'Mathematics', 'Interactive Learning', 'Web Development', 'Gamification'],
-        links: [
-            { text: 'Visit Platform', url: 'mathlogame.html', icon: 'bx bx-link-external' },
-            { text: 'Preview PDF', url: './assets/pdf/mathlogame-preview.pdf', icon: 'bx bx-file-pdf' },
-        ]
-    },
-    'math-booklet': {
-        title: 'Math Booklet',
-        subtitle: 'Comprehensive Mathematics Learning Resource',
-        description: 'A comprehensive mathematics learning resource designed to help students understand the fundamental concepts of mathematics. This resource covers a wide range of topics, from basic arithmetic to advanced algebra and geometry. It is designed to be a comprehensive resource for students who are looking to improve their mathematical skills.',
-        image: './assets/images/Projects/math-booklet.png',
-        tags: ['Education', 'Mathematics', 'Interactive Learning', 'Web Development', 'Gamification'],
-        links: [
-            { text: 'Preview PDF', url: './assets/pdf/mathlogame-preview.pdf', icon: 'bx bx-file-pdf' },
-        ]
-    },
-
-    'python-book': {
-        title: 'Python Fundamentals for Kids',
-        subtitle: 'Comprehensive Python Learning Resource',
-        description: 'A complete Python learning resource designed to make coding accessible and enjoyable for young learners. This comprehensive guide covers fundamental programming concepts through interactive examples, exercises, and projects. Perfect for beginners and educators looking to introduce programming to children.',
-        image: './assets/images/Projects/Python-book.png',
-        tags: ['Python', 'Education', 'Content Creation', 'Programming', 'Beginner-Friendly'],
-        links: [
-            { text: 'Download PDF', url: './assets/pdf/Learnprogrammingwithpython-1.pdf', icon: 'bx bx-file-pdf' },
-        ]
-    },
-    'web-course': {
-        title: 'Arabic Web Course',
-        subtitle: 'Complete Web Development Course in Arabic',
-        description: 'A comprehensive web development course in Arabic, covering both front-end and back-end technologies. This course is designed for Arabic-speaking learners who want to master modern web development. Includes practical projects, real-world examples, and step-by-step tutorials.',
-        image: './assets/images/Projects/Book-design-web.png',
-        tags: ['Web Development', 'Education', 'Arabic', 'Frontend', 'Backend'],
-        links: [
-            { text: 'Download Course', url: './assets/pdf/Easy WEB.pdf', icon: 'bx bx-file-pdf' },
-        ]
-    },
-    routiney: {
-        title: 'Routiney App',
-        subtitle: 'Productive Daily Routines & Habit Tracking',
-        description: 'A mobile application designed to help users create and maintain productive daily routines and habits. Features include habit tracking, progress visualization, reminders, and community support. Built with modern mobile development practices for optimal performance and user experience.',
-        image: './assets/images/Projects/Routiney.png',
-        tags: ['Mobile App', 'Productivity', 'Habit Tracking', 'User Experience', 'Health'],
-        links: []
-    },
-    coachninja: {
-        title: 'CoachNinja Platform',
-        subtitle: 'Comprehensive Coaching & Mentoring Platform',
-        description: 'A comprehensive coaching and mentoring platform that connects coaches with students for personalized learning experiences. Features include video conferencing, progress tracking, payment processing, and community features. Designed to facilitate meaningful mentor-student relationships.',
-        image: './assets/images/Projects/coachninja.jpeg',
-        tags: ['Coaching', 'Platform', 'Mentoring', 'Video Conferencing', 'E-learning'],
-        links: [
-            { text: 'Visit Platform', url: 'https://abdurrahmanninja.github.io/coach-abdualrhman-33/', icon: 'bx bx-link-external' }
-        ]
-    },
-    'equation-solver': {
-        title: 'Interactive Equation Solver',
-        subtitle: 'Educational Platform for Mathematical Learning',
-        description: 'An educational platform designed to help students understand the mathematical process of solving linear and quadratic equations. Rather than just giving you the answer, this tool breaks down each equation into clear, logical steps, showing you exactly how mathematical operations transform one form of an equation into another. Features step-by-step animated solutions, interactive equation input, and support for multiple equation types including linear equations, quadratic equations, and systems of equations.',
-        image: './assets/images/Projects/equation-solver.png',
-        tags: ['Education', 'Mathematics', 'Interactive Learning', 'Equation Solving', 'Web Development'],
-        links: [
-            { text: 'Try the Tool', url: 'https://equations-animated-solution.vercel.app/', icon: 'bx bx-link-external' }
-        ]
-    }
-};
-
-// Open project modal
-function openProjectModal(projectId) {
-    const project = projectData[projectId];
-    if (!project) return;
-
-    // Update modal content
-    document.getElementById('projectModalTitle').textContent = project.title;
-    document.getElementById('projectModalSubtitle').textContent = project.subtitle;
-    document.getElementById('projectModalDescription').textContent = project.description;
-    document.getElementById('projectModalImage').src = project.image;
-    document.getElementById('projectModalImage').alt = project.title;
-
-    // Update tags
-    const tagsContainer = document.getElementById('projectModalTags');
-    tagsContainer.innerHTML = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
-
-    // Update links
-    const linksContainer = document.getElementById('projectModalLinks');
-    linksContainer.innerHTML = project.links.map(link =>
-        `<a href="${link.url}" target="_blank" rel="noopener">
-            <i class="${link.icon}"></i>
-            ${link.text}
-        </a>`
-    ).join('');
-
-    // Show modal
-    projectModal.classList.add('show');
-    document.body.style.overflow = 'hidden';
-}
-
-// Close project modal
-function closeProjectModal() {
-    projectModal.classList.remove('show');
-    document.body.style.overflow = '';
-}
-
-// Event listeners for project modal
-if (closeProjectModalBtn) {
-    closeProjectModalBtn.addEventListener('click', closeProjectModal);
-}
-
-// Project details button click handlers
-projectDetailsBtns.forEach(btn => {
-    btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        const projectId = this.getAttribute('data-project');
-        openProjectModal(projectId);
-    });
-});
-
-// Close project modal when clicking outside
-if (projectModal) {
-    projectModal.addEventListener('click', function (e) {
-        if (e.target === projectModal) {
-            closeProjectModal();
-        }
-    });
-}
-
-// Close project modal with Escape key
-document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && projectModal.classList.contains('show')) {
-        closeProjectModal();
     }
 });
 
@@ -360,14 +327,10 @@ document.addEventListener('keydown', function (e) {
 
 // Initialize EmailJS
 (function () {
-    try {
-        if (typeof emailjs !== 'undefined') {
+    if (typeof emailjs !== 'undefined') {
+        try {
             emailjs.init("dyiFkwogR3sfUm21i");
-        } else {
-            console.log('EmailJS not loaded, skipping initialization');
-        }
-    } catch (error) {
-        console.log('EmailJS initialization failed:', error);
+        } catch (error) { /* EmailJS unavailable — form falls back gracefully */ }
     }
 })();
 
@@ -387,15 +350,25 @@ if (contactForm && submitBtn && btnText && btnLoading && formMessage) {
         const email = document.getElementById('email').value.trim();
         const message = document.getElementById('message').value.trim();
 
-        // Basic validation
+        // Basic validation (#81)
+        const nameEl = document.getElementById('name');
+        const emailEl = document.getElementById('email');
+        const messageEl = document.getElementById('message');
+        // Clear previous invalid states
+        [nameEl, emailEl, messageEl].forEach(el => { if (el) el.removeAttribute('aria-invalid'); });
+
         if (!name || !email || !message) {
+            if (!name && nameEl) nameEl.setAttribute('aria-invalid', 'true');
+            if (!email && emailEl) emailEl.setAttribute('aria-invalid', 'true');
+            if (!message && messageEl) messageEl.setAttribute('aria-invalid', 'true');
             showMessage('Please fill in all fields', 'error');
             return;
         }
 
-        // Email validation
+        // Email validation (#81)
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
+            if (emailEl) emailEl.setAttribute('aria-invalid', 'true');
             showMessage('Please enter a valid email address', 'error');
             return;
         }
@@ -410,7 +383,6 @@ if (contactForm && submitBtn && btnText && btnLoading && formMessage) {
             from_email: email,
             message: `**From:** ${name}\n**Email:** ${email}\n\n**Message:**\n${message}`,
             reply_to: email,
-            // Alternative parameters that might work with your template
             user_name: name,
             user_email: email,
             user_message: message,
@@ -421,23 +393,21 @@ if (contactForm && submitBtn && btnText && btnLoading && formMessage) {
         // Send email using EmailJS
         if (typeof emailjs !== 'undefined') {
             emailjs.send('service_jaceyjn', 'template_9jent4n', templateParams)
-                .then(function (response) {
-                    console.log('SUCCESS!', response.status, response.text);
+                .then(function () {
                     showMessage('Thank you for your message! I\'ll get back to you soon.', 'success');
                     contactForm.reset();
+                    contactForm.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
                     // Close modal after 2 seconds on success
                     setTimeout(() => {
                         closeModal();
                     }, 2000);
-                }, function (error) {
-                    console.log('FAILED...', error);
+                }, function () {
                     showMessage('Sorry, there was an error sending your message. Please try again or contact me directly.', 'error');
                 })
                 .finally(function () {
                     setLoadingState(false);
                 });
         } else {
-            console.log('EmailJS not available');
             showMessage('Contact form not available. Please contact me directly.', 'error');
             setLoadingState(false);
         }
@@ -446,6 +416,7 @@ if (contactForm && submitBtn && btnText && btnLoading && formMessage) {
 
 // Helper function to show messages
 function showMessage(message, type) {
+    if (!formMessage) return;
     formMessage.textContent = message;
     formMessage.className = `form-message ${type}`;
     formMessage.style.display = 'block';
@@ -458,6 +429,7 @@ function showMessage(message, type) {
 
 // Helper function to set loading state
 function setLoadingState(isLoading) {
+    if (!btnText || !btnLoading || !submitBtn) return;
     if (isLoading) {
         btnText.style.display = 'none';
         btnLoading.style.display = 'flex';
@@ -471,73 +443,52 @@ function setLoadingState(isLoading) {
 
 /****************************************************/
 
-/********************** Portfolio Toggle **************************/
-
-// Portfolio toggle functionality
-const portfolioToggleBtn = document.getElementById('portfolioToggleBtn');
-const hiddenProjects = document.querySelectorAll('.hidden-project');
-const toggleText = document.querySelector('.toggle-text');
-
-if (portfolioToggleBtn) {
-    portfolioToggleBtn.addEventListener('click', function () {
-        const isExpanded = this.classList.contains('expanded');
-        
-        if (isExpanded) {
-            // Collapse - hide additional projects
-            hiddenProjects.forEach(project => {
-                project.classList.remove('show');
-            });
-            this.classList.remove('expanded');
-            toggleText.textContent = 'See More';
-            
-            // Scroll to the portfolio section when "See Less" is clicked
-            const portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                portfolioSection.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' 
-                });
-            }
-        } else {
-            // Expand - show additional projects
-            hiddenProjects.forEach(project => {
-                project.classList.add('show');
-            });
-            this.classList.add('expanded');
-            toggleText.textContent = 'See Less';
-        }
-    });
-}
-
-/****************************************************/
-
 /********************** Smooth Animations **************************/
 
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Set up animations
+// .fade-in / .fade-in--visible — class-based approach so CSS owns the transition
+// Skipped entirely when user prefers reduced motion.
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.hero-content, .about-content, .mathlogame-content, .portfolio-card, .contact-content');
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
+    const fadeEls = document.querySelectorAll('.fade-in');
+    if (fadeEls.length === 0) return;
+
+    if (prefersReduced) {
+        // Reveal immediately without animation
+        fadeEls.forEach(el => el.classList.add('fade-in--visible'));
+        return;
+    }
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in--visible');
+                fadeObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    fadeEls.forEach(el => fadeObserver.observe(el));
+
+    // Legacy inline-style observer for .hero-content / .about-content on older pages
+    const legacyEls = document.querySelectorAll('.hero-content, .about-content');
+    if (legacyEls.length > 0) {
+        const legacyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        legacyEls.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            legacyObserver.observe(el);
+        });
+    }
 });
 
 /****************************************************/
@@ -545,72 +496,25 @@ document.addEventListener('DOMContentLoaded', () => {
 /********************** Blog Filtering **************************/
 
 // Simple blog filtering functionality
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('=== BLOG FILTERING SETUP START ===');
-    
+document.addEventListener('DOMContentLoaded', function () {
     const categoryButtons = document.querySelectorAll('.category-btn');
     const blogCards = document.querySelectorAll('.blog-card');
-    
-    console.log('Found buttons:', categoryButtons.length);
-    console.log('Found cards:', blogCards.length);
-    
-    // Test if we can find the elements
-    if (categoryButtons.length === 0) {
-        console.error('❌ No category buttons found!');
-        return;
-    }
-    
-    if (blogCards.length === 0) {
-        console.error('❌ No blog cards found!');
-        return;
-    }
-    
-    console.log('✅ Elements found successfully');
-    
-    // Test button click
-    categoryButtons.forEach((button, index) => {
-        console.log(`Button ${index}:`, button.textContent, 'Category:', button.getAttribute('data-category'));
-        
-        button.addEventListener('click', function() {
-            console.log('🎯 BUTTON CLICKED:', this.textContent);
-            
+
+    if (categoryButtons.length === 0 || blogCards.length === 0) return;
+
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function () {
             const selectedCategory = this.getAttribute('data-category');
-            console.log('Selected category:', selectedCategory);
-            
-            // Update active button
-            categoryButtons.forEach(btn => {
-                btn.classList.remove('active');
-                console.log('Removed active from:', btn.textContent);
-            });
-            
+
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
-            console.log('Added active to:', this.textContent);
-            
-            // Filter cards
+
             blogCards.forEach(card => {
                 const cardCategory = card.getAttribute('data-category');
-                console.log('Card category:', cardCategory, 'Should show:', selectedCategory === 'all' || cardCategory === selectedCategory);
-                
-                if (selectedCategory === 'all' || cardCategory === selectedCategory) {
-                    card.style.display = 'block';
-                    console.log('✅ Showing card:', cardCategory);
-                } else {
-                    card.style.display = 'none';
-                    console.log('❌ Hiding card:', cardCategory);
-                }
+                card.style.display = (selectedCategory === 'all' || cardCategory === selectedCategory) ? 'block' : 'none';
             });
-            
-            console.log('=== FILTERING COMPLETE ===');
         });
     });
-    
-    console.log('✅ Blog filtering setup complete!');
-    console.log('=== BLOG FILTERING SETUP END ===');
 });
 
 /****************************************************/
-
-
-
-
-

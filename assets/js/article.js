@@ -167,6 +167,12 @@ function renderRelatedArticles() {
     card.setAttribute('aria-label', article.title);
     card.textContent = article.title;
     card.onclick = () => window.location.href = article.url;
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        window.location.href = article.url;
+      }
+    });
     container.appendChild(card);
   });
 }
