@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
     <title>Building Educational Tools That Actually Teach — Salah Alkmali</title>
     <!-- Performance: font preconnect/preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap">
     <link rel="stylesheet" href="modern-article.css">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
@@ -41,7 +42,7 @@
           "@type": "Article",
           "headline": "Building Educational Tools That Actually Teach",
           "datePublished": "2025-07-28",
-          "dateModified": "2025-07-28",
+          "dateModified": "2026-05-10",
           "image": "https://sanwaralkmali.github.io/assets/articles/Equation-solver/equation-solver.png",
           "mainEntityOfPage": "https://sanwaralkmali.github.io/articles/educational-tools.html",
           "author": {
@@ -71,6 +72,16 @@
 
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="article-topbar" aria-label="Article navigation">
+        <div class="article-topbar__inner">
+            <a href="/" class="article-topbar__wordmark">Salah Alkmali</a>
+            <nav class="article-topbar__links" aria-label="Site sections">
+                <a href="/blog.html" class="article-topbar__link">Writing</a>
+                <button type="button" class="article-topbar__theme" aria-label="Toggle theme"></button>
+            </nav>
+        </div>
+        <div class="reading-progress" aria-hidden="true"></div>
+    </header>
     <div class="article-container">
         <header class="article-header">
             <a class="back-link" href="/blog.html" aria-label="Back to Blog">
@@ -80,7 +91,7 @@
             <div class="article-meta">
                 <span><i class="fas fa-user"></i> Salah Alkmali</span>
                 <span><i class="fas fa-calendar"></i> July 28, 2025</span>
-                <span><i class="fas fa-clock"></i> 3 min read</span>
+                <span><i class="fas fa-clock"></i> 5 min read</span>
             </div>
         </header>
 
@@ -143,6 +154,45 @@
                 </a>
             </div>
 
+            <h2>Why "Showing the Process" Is Actually What Teaching Is</h2>
+
+            <p>I want to spend a second on this, because I think it's the part most ed-tech tools get wrong.</p>
+
+            <p>When a student watches me solve an equation on the board, they're not just seeing the steps. They're
+                seeing my <em>hand pause</em> before I commit to a move. They're seeing me <em>ask out loud</em>, "OK,
+                what's blocking the x right now?" They're seeing me cross something out, redo it, look back at the
+                line above. That hesitation, that internal monologue — <em>that's the lesson</em>. The final answer is
+                almost beside the point.</p>
+
+            <p>This is something educators have been writing about for decades. Cognitive scientists call it the
+                <strong>worked-example effect</strong>: students learn faster from watching a problem solved
+                step-by-step than from solving it themselves cold, especially when they're new to the topic. Why?
+                Because the working memory of a beginner is fragile. If they're trying to <em>discover</em> the rules
+                while also <em>applying</em> them, neither sticks. But if they watch the process unfold first, they
+                can soak in the structure, and <em>then</em> they're ready to do it themselves.</p>
+
+            <p>A static "show me the steps" page kind of does this. But it dumps the whole solution on the page at
+                once. The eye doesn't know where to land. The animated version is different — the equation
+                <em>changes</em> in front of you, one transformation at a time, at a pace your brain can actually
+                track. It's the closest thing to watching a teacher work through it on a whiteboard, except this
+                whiteboard is patient and never gets tired.</p>
+
+            <h2>A Small Story From My Classroom</h2>
+
+            <p>I had a student last year — sharp kid, but algebra had broken him in 8th grade and he'd carried the
+                "I'm just bad at math" story ever since. We worked on −3(x − 2) = 9 together. Standard problem. He
+                stared at it for a minute, then said, "I never know whether to distribute first or divide first."</p>
+
+            <p>That sentence told me something important. He didn't have a <em>strategy gap</em>. He had a
+                <em>visualization gap</em>. He couldn't see what each step was <em>doing</em> to the equation.</p>
+
+            <p>I opened the equation solver, typed it in, and he watched the animation. The −3 floated outside,
+                multiplied through, the parentheses dissolved, and the equation rearranged itself line by line. He
+                said "oh." Just that. "Oh."</p>
+
+            <p>The next problem he did alone, in 30 seconds, on paper. Not because he memorized a recipe — because
+                he'd <em>seen</em> what the recipe was <em>for</em>. That's the whole goal of this kind of tool.</p>
+
             <h2>This Is Part of Something Bigger</h2>
 
             <p>This is part of a bigger direction I'm working on:</p>
@@ -175,6 +225,32 @@
 
             <p>Each tool will follow the same principle: <strong>focus on understanding, not just getting
                     answers</strong>.</p>
+
+            <p>Some of the things I'm working on or sketching:</p>
+            <ul>
+                <li><strong>An animated factoring trainer</strong> — for the moment students hit quadratics and feel
+                    like the floor opened up. Visual, with the structure of (x + a)(x + b) shown as the boxes that it
+                    actually is.</li>
+                <li><strong>A fraction-operations visualizer</strong> — pizzas are the cliché for a reason, but most
+                    tools bail out at addition. Multiplying and dividing fractions visually is where the real
+                    confusion lives.</li>
+                <li><strong>A word-problem decoder</strong> — not a solver. A tool that shows students how to
+                    <em>translate</em> a sentence into an equation, line by line, with the original wording staying
+                    visible. Word problems aren't a math problem; they're a reading problem with a math problem
+                    inside.</li>
+            </ul>
+            <p>None of these will <em>do</em> the work for the student. They'll just make the work <em>visible</em>
+                long enough for the student to copy the thinking, then do it themselves. That's the whole pedagogy in
+                one sentence.</p>
+
+            <h2>For Fellow Teachers</h2>
+
+            <p>If you've found yourself saying "they should already know this from last year" — same. We all do. The
+                gap between "covered the topic" and "actually internalized the topic" is huge, and it gets wider every
+                year. These kinds of tools aren't replacements for what you do; they're <em>warm-ups</em>. Five
+                minutes on the projector at the start of class, a quick reminder of how the structure works, and now
+                the lesson can start at the height it's supposed to start at — instead of you re-teaching last year's
+                material for the third time this week.</p>
 
             <h2>I'd Love Your Feedback</h2>
 
@@ -339,6 +415,7 @@
             }
         }
     </style>
+    <script src="reader.js" defer></script>
 </body>
 
 </html>

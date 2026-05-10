@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
   <title>So ... Why Are We Even Learning This? — Salah Alkmali</title>
   <!-- Performance: font preconnect/preload -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap">
   <link rel="stylesheet" href="modern-article.css">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/favicon.png">
@@ -39,7 +40,7 @@
         "@type": "Article",
         "headline": "So ... Why Are We Even Learning This?",
         "datePublished": "2024-06-21",
-        "dateModified": "2024-06-21",
+        "dateModified": "2026-05-10",
         "image": "https://sanwaralkmali.github.io/assets/articles/whyMath/Math%20is%20boring.png",
         "mainEntityOfPage": "https://sanwaralkmali.github.io/articles/whyMath.html",
         "author": {
@@ -69,6 +70,16 @@
 
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="article-topbar" aria-label="Article navigation">
+    <div class="article-topbar__inner">
+      <a href="/" class="article-topbar__wordmark">Salah Alkmali</a>
+      <nav class="article-topbar__links" aria-label="Site sections">
+        <a href="/blog.html" class="article-topbar__link">Writing</a>
+        <button type="button" class="article-topbar__theme" aria-label="Toggle theme"></button>
+      </nav>
+    </div>
+    <div class="reading-progress" aria-hidden="true"></div>
+  </header>
   <div class="article-container">
     <header class="article-header">
       <a class="back-link" href="/blog.html" aria-label="Back to Blog">
@@ -78,7 +89,7 @@
       <div class="article-meta">
         <span><i class="fas fa-user"></i> Salah Alkmali</span>
         <span><i class="fas fa-calendar"></i> June 21, 2024</span>
-        <span><i class="fas fa-clock"></i> 3 min read</span>
+        <span><i class="fas fa-clock"></i> 5 min read</span>
       </div>
     </header>
 
@@ -119,6 +130,24 @@
       <p>You're not learning math <em>just</em> because you'll need the content. You're learning it because math teaches
         your brain to do something that's <strong>way</strong> more important than solving for x.</p>
 
+      <h2>Where math is actually hiding in your day</h2>
+      <p>You're right — you probably won't graph a parabola at the supermarket. But math <em>shows up</em>, just wearing
+        different clothes. Watch for it:</p>
+      <ul>
+        <li>You scroll past a headline that says "crime is up 200%." Math is what tells you whether that's two extra
+          incidents in a small town or a real wave you should worry about.</li>
+        <li>You're choosing between a phone on a 24-month plan and one you pay for upfront. The "cheaper" one is rarely
+          the cheaper one. Math sees through that.</li>
+        <li>You're splitting a bill with friends, calculating a tip, or figuring out if that "70% off" sale is actually
+          a deal once you compare it to the original price last week.</li>
+        <li>You're trying to estimate how long a road trip really takes — the map says 4 hours, but you know yourself,
+          and you know traffic.</li>
+        <li>You're playing a strategy game and counting cards, weighing risks, or working out the best move three steps
+          ahead.</li>
+      </ul>
+      <p>None of that is "math homework." But it's the same brain. It's the same habit of <em>thinking carefully before
+        you commit to an answer</em>.</p>
+
       <h2>Math trains your brain to think.</h2>
 
       <div class="featured-image">
@@ -147,6 +176,18 @@
         <li>That's figuring out how to plan a vacation with five people and one car.</li>
         <li>That's building something from scratch—whether it's a business, a side hustle, or your own routine.</li>
       </ul>
+
+      <h2>"But what about the topics that really do feel pointless?"</h2>
+      <p>Yeah, I hear you. Some chapters feel <em>completely</em> disconnected from anything you'll touch as an adult.
+        Logarithms. Polynomial long division. Trig identities. The classic "when will I ever use this?" candidates.</p>
+      <p>Here's the honest answer: you might not use the <em>topic</em>. But you'll use the <em>moves</em> the topic
+        teaches you. Logarithms train you to think in scales — that's how doctors talk about radiation, how earthquakes
+        are measured, how interest grows on a loan that's quietly eating your future. Trig is just the mathematics of
+        rotation and waves — every signal, every screen, every piece of music you listen to runs on it. You won't
+        compute it by hand, but the <em>intuition</em> sticks. And when you meet a real problem that needs that
+        thinking, your brain will recognize it.</p>
+      <p>Think of it like learning to lift weights. You're never going to "use" a deadlift. But the strength shows up
+        when you're carrying groceries up four flights of stairs.</p>
 
       <h2>Think of math like a brain gym.</h2>
       <p>You might not love lifting weights, but if you want to be strong, you do it anyway.</p>
@@ -177,6 +218,14 @@
         We all are.
       </div>
 
+      <h2>A quick note for fellow teachers (and parents)</h2>
+      <p>If a student in your class keeps saying "I'm not a math person," they're not lazy and they're not lying — they
+        usually believe it. They've collected evidence over years: a bad mark, a teacher who lost patience, a moment of
+        being laughed at. The fix isn't another lecture about how important math is. It's small wins, on purpose, until
+        their evidence file starts to flip.</p>
+      <p>One harder problem they finally crack on their own beats ten easy ones they got right. That's the moment they
+        start rewriting the story. Our job is to set those moments up.</p>
+
       <div class="article-signature">
         <p>~ Salah Alkmali</p>
       </div>
@@ -200,6 +249,7 @@
   </div>
 
   <script src="https://kit.fontawesome.com/234e9652c2.js" crossorigin="anonymous" defer></script>
+  <script src="reader.js" defer></script>
 </body>
 
 </html>
