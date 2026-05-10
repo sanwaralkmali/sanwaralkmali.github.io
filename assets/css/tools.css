@@ -1,0 +1,382 @@
+/* ============================================================
+   Tools — shared styles for /tools.html (index) and /tools/*.html
+   Loaded alongside style.css; uses the v2 site tokens
+   (Lora display + Inter body + warm-rust accent + ink-blue).
+   ============================================================ */
+
+/* Index page header */
+.tools-page-header {
+  padding: var(--spacing-xl) 0 var(--spacing-lg);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: var(--spacing-xl);
+}
+
+.tools-page-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw + 1rem, 3rem);
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-sm);
+  line-height: 1.1;
+}
+
+.tools-page-header p {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Tool card grid (index) */
+.tools-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.tool-row {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: var(--spacing-lg);
+  align-items: center;
+  padding: var(--spacing-lg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--bg-secondary);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.tool-row:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+.tool-row-body h2 {
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+  color: var(--text-primary);
+}
+
+.tool-row-body p {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0 0 0.6rem;
+}
+
+.tool-row-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.01em;
+}
+
+.tool-row-cta::after {
+  content: '\2192';
+  transition: transform var(--transition-fast);
+}
+
+.tool-row:hover .tool-row-cta::after { transform: translateX(3px); }
+
+.tool-row-icon {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.tool-row-icon--external {
+  position: relative;
+}
+
+.tool-row-icon--external::after {
+  content: '\2197';
+  position: absolute;
+  top: 0.6rem;
+  right: 0.8rem;
+  font-size: 1.25rem;
+  font-style: normal;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+@media (max-width: 600px) {
+  .tool-row {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  .tool-row-icon {
+    aspect-ratio: 16 / 9;
+    font-size: 3rem;
+  }
+}
+
+/* ============================================================
+   Tool page chrome (used on /tools/<slug>.html)
+   ============================================================ */
+.tool-page {
+  padding: var(--spacing-xl) 0 var(--spacing-2xl);
+}
+
+.tool-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: var(--spacing-md);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.tool-page__back:hover {
+  color: var(--accent);
+  transform: translateX(-2px);
+}
+
+.tool-page__header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw + 1rem, 2.75rem);
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-xs);
+  line-height: 1.15;
+}
+
+.tool-page__header p {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  margin: 0 0 var(--spacing-xl);
+  line-height: 1.5;
+  max-width: 640px;
+}
+
+/* Equation display strip (lives above the plot) */
+.tool-equation {
+  font-family: 'Cambria Math', 'STIX Two Math', Georgia, serif;
+  font-size: clamp(1.1rem, 2vw + 0.6rem, 1.6rem);
+  text-align: center;
+  padding: var(--spacing-md) var(--spacing-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
+.tool-equation .coef { color: var(--accent); font-weight: 600; }
+
+/* SVG plot */
+.tool-canvas-wrap {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.tool-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: var(--font-family);
+  font-size: 0.6px; /* SVG-internal units */
+}
+
+.tool-canvas .grid-line { stroke: var(--border-subtle); stroke-width: 0.05; fill: none; }
+.tool-canvas .axis-line { stroke: var(--text-muted); stroke-width: 0.1; fill: none; }
+.tool-canvas .axis-label { fill: var(--text-muted); font-size: 0.7px; font-weight: 500; }
+.tool-canvas .parabola {
+  stroke: var(--accent);
+  stroke-width: 0.18;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.tool-canvas .vertex { fill: var(--accent); stroke: var(--bg-secondary); stroke-width: 0.08; }
+.tool-canvas .root { fill: var(--text-primary); stroke: var(--accent); stroke-width: 0.08; }
+
+/* Sliders */
+.tool-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.tool-slider {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr 5rem;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.tool-slider__label {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--accent);
+  text-align: center;
+}
+
+.tool-slider input[type="range"] {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--bg-tertiary);
+  outline: none;
+}
+
+.tool-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg-primary);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.tool-slider input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.1); box-shadow: 0 0 0 6px var(--accent-muted); }
+.tool-slider input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px var(--accent-focus-ring); }
+
+.tool-slider input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg-primary);
+  cursor: pointer;
+}
+
+.tool-slider input[type="number"] {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  padding: 0.4rem 0.6rem;
+  text-align: right;
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+}
+
+.tool-slider input[type="number"]:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: var(--accent); }
+
+/* Info readout */
+.tool-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.tool-info__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.tool-info__label {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.tool-info__value {
+  font-family: 'Cambria Math', Georgia, serif;
+  font-size: var(--font-size-lg);
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Actions */
+.tool-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-xl);
+}
+
+.tool-btn {
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  padding: 0.65rem 1.1rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.tool-btn--primary {
+  background: var(--accent);
+  color: var(--bg-primary);
+  border-color: var(--accent);
+}
+.tool-btn--primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); transform: translateY(-1px); }
+
+.tool-btn--secondary {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: var(--border);
+}
+.tool-btn--secondary:hover { color: var(--text-primary); border-color: var(--accent); }
+
+.tool-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* "How to read this" footnote */
+.tool-footnote {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  line-height: 1.6;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.tool-footnote strong { color: var(--text-secondary); font-weight: 600; }
+
+@media (max-width: 600px) {
+  .tool-slider { grid-template-columns: 2rem 1fr 4.5rem; gap: 0.75rem; }
+  .tool-slider__label { font-size: 1.1rem; }
+  .tool-info { grid-template-columns: 1fr; padding: var(--spacing-md); }
+}

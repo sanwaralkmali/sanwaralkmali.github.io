@@ -53,3 +53,57 @@
     updateIcon(next);
   });
 })();
+
+// Newsletter subscribe — Buttondown integration.
+// Card hides itself if the username is still the YOUR_USERNAME placeholder,
+// so the page never shows a broken form.
+(function () {
+  var cards = document.querySelectorAll('.subscribe-card');
+  if (!cards.length) return;
+
+  cards.forEach(function (card) {
+    var user = card.getAttribute('data-buttondown-user');
+    if (!user || user === 'YOUR_USERNAME') {
+      card.style.display = 'none';
+      return;
+    }
+
+    var form = card.querySelector('form');
+    var button = card.querySelector('.subscribe-card__btn');
+    var finer = card.querySelector('.subscribe-card__finer');
+    if (!form || !button) return;
+
+    var origLabel = button.textContent;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var emailInput = form.querySelector('input[type="email"]');
+      var email = emailInput && emailInput.value.trim();
+      if (!email) return;
+
+      button.disabled = true;
+      button.textContent = 'Subscribing…';
+
+      var fd = new FormData();
+      fd.append('email', email);
+      fd.append('embed', '1');
+
+      fetch('https://buttondown.email/api/emails/embed-subscribe/' + encodeURIComponent(user), {
+        method: 'POST',
+        body: fd,
+        mode: 'no-cors'
+      }).then(function () {
+        // no-cors hides the response, but Buttondown sends a confirmation email regardless
+        form.style.display = 'none';
+        if (finer) {
+          finer.textContent = '✓ Almost there — check your inbox to confirm.';
+          finer.classList.add('subscribe-card__finer--success');
+        }
+      }).catch(function () {
+        button.disabled = false;
+        button.textContent = origLabel;
+        if (finer) finer.textContent = 'Something went wrong. Please try again.';
+      });
+    });
+  });
+})();

@@ -11,6 +11,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap">
   <link rel="stylesheet" href="modern-article.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/favicon.png">
   <meta name="description" content="A practical guide for students on how to use AI as a tool for genuine learning, not just shortcuts. Discover the difference between smart and lazy use of AI in your studies.">
@@ -184,10 +187,18 @@
         checking.</p>
       <p><strong>Student B</strong> uses AI like this:</p>
       <div class="ai-prompt">
-        Can you explain how to solve this equation step by step? 3(x - 2) = 12
+        Can you explain how to solve this equation step by step? $3(x - 2) = 12$
       </div>
       <p style="margin-top:0.3em;margin-bottom:1.2em;color:var(--text-muted);">AI breaks it down. The student follows the steps,
         tries more questions, and learns how to do it on their own.</p>
+
+      <p>Here's roughly what good AI walks them through:</p>
+      <p>$$3(x - 2) = 12$$</p>
+      <p>$$3x - 6 = 12$$</p>
+      <p>$$3x = 18$$</p>
+      <p>$$x = 6$$</p>
+      <p>Notice the rhythm — distribute, isolate, divide. Once a student sees the <em>pattern</em>, they can solve $3(x + 5) = 21$ on their own. The same prompt that gave Student A an answer gave Student B a method.</p>
+
       <p>Which one is learning?<br>Which one is growing?<br>That's what good AI usage looks like.</p>
 
       <h2>The Prompt Is Everything 📝</h2>
@@ -272,6 +283,23 @@
         <p>~ Salah Alkmali</p>
       </div>
     </main>
+
+    <aside class="subscribe-card" data-buttondown-user="sanwaralkmali" aria-labelledby="subscribe-heading">
+      <p class="subscribe-card__eyebrow">Newsletter</p>
+      <h3 class="subscribe-card__heading" id="subscribe-heading">Get my next essay in your inbox.</h3>
+      <p class="subscribe-card__sub">One email when I publish something new. No spam, no tracking, no list-rental.</p>
+      <form class="subscribe-card__form"
+            action="https://buttondown.email/api/emails/embed-subscribe/sanwaralkmali"
+            method="post"
+            target="popupwindow"
+            onsubmit="window.open('https://buttondown.email/sanwaralkmali', 'popupwindow')">
+        <label class="visually-hidden" for="bd-email">Your email address</label>
+        <input type="email" id="bd-email" name="email" required placeholder="you@example.com" autocomplete="email">
+        <input type="hidden" name="embed" value="1">
+        <button type="submit" class="subscribe-card__btn">Subscribe</button>
+      </form>
+      <p class="subscribe-card__finer">No spam. Unsubscribe anytime.</p>
+    </aside>
 
     <nav class="article-prev-next" aria-label="Article navigation">
       <span class="article-prev-next__spacer"></span>

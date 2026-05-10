@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap">
     <link rel="stylesheet" href="modern-article.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -129,13 +132,26 @@
 
             <p>Think about it:</p>
             <ul>
-                <li>You're solving 2x + 3 = 7</li>
+                <li>You're solving $2x + 3 = 7$</li>
                 <li>You subtract 3 from both sides</li>
                 <li>But wait, did you remember to subtract from both sides?</li>
                 <li>And what about that negative sign?</li>
             </ul>
 
             <p>One small mistake, and the whole process falls apart.</p>
+
+            <p>Here's what I want students to actually <em>see</em> happen — not just the answer, but the transformation:</p>
+
+            <p>$$2x + 3 = 7$$</p>
+            <p>$$2x = 7 - 3$$</p>
+            <p>$$2x = 4$$</p>
+            <p>$$x = 2$$</p>
+
+            <p>Once you watch a tool actually move that <strong>3</strong> across, the abstract idea becomes concrete. And once linear equations click, you can build up to harder ones — like quadratics of the form $ax^2 + bx + c = 0$, which are solved by the formula:</p>
+
+            <p>$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$</p>
+
+            <p>That formula intimidates a lot of students. But it stops being scary the moment you can <em>see</em> the algebra that builds it.</p>
 
             <h2>What If We Made the Process Visible?</h2>
 
@@ -266,6 +282,23 @@
             </div>
 
         </main>
+
+        <aside class="subscribe-card" data-buttondown-user="sanwaralkmali" aria-labelledby="subscribe-heading">
+            <p class="subscribe-card__eyebrow">Newsletter</p>
+            <h3 class="subscribe-card__heading" id="subscribe-heading">Get my next essay in your inbox.</h3>
+            <p class="subscribe-card__sub">One email when I publish something new. No spam, no tracking, no list-rental.</p>
+            <form class="subscribe-card__form"
+                  action="https://buttondown.email/api/emails/embed-subscribe/sanwaralkmali"
+                  method="post"
+                  target="popupwindow"
+                  onsubmit="window.open('https://buttondown.email/sanwaralkmali', 'popupwindow')">
+                <label class="visually-hidden" for="bd-email">Your email address</label>
+                <input type="email" id="bd-email" name="email" required placeholder="you@example.com" autocomplete="email">
+                <input type="hidden" name="embed" value="1">
+                <button type="submit" class="subscribe-card__btn">Subscribe</button>
+            </form>
+            <p class="subscribe-card__finer">No spam. Unsubscribe anytime.</p>
+        </aside>
 
         <nav class="article-prev-next" aria-label="Article navigation">
             <a class="article-prev-next__link article-prev-next__prev" href="/articles/learning-games.html">

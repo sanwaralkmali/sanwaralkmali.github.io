@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
     <!-- Performance: font preconnect/preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,35 +14,377 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
-    <title>Mithaq — Projects — Salah Alkmali</title>
-    <meta name="description" content="Case study: Mithaq — a Quran companion app to read, listen, reflect, and memorize. Built by Salah Alkmali. Learn about the design choices and development process.">
+    <title>Mithaq — A Quran companion app for Muslim students</title>
+    <meta name="description" content="Mithaq — a Quran companion app built by Salah Alkmali. Five modes of practice: Read, Listen, Reflect, Understand, Memorize. Built with Next.js 15, TypeScript, Supabase. Free, in your browser.">
     <link rel="canonical" href="https://sanwaralkmali.github.io/projects/mithaq.html">
-    <!-- Open Graph -->
-    <meta property="og:title" content="Mithaq — Projects — Salah Alkmali">
-    <meta property="og:description" content="Case study: Mithaq — a Quran companion app to read, listen, reflect, and memorize. Built by Salah Alkmali.">
-    <meta property="og:type" content="article">
+    <meta property="og:title" content="Mithaq — A Quran companion app for Muslim students">
+    <meta property="og:description" content="Five modes of practice: Read, Listen, Reflect, Understand, Memorize. Built solo with Next.js 15, TypeScript, Supabase.">
+    <meta property="og:type" content="website">
     <meta property="og:url" content="https://sanwaralkmali.github.io/projects/mithaq.html">
     <meta property="og:image" content="https://sanwaralkmali.github.io/assets/images/Projects/mithaq.png">
     <meta property="og:site_name" content="Salah Alkmali">
     <meta property="og:locale" content="en_US">
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mithaq — Projects — Salah Alkmali">
-    <meta name="twitter:description" content="Case study: Mithaq — a Quran companion app to read, listen, reflect, and memorize.">
+    <meta name="twitter:title" content="Mithaq — A Quran companion app">
+    <meta name="twitter:description" content="Five modes of practice: Read, Listen, Reflect, Understand, Memorize. Built with Next.js 15 + Supabase.">
     <meta name="twitter:image" content="https://sanwaralkmali.github.io/assets/images/Projects/mithaq.png">
     <meta name="twitter:site" content="@sanwaralkmali">
-    <!-- JSON-LD: BreadcrumbList -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sanwaralkmali.github.io/"},
-        {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://sanwaralkmali.github.io/projects.html"},
-        {"@type": "ListItem", "position": 3, "name": "Mithaq", "item": "https://sanwaralkmali.github.io/projects/mithaq.html"}
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sanwaralkmali.github.io/"},
+            {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://sanwaralkmali.github.io/projects.html"},
+            {"@type": "ListItem", "position": 3, "name": "Mithaq", "item": "https://sanwaralkmali.github.io/projects/mithaq.html"}
+          ]
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Mithaq",
+          "url": "https://mithaq-vert.vercel.app/",
+          "description": "A Quran companion app for Muslim students. Read, Listen, Reflect, Understand, Memorize.",
+          "applicationCategory": "LifestyleApplication",
+          "operatingSystem": "Any modern browser",
+          "isAccessibleForFree": true,
+          "creator": {
+            "@type": "Person",
+            "@id": "https://sanwaralkmali.github.io/#person",
+            "name": "Salah Alkmali"
+          }
+        }
       ]
     }
     </script>
+    <style>
+        /* Case-study layout — neutral rust-accent variant (no MATHLOGAME-specific gradient flourish) */
+        .case-study-page { padding: var(--spacing-xl) 0 var(--spacing-2xl); }
+
+        .cs-hero {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .cs-hero__eyebrow {
+            font-family: var(--font-family);
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin: 0 0 var(--spacing-md);
+        }
+
+        .cs-hero__title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
+            font-weight: 600;
+            font-style: italic;
+            letter-spacing: -0.02em;
+            margin: 0 0 var(--spacing-sm);
+            color: var(--text-primary);
+            line-height: 1.05;
+        }
+
+        .cs-hero__meaning {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--text-muted);
+            margin: 0 0 var(--spacing-md);
+            letter-spacing: 0.005em;
+        }
+
+        .cs-hero__tagline {
+            font-family: var(--font-display);
+            font-size: clamp(1.1rem, 1.5vw + 0.6rem, 1.4rem);
+            font-style: italic;
+            color: var(--text-secondary);
+            margin: 0 0 var(--spacing-xl);
+            letter-spacing: 0.005em;
+            max-width: 580px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        .cs-hero__image {
+            margin: 0 auto var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-lg);
+            max-width: 380px;
+        }
+
+        .cs-hero__image img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .cs-hero__tags {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .cs-hero__tags .tag {
+            font-family: var(--font-family);
+            font-size: var(--font-size-xs);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 0.4rem 0.9rem;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: transparent;
+        }
+
+        .cs-hero__cta {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .cs-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--font-family);
+            font-size: 1.05rem;
+            font-weight: 600;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 0.85rem 1.6rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: background var(--transition-fast), transform var(--transition-fast);
+        }
+
+        .cs-btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .cs-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--font-family);
+            font-size: 1.05rem;
+            font-weight: 500;
+            background: transparent;
+            color: var(--text-secondary);
+            padding: 0.85rem 1.6rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            text-decoration: none;
+            transition: color var(--transition-fast), border-color var(--transition-fast);
+        }
+
+        .cs-btn-secondary:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .cs-btn-primary--big {
+            font-size: 1.15rem;
+            padding: 1rem 2rem;
+        }
+
+        .cs-section {
+            margin: var(--spacing-2xl) auto;
+            max-width: 720px;
+        }
+
+        .cs-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 3vw + 0.5rem, 2.2rem);
+            font-weight: 600;
+            font-style: italic;
+            margin: 0 0 var(--spacing-md);
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        .cs-section h2::before {
+            content: '';
+            display: block;
+            width: 36px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            margin-bottom: 0.85rem;
+            border-radius: 1px;
+        }
+
+        .cs-section p {
+            font-family: var(--font-family);
+            font-size: var(--font-size-lg);
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0 0 var(--spacing-md);
+        }
+
+        .cs-section p strong { color: var(--text-primary); font-weight: 600; }
+        .cs-section p em { color: var(--text-primary); font-style: italic; }
+
+        .cs-modes {
+            display: grid;
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+
+        .cs-mode {
+            display: grid;
+            grid-template-columns: 7rem 1fr;
+            gap: var(--spacing-md);
+            align-items: baseline;
+            padding: var(--spacing-md);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            transition: border-color var(--transition-fast), transform var(--transition-fast);
+        }
+
+        .cs-mode:hover {
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .cs-mode__name {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--accent);
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        .cs-mode__desc {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            .cs-mode {
+                grid-template-columns: 1fr;
+                gap: 0.4rem;
+            }
+        }
+
+        .cs-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin: var(--spacing-md) 0;
+        }
+
+        .cs-stack__item {
+            font-family: 'JetBrains Mono', 'Cascadia Code', 'Monaco', monospace;
+            font-size: var(--font-size-sm);
+            padding: 0.45rem 0.85rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            transition: color var(--transition-fast), border-color var(--transition-fast);
+        }
+
+        .cs-stack__item:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .cs-final-cta {
+            margin: var(--spacing-2xl) auto;
+            padding: var(--spacing-2xl);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            text-align: center;
+            max-width: 720px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cs-final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .cs-final-cta__eyebrow {
+            font-family: var(--font-family);
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin: 0 0 0.75rem;
+        }
+
+        .cs-final-cta__heading {
+            font-family: var(--font-display);
+            font-size: 1.85rem;
+            font-weight: 600;
+            font-style: italic;
+            margin: 0 0 var(--spacing-sm);
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+        }
+
+        .cs-final-cta__sub {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            color: var(--text-secondary);
+            margin: 0 auto var(--spacing-lg);
+            max-width: 520px;
+            line-height: 1.6;
+        }
+
+        .cs-final-cta__buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .cs-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--font-family);
+            font-size: var(--font-size-sm);
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-top: var(--spacing-2xl);
+            transition: color var(--transition-fast), transform var(--transition-fast);
+        }
+
+        .cs-back-link:hover {
+            color: var(--accent);
+            transform: translateX(-2px);
+        }
+
+        @media (max-width: 480px) {
+            .cs-final-cta { padding: var(--spacing-md); }
+            .cs-final-cta__heading { font-size: 1.4rem; }
+        }
+    </style>
 </head>
 
 <body>
@@ -70,38 +413,105 @@
     </nav>
 
     <main class="main-content case-study-page" id="main-content">
-        <div class="container">
-            <div class="case-study-hero">
-                <img src="../assets/images/Projects/mithaq.png" alt="Mithaq — Quran companion app" width="512" height="512" fetchpriority="high" decoding="async">
-                <h1>Mithaq</h1>
-                <p>Quran companion app for Muslim students. Read · Listen · Reflect · Understand · Memorize.</p>
-                <div class="case-study-tags">
-                    <span class="tag">Next.js</span>
-                    <span class="tag">TypeScript</span>
-                    <span class="tag">Supabase</span>
-                    <span class="tag">Education</span>
-                </div>
-                <div class="case-study-links">
-                    <a href="https://mithaq-vert.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary">
-                        <i class="bx bx-link-external"></i> Visit Live App →
-                    </a>
-                    <a href="https://github.com/sanwaralkmali/Mithaq" target="_blank" rel="noopener" class="btn btn-secondary">
-                        <i class="bx bxl-github"></i> View Repo
-                    </a>
-                </div>
-            </div>
+        <article class="container">
 
-            <div class="case-study-body">
-                <p class="case-study-placeholder">Full case study coming soon. In the meantime, explore the <a href="https://mithaq-vert.vercel.app/" target="_blank" rel="noopener">live app</a> or the <a href="https://github.com/sanwaralkmali/Mithaq" target="_blank" rel="noopener">GitHub repo</a>.</p>
+            <!-- Hero -->
+            <header class="cs-hero">
+                <p class="cs-hero__eyebrow">Project · Live</p>
+                <h1 class="cs-hero__title">Mithaq</h1>
+                <p class="cs-hero__meaning">/<span lang="ar">ميثاق</span>/ — covenant</p>
+                <p class="cs-hero__tagline">Make a covenant with yourself about your daily Quran practice — what you'll read, what you'll listen to, what you'll memorize — and keep it.</p>
+                <div class="cs-hero__image">
+                    <img src="../assets/images/Projects/mithaq.png" alt="Mithaq — Quran companion app" width="512" height="512" fetchpriority="high" decoding="async">
+                </div>
+                <div class="cs-hero__tags">
+                    <span class="tag">Quran companion</span>
+                    <span class="tag">Built solo</span>
+                    <span class="tag">Free · in your browser</span>
+                </div>
+                <div class="cs-hero__cta">
+                    <a href="https://mithaq-vert.vercel.app/" target="_blank" rel="noopener" class="cs-btn-primary">
+                        <i class="bx bx-link-external"></i> Visit live app
+                    </a>
+                </div>
+            </header>
 
-                <a href="../projects.html" class="case-study-back">
-                    <i class="bx bx-arrow-back"></i> Back to all projects
-                </a>
-            </div>
-        </div>
+            <!-- What it is -->
+            <section class="cs-section">
+                <h2>What it is</h2>
+                <p>Mithaq is a Quran companion app built for Muslim students who want a daily practice they can actually keep.</p>
+                <p>The name <em><span lang="ar">ميثاق</span></em> means <strong>covenant</strong> — a binding agreement you make with yourself. The app helps you set that covenant for your reading, listening, reflection, study, and memorization — then quietly tracks your part of the bargain.</p>
+            </section>
+
+            <!-- Five modes of practice -->
+            <section class="cs-section">
+                <h2>Five modes of practice</h2>
+                <div class="cs-modes">
+                    <div class="cs-mode">
+                        <p class="cs-mode__name">Read</p>
+                        <p class="cs-mode__desc">A clean Mushaf reader that picks up exactly where you stopped. No re-finding your place every time you open the app.</p>
+                    </div>
+                    <div class="cs-mode">
+                        <p class="cs-mode__name">Listen</p>
+                        <p class="cs-mode__desc">Multi-reciter audio with proper lock-screen support. Pick a voice, hit play, walk away — the app behaves like a podcast app should.</p>
+                    </div>
+                    <div class="cs-mode">
+                        <p class="cs-mode__name">Reflect</p>
+                        <p class="cs-mode__desc">Share an ayah that touched you. See what touched others. A small social layer that stays focused on the verses, not on people.</p>
+                    </div>
+                    <div class="cs-mode">
+                        <p class="cs-mode__name">Understand</p>
+                        <p class="cs-mode__desc">Tafsir and translation when you want them, hidden when you don't. A second click, never the first impression.</p>
+                    </div>
+                    <div class="cs-mode">
+                        <p class="cs-mode__name">Memorize</p>
+                        <p class="cs-mode__desc">Track the surahs you're learning by heart. Mark progress in your own way, on your own pace.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Built with -->
+            <section class="cs-section">
+                <h2>Built with</h2>
+                <p>Modern, boring, fast — the parts of the stack that get out of the reader's way. No fancy framework experiments; this needed to be reliable on a phone in a quiet moment.</p>
+                <div class="cs-stack">
+                    <span class="cs-stack__item">Next.js 15</span>
+                    <span class="cs-stack__item">TypeScript</span>
+                    <span class="cs-stack__item">Supabase</span>
+                    <span class="cs-stack__item">Tailwind</span>
+                    <span class="cs-stack__item">shadcn/ui</span>
+                    <span class="cs-stack__item">@base-ui/react</span>
+                </div>
+            </section>
+
+            <!-- Who built it -->
+            <section class="cs-section">
+                <h2>Who built it</h2>
+                <p>Mithaq is built by <strong>Salah Alkmali</strong> — a high-school math teacher and developer. I work on it solo, the same way I work on <a href="mathlogame.html" style="color: var(--accent);">MATHLOGAME</a>.</p>
+                <p>This is a side project, but it's a <em>serious</em> side project. It's the app I wanted for my own daily practice and never quite found in the form I needed. So I built it.</p>
+                <p>If you'd like to send feedback or suggest a feature, <a href="/#contact" style="color: var(--accent);">reach me here</a>.</p>
+            </section>
+
+            <!-- Final CTA -->
+            <aside class="cs-final-cta">
+                <p class="cs-final-cta__eyebrow">See it live</p>
+                <h2 class="cs-final-cta__heading">Open the app and start your covenant.</h2>
+                <p class="cs-final-cta__sub">It's free, it's open, it works in any browser. No download, no install — just open and read.</p>
+                <div class="cs-final-cta__buttons">
+                    <a href="https://mithaq-vert.vercel.app/" target="_blank" rel="noopener" class="cs-btn-primary cs-btn-primary--big">
+                        Visit Mithaq →
+                    </a>
+                </div>
+            </aside>
+
+            <a href="../projects.html" class="cs-back-link">
+                <i class="bx bx-arrow-back"></i> Back to all projects
+            </a>
+
+        </article>
     </main>
 
-    <!-- Footer v2 -->
+    <!-- Footer -->
     <footer class="modern-footer">
         <div class="container">
             <div class="footer-content">
@@ -110,7 +520,7 @@
                     <p class="footer-brand-p">Istanbul, 2026.</p>
                 </div>
                 <div class="footer-links">
-                    <a href="/../#about" class="footer-link">About</a>
+                    <a href="/#about" class="footer-link">About</a>
                     <a href="../projects.html" class="footer-link">Projects</a>
                     <a href="../blog.html" class="footer-link">Writing</a>
                     <a href="../now.html" class="footer-link">Now</a>

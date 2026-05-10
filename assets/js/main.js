@@ -518,3 +518,59 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /****************************************************/
+
+/********************** Newsletter Subscribe (Buttondown) **************************/
+
+// Subscribe card on root pages (/, /blog.html, /now.html). Mirrors articles/reader.js behavior.
+// Card hides itself if username is still the YOUR_USERNAME placeholder.
+(function () {
+    const cards = document.querySelectorAll('.subscribe-card');
+    if (!cards.length) return;
+
+    cards.forEach(function (card) {
+        const user = card.getAttribute('data-buttondown-user');
+        if (!user || user === 'YOUR_USERNAME') {
+            card.style.display = 'none';
+            return;
+        }
+
+        const form = card.querySelector('form');
+        const button = card.querySelector('.subscribe-card__btn');
+        const finer = card.querySelector('.subscribe-card__finer');
+        if (!form || !button) return;
+
+        const origLabel = button.textContent;
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const emailInput = form.querySelector('input[type="email"]');
+            const email = emailInput && emailInput.value.trim();
+            if (!email) return;
+
+            button.disabled = true;
+            button.textContent = 'Subscribing…';
+
+            const fd = new FormData();
+            fd.append('email', email);
+            fd.append('embed', '1');
+
+            fetch('https://buttondown.email/api/emails/embed-subscribe/' + encodeURIComponent(user), {
+                method: 'POST',
+                body: fd,
+                mode: 'no-cors'
+            }).then(function () {
+                form.style.display = 'none';
+                if (finer) {
+                    finer.textContent = '✓ Almost there — check your inbox to confirm.';
+                    finer.classList.add('subscribe-card__finer--success');
+                }
+            }).catch(function () {
+                button.disabled = false;
+                button.textContent = origLabel;
+                if (finer) finer.textContent = 'Something went wrong. Please try again.';
+            });
+        });
+    });
+})();
+
+/****************************************************/

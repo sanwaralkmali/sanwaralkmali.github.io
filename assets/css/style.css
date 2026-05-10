@@ -4986,6 +4986,114 @@ img {
 }
 
 /* ==========================================
+   NEWSLETTER SUBSCRIBE CARD (Buttondown)
+   Used on /, /blog.html, and (via modern-article.css) on /articles/*.html
+   ========================================== */
+.subscribe-card {
+  background: linear-gradient(135deg, var(--accent-muted), rgba(194, 113, 79, 0.02));
+  border: 1px solid rgba(194, 113, 79, 0.22);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  margin: var(--spacing-2xl) auto var(--spacing-xl);
+  max-width: 720px;
+  font-family: var(--font-family);
+}
+
+.subscribe-card__eyebrow {
+  font-family: var(--font-family);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin: 0 0 0.6rem;
+}
+
+.subscribe-card__heading {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.subscribe-card__sub {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin: 0 0 var(--spacing-md);
+  line-height: 1.6;
+}
+
+.subscribe-card__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 0.7rem;
+}
+
+.subscribe-card__form input[type="email"] {
+  flex: 1 1 220px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
+  min-width: 0;
+}
+
+.subscribe-card__form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-focus-ring);
+}
+
+.subscribe-card__form input[type="email"]::placeholder {
+  color: var(--text-muted);
+}
+
+.subscribe-card__btn {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  background: var(--accent);
+  color: var(--bg-primary);
+  border: 0;
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.4rem;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.subscribe-card__btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.subscribe-card__btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.subscribe-card__btn:disabled { opacity: 0.6; cursor: wait; transform: none; }
+
+.subscribe-card__finer {
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.subscribe-card__finer--success {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .subscribe-card { padding: var(--spacing-md); }
+  .subscribe-card__heading { font-size: 1.3rem; }
+}
+
+/* ==========================================
    PREFERS-REDUCED-MOTION
    Per-animation gates (not a blunt * block)
    ========================================== */
@@ -5460,10 +5568,52 @@ html[data-theme="light"] .modern-nav.scrolled {
   background-color: transparent;
   transition: background-color var(--transition-fast);
   border-radius: 0;
+  position: relative;
 }
 
 .project-row:hover {
   background-color: var(--bg-secondary);
+}
+
+/* Flagship modifier — used on the MATHLOGAME row to mark it as the featured project. */
+.project-row--featured {
+  padding: var(--spacing-xl) var(--spacing-md);
+  margin: var(--spacing-md) 0 var(--spacing-lg);
+  background: linear-gradient(135deg, rgba(75, 179, 253, 0.04), rgba(16, 185, 129, 0.02));
+  border: 1px solid rgba(75, 179, 253, 0.18);
+  border-radius: var(--radius-md);
+  border-bottom: 1px solid rgba(75, 179, 253, 0.18);
+}
+
+.project-row--featured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--mathlogame-gradient);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.project-row--featured:hover {
+  background: linear-gradient(135deg, rgba(75, 179, 253, 0.08), rgba(16, 185, 129, 0.03));
+}
+
+.project-row--featured .project-row-body p {
+  -webkit-line-clamp: unset;
+  display: block;
+}
+
+/* "Flagship" eyebrow inside the featured row */
+.project-row__eyebrow {
+  font-family: var(--font-family);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin: 0 0 0.55rem;
 }
 
 .project-row-body {

@@ -77,14 +77,40 @@
                 <!-- Blog Grid -->
                 <div class="blog-grid">
 
-                    <!-- Effort Is Not Enough (Newest) -->
+                    <!-- The Day-After Test (Newest) -->
+                    <article class="blog-card" data-category="education">
+                        <div class="blog-image">
+                            <picture>
+                                <source type="image/webp" srcset="assets/articles/effort-not-enough/why effort is not enough.webp">
+                                <img src="assets/articles/effort-not-enough/why effort is not enough.png"
+                                    alt="The Day-After Test — what you can solve tomorrow is what you actually learned today"
+                                    width="1200" height="659" fetchpriority="high" decoding="async">
+                            </picture>
+                            <div class="blog-date">
+                                <span class="day">10</span>
+                                <span class="month">May</span>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-tags">
+                                <span class="tag">Education</span>
+                                <span class="tag">Study Tips</span>
+                                <span class="tag">Habits</span>
+                            </div>
+                            <h2 class="blog-title">The Day-After Test</h2>
+                            <p class="blog-excerpt">What you can solve tomorrow, on a blank page, with no notes — that's what you actually learned today. A 10-minute habit for math students.</p>
+                            <a href="articles/day-after-test.html" class="read-more" aria-label="Read more about The Day-After Test">Read More <i class='bx bx-right-arrow-alt'></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Effort Is Not Enough -->
                     <article class="blog-card" data-category="education">
                         <div class="blog-image">
                             <picture>
                                 <source type="image/webp" srcset="assets/articles/effort-not-enough/I did my best.webp">
                                 <img src="assets/articles/effort-not-enough/I did my best.png"
                                     alt="I Did My Best — So Why Are My Marks Still Low?"
-                                    width="1200" height="670" fetchpriority="high" decoding="async">
+                                    width="1200" height="670" loading="lazy" decoding="async">
                             </picture>
                             <div class="blog-date">
                                 <span class="day">29</span>
@@ -232,6 +258,23 @@
                 </div>
             </div>
         </section>
+
+        <aside class="subscribe-card" data-buttondown-user="sanwaralkmali" aria-labelledby="subscribe-heading">
+            <p class="subscribe-card__eyebrow">Newsletter</p>
+            <h3 class="subscribe-card__heading" id="subscribe-heading">Get my next essay in your inbox.</h3>
+            <p class="subscribe-card__sub">One email when I publish something new. No spam, no tracking, no list-rental.</p>
+            <form class="subscribe-card__form"
+                  action="https://buttondown.email/api/emails/embed-subscribe/sanwaralkmali"
+                  method="post"
+                  target="popupwindow"
+                  onsubmit="window.open('https://buttondown.email/sanwaralkmali', 'popupwindow')">
+                <label class="visually-hidden" for="bd-email">Your email address</label>
+                <input type="email" id="bd-email" name="email" required placeholder="you@example.com" autocomplete="email">
+                <input type="hidden" name="embed" value="1">
+                <button type="submit" class="subscribe-card__btn">Subscribe</button>
+            </form>
+            <p class="subscribe-card__finer">No spam. Unsubscribe anytime.</p>
+        </aside>
     </main>
 
     <!-- Footer v2 -->
@@ -244,8 +287,7 @@
                 </div>
                 <div class="footer-links">
                     <a href="/#about" class="footer-link">About</a>
-                    <a href="projects.html" class="footer-link">Projects</a>
-                    <a href="blog.html" class="footer-link">Writing</a>
+                    <a href="projects.html" class="footer-link">Projects</a>                    <a href="blog.html" class="footer-link">Writing</a>
                     <a href="now.html" class="footer-link">Now</a>
                 </div>
             </div>

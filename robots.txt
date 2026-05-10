@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /article.html
 
 Sitemap: https://sanwaralkmali.github.io/sitemap.xml

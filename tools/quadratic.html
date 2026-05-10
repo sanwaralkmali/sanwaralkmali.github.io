@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <!-- Performance: font preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/234e9652c2.js" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/tools.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <title>Quadratic Visualizer — Salah Alkmali</title>
+    <meta name="description" content="Free interactive quadratic visualizer. Drag the sliders for a, b, c and watch y = ax² + bx + c reshape in real time. Vertex, roots, and discriminant update as you go.">
+    <link rel="canonical" href="https://sanwaralkmali.github.io/tools/quadratic.html">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Quadratic Visualizer — interactive parabola plotter">
+    <meta property="og:description" content="Drag the sliders for a, b, c and watch y = ax² + bx + c reshape in real time. Free, interactive, runs in your browser.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanwaralkmali.github.io/tools/quadratic.html">
+    <meta property="og:image" content="https://sanwaralkmali.github.io/assets/images/profile/profile.jpg">
+    <meta property="og:site_name" content="Salah Alkmali">
+    <meta property="og:locale" content="en_US">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quadratic Visualizer">
+    <meta name="twitter:description" content="Drag the sliders for a, b, c and watch the parabola reshape in real time.">
+    <meta name="twitter:image" content="https://sanwaralkmali.github.io/assets/images/profile/profile.jpg">
+    <meta name="twitter:site" content="@sanwaralkmali">
+    <!-- JSON-LD: WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Quadratic Visualizer",
+      "url": "https://sanwaralkmali.github.io/tools/quadratic.html",
+      "description": "Free interactive quadratic visualizer. Drag the sliders for a, b, c and watch the parabola reshape in real time.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "creator": {
+        "@type": "Person",
+        "@id": "https://sanwaralkmali.github.io/#person",
+        "name": "Salah Alkmali"
+      },
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <!-- Navigation -->
+    <nav class="modern-nav" id="modern-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-wordmark" aria-label="Salah Alkmali — Home">Salah Alkmali</a>
+
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="/#about" class="nav-link">About</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <button type="button" class="theme-toggle" aria-label="Switch to light mode">
+                    <i class="bx bxs-sun"></i>
+                </button>
+            </div>
+
+            <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content tool-page" id="main-content">
+        <div class="container">
+            <a href="../tools.html" class="tool-page__back">
+                <i class="bx bx-arrow-back"></i> All tools
+            </a>
+
+            <header class="tool-page__header">
+                <h1>Quadratic Visualizer</h1>
+                <p>Drag the sliders for <em>a</em>, <em>b</em>, and <em>c</em>. The parabola reshapes in real time. Vertex, roots, and discriminant update as you go.</p>
+            </header>
+
+            <div class="tool-equation" id="equation-display" aria-live="polite" aria-atomic="true">
+                y = <span class="coef">1</span>x² − <span class="coef">4</span>
+            </div>
+
+            <div class="tool-canvas-wrap">
+                <svg id="parabola-svg" class="tool-canvas" viewBox="-11 -11 22 22" preserveAspectRatio="xMidYMid meet"
+                     role="img" aria-label="Plot of the quadratic function">
+                    <g id="grid"></g>
+                    <g id="axes"></g>
+                    <g id="labels"></g>
+                    <path id="parabola" class="parabola"></path>
+                    <g id="markers"></g>
+                </svg>
+            </div>
+
+            <div class="tool-controls">
+                <div class="tool-slider">
+                    <label class="tool-slider__label" for="coeff-a"><em>a</em></label>
+                    <input type="range" id="coeff-a" min="-5" max="5" step="0.1" value="1" aria-label="Coefficient a (range -5 to 5)">
+                    <input type="number" id="coeff-a-num" min="-5" max="5" step="0.1" value="1" inputmode="decimal" aria-label="Coefficient a (precise value)">
+                </div>
+                <div class="tool-slider">
+                    <label class="tool-slider__label" for="coeff-b"><em>b</em></label>
+                    <input type="range" id="coeff-b" min="-10" max="10" step="0.1" value="0" aria-label="Coefficient b (range -10 to 10)">
+                    <input type="number" id="coeff-b-num" min="-10" max="10" step="0.1" value="0" inputmode="decimal" aria-label="Coefficient b (precise value)">
+                </div>
+                <div class="tool-slider">
+                    <label class="tool-slider__label" for="coeff-c"><em>c</em></label>
+                    <input type="range" id="coeff-c" min="-10" max="10" step="0.1" value="-4" aria-label="Coefficient c (range -10 to 10)">
+                    <input type="number" id="coeff-c-num" min="-10" max="10" step="0.1" value="-4" inputmode="decimal" aria-label="Coefficient c (precise value)">
+                </div>
+            </div>
+
+            <div class="tool-info" aria-live="polite" aria-atomic="true">
+                <div class="tool-info__item">
+                    <span class="tool-info__label">Vertex</span>
+                    <span class="tool-info__value" id="vertex-display">(0, −4)</span>
+                </div>
+                <div class="tool-info__item">
+                    <span class="tool-info__label">Roots</span>
+                    <span class="tool-info__value" id="roots-display">x = −2, 2</span>
+                </div>
+                <div class="tool-info__item">
+                    <span class="tool-info__label">Discriminant</span>
+                    <span class="tool-info__value" id="discriminant-display">16 → 2 real roots</span>
+                </div>
+            </div>
+
+            <div class="tool-actions">
+                <button type="button" class="tool-btn tool-btn--secondary" id="reset-btn">Reset</button>
+                <button type="button" class="tool-btn tool-btn--primary" id="share-btn">Copy link</button>
+            </div>
+
+            <p class="tool-footnote">
+                <strong>Reading the plot.</strong> The orange dot is the vertex (the parabola's turning point). White dots on the x-axis are the real roots — where the curve crosses zero. The discriminant tells you whether a quadratic has two real roots, one repeated root, or none. URL updates as you drag, so any state you find is shareable. <a href="/articles/educational-tools.html" style="color: var(--accent);">Why I build tools like this →</a>
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <p class="footer-wordmark">Salah Alkmali</p>
+                    <p class="footer-brand-p">Developer &amp; math educator. Building small, careful tools — and writing about them.</p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="/#about" class="footer-link">About</a>
+                    <a href="../projects.html" class="footer-link">Projects</a>                    <a href="../blog.html" class="footer-link">Blog</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Salah Alkmali. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+    /* Quadratic Visualizer — vanilla SVG plotter.
+       Math coordinates: x ∈ [-10, 10], y ∈ [-10, 10]. SVG y is negated for display. */
+    (function () {
+        const NS = 'http://www.w3.org/2000/svg';
+        const RANGE = 10;
+        const STEP = 0.05;
+
+        const svg = document.getElementById('parabola-svg');
+        const gridG = document.getElementById('grid');
+        const axesG = document.getElementById('axes');
+        const labelsG = document.getElementById('labels');
+        const parabolaEl = document.getElementById('parabola');
+        const markersG = document.getElementById('markers');
+
+        const aRange = document.getElementById('coeff-a');
+        const bRange = document.getElementById('coeff-b');
+        const cRange = document.getElementById('coeff-c');
+        const aNum = document.getElementById('coeff-a-num');
+        const bNum = document.getElementById('coeff-b-num');
+        const cNum = document.getElementById('coeff-c-num');
+
+        const equationEl = document.getElementById('equation-display');
+        const vertexEl = document.getElementById('vertex-display');
+        const rootsEl = document.getElementById('roots-display');
+        const discrEl = document.getElementById('discriminant-display');
+
+        const resetBtn = document.getElementById('reset-btn');
+        const shareBtn = document.getElementById('share-btn');
+
+        function el(name, attrs) {
+            const e = document.createElementNS(NS, name);
+            for (const k in attrs) e.setAttribute(k, attrs[k]);
+            return e;
+        }
+
+        // Build static grid + axes + labels once on load
+        function initGrid() {
+            for (let i = -RANGE; i <= RANGE; i++) {
+                if (i === 0) continue;
+                gridG.appendChild(el('line', { x1: i, y1: -RANGE, x2: i, y2: RANGE, class: 'grid-line' }));
+                gridG.appendChild(el('line', { x1: -RANGE, y1: i, x2: RANGE, y2: i, class: 'grid-line' }));
+            }
+            axesG.appendChild(el('line', { x1: -RANGE, y1: 0, x2: RANGE, y2: 0, class: 'axis-line' }));
+            axesG.appendChild(el('line', { x1: 0, y1: -RANGE, x2: 0, y2: RANGE, class: 'axis-line' }));
+
+            for (let i = -RANGE; i <= RANGE; i += 2) {
+                if (i === 0) continue;
+                const xl = el('text', { x: i, y: 0.95, class: 'axis-label', 'text-anchor': 'middle' });
+                xl.textContent = i;
+                labelsG.appendChild(xl);
+                const yl = el('text', { x: -0.3, y: -i + 0.25, class: 'axis-label', 'text-anchor': 'end' });
+                yl.textContent = i;
+                labelsG.appendChild(yl);
+            }
+            // Origin label
+            const origin = el('text', { x: -0.3, y: 0.95, class: 'axis-label', 'text-anchor': 'end' });
+            origin.textContent = '0';
+            labelsG.appendChild(origin);
+        }
+
+        function buildPath(a, b, c) {
+            const pts = [];
+            let started = false;
+            for (let x = -RANGE; x <= RANGE; x += STEP) {
+                const y = a * x * x + b * x + c;
+                if (Math.abs(y) > RANGE * 5) { started = false; continue; }
+                pts.push((started ? 'L' : 'M') + x.toFixed(3) + ',' + (-y).toFixed(3));
+                started = true;
+            }
+            return pts.join(' ');
+        }
+
+        function fmtNum(n) {
+            // Display with up to 2 decimals, trim trailing zeros
+            const s = n.toFixed(2);
+            return s.replace(/\.?0+$/, '');
+        }
+
+        function formatEquation(a, b, c) {
+            let html = 'y = ';
+            const aZero = Math.abs(a) < 1e-9;
+            const bZero = Math.abs(b) < 1e-9;
+            const cZero = Math.abs(c) < 1e-9;
+
+            // a-term
+            if (!aZero) {
+                if (a === 1) html += 'x²';
+                else if (a === -1) html += '−x²';
+                else html += `<span class="coef">${fmtNum(a)}</span>x²`;
+            }
+            // b-term
+            if (!bZero) {
+                const abs = Math.abs(b);
+                const sign = b > 0 ? (aZero ? '' : ' + ') : (aZero ? '−' : ' − ');
+                if (abs === 1) html += sign + 'x';
+                else html += sign + `<span class="coef">${fmtNum(abs)}</span>x`;
+            }
+            // c-term
+            if (!cZero) {
+                const abs = Math.abs(c);
+                const sign = c > 0 ? (aZero && bZero ? '' : ' + ') : (aZero && bZero ? '−' : ' − ');
+                html += sign + `<span class="coef">${fmtNum(abs)}</span>`;
+            }
+            if (html === 'y = ') html = 'y = 0';
+            return html;
+        }
+
+        function updateMarkers(a, b, c) {
+            markersG.innerHTML = '';
+            if (Math.abs(a) < 1e-9) return;
+            const vx = -b / (2 * a);
+            const vy = c - (b * b) / (4 * a);
+            if (Math.abs(vx) <= RANGE && Math.abs(vy) <= RANGE) {
+                markersG.appendChild(el('circle', { cx: vx, cy: -vy, r: 0.22, class: 'vertex' }));
+            }
+            const discr = b * b - 4 * a * c;
+            if (discr >= 0) {
+                const s = Math.sqrt(discr);
+                const r1 = (-b + s) / (2 * a);
+                const r2 = (-b - s) / (2 * a);
+                if (Math.abs(r1) <= RANGE) markersG.appendChild(el('circle', { cx: r1, cy: 0, r: 0.18, class: 'root' }));
+                if (Math.abs(r2) <= RANGE && Math.abs(r1 - r2) > 1e-9) markersG.appendChild(el('circle', { cx: r2, cy: 0, r: 0.18, class: 'root' }));
+            }
+        }
+
+        function updateInfo(a, b, c) {
+            if (Math.abs(a) < 1e-9) {
+                vertexEl.textContent = 'no parabola';
+                if (Math.abs(b) < 1e-9) rootsEl.textContent = (Math.abs(c) < 1e-9) ? 'all x' : 'none';
+                else rootsEl.textContent = 'x = ' + fmtNum(-c / b);
+                discrEl.textContent = '—';
+                return;
+            }
+            const vx = -b / (2 * a);
+            const vy = c - (b * b) / (4 * a);
+            vertexEl.textContent = '(' + fmtNum(vx) + ', ' + fmtNum(vy) + ')';
+            const discr = b * b - 4 * a * c;
+            if (discr > 1e-9) {
+                const s = Math.sqrt(discr);
+                const r1 = (-b + s) / (2 * a);
+                const r2 = (-b - s) / (2 * a);
+                rootsEl.textContent = 'x = ' + fmtNum(Math.min(r1, r2)) + ', ' + fmtNum(Math.max(r1, r2));
+                discrEl.textContent = fmtNum(discr) + ' → 2 real roots';
+            } else if (Math.abs(discr) <= 1e-9) {
+                rootsEl.textContent = 'x = ' + fmtNum(-b / (2 * a));
+                discrEl.textContent = '0 → 1 repeated root';
+            } else {
+                rootsEl.textContent = 'none (real)';
+                discrEl.textContent = fmtNum(discr) + ' → no real roots';
+            }
+        }
+
+        // Throttle URL updates
+        let urlPending = false;
+        function scheduleURLUpdate(a, b, c) {
+            if (urlPending) return;
+            urlPending = true;
+            setTimeout(function () {
+                const url = new URL(window.location.href);
+                url.searchParams.set('a', a);
+                url.searchParams.set('b', b);
+                url.searchParams.set('c', c);
+                history.replaceState(null, '', url.toString());
+                urlPending = false;
+            }, 200);
+        }
+
+        function update() {
+            const a = parseFloat(aRange.value);
+            const b = parseFloat(bRange.value);
+            const c = parseFloat(cRange.value);
+
+            // Sync number inputs (without triggering loop)
+            if (aNum.value != a) aNum.value = a;
+            if (bNum.value != b) bNum.value = b;
+            if (cNum.value != c) cNum.value = c;
+
+            equationEl.innerHTML = formatEquation(a, b, c);
+            parabolaEl.setAttribute('d', buildPath(a, b, c));
+            updateMarkers(a, b, c);
+            updateInfo(a, b, c);
+            scheduleURLUpdate(a, b, c);
+        }
+
+        function syncFromNumber(rangeEl, numEl) {
+            const v = parseFloat(numEl.value);
+            const min = parseFloat(rangeEl.min);
+            const max = parseFloat(rangeEl.max);
+            if (isNaN(v)) return;
+            const clamped = Math.max(min, Math.min(max, v));
+            rangeEl.value = clamped;
+            update();
+        }
+
+        // Wire up events
+        [aRange, bRange, cRange].forEach(function (r) {
+            r.addEventListener('input', update);
+        });
+        aNum.addEventListener('change', function () { syncFromNumber(aRange, aNum); });
+        bNum.addEventListener('change', function () { syncFromNumber(bRange, bNum); });
+        cNum.addEventListener('change', function () { syncFromNumber(cRange, cNum); });
+
+        resetBtn.addEventListener('click', function () {
+            aRange.value = 1;
+            bRange.value = 0;
+            cRange.value = -4;
+            update();
+        });
+
+        const shareDefault = shareBtn.textContent;
+        shareBtn.addEventListener('click', function () {
+            const url = window.location.href;
+            const done = function () {
+                shareBtn.textContent = 'Copied ✓';
+                setTimeout(function () { shareBtn.textContent = shareDefault; }, 1500);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(done).catch(function () {
+                    /* fall back to prompt */
+                    window.prompt('Copy this link:', url);
+                });
+            } else {
+                window.prompt('Copy this link:', url);
+            }
+        });
+
+        // Read URL params on load
+        function readURL() {
+            const p = new URLSearchParams(window.location.search);
+            const get = function (key, fallback, min, max) {
+                const v = parseFloat(p.get(key));
+                if (isNaN(v)) return fallback;
+                return Math.max(min, Math.min(max, v));
+            };
+            aRange.value = get('a', 1, -5, 5);
+            bRange.value = get('b', 0, -10, 10);
+            cRange.value = get('c', -4, -10, 10);
+        }
+
+        // Init
+        initGrid();
+        readURL();
+        update();
+    })();
+    </script>
+</body>
+
+</html>

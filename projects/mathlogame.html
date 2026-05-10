@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
     <!-- Performance: font preconnect/preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,35 +14,335 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
-    <title>MATHLOGAME — Projects — Salah Alkmali</title>
-    <meta name="description" content="Case study: MATHLOGAME — the interactive math games platform Salah Alkmali built for students. Now live at mathlogame.com. Learn about the design, development, and impact.">
+    <title>MATHLOGAME — Salah Alkmali's Flagship Project</title>
+    <meta name="description" content="MATHLOGAME — a free online platform where high-school students see, play, and learn math. Lessons, games, leaderboards, classroom tools — built solo by Salah Alkmali from real classroom experience.">
     <link rel="canonical" href="https://sanwaralkmali.github.io/projects/mathlogame.html">
-    <!-- Open Graph -->
-    <meta property="og:title" content="MATHLOGAME — Projects — Salah Alkmali">
-    <meta property="og:description" content="Case study: MATHLOGAME — the interactive math games platform Salah Alkmali built for students. Now live at mathlogame.com.">
-    <meta property="og:type" content="article">
+    <meta property="og:title" content="MATHLOGAME — A free math-learning platform built by a teacher">
+    <meta property="og:description" content="Lessons, games, leaderboards, classroom tools. Built solo for high-school students. Live at mathlogame.com.">
+    <meta property="og:type" content="website">
     <meta property="og:url" content="https://sanwaralkmali.github.io/projects/mathlogame.html">
     <meta property="og:image" content="https://sanwaralkmali.github.io/assets/images/Projects/mathlogame.jpeg">
     <meta property="og:site_name" content="Salah Alkmali">
     <meta property="og:locale" content="en_US">
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="MATHLOGAME — Projects — Salah Alkmali">
-    <meta name="twitter:description" content="Case study: MATHLOGAME — the interactive math games platform built for students. Now live at mathlogame.com.">
+    <meta name="twitter:title" content="MATHLOGAME — A free math-learning platform built by a teacher">
+    <meta name="twitter:description" content="Lessons, games, leaderboards, classroom tools. Built solo for high-school students. Live at mathlogame.com.">
     <meta name="twitter:image" content="https://sanwaralkmali.github.io/assets/images/Projects/mathlogame.jpeg">
     <meta name="twitter:site" content="@sanwaralkmali">
-    <!-- JSON-LD: BreadcrumbList -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sanwaralkmali.github.io/"},
-        {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://sanwaralkmali.github.io/projects.html"},
-        {"@type": "ListItem", "position": 3, "name": "MATHLOGAME", "item": "https://sanwaralkmali.github.io/projects/mathlogame.html"}
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sanwaralkmali.github.io/"},
+            {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://sanwaralkmali.github.io/projects.html"},
+            {"@type": "ListItem", "position": 3, "name": "MATHLOGAME", "item": "https://sanwaralkmali.github.io/projects/mathlogame.html"}
+          ]
+        },
+        {
+          "@type": "WebApplication",
+          "name": "MATHLOGAME",
+          "url": "https://mathlogame.com",
+          "description": "Free online math-learning platform for high-school students. Lessons, games, leaderboards, classroom tools.",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Any modern browser",
+          "isAccessibleForFree": true,
+          "creator": {
+            "@type": "Person",
+            "@id": "https://sanwaralkmali.github.io/#person",
+            "name": "Salah Alkmali"
+          }
+        }
       ]
     }
     </script>
+    <style>
+        /* Case-study layout — scoped to this page (the flagship gets richer treatment) */
+        .case-study-page { padding: var(--spacing-xl) 0 var(--spacing-2xl); }
+
+        .cs-hero {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .cs-hero__eyebrow {
+            font-family: var(--font-family);
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin: 0 0 var(--spacing-md);
+        }
+
+        .cs-hero__title {
+            margin: 0 0 var(--spacing-md);
+            line-height: 1;
+        }
+
+        .cs-hero__logo {
+            display: inline-block;
+            max-width: min(420px, 78%);
+            width: 100%;
+        }
+
+        .cs-hero__logo img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Theme-aware logo swap — site default is dark mode */
+        .cs-hero__logo--on-light { display: none; }
+        html[data-theme="light"] .cs-hero__logo--on-dark { display: none; }
+        html[data-theme="light"] .cs-hero__logo--on-light { display: inline-block; }
+
+        .cs-hero__tagline {
+            font-family: var(--font-display);
+            font-size: clamp(1.1rem, 1.5vw + 0.6rem, 1.4rem);
+            font-style: italic;
+            color: var(--text-secondary);
+            margin: 0 0 var(--spacing-xl);
+            letter-spacing: 0.005em;
+        }
+
+        .cs-hero__image {
+            margin: 0 0 var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .cs-hero__image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--mathlogame-gradient);
+            z-index: 2;
+        }
+
+        .cs-hero__image img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .cs-hero__tags {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .cs-hero__tags .tag {
+            font-family: var(--font-family);
+            font-size: var(--font-size-xs);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 0.4rem 0.9rem;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: transparent;
+        }
+
+        .cs-hero__cta { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+
+        .cs-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--font-family);
+            font-size: 1.05rem;
+            font-weight: 600;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 0.85rem 1.6rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .cs-btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .cs-btn-primary--big {
+            font-size: 1.15rem;
+            padding: 1rem 2rem;
+        }
+
+        .cs-section {
+            margin: var(--spacing-2xl) auto;
+            max-width: 720px;
+        }
+
+        .cs-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 3vw + 0.5rem, 2.2rem);
+            font-weight: 600;
+            font-style: italic;
+            margin: 0 0 var(--spacing-md);
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        .cs-section h2::before {
+            content: '';
+            display: block;
+            width: 36px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            margin-bottom: 0.85rem;
+            border-radius: 1px;
+        }
+
+        .cs-section p {
+            font-family: var(--font-family);
+            font-size: var(--font-size-lg);
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0 0 var(--spacing-md);
+        }
+
+        .cs-section p strong { color: var(--text-primary); font-weight: 600; }
+        .cs-section p em { color: var(--text-primary); font-style: italic; }
+
+        .cs-section__note {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: var(--font-size-base) !important;
+            margin-top: var(--spacing-lg) !important;
+        }
+
+        .cs-grid {
+            display: grid;
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+
+        .cs-grid--4 { grid-template-columns: repeat(2, 1fr); }
+        .cs-grid--3 { grid-template-columns: repeat(3, 1fr); }
+
+        @media (max-width: 700px) {
+            .cs-grid--4, .cs-grid--3 { grid-template-columns: 1fr; }
+        }
+
+        .cs-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md) var(--spacing-md) calc(var(--spacing-md) + 0.2rem);
+            transition: border-color var(--transition-fast), transform var(--transition-fast);
+        }
+
+        .cs-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .cs-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            font-style: italic;
+            margin: 0 0 0.55rem;
+            color: var(--text-primary);
+            letter-spacing: -0.005em;
+        }
+
+        .cs-card p {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .cs-card strong { color: var(--text-primary); }
+
+        .cs-final-cta {
+            margin: var(--spacing-2xl) auto;
+            padding: var(--spacing-2xl);
+            background: linear-gradient(135deg, rgba(75, 179, 253, 0.10), rgba(16, 185, 129, 0.05));
+            border: 1px solid rgba(75, 179, 253, 0.22);
+            border-radius: var(--radius-xl);
+            text-align: center;
+            max-width: 720px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cs-final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--mathlogame-gradient);
+        }
+
+        .cs-final-cta__eyebrow {
+            font-family: var(--font-family);
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin: 0 0 0.75rem;
+        }
+
+        .cs-final-cta__heading {
+            font-family: var(--font-display);
+            font-size: 1.85rem;
+            font-weight: 600;
+            font-style: italic;
+            margin: 0 0 var(--spacing-sm);
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+        }
+
+        .cs-final-cta__sub {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            color: var(--text-secondary);
+            margin: 0 auto var(--spacing-lg);
+            max-width: 520px;
+            line-height: 1.6;
+        }
+
+        .cs-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--font-family);
+            font-size: var(--font-size-sm);
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-top: var(--spacing-2xl);
+            transition: color var(--transition-fast), transform var(--transition-fast);
+        }
+
+        .cs-back-link:hover {
+            color: var(--accent);
+            transform: translateX(-2px);
+        }
+
+        @media (max-width: 480px) {
+            .cs-final-cta { padding: var(--spacing-md); }
+            .cs-final-cta__heading { font-size: 1.4rem; }
+        }
+    </style>
 </head>
 
 <body>
@@ -70,34 +371,116 @@
     </nav>
 
     <main class="main-content case-study-page" id="main-content">
-        <div class="container">
-            <div class="case-study-hero">
-                <img src="../assets/images/Projects/mathlogame.jpeg" alt="MATHLOGAME — interactive math games platform" width="800" height="450" fetchpriority="high" decoding="async">
-                <h1>MATHLOGAME</h1>
-                <p>Interactive math games for students. The platform that became its own site at mathlogame.com.</p>
-                <div class="case-study-tags">
-                    <span class="tag">Education</span>
-                    <span class="tag">Web Development</span>
-                    <span class="tag">Gamification</span>
+        <article class="container">
+
+            <!-- Hero -->
+            <header class="cs-hero">
+                <p class="cs-hero__eyebrow">Flagship project · Live</p>
+                <h1 class="cs-hero__title">
+                    <span class="visually-hidden">MATHLOGAME</span>
+                    <picture class="cs-hero__logo cs-hero__logo--on-dark">
+                        <source type="image/webp" srcset="../assets/images/LOGO/MATHLOGAME-dark.webp">
+                        <img src="../assets/images/LOGO/MATHLOGAME-dark.png" alt="" aria-hidden="true" width="1445" height="683" fetchpriority="high" decoding="async">
+                    </picture>
+                    <picture class="cs-hero__logo cs-hero__logo--on-light">
+                        <source type="image/webp" srcset="../assets/images/LOGO/MATHLOGAME-light.webp">
+                        <img src="../assets/images/LOGO/MATHLOGAME-light.png" alt="" aria-hidden="true" width="1435" height="679" loading="lazy" decoding="async">
+                    </picture>
+                </h1>
+                <p class="cs-hero__tagline">See the math, play the math, learn the math.</p>
+                <div class="cs-hero__image">
+                    <img src="../assets/images/Projects/mathlogame.jpeg" alt="MATHLOGAME — interactive math games platform" width="800" height="450" loading="lazy" decoding="async">
                 </div>
-                <div class="case-study-links">
-                    <a href="https://mathlogame.com" target="_blank" rel="noopener" class="btn btn-primary">
-                        <i class="bx bx-link-external"></i> Visit MATHLOGAME.com →
+                <div class="cs-hero__tags">
+                    <span class="tag">Education platform</span>
+                    <span class="tag">Built solo</span>
+                    <span class="tag">Free</span>
+                    <span class="tag">Web — no install</span>
+                </div>
+                <div class="cs-hero__cta">
+                    <a href="https://mathlogame.com" target="_blank" rel="noopener" class="cs-btn-primary">
+                        <i class="bx bx-link-external"></i> Visit MATHLOGAME.com
                     </a>
                 </div>
-            </div>
+            </header>
 
-            <div class="case-study-body">
-                <p class="case-study-placeholder">Full case study coming soon. In the meantime, visit <a href="https://mathlogame.com" target="_blank" rel="noopener">mathlogame.com</a> to see the platform live.</p>
+            <!-- What it is -->
+            <section class="cs-section">
+                <h2>What it is</h2>
+                <p>Mathlogame is a free online platform for learning math. It's built for high-school students (Grade 9–12), and it works in any web browser — phone, tablet, or computer.</p>
+                <p>The goal is simple: <strong>make math easy to see, fun to play, and clear to understand.</strong></p>
+            </section>
 
-                <a href="../projects.html" class="case-study-back">
-                    <i class="bx bx-arrow-back"></i> Back to all projects
+            <!-- What you can do -->
+            <section class="cs-section">
+                <h2>What you can do</h2>
+                <div class="cs-grid cs-grid--4">
+                    <div class="cs-card">
+                        <h3>Learn</h3>
+                        <p>Open a lesson and see math come to life. Each lesson has three parts — a short <strong>visualizer</strong> that shows the idea with pictures and animation, a <strong>cheat sheet</strong> with the rules and key words, and a <strong>practice</strong> area with instant feedback.</p>
+                    </div>
+                    <div class="cs-card">
+                        <h3>Play</h3>
+                        <p>Pick a math game and learn while you play. Solo, with a friend on the same device, or online with classmates.</p>
+                    </div>
+                    <div class="cs-card">
+                        <h3>Compete</h3>
+                        <p>Some games have leaderboards. Earn points, climb the board, unlock achievements as you learn.</p>
+                    </div>
+                    <div class="cs-card">
+                        <h3>Use tools</h3>
+                        <p>Calculators, exam-prep tools, and ready-to-use classroom games for teachers — pulled directly from real classroom needs.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Who it's for -->
+            <section class="cs-section">
+                <h2>Who it's for</h2>
+                <div class="cs-grid cs-grid--3">
+                    <div class="cs-card">
+                        <h3>Students</h3>
+                        <p>Study at your own speed. <em>See</em> the math instead of just reading about it.</p>
+                    </div>
+                    <div class="cs-card">
+                        <h3>Teachers</h3>
+                        <p>Ready-to-use games and tools for the classroom. Tested with real students.</p>
+                    </div>
+                    <div class="cs-card">
+                        <h3>ESL learners</h3>
+                        <p>The language is kept short and simple, so the math is the only hard part.</p>
+                    </div>
+                </div>
+                <p class="cs-section__note">Everything works in your browser. No download. No install.</p>
+            </section>
+
+            <!-- Who built it -->
+            <section class="cs-section">
+                <h2>Who built it</h2>
+                <p>Mathlogame is built by <strong>Salah Alkmali</strong> — a high-school math teacher and developer.</p>
+                <p>I built this for my own students first. Seven years in classrooms taught me what helps a student understand a topic, what makes a lesson boring, and what makes a game fun. So every lesson and every game is shaped by real classroom experience — not guesswork.</p>
+                <p>I work on Mathlogame alone — designing, coding, writing the lessons, making the games. New content is added often, and the platform keeps growing.</p>
+                <p>Want to share feedback, ask a question, or suggest a new lesson or game? <a href="/#contact" style="color: var(--accent);">Reach me here</a>, or use the contact options on Mathlogame itself.</p>
+            </section>
+
+            <!-- Final CTA -->
+            <aside class="cs-final-cta">
+                <p class="cs-final-cta__eyebrow">See it live</p>
+                <h2 class="cs-final-cta__heading">The platform is live and growing.</h2>
+                <p class="cs-final-cta__sub">Open a lesson, play a game, watch a visualizer. The fastest way to understand what Mathlogame is — is to use it.</p>
+                <a href="https://mathlogame.com" target="_blank" rel="noopener" class="cs-btn-primary cs-btn-primary--big">
+                    Visit MATHLOGAME.com →
                 </a>
-            </div>
-        </div>
+            </aside>
+
+            <a href="../projects.html" class="cs-back-link">
+                <i class="bx bx-arrow-back"></i> Back to all projects
+            </a>
+
+        </article>
     </main>
 
-    <!-- Footer v2 -->
+    <!-- Footer -->
     <footer class="modern-footer">
         <div class="container">
             <div class="footer-content">
@@ -106,7 +489,7 @@
                     <p class="footer-brand-p">Istanbul, 2026.</p>
                 </div>
                 <div class="footer-links">
-                    <a href="/../#about" class="footer-link">About</a>
+                    <a href="/#about" class="footer-link">About</a>
                     <a href="../projects.html" class="footer-link">Projects</a>
                     <a href="../blog.html" class="footer-link">Writing</a>
                     <a href="../now.html" class="footer-link">Now</a>

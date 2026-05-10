@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/234e9652c2.js" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/tools.css">
+    <!-- KaTeX for rendering each solution step -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <title>Linear Equation Step-by-Step Solver — Salah Alkmali</title>
+    <meta name="description" content="Free interactive linear equation solver. Drag the sliders, watch the equation transform step by step. Renders proper math notation, shareable URL, three templates from one-step to two-sided.">
+    <link rel="canonical" href="https://sanwaralkmali.github.io/tools/linear-equation.html">
+    <meta property="og:title" content="Linear Equation Step-by-Step Solver">
+    <meta property="og:description" content="Drag the sliders, watch the equation transform step by step. Each step rendered in proper math notation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanwaralkmali.github.io/tools/linear-equation.html">
+    <meta property="og:image" content="https://sanwaralkmali.github.io/assets/images/profile/profile.jpg">
+    <meta property="og:site_name" content="Salah Alkmali">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Linear Equation Step-by-Step Solver">
+    <meta name="twitter:description" content="Drag the sliders, watch the equation transform step by step.">
+    <meta name="twitter:image" content="https://sanwaralkmali.github.io/assets/images/profile/profile.jpg">
+    <meta name="twitter:site" content="@sanwaralkmali">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Linear Equation Step-by-Step Solver",
+      "url": "https://sanwaralkmali.github.io/tools/linear-equation.html",
+      "description": "Free interactive linear equation solver. Three templates (one-step, two-sided, with parentheses). Each step rendered in proper math notation.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "creator": {
+        "@type": "Person",
+        "@id": "https://sanwaralkmali.github.io/#person",
+        "name": "Salah Alkmali"
+      },
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <style>
+        /* Page-specific tweaks for the solver */
+        .template-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: var(--spacing-md);
+        }
+        .template-tab {
+            font-family: var(--font-family);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            padding: 0.5rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+        }
+        .template-tab[aria-pressed="true"] {
+            background: var(--accent-muted);
+            color: var(--accent);
+            border-color: var(--accent);
+            font-weight: 600;
+        }
+        .template-tab:hover { color: var(--accent); border-color: var(--accent); }
+        .template-tab .katex { font-size: 0.95em; }
+
+        .solver-steps {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        .solver-step {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: var(--spacing-md);
+            align-items: center;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+            opacity: 0;
+            transform: translateY(4px);
+            animation: stepIn 0.35s ease forwards;
+        }
+        .solver-step:last-child { border-bottom: 0; }
+        .solver-step__num {
+            font-family: var(--font-family);
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            min-width: 5.5rem;
+        }
+        .solver-step__num em {
+            display: block;
+            font-style: normal;
+            color: var(--accent);
+            font-size: 0.95em;
+            margin-top: 0.15rem;
+            font-weight: 500;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        .solver-step__math {
+            font-size: 1.1rem;
+            min-height: 1.5em;
+        }
+        .solver-step__math .katex { font-size: 1.15em; }
+
+        @keyframes stepIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .solver-step { animation: none; opacity: 1; transform: none; }
+        }
+        @media (max-width: 600px) {
+            .solver-step {
+                grid-template-columns: 1fr;
+                gap: 0.3rem;
+            }
+            .solver-step__num { min-width: 0; }
+        }
+
+        .solver-result {
+            margin-top: var(--spacing-md);
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: var(--accent-muted);
+            border-left: 4px solid var(--accent);
+            border-radius: var(--radius-md);
+            font-family: var(--font-family);
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        .solver-result__answer {
+            font-size: 1.4rem;
+            margin: 0.25rem 0 0;
+            font-family: 'Cambria Math', Georgia, serif;
+        }
+        .solver-result__answer .katex { font-size: 1.2em; }
+        .solver-result__decimal {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            margin: 0.4rem 0 0;
+            font-variant-numeric: tabular-nums;
+        }
+        .solver-result--error {
+            background: rgba(217, 119, 87, 0.10);
+            border-left-color: var(--warm-neutral);
+            font-style: italic;
+        }
+
+        [dir="rtl"] .solver-result { border-left: 0; border-right: 4px solid var(--accent); }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="modern-nav" id="modern-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-wordmark" aria-label="Salah Alkmali — Home">Salah Alkmali</a>
+
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="/#about" class="nav-link">About</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+                <button type="button" class="theme-toggle" aria-label="Switch to light mode">
+                    <i class="bx bxs-sun"></i>
+                </button>
+            </div>
+
+            <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content tool-page" id="main-content">
+        <div class="container">
+            <a href="../tools.html" class="tool-page__back">
+                <i class="bx bx-arrow-back"></i> All tools
+            </a>
+
+            <header class="tool-page__header">
+                <h1>Linear Equation — Step by Step</h1>
+                <p>Pick a template, drag the sliders, and watch the equation transform. Each step is rendered in proper math notation, just like you'd write it on paper.</p>
+            </header>
+
+            <p style="font-family: var(--font-family); font-size: var(--font-size-sm); color: var(--text-muted); margin-bottom: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Template</p>
+            <div class="template-tabs" role="group" aria-label="Equation template">
+                <button type="button" class="template-tab" data-template="t1" aria-pressed="true">Simple: ax + b = c</button>
+                <button type="button" class="template-tab" data-template="t2" aria-pressed="false">Two-sided: ax + b = cx + d</button>
+                <button type="button" class="template-tab" data-template="t3" aria-pressed="false">Parens: k(ax + b) = c</button>
+            </div>
+
+            <div class="tool-equation" id="equation-display" aria-live="polite" aria-atomic="true"></div>
+
+            <div class="tool-controls" id="tool-controls"></div>
+
+            <div class="solver-steps" id="solver-steps" aria-live="polite" aria-atomic="false"></div>
+
+            <div class="tool-actions">
+                <button type="button" class="tool-btn tool-btn--secondary" id="reset-btn">Reset</button>
+                <button type="button" class="tool-btn tool-btn--primary" id="share-btn">Copy link</button>
+            </div>
+
+            <p class="tool-footnote">
+                <strong>What this is for.</strong> Most students get the answer eventually — the part that throws people off is the <em>transformation</em>. Each step here labels the operation (subtract, distribute, divide) and shows the equation re-written. Watching the rhythm a few times is what makes the algebra click. <a href="/articles/educational-tools.html" style="color: var(--accent);">Why I built this →</a>
+            </p>
+        </div>
+    </main>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <p class="footer-wordmark">Salah Alkmali</p>
+                    <p class="footer-brand-p">Developer &amp; math educator. Building small, careful tools — and writing about them.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/#about" class="footer-link">About</a>
+                    <a href="../projects.html" class="footer-link">Projects</a>                    <a href="../blog.html" class="footer-link">Writing</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Salah Alkmali. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+    /* Linear Equation Step-by-Step Solver
+       Three templates, KaTeX-rendered steps. No expression parser — clean
+       symbolic substitution per template. */
+    (function () {
+        var equationEl = document.getElementById('equation-display');
+        var controlsEl = document.getElementById('tool-controls');
+        var stepsEl = document.getElementById('solver-steps');
+        var resetBtn = document.getElementById('reset-btn');
+        var shareBtn = document.getElementById('share-btn');
+        var tabs = document.querySelectorAll('.template-tab');
+
+        // Template definitions
+        var TEMPLATES = {
+            t1: {
+                label: 'ax + b = c',
+                vars: [
+                    { id: 'a', label: 'a', min: -5, max: 5, step: 0.1, def: 2 },
+                    { id: 'b', label: 'b', min: -10, max: 10, step: 0.1, def: 3 },
+                    { id: 'c', label: 'c', min: -10, max: 10, step: 0.1, def: 7 }
+                ],
+                solve: solveT1
+            },
+            t2: {
+                label: 'ax + b = cx + d',
+                vars: [
+                    { id: 'a', label: 'a', min: -5, max: 5, step: 0.1, def: 3 },
+                    { id: 'b', label: 'b', min: -10, max: 10, step: 0.1, def: 1 },
+                    { id: 'c', label: 'c', min: -5, max: 5, step: 0.1, def: 1 },
+                    { id: 'd', label: 'd', min: -10, max: 10, step: 0.1, def: 5 }
+                ],
+                solve: solveT2
+            },
+            t3: {
+                label: 'k(ax + b) = c',
+                vars: [
+                    { id: 'k', label: 'k', min: -5, max: 5, step: 0.1, def: 3 },
+                    { id: 'a', label: 'a', min: -5, max: 5, step: 0.1, def: 1 },
+                    { id: 'b', label: 'b', min: -10, max: 10, step: 0.1, def: -2 },
+                    { id: 'c', label: 'c', min: -20, max: 20, step: 0.1, def: 12 }
+                ],
+                solve: solveT3
+            }
+        };
+
+        var current = 't1';
+        var values = {};
+
+        // -- Number formatting helpers --
+        function fmt(n) {
+            // Round close-to-integer to integer; otherwise 2 decimals trimmed
+            if (Math.abs(n - Math.round(n)) < 1e-9) return String(Math.round(n));
+            return n.toFixed(2).replace(/\.?0+$/, '');
+        }
+        function term(coeff, varName) {
+            // Render "coeff * var" cleanly: "x", "-x", "2x", "-2x", or empty if coeff=0
+            if (Math.abs(coeff) < 1e-9) return '';
+            if (Math.abs(coeff - 1) < 1e-9) return varName;
+            if (Math.abs(coeff + 1) < 1e-9) return '-' + varName;
+            return fmt(coeff) + varName;
+        }
+        function signedAdd(prev, n) {
+            // " + 5" or " - 3" etc., for chaining
+            if (Math.abs(n) < 1e-9) return '';
+            if (n > 0) return ' + ' + fmt(n);
+            return ' - ' + fmt(Math.abs(n));
+        }
+
+        // -- Solvers per template --
+        // Each returns { steps: [{op, expr}], result: {latex, decimal, error} }
+
+        function solveT1(v) {
+            var a = v.a, b = v.b, c = v.c;
+            var steps = [];
+            steps.push({ op: 'Start', expr: term(a,'x') + signedAdd('', b) + ' = ' + fmt(c) });
+            if (Math.abs(a) < 1e-9) {
+                if (Math.abs(b - c) < 1e-9) {
+                    return { steps: steps, result: { error: 'Any x is a solution (this is an identity).' } };
+                }
+                return { steps: steps, result: { error: 'No solution (the x-term is zero but ' + fmt(b) + ' \\neq ' + fmt(c) + ').' } };
+            }
+            steps.push({ op: 'Subtract ' + fmt(b) + ' from both sides', expr: term(a,'x') + ' = ' + fmt(c - b) });
+            if (Math.abs(a - 1) < 1e-9) {
+                steps.push({ op: 'Done — coefficient of x is 1', expr: 'x = ' + fmt(c - b) });
+                return { steps: steps, result: { latex: 'x = ' + fmt(c - b), decimal: c - b } };
+            }
+            steps.push({ op: 'Divide both sides by ' + fmt(a), expr: 'x = \\dfrac{' + fmt(c - b) + '}{' + fmt(a) + '}' });
+            var x = (c - b) / a;
+            steps.push({ op: 'Simplify', expr: 'x = ' + fmt(x) });
+            return { steps: steps, result: { latex: 'x = ' + fmt(x), decimal: x } };
+        }
+
+        function solveT2(v) {
+            var a = v.a, b = v.b, c = v.c, d = v.d;
+            var steps = [];
+            steps.push({ op: 'Start', expr: term(a,'x') + signedAdd('', b) + ' = ' + term(c,'x') + signedAdd('', d) });
+            if (Math.abs(a - c) < 1e-9) {
+                steps.push({ op: 'Subtract ' + term(c,'x') + ' from both sides', expr: signedAdd('', b).trim().replace(/^\+\s*/, '') + ' = ' + fmt(d) });
+                if (Math.abs(b - d) < 1e-9) {
+                    return { steps: steps, result: { error: 'Any x is a solution (the x-terms cancel and ' + fmt(b) + ' = ' + fmt(d) + ').' } };
+                }
+                return { steps: steps, result: { error: 'No solution (the x-terms cancel but ' + fmt(b) + ' \\neq ' + fmt(d) + ').' } };
+            }
+            steps.push({ op: 'Subtract ' + term(c,'x') + ' from both sides', expr: term(a - c,'x') + signedAdd('', b) + ' = ' + fmt(d) });
+            steps.push({ op: 'Subtract ' + fmt(b) + ' from both sides', expr: term(a - c,'x') + ' = ' + fmt(d - b) });
+            if (Math.abs((a - c) - 1) < 1e-9) {
+                steps.push({ op: 'Done — coefficient of x is 1', expr: 'x = ' + fmt(d - b) });
+                return { steps: steps, result: { latex: 'x = ' + fmt(d - b), decimal: d - b } };
+            }
+            steps.push({ op: 'Divide both sides by ' + fmt(a - c), expr: 'x = \\dfrac{' + fmt(d - b) + '}{' + fmt(a - c) + '}' });
+            var x = (d - b) / (a - c);
+            steps.push({ op: 'Simplify', expr: 'x = ' + fmt(x) });
+            return { steps: steps, result: { latex: 'x = ' + fmt(x), decimal: x } };
+        }
+
+        function solveT3(v) {
+            var k = v.k, a = v.a, b = v.b, c = v.c;
+            var steps = [];
+            steps.push({ op: 'Start', expr: fmt(k) + '(' + term(a,'x') + signedAdd('', b) + ') = ' + fmt(c) });
+            if (Math.abs(k) < 1e-9) {
+                if (Math.abs(c) < 1e-9) {
+                    return { steps: steps, result: { error: 'Any x is a solution (k = 0 makes the left side zero, and c = 0).' } };
+                }
+                return { steps: steps, result: { error: 'No solution (k = 0 but c \\neq 0).' } };
+            }
+            // Distribute
+            steps.push({ op: 'Distribute ' + fmt(k), expr: term(k * a,'x') + signedAdd('', k * b) + ' = ' + fmt(c) });
+            // Now it's a "ax + b = c" pattern with a' = ka, b' = kb
+            var aPrime = k * a;
+            var bPrime = k * b;
+            if (Math.abs(aPrime) < 1e-9) {
+                if (Math.abs(bPrime - c) < 1e-9) {
+                    return { steps: steps, result: { error: 'Any x is a solution (this is an identity).' } };
+                }
+                return { steps: steps, result: { error: 'No solution.' } };
+            }
+            steps.push({ op: 'Subtract ' + fmt(bPrime) + ' from both sides', expr: term(aPrime,'x') + ' = ' + fmt(c - bPrime) });
+            if (Math.abs(aPrime - 1) < 1e-9) {
+                steps.push({ op: 'Done — coefficient of x is 1', expr: 'x = ' + fmt(c - bPrime) });
+                return { steps: steps, result: { latex: 'x = ' + fmt(c - bPrime), decimal: c - bPrime } };
+            }
+            steps.push({ op: 'Divide both sides by ' + fmt(aPrime), expr: 'x = \\dfrac{' + fmt(c - bPrime) + '}{' + fmt(aPrime) + '}' });
+            var x = (c - bPrime) / aPrime;
+            steps.push({ op: 'Simplify', expr: 'x = ' + fmt(x) });
+            return { steps: steps, result: { latex: 'x = ' + fmt(x), decimal: x } };
+        }
+
+        // -- KaTeX render helper --
+        function renderTex(target, latex) {
+            target.innerHTML = '';
+            if (typeof katex !== 'undefined') {
+                try {
+                    katex.render(latex, target, { throwOnError: false, displayMode: false });
+                } catch (e) {
+                    target.textContent = latex;
+                }
+            } else {
+                target.textContent = latex;
+            }
+        }
+
+        // -- UI rendering --
+        function renderControls() {
+            var t = TEMPLATES[current];
+            controlsEl.innerHTML = '';
+            t.vars.forEach(function (v) {
+                var initial = (values[current] && values[current][v.id] !== undefined) ? values[current][v.id] : v.def;
+                var row = document.createElement('div');
+                row.className = 'tool-slider';
+                row.innerHTML =
+                    '<label class="tool-slider__label" for="ctl-' + v.id + '"><em>' + v.label + '</em></label>' +
+                    '<input type="range" id="ctl-' + v.id + '" data-key="' + v.id + '" min="' + v.min + '" max="' + v.max + '" step="' + v.step + '" value="' + initial + '" aria-label="' + v.label + ' (' + v.min + ' to ' + v.max + ')">' +
+                    '<input type="number" data-key="' + v.id + '-num" min="' + v.min + '" max="' + v.max + '" step="' + v.step + '" value="' + initial + '" inputmode="decimal" aria-label="' + v.label + ' precise value">';
+                controlsEl.appendChild(row);
+            });
+
+            // Wire up
+            controlsEl.querySelectorAll('input[type="range"]').forEach(function (r) {
+                r.addEventListener('input', function () {
+                    var num = controlsEl.querySelector('input[data-key="' + r.dataset.key + '-num"]');
+                    if (num) num.value = r.value;
+                    update();
+                });
+            });
+            controlsEl.querySelectorAll('input[type="number"]').forEach(function (n) {
+                n.addEventListener('change', function () {
+                    var key = n.dataset.key.replace('-num','');
+                    var range = controlsEl.querySelector('input[data-key="' + key + '"]');
+                    var v = parseFloat(n.value);
+                    if (isNaN(v) || !range) return;
+                    var clamped = Math.max(parseFloat(range.min), Math.min(parseFloat(range.max), v));
+                    range.value = clamped;
+                    n.value = clamped;
+                    update();
+                });
+            });
+        }
+
+        function readValues() {
+            var t = TEMPLATES[current];
+            var v = {};
+            t.vars.forEach(function (vv) {
+                var input = controlsEl.querySelector('input[data-key="' + vv.id + '"]');
+                v[vv.id] = input ? parseFloat(input.value) : vv.def;
+            });
+            values[current] = v;
+            return v;
+        }
+
+        function renderEquationStrip(template, v) {
+            // Display the chosen template with current numeric coefficients substituted in
+            var s = '';
+            if (template === 't1') {
+                s = term(v.a,'x') + signedAdd('', v.b) + ' = ' + fmt(v.c);
+            } else if (template === 't2') {
+                s = term(v.a,'x') + signedAdd('', v.b) + ' = ' + term(v.c,'x') + signedAdd('', v.d);
+            } else if (template === 't3') {
+                s = fmt(v.k) + '(' + term(v.a,'x') + signedAdd('', v.b) + ') = ' + fmt(v.c);
+            }
+            renderTex(equationEl, s);
+        }
+
+        function renderSteps(result) {
+            stepsEl.innerHTML = '';
+            result.steps.forEach(function (st, i) {
+                var row = document.createElement('div');
+                row.className = 'solver-step';
+                row.style.animationDelay = (i * 60) + 'ms';
+                var num = document.createElement('div');
+                num.className = 'solver-step__num';
+                num.innerHTML = 'Step ' + (i + 1) + '<em>' + st.op + '</em>';
+                var math = document.createElement('div');
+                math.className = 'solver-step__math';
+                renderTex(math, st.expr);
+                row.appendChild(num);
+                row.appendChild(math);
+                stepsEl.appendChild(row);
+            });
+
+            var resultBox = document.createElement('div');
+            if (result.result.error) {
+                resultBox.className = 'solver-result solver-result--error';
+                var errSpan = document.createElement('span');
+                renderTex(errSpan, result.result.error);
+                resultBox.appendChild(errSpan);
+            } else {
+                resultBox.className = 'solver-result';
+                resultBox.innerHTML = '<div style="font-size: var(--font-size-xs); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 700;">Solution</div>';
+                var ans = document.createElement('div');
+                ans.className = 'solver-result__answer';
+                renderTex(ans, result.result.latex);
+                resultBox.appendChild(ans);
+                if (Math.abs(result.result.decimal - Math.round(result.result.decimal)) > 1e-9) {
+                    var dec = document.createElement('p');
+                    dec.className = 'solver-result__decimal';
+                    dec.textContent = '≈ ' + result.result.decimal.toFixed(4).replace(/\.?0+$/,'');
+                    resultBox.appendChild(dec);
+                }
+            }
+            stepsEl.appendChild(resultBox);
+        }
+
+        // Throttle URL updates
+        var urlPending = false;
+        function scheduleURLUpdate(template, v) {
+            if (urlPending) return;
+            urlPending = true;
+            setTimeout(function () {
+                var url = new URL(window.location.href);
+                url.searchParams.set('t', template);
+                Object.keys(v).forEach(function (k) {
+                    url.searchParams.set(k, v[k]);
+                });
+                history.replaceState(null, '', url.toString());
+                urlPending = false;
+            }, 200);
+        }
+
+        function update() {
+            var v = readValues();
+            renderEquationStrip(current, v);
+            var result = TEMPLATES[current].solve(v);
+            renderSteps(result);
+            scheduleURLUpdate(current, v);
+        }
+
+        function setTemplate(t) {
+            if (!TEMPLATES[t]) return;
+            current = t;
+            tabs.forEach(function (tab) {
+                tab.setAttribute('aria-pressed', tab.dataset.template === t ? 'true' : 'false');
+            });
+            renderControls();
+            update();
+        }
+
+        // Read URL params
+        function readURL() {
+            var p = new URLSearchParams(window.location.search);
+            var t = p.get('t');
+            if (t && TEMPLATES[t]) current = t;
+            tabs.forEach(function (tab) {
+                tab.setAttribute('aria-pressed', tab.dataset.template === current ? 'true' : 'false');
+            });
+
+            // Pre-seed values from URL
+            ['a','b','c','d','k'].forEach(function (key) {
+                var raw = p.get(key);
+                if (raw === null) return;
+                var v = parseFloat(raw);
+                if (isNaN(v)) return;
+                if (!values[current]) values[current] = {};
+                values[current][key] = v;
+            });
+        }
+
+        // Wire up tabs
+        tabs.forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                setTemplate(tab.dataset.template);
+            });
+        });
+
+        resetBtn.addEventListener('click', function () {
+            values = {};
+            renderControls();
+            update();
+        });
+
+        var shareDefault = shareBtn.textContent;
+        shareBtn.addEventListener('click', function () {
+            var url = window.location.href;
+            var done = function () {
+                shareBtn.textContent = 'Copied ✓';
+                setTimeout(function () { shareBtn.textContent = shareDefault; }, 1500);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(done).catch(function () {
+                    window.prompt('Copy this link:', url);
+                });
+            } else {
+                window.prompt('Copy this link:', url);
+            }
+        });
+
+        // Init — wait for KaTeX before first render so initial state is rendered nicely
+        readURL();
+        renderControls();
+        function initialRender() {
+            if (typeof katex === 'undefined') {
+                setTimeout(initialRender, 50);
+                return;
+            }
+            update();
+        }
+        initialRender();
+    })();
+    </script>
+</body>
+
+</html>

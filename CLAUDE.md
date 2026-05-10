@@ -21,13 +21,12 @@
 
 **Hard constraint: stay vanilla.** Site is plain static HTML + CSS + JS, deployed by GitHub Pages from `main`. **Do not** introduce Node, npm, Vite, Astro, React, TypeScript, a CSS preprocessor, or any build step without the user explicitly asking. No `package.json`, no `dist/`, no compiled output.
 
-- **Markup:** semantic HTML5, one file per page at the repo root (`index.html`, `about.html`, `projects.html`, `blog.html`, `article.html`). Articles live under `articles/`.
-- **Styles:** plain CSS in `assets/css/`. Variables-first; one shared base (`style.css`) plus per-page stylesheets.
-- **Scripts:** plain JS, no modules/bundler. Two files: `assets/js/main.js` (site-wide nav + contact modal) and `assets/js/article.js` (article-page behavior).
+- **Markup:** semantic HTML5, one file per page at the repo root (`index.html`, `about.html`, `projects.html`, `blog.html`, `tools.html`, `now.html`). Articles live under `articles/`, project case studies under `projects/`, interactive tools under `tools/`, Arabic content under `ar/`.
+- **Styles:** plain CSS in `assets/css/`. Variables-first; `style.css` is the shared base, `tools.css` is the only per-page sheet. Article pages use `articles/modern-article.css`.
+- **Scripts:** plain JS, no modules/bundler. `assets/js/main.js` is site-wide (nav + contact modal + theme toggle + subscribe). Article pages additionally load `articles/reader.js` (reading progress + theme toggle + subscribe).
 - **Third-party (CDN only, no installs):**
-  - Boxicons 2.1.1, Font Awesome (kit), Animate.css 4.1.1, anime.js 2.0.2, Lordicon, EmailJS browser SDK 3.x.
-  - Bootstrap-style `.row` / `.col-md-*` classes appear in markup but Bootstrap CSS is **not** currently loaded — those are styled by hand. Don't assume Bootstrap exists; either load it intentionally or stop using its class names.
-- **Fonts:** Google Fonts → **Cairo** (300/400/500/600/700). Used as `--font-family` everywhere.
+  - Boxicons 2.1.1, Font Awesome (kit), KaTeX 0.16.11, Buttondown embed (no JS — form post), EmailJS browser SDK 3.x.
+- **Fonts:** Google Fonts → **Inter** (body, 400/500/600) and **Lora** (display, 400/600/700 + italics) on root pages; **Cairo** (300/400/500/600/700) on article pages and Arabic pages only.
 
 ## 3. Repository layout
 
@@ -38,29 +37,34 @@
 ├── index.html                ← home — personal landing + about + projects + writing teasers
 ├── about.html                ← meta-refresh stub → /#about (kept for inbound-link compat)
 ├── projects.html             ← 6-card projects grid
+├── tools.html                ← interactive math tools index
 ├── blog.html                 ← article index ("Writing")
 ├── now.html                  ← /now page (current focus, updated manually)
-├── article.html              ← legacy/template article shell (noindex)
-├── nextArticle.md            ← draft of the next blog post (markdown)
 ├── projects/
-│   ├── mathlogame.html       ← case study stub
-│   ├── mithaq.html           ← case study stub
+│   ├── mathlogame.html       ← FULL case study (flagship — sourced from mathlogame.md)
+│   ├── mithaq.html           ← FULL case study (sourced from Mithaq.md — five modes + tech stack)
 │   ├── routiney.html         ← case study stub
 │   ├── math-booklet.html     ← case study stub
 │   ├── python-course.html    ← case study stub
 │   └── book-design-web.html  ← case study stub
+├── tools/
+│   ├── quadratic.html        ← interactive parabola visualizer (vanilla SVG + sliders)
+│   └── linear-equation.html  ← step-by-step linear-equation solver (KaTeX + templates)
+├── ar/                       ← Arabic content (RTL — Cairo font, /ar/ URL prefix)
+│   ├── index.html            ← Arabic landing / intro
+│   └── articles/
+│       └── better-marks.html ← translated article (draft, hreflang-linked to English)
 ├── articles/
 │   ├── *.html                ← published articles (one file each)
-│   ├── modern-article.css    ← shared article stylesheet (current standard)
-│   └── whyMath.css           ← legacy per-article stylesheet (avoid for new posts)
+│   ├── modern-article.css    ← shared article stylesheet
+│   └── reader.js             ← article-page JS (reading progress + theme + subscribe)
 └── assets/
-    ├── css/                  ← style.css (base) + page-specific sheets
-    ├── js/                   ← main.js, article.js
+    ├── css/                  ← style.css (base), tools.css (tools pages only)
+    ├── js/                   ← main.js (site-wide)
     ├── images/
-    │   ├── LOGO/             ← MATHLOGAME-light.png (on dark) / -dark.png (on light)
+    │   ├── LOGO/             ← MATHLOGAME wordmarks (used on projects/mathlogame.html hero — light/dark variants)
     │   ├── Projects/         ← portfolio thumbnails
-    │   ├── feature-icons/    ← M / L / G letter tiles for home features
-    │   └── icons/            ← misc small icons
+    │   └── profile/          ← profile.jpg
     ├── articles/<slug>/      ← cover + inline images for each article
     ├── Worksheet PDFs/       ← printable skill worksheets
     ├── More Examples/        ← printable example sets
@@ -142,14 +146,14 @@ First-person ("I built…", "in my classroom…"), warm, direct, no jargon, no h
 ### HTML
 - `<html lang="en" dir="ltr">` on every page (be ready to flip to `dir="rtl"` for Arabic content).
 - Always include viewport meta and a real `<title>` of the form `<Page> - <Context>` (e.g. `Blog - Salah Alkmali`).
-- Nav block is duplicated across pages — when you change it on one page, change it on all of them (`index.html`, `projects.html`, `blog.html`, `now.html`, `projects/*.html`). The "About" nav link points to `/#about` — it's a same-page anchor on `index.html` and a cross-page anchor everywhere else. Skip `about.html` itself; it's a meta-refresh redirect stub. Set `class="nav-link active"` on the current page only.
+- Nav block is duplicated across pages — when you change it on one page, change it on all of them (`index.html`, `projects.html`, `blog.html`, `now.html`, `projects/*.html`, `tools/*.html`, `tools.html`). **Nav has 4 items: Home / About / Projects / Blog.** Tools pages are intentionally NOT linked from nav or footer — MATHLOGAME is the flagship and the small standalone tools (Quadratic Visualizer, Linear Equation Solver) shouldn't visually peer with it. The pages are still live and indexable; they just aren't promoted in chrome. The "About" nav link points to `/#about` — it's a same-page anchor on `index.html` and a cross-page anchor everywhere else. Skip `about.html` itself; it's a meta-refresh redirect stub. Set `class="nav-link active"` on the current page only.
 - Footer block is also duplicated — same rule.
 - Image `alt` is required, non-empty, and descriptive. Decorative bg-icons may use a short alt like `"Math symbol"`.
 - Use semantic landmarks: `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`. Don't wrap pages in stray `<div>`s.
 
 ### CSS
 - Author in plain CSS. Variables first. New tokens go on `:root` in `assets/css/style.css`.
-- File policy: shared rules in `style.css`; page-only rules in the page's own sheet (`index.css`, `about.css`, `article.css`, `mathlogame-brand.css`). Don't dump page-specific rules into `style.css`.
+- File policy: shared rules in `style.css`; per-page rules only when the surface is genuinely distinct (currently just `tools.css` for `/tools/*.html`). Articles have their own subsystem in `articles/modern-article.css`. Don't add new per-page sheets without a real reason.
 - Class names: kebab-case, BEM-ish (`.feature-card`, `.feature-icon`, `.nav-link.active`). Avoid utility-class spaghetti.
 - Mobile-first. Breakpoints already used in the codebase: ~`768px` and `~1024px`. Match them.
 
@@ -166,7 +170,7 @@ A new article = a new `articles/<slug>.html` + a new card in `blog.html` + (usua
 - Frontmatter-style header in HTML: title, author (`Salah Alkmali`), ISO-style date, read-time (`<n> min read`).
 - Cover image lives at `assets/articles/<slug>/cover.png` (or similar). Reference relatively as `../assets/articles/<slug>/cover.png`.
 - Add the matching card to `blog.html` at the **top** of `.blog-grid` (newest first), with `data-category="education|programming|technology"` so the filter buttons keep working.
-- After publishing, delete or update `nextArticle.md` if it was the source draft.
+- Add the new URL to `sitemap.xml` (top of the Articles section) and `feed.xml` (top item, bump `lastBuildDate`).
 
 ## 6. Things Claude should never do
 
@@ -224,8 +228,7 @@ The user wants this site upgraded across four axes. Treat these as the standing 
 - Add prev/next article links at the bottom of each post.
 - RSS feed at `/feed.xml` (hand-authored XML is fine; no build step).
 - Tag pages (programming / education / technology) — currently filter is client-side only; consider real per-tag URLs for SEO.
-- A `/projects` page or section that pulls in the items now hidden under `assets/images/Projects/`.
-- Convert `nextArticle.md` → `articles/<slug>.html` when the user is ready to publish (use the workflow in §5 → Articles).
+- Tag pages with real per-tag URLs (currently client-side filter only).
 
 ## 9. Workflow & local preview
 

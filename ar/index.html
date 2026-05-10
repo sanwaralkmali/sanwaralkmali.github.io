@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  DRAFT: Arabic landing page. Salah — please review the prose
+  before merging. Replace any phrasing that doesn't feel like
+  you. Then delete this comment block.
+  ============================================================
+-->
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <title>صلاح الكلمالي — أكتب بالعربية</title>
+    <!-- Performance: font preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <meta name="description" content="صلاح الكلمالي — مطوّر ومدرّس رياضيات. أبني أدوات تعليمية تفاعلية وأكتب عن التعليم والرياضيات والبرمجة. صفحة عربية على الموقع الشخصي.">
+    <link rel="canonical" href="https://sanwaralkmali.github.io/ar/">
+    <link rel="alternate" hreflang="ar" href="https://sanwaralkmali.github.io/ar/">
+    <link rel="alternate" hreflang="en" href="https://sanwaralkmali.github.io/">
+    <link rel="alternate" hreflang="x-default" href="https://sanwaralkmali.github.io/">
+    <!-- Open Graph -->
+    <meta property="og:title" content="صلاح الكلمالي — أكتب بالعربية">
+    <meta property="og:description" content="مطوّر ومدرّس رياضيات. أبني أدوات تعليمية تفاعلية وأكتب عن التعليم والرياضيات والبرمجة.">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://sanwaralkmali.github.io/ar/">
+    <meta property="og:image" content="https://sanwaralkmali.github.io/assets/images/profile/profile.jpg">
+    <meta property="og:site_name" content="صلاح الكلمالي">
+    <meta property="og:locale" content="ar">
+    <meta property="og:locale:alternate" content="en_US">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="صلاح الكلمالي — أكتب بالعربية">
+    <meta name="twitter:description" content="مطوّر ومدرّس رياضيات. أبني أدوات تعليمية تفاعلية وأكتب عن التعليم والرياضيات والبرمجة.">
+    <meta name="twitter:image" content="https://sanwaralkmali.github.io/assets/images/profile/profile.jpg">
+    <meta name="twitter:site" content="@sanwaralkmali">
+    <style>
+        /* Arabic-specific tuning for the landing — reuses style.css tokens */
+        body { font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif; line-height: 1.85; }
+        .ar-landing { padding: var(--spacing-2xl) 0 var(--spacing-3xl); }
+        .ar-landing h1 {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 4vw + 1rem, 3rem);
+            color: var(--text-primary);
+            margin: 0 0 var(--spacing-md);
+            line-height: 1.2;
+            letter-spacing: -0.005em;
+        }
+        .ar-landing__sub {
+            font-size: var(--font-size-lg);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0 0 var(--spacing-xl);
+            max-width: 60ch;
+        }
+        .ar-landing h2 {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: var(--font-size-2xl);
+            color: var(--text-primary);
+            margin: var(--spacing-2xl) 0 var(--spacing-md);
+            position: relative;
+        }
+        .ar-landing h2::before {
+            content: '';
+            display: block;
+            width: 36px;
+            height: 2px;
+            background: linear-gradient(270deg, var(--accent), transparent);
+            margin-bottom: 0.85rem;
+            border-radius: 1px;
+        }
+        .ar-landing ul { list-style: none; padding: 0; margin: 0 0 var(--spacing-lg); }
+        .ar-landing ul li {
+            padding: 0.6rem 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .ar-landing ul li:last-child { border-bottom: 0; }
+        .ar-landing__article-link {
+            display: block;
+            padding: var(--spacing-md);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+            transition: border-color var(--transition-fast), transform var(--transition-fast);
+        }
+        .ar-landing__article-link:hover {
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+        .ar-landing__article-link h3 {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            font-size: var(--font-size-lg);
+            margin: 0 0 0.3rem;
+            color: var(--text-primary);
+        }
+        .ar-landing__article-link p {
+            color: var(--text-muted);
+            font-size: var(--font-size-sm);
+            margin: 0;
+        }
+        .ar-landing__lang-switch {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--spacing-xl);
+            transition: color var(--transition-fast), border-color var(--transition-fast);
+        }
+        .ar-landing__lang-switch:hover { color: var(--accent); border-color: var(--accent); }
+        .ar-landing strong { color: var(--text-primary); }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">انتقل إلى المحتوى</a>
+
+    <main class="main-content ar-landing" id="main-content">
+        <div class="container">
+            <a href="/" class="ar-landing__lang-switch" lang="en" hreflang="en">English ↗</a>
+
+            <h1>مرحباً، أنا صلاح الكلمالي</h1>
+            <p class="ar-landing__sub">
+                مطوّر ومدرّس رياضيات في المرحلة الثانوية. أبني أدوات تعليمية تفاعلية، وأكتب عن التعليم والرياضيات والبرمجة.
+                هذه صفحة عربية صغيرة على موقعي الشخصي. ستجد هنا ترجمات لبعض المقالات وملاحظات قصيرة بالعربية.
+                الموقع كاملاً (بالإنجليزية) متاح في <a href="/" lang="en" hreflang="en" style="color: var(--accent);">الصفحة الرئيسية</a>.
+            </p>
+
+            <h2>ما أعمل عليه الآن</h2>
+            <ul>
+                <li>أبني <strong>MATHLOGAME</strong> — منصّة ألعاب رياضيات للطلاب.</li>
+                <li>أُدرّس الرياضيات لطلاب المرحلة الثانوية.</li>
+                <li>أبني أدوات صغيرة للمعلمين — مولّد معادلات، حلّال خطوة بخطوة، ومرئيّات تفاعلية.</li>
+                <li>أتعلّم كيف أستخدم الذكاء الاصطناعي كأداة فعلية، لا كاختصار.</li>
+            </ul>
+
+            <h2>المقالات بالعربية</h2>
+            <a href="/ar/articles/better-marks.html" class="ar-landing__article-link">
+                <h3>اجتهدت كثيراً... فلماذا ما زالت درجاتي منخفضة؟</h3>
+                <p>29 يناير 2026 · 4 دقائق قراءة</p>
+            </a>
+            <p style="color: var(--text-muted); font-size: var(--font-size-sm); margin-top: var(--spacing-sm);">
+                المزيد من المقالات قريباً.
+            </p>
+
+            <h2>تواصل</h2>
+            <ul>
+                <li>البريد الإلكتروني: <a href="mailto:mtnsalah@gmail.com" style="color: var(--accent);">mtnsalah@gmail.com</a></li>
+                <li>تويتر / X: <a href="https://x.com/sanwaralkmali" target="_blank" rel="noopener" lang="en" style="color: var(--accent);">@sanwaralkmali</a></li>
+                <li>جيت‌هَب: <a href="https://github.com/sanwaralkmali" target="_blank" rel="noopener" lang="en" style="color: var(--accent);">github.com/sanwaralkmali</a></li>
+            </ul>
+
+            <p style="color: var(--text-muted); font-size: var(--font-size-sm); margin-top: var(--spacing-2xl); padding-top: var(--spacing-md); border-top: 1px solid var(--border-subtle);">
+                &copy; 2026 صلاح الكلمالي
+            </p>
+        </div>
+    </main>
+
+</body>
+
+</html>

@@ -11,10 +11,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap">
   <link rel="stylesheet" href="modern-article.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/favicon.png">
   <meta name="description" content="Discover why working hard isn't always enough. Learn the real difference between Homework Heroes and Steady Achievers, and how to upgrade your study strategy to match your effort.">
   <link rel="canonical" href="https://sanwaralkmali.github.io/articles/better-marks.html">
+  <link rel="alternate" hreflang="en" href="https://sanwaralkmali.github.io/articles/better-marks.html">
+  <link rel="alternate" hreflang="ar" href="https://sanwaralkmali.github.io/ar/articles/better-marks.html">
+  <link rel="alternate" hreflang="x-default" href="https://sanwaralkmali.github.io/articles/better-marks.html">
   <!-- Open Graph -->
   <meta property="og:title" content="I Did My Best — So Why Are My Marks Still Low?">
   <meta property="og:description" content="Discover why working hard isn't always enough. Learn the real difference between Homework Heroes and Steady Achievers, and how to upgrade your study strategy to match your effort.">
@@ -74,6 +80,7 @@
     <div class="article-topbar__inner">
       <a href="/" class="article-topbar__wordmark">Salah Alkmali</a>
       <nav class="article-topbar__links" aria-label="Site sections">
+        <a href="/ar/articles/better-marks.html" class="article-topbar__link" lang="ar" hreflang="ar">العربية</a>
         <a href="/blog.html" class="article-topbar__link">Writing</a>
         <button type="button" class="article-topbar__theme" aria-label="Toggle theme"></button>
       </nav>
@@ -189,12 +196,32 @@
       </div>
     </main>
 
+    <aside class="subscribe-card" data-buttondown-user="sanwaralkmali" aria-labelledby="subscribe-heading">
+      <p class="subscribe-card__eyebrow">Newsletter</p>
+      <h3 class="subscribe-card__heading" id="subscribe-heading">Get my next essay in your inbox.</h3>
+      <p class="subscribe-card__sub">One email when I publish something new. No spam, no tracking, no list-rental.</p>
+      <form class="subscribe-card__form"
+            action="https://buttondown.email/api/emails/embed-subscribe/sanwaralkmali"
+            method="post"
+            target="popupwindow"
+            onsubmit="window.open('https://buttondown.email/sanwaralkmali', 'popupwindow')">
+        <label class="visually-hidden" for="bd-email">Your email address</label>
+        <input type="email" id="bd-email" name="email" required placeholder="you@example.com" autocomplete="email">
+        <input type="hidden" name="embed" value="1">
+        <button type="submit" class="subscribe-card__btn">Subscribe</button>
+      </form>
+      <p class="subscribe-card__finer">No spam. Unsubscribe anytime.</p>
+    </aside>
+
     <nav class="article-prev-next" aria-label="Article navigation">
       <a class="article-prev-next__link article-prev-next__prev" href="/articles/speed-math-battle.html">
         <span class="article-prev-next__label">Previous</span>
         <span class="article-prev-next__title">Speed Math Battle: Making Math Fun for Kids</span>
       </a>
-      <span class="article-prev-next__spacer"></span>
+      <a class="article-prev-next__link article-prev-next__next" href="/articles/day-after-test.html">
+        <span class="article-prev-next__label">Next</span>
+        <span class="article-prev-next__title">The Day-After Test</span>
+      </a>
     </nav>
 
     <footer class="article-footer">

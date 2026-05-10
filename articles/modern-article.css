@@ -654,6 +654,39 @@ body {
   border-radius: var(--radius-sm);
 }
 
+/* ============================================================
+   KaTeX — math rendering
+   Inherits color from prose; equations match the article's text.
+   ============================================================ */
+.katex {
+  font-size: 1.05em;
+  color: var(--text-color);
+}
+
+.katex-display {
+  margin: var(--spacing-lg) 0;
+  padding: 0.4rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  text-align: center;
+}
+
+.katex-display > .katex {
+  font-size: 1.25em;
+  white-space: nowrap;
+}
+
+/* Subtle backdrop on display math — gives equations a sense of place */
+.katex-display::before {
+  content: '';
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .katex { font-size: 1em; }
+  .katex-display > .katex { font-size: 1.1em; }
+}
+
 /* Horizontal rule */
 .article-content hr {
   border: 0;
@@ -960,6 +993,193 @@ body {
   .article-content h2 { font-size: 1.3rem; }
 
   .article-cover { border-radius: var(--radius-lg); }
+}
+
+/* ============================================================
+   Newsletter subscribe card (Buttondown)
+   Sits between the article body and the prev/next nav.
+   ============================================================ */
+.subscribe-card {
+  background: linear-gradient(135deg, rgba(75, 179, 253, 0.07), rgba(75, 179, 253, 0.01));
+  border: 1px solid rgba(75, 179, 253, 0.20);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  margin: var(--spacing-2xl) 0 var(--spacing-xl);
+  font-family: var(--font-ui);
+}
+
+.subscribe-card__eyebrow {
+  font-family: var(--font-ui);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--primary-color);
+  margin: 0 0 0.6rem;
+}
+
+.subscribe-card__heading {
+  font-family: var(--font-prose);
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text-color);
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.subscribe-card__sub {
+  font-family: var(--font-prose);
+  font-size: var(--font-size-base);
+  color: var(--text-light);
+  margin: 0 0 var(--spacing-md);
+  line-height: 1.6;
+}
+
+.subscribe-card__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 0.7rem;
+}
+
+.subscribe-card__form input[type="email"] {
+  flex: 1 1 220px;
+  font-family: var(--font-ui);
+  font-size: var(--font-size-base);
+  background: var(--container-color);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: var(--radius-md);
+  color: var(--text-color);
+  padding: 0.7rem 1rem;
+  min-width: 0;
+}
+
+.subscribe-card__form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(75, 179, 253, 0.25);
+}
+
+.subscribe-card__form input[type="email"]::placeholder {
+  color: var(--text-muted);
+}
+
+.subscribe-card__btn {
+  font-family: var(--font-ui);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  background: var(--primary-color);
+  color: var(--body-color);
+  border: 0;
+  border-radius: var(--radius-md);
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.subscribe-card__btn:hover { background: #6cc8ff; transform: translateY(-1px); }
+.subscribe-card__btn:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 2px; }
+.subscribe-card__btn:disabled { opacity: 0.6; cursor: wait; transform: none; }
+
+.subscribe-card__finer {
+  font-family: var(--font-ui);
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.subscribe-card__finer--success {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .subscribe-card { padding: var(--spacing-md); }
+  .subscribe-card__heading { font-size: 1.25rem; }
+}
+
+/* RTL — flip text alignment, keep form layout (flex auto-flips) */
+[dir="rtl"] .subscribe-card { text-align: right; }
+
+/* ============================================================
+   RTL / Arabic content support
+   When the article is rendered with <html lang="ar" dir="rtl">,
+   these rules flip the directional UI bits to feel native.
+   ============================================================ */
+
+/* Cairo for Arabic body (already loaded as fallback in <head>) */
+html[lang="ar"] body,
+html[lang="ar"] .article-content {
+  font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;
+  line-height: 1.85; /* Arabic glyphs benefit from a touch more vertical breathing */
+}
+
+html[lang="ar"] .article-title {
+  font-style: normal; /* Arabic doesn't have a traditional italic */
+  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+  font-weight: 700;
+}
+
+/* Drop cap is unidiomatic on Arabic — disable */
+html[lang="ar"] .article-content > .intro-section > p:first-of-type::first-letter,
+html[lang="ar"] .article-content > p:first-of-type::first-letter {
+  all: unset;
+}
+
+/* Flip border-left treatments to border-right when direction is RTL */
+[dir="rtl"] .article-content blockquote {
+  border-left: 0;
+  border-right: 3px solid var(--primary-color);
+  padding-left: 0;
+  padding-right: var(--spacing-xl);
+  font-style: normal;
+}
+
+[dir="rtl"] .article-content blockquote::before {
+  left: auto;
+  right: 0.6rem;
+}
+
+[dir="rtl"] .callout,
+[dir="rtl"] .ai-prompt,
+[dir="rtl"] .boring-honest {
+  border-left: 0;
+  border-right: 4px solid var(--primary-color);
+  font-style: normal;
+}
+
+[dir="rtl"] .callout {
+  text-align: right;
+}
+
+[dir="rtl"] .ai-prompt {
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+/* Flip list indentation */
+[dir="rtl"] .article-content ul,
+[dir="rtl"] .article-content ol {
+  padding-left: 0;
+  padding-right: 1.5rem;
+}
+
+/* Flip prev/next nav alignment */
+[dir="rtl"] .article-prev-next__prev { text-align: right; }
+[dir="rtl"] .article-prev-next__next { text-align: left; margin-left: 0; margin-right: auto; }
+
+/* Signature — Arabic doesn't use italic; keep centered, drop the slant */
+html[lang="ar"] .article-signature p {
+  font-style: normal;
+}
+
+/* Topbar wordmark italic doesn't fit Arabic typography */
+html[lang="ar"] .article-topbar__wordmark {
+  font-style: normal;
+  font-weight: 700;
 }
 
 /* ============================================================
